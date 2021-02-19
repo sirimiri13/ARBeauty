@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,18 +14,65 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6X-TF-80I">
+                                <rect key="frame" x="10" y="144" width="394" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="3ti-Gm-uPz"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="ARBeauty">
+                                        <attributes>
+                                            <font key="NSFont" size="36" name="Courier-Oblique"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Y3b-BG-bJt">
+                                <rect key="frame" x="100" y="334" width="214" height="300"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0Q-6e-dAW" customClass="ARButton" customModule="ARBeauty" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="214" height="86.5"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCm-FD-xvC" customClass="ARButton" customModule="ARBeauty" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="106.5" width="214" height="87"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kM3-wE-Vam" customClass="ARButton" customModule="ARBeauty" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="213.5" width="214" height="86.5"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="p0i-cR-H3x"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.99215686274509807" green="0.81176470588235294" blue="0.87450980392156863" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Y3b-BG-bJt" firstAttribute="top" secondItem="p6X-TF-80I" secondAttribute="bottom" constant="150" id="FGu-Rf-k4K"/>
+                            <constraint firstItem="p6X-TF-80I" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="ONA-MB-gWO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Y3b-BG-bJt" secondAttribute="trailing" constant="100" id="U54-pO-y0O"/>
+                            <constraint firstItem="Y3b-BG-bJt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="WCR-kl-w6w"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="p6X-TF-80I" secondAttribute="trailing" constant="10" id="jgD-9X-g94"/>
+                            <constraint firstItem="p6X-TF-80I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="ueX-Rl-owH"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="buttonStackView" destination="Y3b-BG-bJt" id="Tvm-UI-dEy"/>
+                        <outlet property="galleryButton" destination="kM3-wE-Vam" id="HlV-8y-EwR"/>
+                        <outlet property="lipsButton" destination="pCm-FD-xvC" id="8vk-P7-xJv"/>
+                        <outlet property="nailsButton" destination="B0Q-6e-dAW" id="4Y5-Ak-w1Y"/>
+                        <outlet property="nameLabel" destination="p6X-TF-80I" id="RsC-QH-Yyd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="96" y="94"/>
+            <point key="canvasLocation" x="95.652173913043484" y="93.75"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>
