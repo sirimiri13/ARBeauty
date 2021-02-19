@@ -21,7 +21,7 @@
                                     <constraint firstAttribute="height" constant="40" id="3ti-Gm-uPz"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="ARBeauty">
+                                    <fragment content="ARBEAUTY">
                                         <attributes>
                                             <font key="NSFont" size="36" name="Courier-Oblique"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
