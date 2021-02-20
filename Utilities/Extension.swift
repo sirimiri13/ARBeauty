@@ -32,3 +32,32 @@ func getPixelColor(pos: CGPoint) -> UIColor {
     return UIColor(red: r, green: g, blue: b, alpha: a)
 }
  }
+
+
+extension UIButton{
+    func customGradient(){
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.colors = [UIColor.blue.cgColor, UIColor.red.cgColor]
+        gradient.locations = [0.0 , 1.0]
+        gradient.startPoint = CGPoint(x: 0.0, y: 1.0)
+        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+
+        gradient.frame = CGRect(x: 0.0, y: 0.0, width: self.frame.size.width, height: self.frame.size.height)
+        self.layer.insertSublayer(gradient, at: 0)
+    }
+}
+
+
+extension UIView{
+    func applyGradient(colours: [UIColor]) -> CAGradientLayer {
+            return self.applyGradient(colours: colours, locations: nil)
+        }
+    func applyGradient(colours: [UIColor], locations: [NSNumber]?) -> CAGradientLayer {
+           let gradient: CAGradientLayer = CAGradientLayer()
+           gradient.frame = self.bounds
+           gradient.colors = colours.map { $0.cgColor }
+           gradient.locations = locations
+           self.layer.insertSublayer(gradient, at: 0)
+           return gradient
+       }
+}

@@ -33,4 +33,10 @@ extension UIColor {
     static func flamingoPink() -> UIColor{
         return UIColor(hexString: "#f78fb3")
     }
+    
+    static func blueCustom() -> UIColor{
+        return UIColor(hexString: "#2d98da")
+    }
+    
+    
 }   
