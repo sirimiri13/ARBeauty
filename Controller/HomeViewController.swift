@@ -9,7 +9,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    @IBOutlet weak var nameLabel: UILabel!
+  
+    @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var nailsButton: UIButton!
     @IBOutlet weak var lipsButton: UIButton!
     @IBOutlet weak var galleryButton: UIButton!
@@ -35,7 +36,7 @@ class HomeViewController: UIViewController {
             backgroundImg.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
         
-        backgroundImg.addSubview(nameLabel)
+        backgroundImg.addSubview(logoImageView)
         backgroundImg.addSubview(buttonStackView)
        
     }
