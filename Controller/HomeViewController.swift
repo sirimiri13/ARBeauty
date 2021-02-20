@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nailsButton: UIButton!
@@ -37,7 +37,9 @@ class ViewController: UIViewController {
         
         backgroundImg.addSubview(nameLabel)
         backgroundImg.addSubview(buttonStackView)
-        
+       
     }
+    
+  
 }
 

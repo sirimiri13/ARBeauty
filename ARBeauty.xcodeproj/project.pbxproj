@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D91A77225DA3200002885B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77125DA3200002885B8 /* AppDelegate.swift */; };
 		2D91A77425DA3200002885B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77325DA3200002885B8 /* SceneDelegate.swift */; };
-		2D91A77625DA3200002885B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77525DA3200002885B8 /* ViewController.swift */; };
+		2D91A77625DA3200002885B8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77525DA3200002885B8 /* HomeViewController.swift */; };
 		2D91A77925DA3200002885B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D91A77725DA3200002885B8 /* Main.storyboard */; };
 		2D91A77B25DA3203002885B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D91A77A25DA3203002885B8 /* Assets.xcassets */; };
 		2D91A77E25DA3203002885B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D91A77C25DA3203002885B8 /* LaunchScreen.storyboard */; };
@@ -17,6 +17,8 @@
 		2D91A79425DA3203002885B8 /* ARBeautyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A79325DA3203002885B8 /* ARBeautyUITests.swift */; };
 		2DFFB53225DFA0E500CE20E5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB53125DFA0E500CE20E5 /* Colors.swift */; };
 		2DFFB53E25DFADEE00CE20E5 /* ARButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB53D25DFADEE00CE20E5 /* ARButton.swift */; };
+		2DFFB54F25E0F38E00CE20E5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB54E25E0F38E00CE20E5 /* Extension.swift */; };
+		2DFFB55E25E0FCEC00CE20E5 /* TestPickColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB55D25E0FCEC00CE20E5 /* TestPickColorViewController.swift */; };
 		503B35BB3DDD4EC5B71F8F48 /* Pods_ARBeauty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B81CB3E7DFAD48ABB93C80D /* Pods_ARBeauty.framework */; };
 		5F6CE2625F30FE5486612A64 /* Pods_ARBeauty_ARBeautyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97F36544FE8CBA6CE2784CA /* Pods_ARBeauty_ARBeautyUITests.framework */; };
 		963477A02C92C11AE79AC4C5 /* Pods_ARBeautyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6279CEB850A0F6071117981A /* Pods_ARBeautyTests.framework */; };
@@ -45,7 +47,7 @@
 		2D91A76E25DA3200002885B8 /* ARBeauty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARBeauty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D91A77125DA3200002885B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D91A77325DA3200002885B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2D91A77525DA3200002885B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2D91A77525DA3200002885B8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2D91A77825DA3200002885B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2D91A77A25DA3203002885B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D91A77D25DA3203002885B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,6 +60,8 @@
 		2D91A79525DA3203002885B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DFFB53125DFA0E500CE20E5 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2DFFB53D25DFADEE00CE20E5 /* ARButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARButton.swift; sourceTree = "<group>"; };
+		2DFFB54E25E0F38E00CE20E5 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		2DFFB55D25E0FCEC00CE20E5 /* TestPickColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPickColorViewController.swift; sourceTree = "<group>"; };
 		3A5BC60AEF4759158664290B /* Pods-ARBeauty-ARBeautyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARBeauty-ARBeautyUITests.debug.xcconfig"; path = "Target Support Files/Pods-ARBeauty-ARBeautyUITests/Pods-ARBeauty-ARBeautyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6279CEB850A0F6071117981A /* Pods_ARBeautyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARBeautyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B0BB812BFEAA1657D58CF9 /* Pods-ARBeautyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARBeautyTests.debug.xcconfig"; path = "Target Support Files/Pods-ARBeautyTests/Pods-ARBeautyTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -98,6 +102,7 @@
 		2D91A76525DA3200002885B8 = {
 			isa = PBXGroup;
 			children = (
+				2DFFB55925E0FC3F00CE20E5 /* Controller */,
 				2DFFB53C25DFADDA00CE20E5 /* View */,
 				2DFFB53025DFA0BE00CE20E5 /* Utilities */,
 				2D91A77025DA3200002885B8 /* ARBeauty */,
@@ -124,7 +129,6 @@
 			children = (
 				2D91A77125DA3200002885B8 /* AppDelegate.swift */,
 				2D91A77325DA3200002885B8 /* SceneDelegate.swift */,
-				2D91A77525DA3200002885B8 /* ViewController.swift */,
 				2D91A77725DA3200002885B8 /* Main.storyboard */,
 				2D91A77A25DA3203002885B8 /* Assets.xcassets */,
 				2D91A77C25DA3203002885B8 /* LaunchScreen.storyboard */,
@@ -155,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				2DFFB53125DFA0E500CE20E5 /* Colors.swift */,
+				2DFFB54E25E0F38E00CE20E5 /* Extension.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -165,6 +170,15 @@
 				2DFFB53D25DFADEE00CE20E5 /* ARButton.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2DFFB55925E0FC3F00CE20E5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D91A77525DA3200002885B8 /* HomeViewController.swift */,
+				2DFFB55D25E0FCEC00CE20E5 /* TestPickColorViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		7AC7FD2511AC6DF6863F81DE /* Pods */ = {
@@ -392,9 +406,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D91A77625DA3200002885B8 /* ViewController.swift in Sources */,
+				2D91A77625DA3200002885B8 /* HomeViewController.swift in Sources */,
 				2DFFB53225DFA0E500CE20E5 /* Colors.swift in Sources */,
 				2D91A77225DA3200002885B8 /* AppDelegate.swift in Sources */,
+				2DFFB54F25E0F38E00CE20E5 /* Extension.swift in Sources */,
+				2DFFB55E25E0FCEC00CE20E5 /* TestPickColorViewController.swift in Sources */,
 				2DFFB53E25DFADEE00CE20E5 /* ARButton.swift in Sources */,
 				2D91A77425DA3200002885B8 /* SceneDelegate.swift in Sources */,
 			);
