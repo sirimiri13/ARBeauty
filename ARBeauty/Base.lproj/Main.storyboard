@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TUS-q8-vyO">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -11,13 +11,13 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="ARBeauty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="ARBeauty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Y3b-BG-bJt">
-                                <rect key="frame" x="100" y="364" width="214" height="300"/>
+                                <rect key="frame" x="100" y="408" width="214" height="300"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0Q-6e-dAW" customClass="ARButton" customModule="ARBeauty" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="214" height="86.5"/>
@@ -26,6 +26,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCm-FD-xvC" customClass="ARButton" customModule="ARBeauty" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="106.5" width="214" height="87"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="lipsTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tdW-yk-9w5"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kM3-wE-Vam" customClass="ARButton" customModule="ARBeauty" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="213.5" width="214" height="86.5"/>
@@ -37,7 +40,7 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arbeauty_logo" translatesAutoresizingMaskIntoConstraints="NO" id="yF9-1A-gDm">
-                                <rect key="frame" x="0.0" y="144" width="414" height="130"/>
+                                <rect key="frame" x="0.0" y="188" width="414" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="Sd0-KB-zGr"/>
                                 </constraints>
@@ -54,6 +57,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yF9-1A-gDm" secondAttribute="trailing" id="zch-D6-bNG"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="wj8-Dd-3kW"/>
                     <connections>
                         <outlet property="buttonStackView" destination="Y3b-BG-bJt" id="Tvm-UI-dEy"/>
                         <outlet property="galleryButton" destination="kM3-wE-Vam" id="HlV-8y-EwR"/>
@@ -64,22 +68,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="95.652173913043484" y="93.75"/>
+            <point key="canvasLocation" x="1005.7971014492755" y="93.75"/>
         </scene>
-        <!--View Controller-->
+        <!--Lips View Controller-->
         <scene sceneID="Azv-PB-glW">
             <objects>
-                <viewController id="XyS-53-sUf" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LipsViewController" id="XyS-53-sUf" customClass="LipsViewController" customModule="ARBeauty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jjD-kz-320">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZd-mj-BjL">
+                                <rect key="frame" x="186" y="380" width="32" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Gss-gZ-lWg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xLR-Md-NVy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="99" y="864"/>
+            <point key="canvasLocation" x="98.550724637681171" y="863.83928571428567"/>
         </scene>
         <!--Test Pick Color View Controller-->
         <scene sceneID="sMQ-cs-dei">
@@ -108,7 +121,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tFU-XA-Z36" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1249.2753623188407" y="93.75"/>
+            <point key="canvasLocation" x="2159.4202898550725" y="93.75"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rYQ-8u-l5R">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TUS-q8-vyO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pmj-3E-3oa">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="OxD-Iu-opc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JRD-Bi-pc3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="95.652173913043484" y="93.75"/>
         </scene>
     </scenes>
     <resources>

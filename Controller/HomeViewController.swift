@@ -8,7 +8,8 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
+    var backgroundView = UIView()
   
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var nailsButton: UIButton!
@@ -20,27 +21,28 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setView()
     }
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        backgroundView.frame = self.view.bounds
+    }
 
     func setView(){
+        navigationController?.navigationBar.isHidden = true
         nailsButton.setTitle("NAILS", for: .normal)
         lipsButton.setTitle("LIPS", for: .normal)
         galleryButton.setTitle("GALLERY", for: .normal)
-        let backgroundImg = UIImageView()
-        backgroundImg.image = UIImage(named: "background")
-        self.view.addSubview(backgroundImg)
-        backgroundImg.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            backgroundImg.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundImg.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            backgroundImg.leftAnchor.constraint(equalTo: view.leftAnchor),
-            backgroundImg.rightAnchor.constraint(equalTo: view.rightAnchor)
-        ])
-        
-        backgroundImg.addSubview(logoImageView)
-        backgroundImg.addSubview(buttonStackView)
+        backgroundView = UIView(frame: CGRect.zero)
+        backgroundView.layer.contents = UIImage(named: "background")
+        self.view.insertSubview(backgroundView, at: 0)
+
        
     }
     
+    @IBAction func lipsTapped(_ sender: Any) {
+        let lipsVC = UIStoryboard.lipsViewController()
+        navigationController?.pushViewController(lipsVC!, animated: true)
+        
+    }
     
 }
 

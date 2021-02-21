@@ -15,6 +15,8 @@
 		2D91A77E25DA3203002885B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D91A77C25DA3203002885B8 /* LaunchScreen.storyboard */; };
 		2D91A78925DA3203002885B8 /* ARBeautyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A78825DA3203002885B8 /* ARBeautyTests.swift */; };
 		2D91A79425DA3203002885B8 /* ARBeautyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A79325DA3203002885B8 /* ARBeautyUITests.swift */; };
+		2D9A523225E2672400A1965C /* LipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A523125E2672400A1965C /* LipsViewController.swift */; };
+		2D9A523725E2675F00A1965C /* StoryboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A523625E2675F00A1965C /* StoryboardManager.swift */; };
 		2DFFB53225DFA0E500CE20E5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB53125DFA0E500CE20E5 /* Colors.swift */; };
 		2DFFB53E25DFADEE00CE20E5 /* ARButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB53D25DFADEE00CE20E5 /* ARButton.swift */; };
 		2DFFB54F25E0F38E00CE20E5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB54E25E0F38E00CE20E5 /* Extension.swift */; };
@@ -58,6 +60,8 @@
 		2D91A78F25DA3203002885B8 /* ARBeautyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARBeautyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D91A79325DA3203002885B8 /* ARBeautyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARBeautyUITests.swift; sourceTree = "<group>"; };
 		2D91A79525DA3203002885B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D9A523125E2672400A1965C /* LipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LipsViewController.swift; sourceTree = "<group>"; };
+		2D9A523625E2675F00A1965C /* StoryboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardManager.swift; sourceTree = "<group>"; };
 		2DFFB53125DFA0E500CE20E5 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2DFFB53D25DFADEE00CE20E5 /* ARButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARButton.swift; sourceTree = "<group>"; };
 		2DFFB54E25E0F38E00CE20E5 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 		2DFFB53025DFA0BE00CE20E5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				2D9A523625E2675F00A1965C /* StoryboardManager.swift */,
 				2DFFB53125DFA0E500CE20E5 /* Colors.swift */,
 				2DFFB54E25E0F38E00CE20E5 /* Extension.swift */,
 			);
@@ -177,6 +182,7 @@
 			children = (
 				2D91A77525DA3200002885B8 /* HomeViewController.swift */,
 				2DFFB55D25E0FCEC00CE20E5 /* TestPickColorViewController.swift */,
+				2D9A523125E2672400A1965C /* LipsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -408,11 +414,13 @@
 			files = (
 				2D91A77625DA3200002885B8 /* HomeViewController.swift in Sources */,
 				2DFFB53225DFA0E500CE20E5 /* Colors.swift in Sources */,
+				2D9A523225E2672400A1965C /* LipsViewController.swift in Sources */,
 				2D91A77225DA3200002885B8 /* AppDelegate.swift in Sources */,
 				2DFFB54F25E0F38E00CE20E5 /* Extension.swift in Sources */,
 				2DFFB55E25E0FCEC00CE20E5 /* TestPickColorViewController.swift in Sources */,
 				2DFFB53E25DFADEE00CE20E5 /* ARButton.swift in Sources */,
 				2D91A77425DA3200002885B8 /* SceneDelegate.swift in Sources */,
+				2D9A523725E2675F00A1965C /* StoryboardManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
