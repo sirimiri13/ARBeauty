@@ -31,8 +31,9 @@ class HomeViewController: UIViewController {
         nailsButton.setTitle("NAILS", for: .normal)
         lipsButton.setTitle("LIPS", for: .normal)
         galleryButton.setTitle("GALLERY", for: .normal)
+        
         backgroundView = UIView(frame: CGRect.zero)
-        backgroundView.layer.contents = UIImage(named: "background")
+        backgroundView.layer.contents = UIImage(named: "background")?.cgImage
         self.view.insertSubview(backgroundView, at: 0)
 
        

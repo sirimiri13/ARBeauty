@@ -85,10 +85,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Taa-ML-xFS">
+                                <rect key="frame" x="0.0" y="813" width="414" height="83"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem systemItem="favorites" id="0So-VV-GkY"/>
+                                    <tabBarItem systemItem="more" id="h8R-Oa-57C"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Gss-gZ-lWg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Taa-ML-xFS" firstAttribute="leading" secondItem="Gss-gZ-lWg" secondAttribute="leading" id="lri-1Z-sef"/>
+                            <constraint firstItem="Taa-ML-xFS" firstAttribute="trailing" secondItem="Gss-gZ-lWg" secondAttribute="trailing" id="vCP-Ra-Vz7"/>
+                            <constraint firstAttribute="bottom" secondItem="Taa-ML-xFS" secondAttribute="bottom" id="xnk-Gd-bEI"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lipsTabbar" destination="Taa-ML-xFS" id="4m3-cl-Ssd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xLR-Md-NVy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
