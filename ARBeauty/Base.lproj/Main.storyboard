@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TUS-q8-vyO">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,25 +13,25 @@
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="ARBeauty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Y3b-BG-bJt">
-                                <rect key="frame" x="100" y="408" width="214" height="300"/>
+                                <rect key="frame" x="100" y="364" width="214" height="300"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0Q-6e-dAW" customClass="ARButton" customModule="ARBeauty" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="214" height="86.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="214" height="86.666666666666671"/>
                                         <state key="normal" title="Button"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCm-FD-xvC" customClass="ARButton" customModule="ARBeauty" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="106.5" width="214" height="87"/>
+                                        <rect key="frame" x="0.0" y="106.66666666666669" width="214" height="86.666666666666686"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="lipsTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tdW-yk-9w5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kM3-wE-Vam" customClass="ARButton" customModule="ARBeauty" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="213.5" width="214" height="86.5"/>
+                                        <rect key="frame" x="0.0" y="213.33333333333334" width="214" height="86.666666666666657"/>
                                         <state key="normal" title="Button"/>
                                     </button>
                                 </subviews>
@@ -40,7 +40,7 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arbeauty_logo" translatesAutoresizingMaskIntoConstraints="NO" id="yF9-1A-gDm">
-                                <rect key="frame" x="0.0" y="188" width="414" height="130"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="Sd0-KB-zGr"/>
                                 </constraints>
@@ -73,9 +73,10 @@
         <!--Lips View Controller-->
         <scene sceneID="Azv-PB-glW">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xLR-Md-NVy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="LipsViewController" id="XyS-53-sUf" customClass="LipsViewController" customModule="ARBeauty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jjD-kz-320">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZd-mj-BjL">
@@ -85,37 +86,84 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Taa-ML-xFS">
-                                <rect key="frame" x="0.0" y="813" width="414" height="83"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <tabBarItem systemItem="favorites" id="0So-VV-GkY"/>
-                                    <tabBarItem systemItem="more" id="h8R-Oa-57C"/>
-                                </items>
-                            </tabBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PXf-eJ-KTe">
+                                <rect key="frame" x="182" y="671" width="50" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpf-Y8-gyX">
+                                        <rect key="frame" x="0.0" y="-5" width="50" height="50"/>
+                                        <state key="normal" image="camera"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="wpf-Y8-gyX" secondAttribute="bottom" constant="5" id="4gj-44-SIH"/>
+                                    <constraint firstAttribute="width" constant="50" id="Mva-W1-s3x"/>
+                                    <constraint firstItem="wpf-Y8-gyX" firstAttribute="top" secondItem="PXf-eJ-KTe" secondAttribute="top" constant="-5" id="NqE-jZ-dYf"/>
+                                    <constraint firstAttribute="trailing" secondItem="wpf-Y8-gyX" secondAttribute="trailing" id="VH8-ZV-EJ8"/>
+                                    <constraint firstAttribute="height" constant="50" id="faw-Ge-9NX"/>
+                                    <constraint firstItem="wpf-Y8-gyX" firstAttribute="leading" secondItem="PXf-eJ-KTe" secondAttribute="leading" id="nsL-Kq-1Wm"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AOk-Cw-xQJ">
+                                <rect key="frame" x="0.0" y="681" width="182" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYh-0x-MRc">
+                                        <rect key="frame" x="60" y="0.0" width="52" height="50"/>
+                                        <state key="normal" image="lips"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="3iD-1s-lJM"/>
+                                    <constraint firstItem="sYh-0x-MRc" firstAttribute="leading" secondItem="AOk-Cw-xQJ" secondAttribute="leading" constant="60" id="Gxq-pl-MD6"/>
+                                    <constraint firstAttribute="bottom" secondItem="sYh-0x-MRc" secondAttribute="bottom" id="UOE-c7-Def"/>
+                                    <constraint firstItem="sYh-0x-MRc" firstAttribute="top" secondItem="AOk-Cw-xQJ" secondAttribute="top" id="VEi-x1-GNb"/>
+                                    <constraint firstAttribute="trailing" secondItem="sYh-0x-MRc" secondAttribute="trailing" constant="70" id="kXR-xz-lFA"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fk-xh-Jbt">
+                                <rect key="frame" x="232" y="681" width="182" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNC-D2-vyD">
+                                        <rect key="frame" x="60" y="0.0" width="52" height="50"/>
+                                        <state key="normal" image="image-gallery"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6dv-8r-cJJ"/>
+                                    <constraint firstItem="PNC-D2-vyD" firstAttribute="top" secondItem="8fk-xh-Jbt" secondAttribute="top" id="TVm-o6-U1p"/>
+                                    <constraint firstItem="PNC-D2-vyD" firstAttribute="leading" secondItem="8fk-xh-Jbt" secondAttribute="leading" constant="60" id="VlV-RW-RCE"/>
+                                    <constraint firstAttribute="bottom" secondItem="PNC-D2-vyD" secondAttribute="bottom" id="cIb-HJ-Vwf"/>
+                                    <constraint firstAttribute="trailing" secondItem="PNC-D2-vyD" secondAttribute="trailing" constant="70" id="xE2-iN-aBg"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Gss-gZ-lWg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Taa-ML-xFS" firstAttribute="leading" secondItem="Gss-gZ-lWg" secondAttribute="leading" id="lri-1Z-sef"/>
-                            <constraint firstItem="Taa-ML-xFS" firstAttribute="trailing" secondItem="Gss-gZ-lWg" secondAttribute="trailing" id="vCP-Ra-Vz7"/>
-                            <constraint firstAttribute="bottom" secondItem="Taa-ML-xFS" secondAttribute="bottom" id="xnk-Gd-bEI"/>
+                            <constraint firstAttribute="bottom" secondItem="8fk-xh-Jbt" secondAttribute="bottom" constant="5" id="0p1-xY-XOF"/>
+                            <constraint firstItem="8fk-xh-Jbt" firstAttribute="leading" secondItem="PXf-eJ-KTe" secondAttribute="trailing" id="AVn-oz-cZf"/>
+                            <constraint firstItem="PXf-eJ-KTe" firstAttribute="leading" secondItem="AOk-Cw-xQJ" secondAttribute="trailing" id="ZB5-Yc-ABN"/>
+                            <constraint firstItem="Gss-gZ-lWg" firstAttribute="bottom" secondItem="PXf-eJ-KTe" secondAttribute="bottom" constant="15" id="cVy-rT-PgS"/>
+                            <constraint firstAttribute="trailing" secondItem="8fk-xh-Jbt" secondAttribute="trailing" id="dZL-zz-6hL"/>
+                            <constraint firstItem="PXf-eJ-KTe" firstAttribute="centerX" secondItem="jjD-kz-320" secondAttribute="centerX" id="gHy-FF-nkk"/>
+                            <constraint firstAttribute="bottom" secondItem="AOk-Cw-xQJ" secondAttribute="bottom" constant="5" id="iwe-km-iH1"/>
+                            <constraint firstItem="AOk-Cw-xQJ" firstAttribute="leading" secondItem="jjD-kz-320" secondAttribute="leading" id="xD8-EI-29X"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="lipsTabbar" destination="Taa-ML-xFS" id="4m3-cl-Ssd"/>
+                        <outlet property="cameraView" destination="wpf-Y8-gyX" id="g4g-Nb-Fs7"/>
+                        <outlet property="colorView" destination="AOk-Cw-xQJ" id="CXt-at-DSf"/>
+                        <outlet property="imageView" destination="8fk-xh-Jbt" id="Kax-nP-q2P"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xLR-Md-NVy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="98.550724637681171" y="863.83928571428567"/>
+            <point key="canvasLocation" x="98.550724637681171" y="863.31521739130437"/>
         </scene>
         <!--Test Pick Color View Controller-->
         <scene sceneID="sMQ-cs-dei">
             <objects>
                 <viewController id="Gwn-e1-110" customClass="TestPickColorViewController" customModule="ARBeauty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dUA-wb-O1h">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="alexander-popov-et_YVbywv80-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="jhe-oU-uGY">
@@ -145,7 +193,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TUS-q8-vyO" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pmj-3E-3oa">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -160,7 +208,10 @@
     </scenes>
     <resources>
         <image name="alexander-popov-et_YVbywv80-unsplash" width="3000" height="2000"/>
-        <image name="arbeauty_logo" width="216" height="80"/>
+        <image name="arbeauty_logo" width="144" height="53.333332061767578"/>
+        <image name="camera" width="512" height="512"/>
+        <image name="image-gallery" width="512" height="512"/>
+        <image name="lips" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -8,29 +8,21 @@
 import UIKit
 
 class LipsViewController: UIViewController {
-
-    @IBOutlet weak var lipsTabbar: UITabBar!
+    @IBOutlet weak var colorView: UIView!
+    
+    @IBOutlet weak var cameraView: UIButton!
+    @IBOutlet weak var imageView: UIView!
+    //   @IBOutlet weak var lipsTabbar: UITabBar!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        initTabbar()
+        setView()
     }
     
-    
-    func initTabbar(){
-        let colorItem = UITabBarItem(title: "Color", image: UIImage(named: "lips"), tag: 0)
-        lipsTabbar.items?.append(colorItem)
+    func setView(){
+        cameraView.layer.cornerRadius = cameraView.bounds.height/2
+        colorView.addBorder(toEdges: .top, color: UIColor.lightGray, thickness: 0.2)
+        imageView.addBorder(toEdges: .top, color: UIColor.lightGray, thickness: 0.2)
+        
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
