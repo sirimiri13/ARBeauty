@@ -18,7 +18,7 @@ class TestPickColorViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let position = touch.location(in: imageView)
             let color: UIColor = (imageView.image?.getPixelColor(pos: CGPoint(x: position.x, y: position.y)))!
@@ -26,5 +26,14 @@ class TestPickColorViewController: UIViewController {
             colorView.backgroundColor = color
         }
     }
+    
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        if let touch = touches.first {
+//            let position = touch.location(in: imageView)
+//            let color: UIColor = (imageView.image?.getPixelColor(pos: CGPoint(x: position.x, y: position.y)))!
+//            print(color)
+//            colorView.backgroundColor = color
+//        }
+//    }
     
 }
