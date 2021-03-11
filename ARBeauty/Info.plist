@@ -68,5 +68,7 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow app to use your camera?</string>
 </dict>
 </plist>

@@ -6,25 +6,51 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		6E6AD048A3B5D5D1C77ECCEDE7A30F29 /* TensorFlowLiteGpuExperimental */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 769C1487CD6456A8941682978A24E30C /* Build configuration list for PBXAggregateTarget "TensorFlowLiteGpuExperimental" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = TensorFlowLiteGpuExperimental;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
+		265804B412D85BF54CF9FD96490C24C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		3AF085550666A833D8666B72C95E79BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		46918814416A1CC9834FFCE96DC557BD /* Pods-ARBeauty-ARBeautyUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A49845810196BB4EDC0D160CA3189D1D /* Pods-ARBeauty-ARBeautyUITests-dummy.m */; };
-		559E94FBCE49CF7EC7C50A67DAB4CCAD /* Pods-ARBeauty-ARBeautyUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC9BB1D78F84C1EF08B266A9E42DF36 /* Pods-ARBeauty-ARBeautyUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5D5B1991E2858F7BD1CD5F677A8E6836 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		64BA5AF7CD9A29001729C24A605434BB /* Pods-ARBeauty-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B45D93200334675922C9D52D65DD16F /* Pods-ARBeauty-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		467C571AC6146030176D4A1B6F9D47E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		629420D4AE433633B61C120DB15C5ED8 /* Pods-ARBeauty-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B45D93200334675922C9D52D65DD16F /* Pods-ARBeauty-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		91A73F58F25CF6B0BE0F4DC2B027DB45 /* Pods-ARBeauty-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E4CD023849421A5EB7C31533F215B7 /* Pods-ARBeauty-dummy.m */; };
+		99AA9ECDE3F2D814B228336BE4B8105A /* Pods-ARBeauty-ARBeautyUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC9BB1D78F84C1EF08B266A9E42DF36 /* Pods-ARBeauty-ARBeautyUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC563F7CFAF527E86BB6BBD43270DFD0 /* Pods-ARBeauty-ARBeautyUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A49845810196BB4EDC0D160CA3189D1D /* Pods-ARBeauty-ARBeautyUITests-dummy.m */; };
 		C0E0F42D7BEA761DC258E27DAA170DEC /* Pods-ARBeautyTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C1BBDBF2C95828BA375ADBCB46530F9 /* Pods-ARBeautyTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DCCBF15ADD03112CE08B5F824F2E1FD4 /* Pods-ARBeauty-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E4CD023849421A5EB7C31533F215B7 /* Pods-ARBeauty-dummy.m */; };
-		F0FF28B054EC5F955031A8F2D69DAB8B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		FC1BF644EF4F00BBFCDB7A2E6EE89E5E /* Pods-ARBeautyTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F42CC3C905D85A41B727521AA484C1 /* Pods-ARBeautyTests-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		50C2D2081B1F97093E51106BD73516D4 /* PBXContainerItemProxy */ = {
+		6C949DC17EE366CF767C65D23CF8F59B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = EDD1423280BA12BDCE4F91C6A9CF4455;
 			remoteInfo = "Pods-ARBeauty";
+		};
+		78C5625E0DD0FF8548DEDE7C4CCDFAD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E6AD048A3B5D5D1C77ECCEDE7A30F29;
+			remoteInfo = TensorFlowLiteGpuExperimental;
+		};
+		D8371F7292ED7EA2944B392CC6E34750 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E6AD048A3B5D5D1C77ECCEDE7A30F29;
+			remoteInfo = TensorFlowLiteGpuExperimental;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -35,6 +61,7 @@
 		10296E69FA97EC5E72A1BEA12A2DE0AF /* Pods-ARBeautyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ARBeautyTests.release.xcconfig"; sourceTree = "<group>"; };
 		11124E5601F4B211E5D73A12CBF9A36C /* Pods_ARBeauty_ARBeautyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ARBeauty_ARBeautyUITests.framework; path = "Pods-ARBeauty-ARBeautyUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C1BBDBF2C95828BA375ADBCB46530F9 /* Pods-ARBeautyTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ARBeautyTests-umbrella.h"; sourceTree = "<group>"; };
+		2365D4B6F56F001F3FA6016D23D760E8 /* TensorFlowLiteGpuExperimental.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TensorFlowLiteGpuExperimental.debug.xcconfig; sourceTree = "<group>"; };
 		2757573D2505B7A61B3A62A4E2743832 /* Pods-ARBeauty.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ARBeauty.modulemap"; sourceTree = "<group>"; };
 		3B45D93200334675922C9D52D65DD16F /* Pods-ARBeauty-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ARBeauty-umbrella.h"; sourceTree = "<group>"; };
 		3CC9BB1D78F84C1EF08B266A9E42DF36 /* Pods-ARBeauty-ARBeautyUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ARBeauty-ARBeautyUITests-umbrella.h"; sourceTree = "<group>"; };
@@ -50,25 +77,19 @@
 		A454E0C322BE3CA742AD466EDFAE3517 /* Pods-ARBeauty-ARBeautyUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ARBeauty-ARBeautyUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		A49845810196BB4EDC0D160CA3189D1D /* Pods-ARBeauty-ARBeautyUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ARBeauty-ARBeautyUITests-dummy.m"; sourceTree = "<group>"; };
 		AE60649E571CEC7B93CD13558A938E51 /* Pods-ARBeautyTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ARBeautyTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B1FE6BB3BAB4FC34D748C3A25332AFFF /* TensorFlowLiteGpuExperimental.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TensorFlowLiteGpuExperimental.release.xcconfig; sourceTree = "<group>"; };
 		BCA11CC956851148460FCCAC8E229BFC /* Pods-ARBeautyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ARBeautyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BE27EC050B05004DBD4259DD106C865C /* Pods-ARBeauty-ARBeautyUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ARBeauty-ARBeautyUITests.modulemap"; sourceTree = "<group>"; };
 		C3BE73A040D08792DF1669227C404AB1 /* Pods_ARBeautyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ARBeautyTests.framework; path = "Pods-ARBeautyTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9E4CD023849421A5EB7C31533F215B7 /* Pods-ARBeauty-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ARBeauty-dummy.m"; sourceTree = "<group>"; };
 		DB9E13F20D873B13710F3790AD2392D6 /* Pods-ARBeauty-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ARBeauty-Info.plist"; sourceTree = "<group>"; };
 		EB5D18339D26C5457AAC11EB089495BD /* Pods-ARBeauty-ARBeautyUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ARBeauty-ARBeautyUITests-Info.plist"; sourceTree = "<group>"; };
+		F1740FDBF3FCEDFC74B617E8B570A5F8 /* tensorflow_lite_gpu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = tensorflow_lite_gpu.framework; path = Frameworks/tensorflow_lite_gpu.framework; sourceTree = "<group>"; };
 		F2DA7BAE7C9801463148964E834BF559 /* Pods-ARBeauty-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ARBeauty-acknowledgements.markdown"; sourceTree = "<group>"; };
 		F635647E0089449F151AF7CC1FC9DEE4 /* Pods-ARBeauty-ARBeautyUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ARBeauty-ARBeautyUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		48240B1D3F13E6A9C7FDA60AEC181B7B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F0FF28B054EC5F955031A8F2D69DAB8B /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4A4053F700E971C6BE00795EF22F460B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -77,11 +98,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EC846B83DAAA2F7CEA47CE160D7556D0 /* Frameworks */ = {
+		6362D03287EC5AA4585C31AE091BAA24 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D5B1991E2858F7BD1CD5F677A8E6836 /* Foundation.framework in Frameworks */,
+				265804B412D85BF54CF9FD96490C24C5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DD41F8388CA9386FC42CE0520D9A5A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				467C571AC6146030176D4A1B6F9D47E7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +131,32 @@
 			);
 			name = "Pods-ARBeautyTests";
 			path = "Target Support Files/Pods-ARBeautyTests";
+			sourceTree = "<group>";
+		};
+		376546F255C22360BF796C640DF1E5C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1740FDBF3FCEDFC74B617E8B570A5F8 /* tensorflow_lite_gpu.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		411AACCC5C60F419CCECDEC15199DBDC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2365D4B6F56F001F3FA6016D23D760E8 /* TensorFlowLiteGpuExperimental.debug.xcconfig */,
+				B1FE6BB3BAB4FC34D748C3A25332AFFF /* TensorFlowLiteGpuExperimental.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/TensorFlowLiteGpuExperimental";
+			sourceTree = "<group>";
+		};
+		412B5D7DF169203EDD53D48713A14C76 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A6C47702DF40ED34C23416824DD49A29 /* TensorFlowLiteGpuExperimental */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		4AB0FDD2B0EB644FCCCB5ECEBAAE11EE /* Pods-ARBeauty-ARBeautyUITests */ = {
@@ -148,6 +203,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		A6C47702DF40ED34C23416824DD49A29 /* TensorFlowLiteGpuExperimental */ = {
+			isa = PBXGroup;
+			children = (
+				376546F255C22360BF796C640DF1E5C1 /* Frameworks */,
+				411AACCC5C60F419CCECDEC15199DBDC /* Support Files */,
+			);
+			name = TensorFlowLiteGpuExperimental;
+			path = TensorFlowLiteGpuExperimental;
+			sourceTree = "<group>";
+		};
 		AAC49768E15CA6B7341AC229BE5480DA /* Pods-ARBeauty */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +234,7 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				412B5D7DF169203EDD53D48713A14C76 /* Pods */,
 				8DB2182982E3428484E61FD5C92B4380 /* Products */,
 				79AAA0BF98B6F2F259680FCB3E014CEF /* Targets Support Files */,
 			);
@@ -185,11 +251,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		1DDFC28237FA747FB6C0E1BB7850A029 /* Headers */ = {
+		540B17D5A66E52FD43465AD54505D30D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				559E94FBCE49CF7EC7C50A67DAB4CCAD /* Pods-ARBeauty-ARBeautyUITests-umbrella.h in Headers */,
+				629420D4AE433633B61C120DB15C5ED8 /* Pods-ARBeauty-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,11 +267,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E7347CFA4BBBEBECA7B99A1A4502820A /* Headers */ = {
+		F30426CCB822BC0C16083E1AB0FB0920 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64BA5AF7CD9A29001729C24A605434BB /* Pods-ARBeauty-umbrella.h in Headers */,
+				99AA9ECDE3F2D814B228336BE4B8105A /* Pods-ARBeauty-ARBeautyUITests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,16 +280,17 @@
 /* Begin PBXNativeTarget section */
 		3278CE9DF531443B195548DB2F256468 /* Pods-ARBeauty-ARBeautyUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2051E686F0E1F164EFFE67B7D6D94A14 /* Build configuration list for PBXNativeTarget "Pods-ARBeauty-ARBeautyUITests" */;
+			buildConfigurationList = 5D20E27AC32CD5631490C725F9D58BE0 /* Build configuration list for PBXNativeTarget "Pods-ARBeauty-ARBeautyUITests" */;
 			buildPhases = (
-				1DDFC28237FA747FB6C0E1BB7850A029 /* Headers */,
-				D9E977AA5586E0B0D7AB8D7182A9E433 /* Sources */,
-				48240B1D3F13E6A9C7FDA60AEC181B7B /* Frameworks */,
-				E060571DBD893D798236BC00A8034D6C /* Resources */,
+				F30426CCB822BC0C16083E1AB0FB0920 /* Headers */,
+				B8679000311005C1A00799E1872F0DFB /* Sources */,
+				6362D03287EC5AA4585C31AE091BAA24 /* Frameworks */,
+				9AA5A1840C5F5AB7E316B2A082AEA628 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F6558A8808BE0DFA7DAC329808D66BD4 /* PBXTargetDependency */,
 			);
 			name = "Pods-ARBeauty-ARBeautyUITests";
 			productName = "Pods-ARBeauty-ARBeautyUITests";
@@ -242,7 +309,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				C447F1B1FCB44316A03793FB358098CF /* PBXTargetDependency */,
+				330D2D9812E66FBEFAD58CC2639258B2 /* PBXTargetDependency */,
 			);
 			name = "Pods-ARBeautyTests";
 			productName = "Pods-ARBeautyTests";
@@ -251,16 +318,17 @@
 		};
 		EDD1423280BA12BDCE4F91C6A9CF4455 /* Pods-ARBeauty */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ECABE04C73B45F76B7DD5BE37FA36C96 /* Build configuration list for PBXNativeTarget "Pods-ARBeauty" */;
+			buildConfigurationList = FCCD1E263DE926DCD5B5DEA838E096C3 /* Build configuration list for PBXNativeTarget "Pods-ARBeauty" */;
 			buildPhases = (
-				E7347CFA4BBBEBECA7B99A1A4502820A /* Headers */,
-				04119AA11EA505F40E24F00780159B79 /* Sources */,
-				EC846B83DAAA2F7CEA47CE160D7556D0 /* Frameworks */,
-				7396D3F8163D46707D49E001C7FCB648 /* Resources */,
+				540B17D5A66E52FD43465AD54505D30D /* Headers */,
+				0269CDD1E29E89DF23401AFC2F2028D8 /* Sources */,
+				9DD41F8388CA9386FC42CE0520D9A5A5 /* Frameworks */,
+				8A437B4160DA70E1B40C847CEF11BD9E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				88EF77DDE380488ED264FB11E30B84ED /* PBXTargetDependency */,
 			);
 			name = "Pods-ARBeauty";
 			productName = "Pods-ARBeauty";
@@ -292,12 +360,20 @@
 				EDD1423280BA12BDCE4F91C6A9CF4455 /* Pods-ARBeauty */,
 				3278CE9DF531443B195548DB2F256468 /* Pods-ARBeauty-ARBeautyUITests */,
 				DD1236880FE7BB24D87557BEA1264208 /* Pods-ARBeautyTests */,
+				6E6AD048A3B5D5D1C77ECCEDE7A30F29 /* TensorFlowLiteGpuExperimental */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7396D3F8163D46707D49E001C7FCB648 /* Resources */ = {
+		8A437B4160DA70E1B40C847CEF11BD9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AA5A1840C5F5AB7E316B2A082AEA628 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -311,21 +387,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E060571DBD893D798236BC00A8034D6C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		04119AA11EA505F40E24F00780159B79 /* Sources */ = {
+		0269CDD1E29E89DF23401AFC2F2028D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCCBF15ADD03112CE08B5F824F2E1FD4 /* Pods-ARBeauty-dummy.m in Sources */,
+				91A73F58F25CF6B0BE0F4DC2B027DB45 /* Pods-ARBeauty-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,29 +406,41 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D9E977AA5586E0B0D7AB8D7182A9E433 /* Sources */ = {
+		B8679000311005C1A00799E1872F0DFB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46918814416A1CC9834FFCE96DC557BD /* Pods-ARBeauty-ARBeautyUITests-dummy.m in Sources */,
+				AC563F7CFAF527E86BB6BBD43270DFD0 /* Pods-ARBeauty-ARBeautyUITests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C447F1B1FCB44316A03793FB358098CF /* PBXTargetDependency */ = {
+		330D2D9812E66FBEFAD58CC2639258B2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-ARBeauty";
 			target = EDD1423280BA12BDCE4F91C6A9CF4455 /* Pods-ARBeauty */;
-			targetProxy = 50C2D2081B1F97093E51106BD73516D4 /* PBXContainerItemProxy */;
+			targetProxy = 6C949DC17EE366CF767C65D23CF8F59B /* PBXContainerItemProxy */;
+		};
+		88EF77DDE380488ED264FB11E30B84ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TensorFlowLiteGpuExperimental;
+			target = 6E6AD048A3B5D5D1C77ECCEDE7A30F29 /* TensorFlowLiteGpuExperimental */;
+			targetProxy = D8371F7292ED7EA2944B392CC6E34750 /* PBXContainerItemProxy */;
+		};
+		F6558A8808BE0DFA7DAC329808D66BD4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TensorFlowLiteGpuExperimental;
+			target = 6E6AD048A3B5D5D1C77ECCEDE7A30F29 /* TensorFlowLiteGpuExperimental */;
+			targetProxy = 78C5625E0DD0FF8548DEDE7C4CCDFAD4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		2EBA334BF4FDB4C988D9511A43152535 /* Debug */ = {
+		0474A50C2FD0F11C7736DE799C9F58BC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 503DFA07BD634AD38E36D56F20DBCA64 /* Pods-ARBeauty-ARBeautyUITests.debug.xcconfig */;
+			baseConfigurationReference = 0D8AFB183825B464D94D72C5ED043F32 /* Pods-ARBeauty.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -371,7 +452,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-ARBeauty-ARBeautyUITests/Pods-ARBeauty-ARBeautyUITests-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-ARBeauty/Pods-ARBeauty-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -380,7 +461,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ARBeauty-ARBeautyUITests/Pods-ARBeauty-ARBeautyUITests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-ARBeauty/Pods-ARBeauty.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -393,6 +474,39 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		18C3435E35F473C2FCB664CCB8CDF8D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2365D4B6F56F001F3FA6016D23D760E8 /* TensorFlowLiteGpuExperimental.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2726BB3F2A7C968913EA3F3A945AD526 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1FE6BB3BAB4FC34D748C3A25332AFFF /* TensorFlowLiteGpuExperimental.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
 		};
 		59684FA4162E0DA8D38E925F30604FC5 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -560,9 +674,9 @@
 			};
 			name = Debug;
 		};
-		8732DB7858F74FCC308BC30C438E54D5 /* Debug */ = {
+		AABB7893AA159F5D2900EA283860EE9E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D8AFB183825B464D94D72C5ED043F32 /* Pods-ARBeauty.debug.xcconfig */;
+			baseConfigurationReference = A00686AC456D5F751D269FEFBE3357EF /* Pods-ARBeauty-ARBeautyUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -574,7 +688,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-ARBeauty/Pods-ARBeauty-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-ARBeauty-ARBeautyUITests/Pods-ARBeauty-ARBeautyUITests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -583,7 +697,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ARBeauty/Pods-ARBeauty.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-ARBeauty-ARBeautyUITests/Pods-ARBeauty-ARBeautyUITests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -592,10 +706,11 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		DD1E2729C1DBB4E138ED3F148276D591 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -634,9 +749,9 @@
 			};
 			name = Debug;
 		};
-		DEA9A77F35F1D04D530E1442B1C55985 /* Release */ = {
+		F89120C042DD85971A01C979F4E0A6EE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A00686AC456D5F751D269FEFBE3357EF /* Pods-ARBeauty-ARBeautyUITests.release.xcconfig */;
+			baseConfigurationReference = 503DFA07BD634AD38E36D56F20DBCA64 /* Pods-ARBeauty-ARBeautyUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -666,13 +781,12 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		FC1D1FAB95C64A09E173FC2BA9A3D0D0 /* Release */ = {
+		F993C62EBB0454E05C4724EAF95569AB /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 89802EFE28BE6DA37668DFF2681367C2 /* Pods-ARBeauty.release.xcconfig */;
 			buildSettings = {
@@ -713,20 +827,29 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2051E686F0E1F164EFFE67B7D6D94A14 /* Build configuration list for PBXNativeTarget "Pods-ARBeauty-ARBeautyUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2EBA334BF4FDB4C988D9511A43152535 /* Debug */,
-				DEA9A77F35F1D04D530E1442B1C55985 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75D70EEEA0A456E14F7338A7F342964E /* Debug */,
 				71243899B61152433AAE34EE86456EE7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5D20E27AC32CD5631490C725F9D58BE0 /* Build configuration list for PBXNativeTarget "Pods-ARBeauty-ARBeautyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F89120C042DD85971A01C979F4E0A6EE /* Debug */,
+				AABB7893AA159F5D2900EA283860EE9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		769C1487CD6456A8941682978A24E30C /* Build configuration list for PBXAggregateTarget "TensorFlowLiteGpuExperimental" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18C3435E35F473C2FCB664CCB8CDF8D3 /* Debug */,
+				2726BB3F2A7C968913EA3F3A945AD526 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -740,11 +863,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ECABE04C73B45F76B7DD5BE37FA36C96 /* Build configuration list for PBXNativeTarget "Pods-ARBeauty" */ = {
+		FCCD1E263DE926DCD5B5DEA838E096C3 /* Build configuration list for PBXNativeTarget "Pods-ARBeauty" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8732DB7858F74FCC308BC30C438E54D5 /* Debug */,
-				FC1D1FAB95C64A09E173FC2BA9A3D0D0 /* Release */,
+				0474A50C2FD0F11C7736DE799C9F58BC /* Debug */,
+				F993C62EBB0454E05C4724EAF95569AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

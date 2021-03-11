@@ -1,3 +1,16 @@
-PODFILE CHECKSUM: c9f96fa0aaadf87a8ec736d024ca1163cd8c459a
+PODS:
+  - TensorFlowLiteGpuExperimental (0.0.1)
 
-COCOAPODS: 1.10.0
+DEPENDENCIES:
+  - TensorFlowLiteGpuExperimental (= 0.0.1)
+
+SPEC REPOS:
+  trunk:
+    - TensorFlowLiteGpuExperimental
+
+SPEC CHECKSUMS:
+  TensorFlowLiteGpuExperimental: 16d9be415bce7b2bba9e0be17e2009fd57428d0f
+
+PODFILE CHECKSUM: d7ee21ccd7b0eecb19edca48185821d54a2112ed
+
+COCOAPODS: 1.10.1

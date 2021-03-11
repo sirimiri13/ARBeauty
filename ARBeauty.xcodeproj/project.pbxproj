@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1724F6E725FA1F7B00436485 /* NailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1724F6E625FA1F7B00436485 /* NailsViewController.swift */; };
+		1724F71325FA2CB500436485 /* deeplabv3_257_mv_gpu.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 1724F71225FA2CB500436485 /* deeplabv3_257_mv_gpu.tflite */; };
+		1724F74B25FA32A500436485 /* NailsDeeplabModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1724F74A25FA32A500436485 /* NailsDeeplabModel.mm */; };
 		2D91A77225DA3200002885B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77125DA3200002885B8 /* AppDelegate.swift */; };
 		2D91A77425DA3200002885B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77325DA3200002885B8 /* SceneDelegate.swift */; };
 		2D91A77625DA3200002885B8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77525DA3200002885B8 /* HomeViewController.swift */; };
@@ -46,6 +49,11 @@
 /* Begin PBXFileReference section */
 		075E6AB4482F0A0C3BFA53E7 /* Pods-ARBeauty-ARBeautyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARBeauty-ARBeautyUITests.release.xcconfig"; path = "Target Support Files/Pods-ARBeauty-ARBeautyUITests/Pods-ARBeauty-ARBeautyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		09BDA4763D8BB5761B0ED04B /* Pods-ARBeauty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARBeauty.debug.xcconfig"; path = "Target Support Files/Pods-ARBeauty/Pods-ARBeauty.debug.xcconfig"; sourceTree = "<group>"; };
+		1724F6E625FA1F7B00436485 /* NailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NailsViewController.swift; sourceTree = "<group>"; };
+		1724F71225FA2CB500436485 /* deeplabv3_257_mv_gpu.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = deeplabv3_257_mv_gpu.tflite; sourceTree = "<group>"; };
+		1724F74825FA32A400436485 /* ARBeauty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARBeauty-Bridging-Header.h"; sourceTree = "<group>"; };
+		1724F74925FA32A500436485 /* NailsDeeplabModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NailsDeeplabModel.h; sourceTree = "<group>"; };
+		1724F74A25FA32A500436485 /* NailsDeeplabModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NailsDeeplabModel.mm; sourceTree = "<group>"; };
 		2D91A76E25DA3200002885B8 /* ARBeauty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARBeauty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D91A77125DA3200002885B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D91A77325DA3200002885B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +111,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1724F6F425FA29FD00436485 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1724F74925FA32A500436485 /* NailsDeeplabModel.h */,
+				1724F74A25FA32A500436485 /* NailsDeeplabModel.mm */,
+				1724F74825FA32A400436485 /* ARBeauty-Bridging-Header.h */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1724F71725FA2CD100436485 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1724F71225FA2CB500436485 /* deeplabv3_257_mv_gpu.tflite */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		2D91A76525DA3200002885B8 = {
 			isa = PBXGroup;
 			children = (
@@ -128,14 +154,14 @@
 		2D91A77025DA3200002885B8 /* ARBeauty */ = {
 			isa = PBXGroup;
 			children = (
-				2DFFB55925E0FC3F00CE20E5 /* Controller */,
-				2DFFB53C25DFADDA00CE20E5 /* View */,
-				2DFFB53025DFA0BE00CE20E5 /* Utilities */,
 				2D91A77125DA3200002885B8 /* AppDelegate.swift */,
 				2D91A77325DA3200002885B8 /* SceneDelegate.swift */,
-				2D91A77725DA3200002885B8 /* Main.storyboard */,
+				1724F71725FA2CD100436485 /* Resources */,
+				1724F6F425FA29FD00436485 /* Models */,
+				2DFFB53025DFA0BE00CE20E5 /* Utilities */,
+				2DFFB55925E0FC3F00CE20E5 /* Controllers */,
+				2DFFB53C25DFADDA00CE20E5 /* Storyboards */,
 				2D91A77A25DA3203002885B8 /* Assets.xcassets */,
-				2D91A77C25DA3203002885B8 /* LaunchScreen.storyboard */,
 				2D91A77F25DA3203002885B8 /* Info.plist */,
 			);
 			path = ARBeauty;
@@ -162,29 +188,32 @@
 		2DFFB53025DFA0BE00CE20E5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				2D9A523625E2675F00A1965C /* StoryboardManager.swift */,
+				2DFFB53D25DFADEE00CE20E5 /* ARButton.swift */,
 				2DFFB53125DFA0E500CE20E5 /* Colors.swift */,
 				2DFFB54E25E0F38E00CE20E5 /* Extension.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		2DFFB53C25DFADDA00CE20E5 /* View */ = {
+		2DFFB53C25DFADDA00CE20E5 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				2DFFB53D25DFADEE00CE20E5 /* ARButton.swift */,
+				2D9A523625E2675F00A1965C /* StoryboardManager.swift */,
+				2D91A77725DA3200002885B8 /* Main.storyboard */,
+				2D91A77C25DA3203002885B8 /* LaunchScreen.storyboard */,
 			);
-			path = View;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		2DFFB55925E0FC3F00CE20E5 /* Controller */ = {
+		2DFFB55925E0FC3F00CE20E5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				2D91A77525DA3200002885B8 /* HomeViewController.swift */,
-				2DFFB55D25E0FCEC00CE20E5 /* TestPickColorViewController.swift */,
+				1724F6E625FA1F7B00436485 /* NailsViewController.swift */,
 				2D9A523125E2672400A1965C /* LipsViewController.swift */,
+				2DFFB55D25E0FCEC00CE20E5 /* TestPickColorViewController.swift */,
 			);
-			path = Controller;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		7AC7FD2511AC6DF6863F81DE /* Pods */ = {
@@ -280,6 +309,7 @@
 				TargetAttributes = {
 					2D91A76D25DA3200002885B8 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 					2D91A78325DA3203002885B8 = {
 						CreatedOnToolsVersion = 12.4;
@@ -317,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D91A77E25DA3203002885B8 /* LaunchScreen.storyboard in Resources */,
+				1724F71325FA2CB500436485 /* deeplabv3_257_mv_gpu.tflite in Resources */,
 				2D91A77B25DA3203002885B8 /* Assets.xcassets in Resources */,
 				2D91A77925DA3200002885B8 /* Main.storyboard in Resources */,
 			);
@@ -412,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1724F6E725FA1F7B00436485 /* NailsViewController.swift in Sources */,
 				2D91A77625DA3200002885B8 /* HomeViewController.swift in Sources */,
 				2DFFB53225DFA0E500CE20E5 /* Colors.swift in Sources */,
 				2D9A523225E2672400A1965C /* LipsViewController.swift in Sources */,
@@ -419,6 +451,7 @@
 				2DFFB54F25E0F38E00CE20E5 /* Extension.swift in Sources */,
 				2DFFB55E25E0FCEC00CE20E5 /* TestPickColorViewController.swift in Sources */,
 				2DFFB53E25DFADEE00CE20E5 /* ARButton.swift in Sources */,
+				1724F74B25FA32A500436485 /* NailsDeeplabModel.mm in Sources */,
 				2D91A77425DA3200002885B8 /* SceneDelegate.swift in Sources */,
 				2D9A523725E2675F00A1965C /* StoryboardManager.swift in Sources */,
 			);
@@ -597,6 +630,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 523SRU7Q76;
 				INFOPLIST_FILE = ARBeauty/Info.plist;
@@ -606,8 +640,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = huonglam.ARBeauty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ARBeauty/Models/ARBeauty-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -617,6 +653,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 523SRU7Q76;
 				INFOPLIST_FILE = ARBeauty/Info.plist;
@@ -626,8 +663,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = huonglam.ARBeauty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ARBeauty/Models/ARBeauty-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -48,24 +48,24 @@ extension UIButton{
 }
 
 
-extension UIView{
+extension UIView {
     func applyGradient(colours: [UIColor]) -> CAGradientLayer {
-            return self.applyGradient(colours: colours, locations: nil)
-        }
+        return self.applyGradient(colours: colours, locations: nil)
+    }
     func applyGradient(colours: [UIColor], locations: [NSNumber]?) -> CAGradientLayer {
-           let gradient: CAGradientLayer = CAGradientLayer()
-           gradient.frame = self.bounds
-           gradient.colors = colours.map { $0.cgColor }
-           gradient.locations = locations
-           self.layer.insertSublayer(gradient, at: 0)
-           return gradient
-       }
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = colours.map { $0.cgColor }
+        gradient.locations = locations
+        self.layer.insertSublayer(gradient, at: 0)
+        return gradient
+    }
     func addBorder(toEdges edges: UIRectEdge, color: UIColor, thickness: CGFloat) {
-
+        
         func addBorder(toEdge edges: UIRectEdge, color: UIColor, thickness: CGFloat) {
             let border = CALayer()
             border.backgroundColor = color.cgColor
-
+            
             switch edges {
             case .top:
                 border.frame = CGRect(x: 0, y: 0, width: frame.width, height: thickness)
@@ -78,22 +78,22 @@ extension UIView{
             default:
                 break
             }
-
+            
             layer.addSublayer(border)
         }
-
+        
         if edges.contains(.top) || edges.contains(.all) {
             addBorder(toEdge: .top, color: color, thickness: thickness)
         }
-
+        
         if edges.contains(.bottom) || edges.contains(.all) {
             addBorder(toEdge: .bottom, color: color, thickness: thickness)
         }
-
+        
         if edges.contains(.left) || edges.contains(.all) {
             addBorder(toEdge: .left, color: color, thickness: thickness)
         }
-
+        
         if edges.contains(.right) || edges.contains(.all) {
             addBorder(toEdge: .right, color: color, thickness: thickness)
         }
