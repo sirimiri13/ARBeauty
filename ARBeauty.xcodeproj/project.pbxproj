@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1724F6E725FA1F7B00436485 /* NailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1724F6E625FA1F7B00436485 /* NailsViewController.swift */; };
-		1724F71325FA2CB500436485 /* deeplabv3_257_mv_gpu.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 1724F71225FA2CB500436485 /* deeplabv3_257_mv_gpu.tflite */; };
 		1724F74B25FA32A500436485 /* NailsDeeplabModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1724F74A25FA32A500436485 /* NailsDeeplabModel.mm */; };
+		178D5F8125FFB0A100AD05B9 /* deeplabv3_257_mv_gpu.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 178D5F8025FFB0A100AD05B9 /* deeplabv3_257_mv_gpu.tflite */; };
+		178D5F8D2600C13F00AD05B9 /* xception_65_50k.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 178D5F8C2600C13F00AD05B9 /* xception_65_50k.tflite */; };
 		2D91A77225DA3200002885B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77125DA3200002885B8 /* AppDelegate.swift */; };
 		2D91A77425DA3200002885B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77325DA3200002885B8 /* SceneDelegate.swift */; };
 		2D91A77625DA3200002885B8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77525DA3200002885B8 /* HomeViewController.swift */; };
@@ -50,10 +51,11 @@
 		075E6AB4482F0A0C3BFA53E7 /* Pods-ARBeauty-ARBeautyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARBeauty-ARBeautyUITests.release.xcconfig"; path = "Target Support Files/Pods-ARBeauty-ARBeautyUITests/Pods-ARBeauty-ARBeautyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		09BDA4763D8BB5761B0ED04B /* Pods-ARBeauty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARBeauty.debug.xcconfig"; path = "Target Support Files/Pods-ARBeauty/Pods-ARBeauty.debug.xcconfig"; sourceTree = "<group>"; };
 		1724F6E625FA1F7B00436485 /* NailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NailsViewController.swift; sourceTree = "<group>"; };
-		1724F71225FA2CB500436485 /* deeplabv3_257_mv_gpu.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = deeplabv3_257_mv_gpu.tflite; sourceTree = "<group>"; };
 		1724F74825FA32A400436485 /* ARBeauty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARBeauty-Bridging-Header.h"; sourceTree = "<group>"; };
 		1724F74925FA32A500436485 /* NailsDeeplabModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NailsDeeplabModel.h; sourceTree = "<group>"; };
 		1724F74A25FA32A500436485 /* NailsDeeplabModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NailsDeeplabModel.mm; sourceTree = "<group>"; };
+		178D5F8025FFB0A100AD05B9 /* deeplabv3_257_mv_gpu.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = deeplabv3_257_mv_gpu.tflite; sourceTree = "<group>"; };
+		178D5F8C2600C13F00AD05B9 /* xception_65_50k.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = xception_65_50k.tflite; sourceTree = "<group>"; };
 		2D91A76E25DA3200002885B8 /* ARBeauty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARBeauty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D91A77125DA3200002885B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D91A77325DA3200002885B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,7 +126,8 @@
 		1724F71725FA2CD100436485 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1724F71225FA2CB500436485 /* deeplabv3_257_mv_gpu.tflite */,
+				178D5F8025FFB0A100AD05B9 /* deeplabv3_257_mv_gpu.tflite */,
+				178D5F8C2600C13F00AD05B9 /* xception_65_50k.tflite */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -346,9 +349,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				178D5F8D2600C13F00AD05B9 /* xception_65_50k.tflite in Resources */,
 				2D91A77E25DA3203002885B8 /* LaunchScreen.storyboard in Resources */,
-				1724F71325FA2CB500436485 /* deeplabv3_257_mv_gpu.tflite in Resources */,
 				2D91A77B25DA3203002885B8 /* Assets.xcassets in Resources */,
+				178D5F8125FFB0A100AD05B9 /* deeplabv3_257_mv_gpu.tflite in Resources */,
 				2D91A77925DA3200002885B8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

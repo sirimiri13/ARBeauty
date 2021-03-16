@@ -113,6 +113,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="ViJ-q7-BfY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yF9-1A-gDm" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="KaF-J0-ENV"/>
@@ -173,7 +174,7 @@
                                             <constraint firstAttribute="height" constant="25" id="uMb-QB-5dN"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="18"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" red="0.34722930190000001" green="0.38557094339999998" blue="0.49805384870000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLb-11-xGZ">
@@ -182,7 +183,7 @@
                                             <constraint firstAttribute="height" constant="30" id="CzY-TC-iwb"/>
                                             <constraint firstAttribute="width" constant="30" id="o1n-sQ-2gk"/>
                                         </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.34722930190000001" green="0.38557094339999998" blue="0.49805384870000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" image="house.fill" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
                                         </state>
@@ -201,7 +202,6 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8B-Nh-okI">
                                 <rect key="frame" x="0.0" y="56" width="414" height="600"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yzg-Le-YNZ"/>
