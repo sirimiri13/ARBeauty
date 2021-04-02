@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1724F6E725FA1F7B00436485 /* NailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1724F6E625FA1F7B00436485 /* NailsViewController.swift */; };
 		1724F74B25FA32A500436485 /* NailsDeeplabModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1724F74A25FA32A500436485 /* NailsDeeplabModel.mm */; };
-		178D5F8125FFB0A100AD05B9 /* deeplabv3_257_mv_gpu.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 178D5F8025FFB0A100AD05B9 /* deeplabv3_257_mv_gpu.tflite */; };
 		178D5F8D2600C13F00AD05B9 /* xception_65_50k.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 178D5F8C2600C13F00AD05B9 /* xception_65_50k.tflite */; };
 		2D91A77225DA3200002885B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77125DA3200002885B8 /* AppDelegate.swift */; };
 		2D91A77425DA3200002885B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77325DA3200002885B8 /* SceneDelegate.swift */; };
@@ -28,6 +27,20 @@
 		503B35BB3DDD4EC5B71F8F48 /* Pods_ARBeauty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B81CB3E7DFAD48ABB93C80D /* Pods_ARBeauty.framework */; };
 		5F6CE2625F30FE5486612A64 /* Pods_ARBeauty_ARBeautyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97F36544FE8CBA6CE2784CA /* Pods_ARBeauty_ARBeautyUITests.framework */; };
 		963477A02C92C11AE79AC4C5 /* Pods_ARBeautyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6279CEB850A0F6071117981A /* Pods_ARBeautyTests.framework */; };
+		F715ECB526092A5700E8CEED /* mobilev2.tflite in Resources */ = {isa = PBXBuildFile; fileRef = F715ECB426092A5700E8CEED /* mobilev2.tflite */; };
+		F774E80C260E176D00660675 /* m1.tflite in Resources */ = {isa = PBXBuildFile; fileRef = F774E80B260E176D00660675 /* m1.tflite */; };
+		F774E811260E194B00660675 /* mobi2.tflite in Resources */ = {isa = PBXBuildFile; fileRef = F774E810260E194B00660675 /* mobi2.tflite */; };
+		F7776CEC260DDB5C009D6BCC /* mobixcep.tflite in Resources */ = {isa = PBXBuildFile; fileRef = F7776CEB260DDB5C009D6BCC /* mobixcep.tflite */; };
+		F77AD4352611F39600FE43A5 /* result_model.tflite in Resources */ = {isa = PBXBuildFile; fileRef = F77AD4342611F39600FE43A5 /* result_model.tflite */; };
+		F77AD43D2611F59F00FE43A5 /* meme.tflite in Resources */ = {isa = PBXBuildFile; fileRef = F77AD43C2611F59F00FE43A5 /* meme.tflite */; };
+		F77AD49326176C1F00542453 /* mymodel.tflite in Resources */ = {isa = PBXBuildFile; fileRef = F77AD49226176C1F00542453 /* mymodel.tflite */; };
+		F78BA892260E61D70059313F /* mnv2.tflite in Resources */ = {isa = PBXBuildFile; fileRef = F78BA891260E61D70059313F /* mnv2.tflite */; };
+		F78D471F260E777400DA556D /* mobinet.tflite in Resources */ = {isa = PBXBuildFile; fileRef = F78D471E260E777400DA556D /* mobinet.tflite */; };
+		F78D4724260E78DE00DA556D /* modelv2.tflite in Resources */ = {isa = PBXBuildFile; fileRef = F78D4723260E78DE00DA556D /* modelv2.tflite */; };
+		F792070A260AE8AC00A62BD8 /* mobi.tflite in Resources */ = {isa = PBXBuildFile; fileRef = F7920709260AE8AC00A62BD8 /* mobi.tflite */; };
+		F797F50B260B63530055D7B9 /* test.tflite in Resources */ = {isa = PBXBuildFile; fileRef = F797F50A260B63530055D7B9 /* test.tflite */; };
+		F797F510260B647D0055D7B9 /* test1.tflite in Resources */ = {isa = PBXBuildFile; fileRef = F797F50F260B647D0055D7B9 /* test1.tflite */; };
+		F7A96C392611C6F500394892 /* deeplabv3_257_mv_gpu.tflite in Resources */ = {isa = PBXBuildFile; fileRef = F7A96C382611C6F500394892 /* deeplabv3_257_mv_gpu.tflite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +67,6 @@
 		1724F74825FA32A400436485 /* ARBeauty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARBeauty-Bridging-Header.h"; sourceTree = "<group>"; };
 		1724F74925FA32A500436485 /* NailsDeeplabModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NailsDeeplabModel.h; sourceTree = "<group>"; };
 		1724F74A25FA32A500436485 /* NailsDeeplabModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NailsDeeplabModel.mm; sourceTree = "<group>"; };
-		178D5F8025FFB0A100AD05B9 /* deeplabv3_257_mv_gpu.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = deeplabv3_257_mv_gpu.tflite; sourceTree = "<group>"; };
 		178D5F8C2600C13F00AD05B9 /* xception_65_50k.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = xception_65_50k.tflite; sourceTree = "<group>"; };
 		2D91A76E25DA3200002885B8 /* ARBeauty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARBeauty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D91A77125DA3200002885B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +95,20 @@
 		8B81CB3E7DFAD48ABB93C80D /* Pods_ARBeauty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARBeauty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97F36544FE8CBA6CE2784CA /* Pods_ARBeauty_ARBeautyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARBeauty_ARBeautyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C71A2FA9C8A7B80A15EF7607 /* Pods-ARBeauty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARBeauty.release.xcconfig"; path = "Target Support Files/Pods-ARBeauty/Pods-ARBeauty.release.xcconfig"; sourceTree = "<group>"; };
+		F715ECB426092A5700E8CEED /* mobilev2.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = mobilev2.tflite; sourceTree = "<group>"; };
+		F774E80B260E176D00660675 /* m1.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = m1.tflite; sourceTree = "<group>"; };
+		F774E810260E194B00660675 /* mobi2.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = mobi2.tflite; sourceTree = "<group>"; };
+		F7776CEB260DDB5C009D6BCC /* mobixcep.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = mobixcep.tflite; sourceTree = "<group>"; };
+		F77AD4342611F39600FE43A5 /* result_model.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = result_model.tflite; sourceTree = "<group>"; };
+		F77AD43C2611F59F00FE43A5 /* meme.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = meme.tflite; sourceTree = "<group>"; };
+		F77AD49226176C1F00542453 /* mymodel.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = mymodel.tflite; sourceTree = "<group>"; };
+		F78BA891260E61D70059313F /* mnv2.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = mnv2.tflite; sourceTree = "<group>"; };
+		F78D471E260E777400DA556D /* mobinet.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = mobinet.tflite; sourceTree = "<group>"; };
+		F78D4723260E78DE00DA556D /* modelv2.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = modelv2.tflite; sourceTree = "<group>"; };
+		F7920709260AE8AC00A62BD8 /* mobi.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = mobi.tflite; sourceTree = "<group>"; };
+		F797F50A260B63530055D7B9 /* test.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.tflite; sourceTree = "<group>"; };
+		F797F50F260B647D0055D7B9 /* test1.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = test1.tflite; sourceTree = "<group>"; };
+		F7A96C382611C6F500394892 /* deeplabv3_257_mv_gpu.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = deeplabv3_257_mv_gpu.tflite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +152,20 @@
 		1724F71725FA2CD100436485 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				178D5F8025FFB0A100AD05B9 /* deeplabv3_257_mv_gpu.tflite */,
+				F77AD49226176C1F00542453 /* mymodel.tflite */,
+				F77AD43C2611F59F00FE43A5 /* meme.tflite */,
+				F77AD4342611F39600FE43A5 /* result_model.tflite */,
+				F7A96C382611C6F500394892 /* deeplabv3_257_mv_gpu.tflite */,
+				F78D4723260E78DE00DA556D /* modelv2.tflite */,
+				F78D471E260E777400DA556D /* mobinet.tflite */,
+				F78BA891260E61D70059313F /* mnv2.tflite */,
+				F774E810260E194B00660675 /* mobi2.tflite */,
+				F774E80B260E176D00660675 /* m1.tflite */,
+				F7776CEB260DDB5C009D6BCC /* mobixcep.tflite */,
+				F797F50F260B647D0055D7B9 /* test1.tflite */,
+				F797F50A260B63530055D7B9 /* test.tflite */,
+				F7920709260AE8AC00A62BD8 /* mobi.tflite */,
+				F715ECB426092A5700E8CEED /* mobilev2.tflite */,
 				178D5F8C2600C13F00AD05B9 /* xception_65_50k.tflite */,
 			);
 			path = Resources;
@@ -350,10 +389,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				178D5F8D2600C13F00AD05B9 /* xception_65_50k.tflite in Resources */,
+				F7A96C392611C6F500394892 /* deeplabv3_257_mv_gpu.tflite in Resources */,
+				F78D4724260E78DE00DA556D /* modelv2.tflite in Resources */,
+				F77AD49326176C1F00542453 /* mymodel.tflite in Resources */,
+				F797F50B260B63530055D7B9 /* test.tflite in Resources */,
 				2D91A77E25DA3203002885B8 /* LaunchScreen.storyboard in Resources */,
+				F78D471F260E777400DA556D /* mobinet.tflite in Resources */,
+				F77AD4352611F39600FE43A5 /* result_model.tflite in Resources */,
+				F7776CEC260DDB5C009D6BCC /* mobixcep.tflite in Resources */,
+				F77AD43D2611F59F00FE43A5 /* meme.tflite in Resources */,
 				2D91A77B25DA3203002885B8 /* Assets.xcassets in Resources */,
-				178D5F8125FFB0A100AD05B9 /* deeplabv3_257_mv_gpu.tflite in Resources */,
+				F78BA892260E61D70059313F /* mnv2.tflite in Resources */,
+				F792070A260AE8AC00A62BD8 /* mobi.tflite in Resources */,
+				F774E811260E194B00660675 /* mobi2.tflite in Resources */,
 				2D91A77925DA3200002885B8 /* Main.storyboard in Resources */,
+				F715ECB526092A5700E8CEED /* mobilev2.tflite in Resources */,
+				F797F510260B647D0055D7B9 /* test1.tflite in Resources */,
+				F774E80C260E176D00660675 /* m1.tflite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,18 +688,18 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 523SRU7Q76;
+				DEVELOPMENT_TEAM = 358M65L93V;
 				INFOPLIST_FILE = ARBeauty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = huonglam.ARBeauty;
+				PRODUCT_BUNDLE_IDENTIFIER = huonglam.ARBeauty.com.abcl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ARBeauty/Models/ARBeauty-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -659,17 +711,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 523SRU7Q76;
+				DEVELOPMENT_TEAM = 358M65L93V;
 				INFOPLIST_FILE = ARBeauty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = huonglam.ARBeauty;
+				PRODUCT_BUNDLE_IDENTIFIER = huonglam.ARBeauty.com.abcl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ARBeauty/Models/ARBeauty-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
