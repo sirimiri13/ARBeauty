@@ -11,6 +11,7 @@
 		1724F74B25FA32A500436485 /* NailsDeeplabModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1724F74A25FA32A500436485 /* NailsDeeplabModel.mm */; };
 		178D5F8125FFB0A100AD05B9 /* deeplabv3_257_mv_gpu.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 178D5F8025FFB0A100AD05B9 /* deeplabv3_257_mv_gpu.tflite */; };
 		178D5F8D2600C13F00AD05B9 /* xception_65_50k.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 178D5F8C2600C13F00AD05B9 /* xception_65_50k.tflite */; };
+		2D6176AE26136707006A70FA /* IconPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6176AD26136707006A70FA /* IconPicker.swift */; };
 		2D91A77225DA3200002885B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77125DA3200002885B8 /* AppDelegate.swift */; };
 		2D91A77425DA3200002885B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77325DA3200002885B8 /* SceneDelegate.swift */; };
 		2D91A77625DA3200002885B8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77525DA3200002885B8 /* HomeViewController.swift */; };
@@ -56,6 +57,7 @@
 		1724F74A25FA32A500436485 /* NailsDeeplabModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NailsDeeplabModel.mm; sourceTree = "<group>"; };
 		178D5F8025FFB0A100AD05B9 /* deeplabv3_257_mv_gpu.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = deeplabv3_257_mv_gpu.tflite; sourceTree = "<group>"; };
 		178D5F8C2600C13F00AD05B9 /* xception_65_50k.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = xception_65_50k.tflite; sourceTree = "<group>"; };
+		2D6176AD26136707006A70FA /* IconPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPicker.swift; sourceTree = "<group>"; };
 		2D91A76E25DA3200002885B8 /* ARBeauty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARBeauty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D91A77125DA3200002885B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D91A77325DA3200002885B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				2DFFB53D25DFADEE00CE20E5 /* ARButton.swift */,
 				2DFFB53125DFA0E500CE20E5 /* Colors.swift */,
 				2DFFB54E25E0F38E00CE20E5 /* Extension.swift */,
+				2D6176AD26136707006A70FA /* IconPicker.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 			files = (
 				1724F6E725FA1F7B00436485 /* NailsViewController.swift in Sources */,
 				2D91A77625DA3200002885B8 /* HomeViewController.swift in Sources */,
+				2D6176AE26136707006A70FA /* IconPicker.swift in Sources */,
 				2DFFB53225DFA0E500CE20E5 /* Colors.swift in Sources */,
 				2D9A523225E2672400A1965C /* LipsViewController.swift in Sources */,
 				2D91A77225DA3200002885B8 /* AppDelegate.swift in Sources */,
@@ -636,7 +640,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 523SRU7Q76;
+				DEVELOPMENT_TEAM = Q2A2DTV2D2;
 				INFOPLIST_FILE = ARBeauty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -659,7 +663,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 523SRU7Q76;
+				DEVELOPMENT_TEAM = Q2A2DTV2D2;
 				INFOPLIST_FILE = ARBeauty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
