@@ -29,6 +29,7 @@
 		503B35BB3DDD4EC5B71F8F48 /* Pods_ARBeauty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B81CB3E7DFAD48ABB93C80D /* Pods_ARBeauty.framework */; };
 		5F6CE2625F30FE5486612A64 /* Pods_ARBeauty_ARBeautyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97F36544FE8CBA6CE2784CA /* Pods_ARBeauty_ARBeautyUITests.framework */; };
 		963477A02C92C11AE79AC4C5 /* Pods_ARBeautyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6279CEB850A0F6071117981A /* Pods_ARBeautyTests.framework */; };
+		F7C604E226177DA500164D13 /* mymodel.tflite in Resources */ = {isa = PBXBuildFile; fileRef = F7C604E126177DA500164D13 /* mymodel.tflite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		8B81CB3E7DFAD48ABB93C80D /* Pods_ARBeauty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARBeauty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97F36544FE8CBA6CE2784CA /* Pods_ARBeauty_ARBeautyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARBeauty_ARBeautyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C71A2FA9C8A7B80A15EF7607 /* Pods-ARBeauty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARBeauty.release.xcconfig"; path = "Target Support Files/Pods-ARBeauty/Pods-ARBeauty.release.xcconfig"; sourceTree = "<group>"; };
+		F7C604E126177DA500164D13 /* mymodel.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = mymodel.tflite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		1724F71725FA2CD100436485 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F7C604E126177DA500164D13 /* mymodel.tflite */,
 				178D5F8025FFB0A100AD05B9 /* deeplabv3_257_mv_gpu.tflite */,
 				178D5F8C2600C13F00AD05B9 /* xception_65_50k.tflite */,
 			);
@@ -355,6 +358,7 @@
 				178D5F8D2600C13F00AD05B9 /* xception_65_50k.tflite in Resources */,
 				2D91A77E25DA3203002885B8 /* LaunchScreen.storyboard in Resources */,
 				2D91A77B25DA3203002885B8 /* Assets.xcassets in Resources */,
+				F7C604E226177DA500164D13 /* mymodel.tflite in Resources */,
 				178D5F8125FFB0A100AD05B9 /* deeplabv3_257_mv_gpu.tflite in Resources */,
 				2D91A77925DA3200002885B8 /* Main.storyboard in Resources */,
 			);

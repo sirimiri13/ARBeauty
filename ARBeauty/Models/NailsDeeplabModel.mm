@@ -68,7 +68,7 @@ NSString* FilePathForResourceName(NSString* name, NSString* extension) {
 }
 
 - (BOOL)loadModel {
-    NSString *modelPath = FilePathForResourceName(@"xception_65_50k", @"tflite");
+    NSString *modelPath = FilePathForResourceName(@"mymodel", @"tflite");
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
     if ([fileManager fileExistsAtPath: [NSString stringWithFormat:@"file://%@", modelPath]] == YES) {
