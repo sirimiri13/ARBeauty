@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Gwn-e1-110">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -331,17 +331,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="alexander-popov-et_YVbywv80-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="jhe-oU-uGY">
-                                <rect key="frame" x="54" y="174" width="306" height="449"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="color-picker" translatesAutoresizingMaskIntoConstraints="NO" id="E88-4w-g0l">
+                                <rect key="frame" x="172" y="146" width="81" height="98"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E88-4w-g0l">
-                                <rect key="frame" x="87" y="663" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test" translatesAutoresizingMaskIntoConstraints="NO" id="jhe-oU-uGY">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8Xf-md-PAX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jhe-oU-uGY" firstAttribute="bottom" secondItem="8Xf-md-PAX" secondAttribute="bottom" id="B28-eC-W40"/>
+                            <constraint firstItem="jhe-oU-uGY" firstAttribute="leading" secondItem="8Xf-md-PAX" secondAttribute="leading" id="NNV-3e-dTo"/>
+                            <constraint firstItem="8Xf-md-PAX" firstAttribute="trailing" secondItem="jhe-oU-uGY" secondAttribute="trailing" id="YIM-eu-MHV"/>
+                            <constraint firstItem="jhe-oU-uGY" firstAttribute="top" secondItem="8Xf-md-PAX" secondAttribute="top" id="feW-D7-BfC"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="colorView" destination="E88-4w-g0l" id="BU6-jY-Okp"/>
@@ -350,14 +355,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tFU-XA-Z36" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1006" y="946"/>
+            <point key="canvasLocation" x="1005.7971014492755" y="945.6521739130435"/>
         </scene>
     </scenes>
     <resources>
-        <image name="alexander-popov-et_YVbywv80-unsplash" width="3000" height="2000"/>
         <image name="arbeauty_logo" width="144" height="53.333332061767578"/>
         <image name="background" width="640" height="1136"/>
         <image name="camera" width="512" height="512"/>
+        <image name="color-picker" width="18.666666030883789" height="18.666666030883789"/>
         <image name="gallery_icon" width="42.666667938232422" height="42.666667938232422"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="image-gallery" width="512" height="512"/>
@@ -365,6 +370,7 @@
         <image name="lips_icon" width="170.66667175292969" height="170.66667175292969"/>
         <image name="nail_icon" width="170.66667175292969" height="170.66667175292969"/>
         <image name="shoot_button_icon" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="test" width="564" height="1003"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
