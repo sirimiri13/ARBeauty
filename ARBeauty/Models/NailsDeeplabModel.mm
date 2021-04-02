@@ -68,7 +68,7 @@ NSString* FilePathForResourceName(NSString* name, NSString* extension) {
 }
 
 - (BOOL)loadModel {
-    NSString *modelPath = FilePathForResourceName(@"mymodel", @"tflite");
+    NSString *modelPath = FilePathForResourceName(@"xception_65_50k", @"tflite");
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
     if ([fileManager fileExistsAtPath: [NSString stringWithFormat:@"file://%@", modelPath]] == YES) {
@@ -170,7 +170,7 @@ NSString* FilePathForResourceName(NSString* name, NSString* extension) {
     
     float* output = interpreter->typed_output_tensor<float>(0);
     int class_count = 2;
-    static unsigned int colors[2] = {  0000000000, 0x804caf50 };
+    static unsigned int colors[2] = {  0000000000, 0x804caf50  };
     
     for (int index = 0; index<257*257; index++) {
         int classID = 0;
