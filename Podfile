@@ -7,14 +7,5 @@ target 'ARBeauty' do
 
   # Pods for ARBeauty
   pod 'TensorFlowLiteGpuExperimental', '0.0.1'
-  
-  target 'ARBeautyTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'ARBeautyUITests' do
-    # Pods for testing
-  end
 
 end
