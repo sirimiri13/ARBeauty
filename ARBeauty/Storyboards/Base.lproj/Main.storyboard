@@ -323,20 +323,18 @@
             </objects>
             <point key="canvasLocation" x="2000" y="946"/>
         </scene>
-        <!--Test Pick Color View Controller-->
+        <!--Pick Color View Controller-->
         <scene sceneID="sMQ-cs-dei">
             <objects>
-                <viewController id="Gwn-e1-110" customClass="TestPickColorViewController" customModule="ARBeauty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PickColorViewController" id="Gwn-e1-110" customClass="PickColorViewController" customModule="ARBeauty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dUA-wb-O1h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="color-picker" translatesAutoresizingMaskIntoConstraints="NO" id="E88-4w-g0l">
-                                <rect key="frame" x="172" y="146" width="81" height="98"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test" translatesAutoresizingMaskIntoConstraints="NO" id="jhe-oU-uGY">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8Xf-md-PAX"/>
@@ -349,7 +347,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="colorView" destination="E88-4w-g0l" id="BU6-jY-Okp"/>
                         <outlet property="imageView" destination="jhe-oU-uGY" id="jnz-GH-hWI"/>
                     </connections>
                 </viewController>
@@ -362,7 +359,6 @@
         <image name="arbeauty_logo" width="144" height="53.333332061767578"/>
         <image name="background" width="640" height="1136"/>
         <image name="camera" width="512" height="512"/>
-        <image name="color-picker" width="18.666666030883789" height="18.666666030883789"/>
         <image name="gallery_icon" width="42.666667938232422" height="42.666667938232422"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="image-gallery" width="512" height="512"/>

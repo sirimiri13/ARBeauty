@@ -8,54 +8,36 @@
 import Foundation
 import UIKit
 
+
+
 extension UIImage {
-    func drawOutlie(imageKeof: CGFloat = 1.01, color: UIColor) -> UIImage? {
-
-            let outlinedImageRect = CGRect(x: 0.0, y: 0.0,
-                                       width: size.width * imageKeof,
-                                       height: size.height * imageKeof)
-
-            let imageRect = CGRect(x: size.width * (imageKeof - 1) * 0.5,
-                               y: size.height * (imageKeof - 1) * 0.5,
-                               width: size.width,
-                               height: size.height)
-
-            UIGraphicsBeginImageContextWithOptions(outlinedImageRect.size, false, imageKeof)
-
-            draw(in: outlinedImageRect)
-
-            guard let context = UIGraphicsGetCurrentContext() else {return nil}
-            context.setBlendMode(.sourceIn)
-            context.setFillColor(color.cgColor)
-            context.fill(outlinedImageRect)
-            draw(in: imageRect)
-
-            let newImage = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-
-            return newImage
+  
+    func sRGB() -> UIImage{
+        UIGraphicsImageRenderer(size: size).image { _ in
+            draw(in: CGRect(origin: .zero, size: size))
         }
-    func sRGB() -> UIImage {
-    UIGraphicsImageRenderer(size: size).image { _ in
-        draw(in: CGRect(origin: .zero, size: size))
     }
+   
+}
+
+extension UIImageView{
+    func getPixelColor(atPosition:CGPoint) -> UIColor{
+
+        var pixel:[CUnsignedChar] = [0, 0, 0, 0];
+        let colorSpace = CGColorSpaceCreateDeviceRGB();
+        let bitmapInfo = CGBitmapInfo(rawValue:    CGImageAlphaInfo.premultipliedLast.rawValue);
+        let context = CGContext(data: &pixel, width: 1, height: 1, bitsPerComponent: 8, bytesPerRow: 4, space: colorSpace, bitmapInfo: bitmapInfo.rawValue);
+
+        context!.translateBy(x: -atPosition.x, y: -atPosition.y);
+        layer.render(in: context!);
+        let color:UIColor = UIColor(red: CGFloat(pixel[0])/255.0,
+                                    green: CGFloat(pixel[1])/255.0,
+                                    blue: CGFloat(pixel[2])/255.0,
+                                    alpha: CGFloat(pixel[3])/255.0);
+
+        return color;
+
     }
-
-
-func getPixelColor(pos: CGPoint) -> UIColor {
-    let pixelData = self.cgImage!.dataProvider!.data
-             let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
-
-             let pixelInfo: Int = ((Int(self.size.width) * Int(pos.y)) + Int(pos.x)) * 4
-
-             let r = CGFloat(data[pixelInfo]) / CGFloat(255.0)
-             let g = CGFloat(data[pixelInfo+1]) / CGFloat(255.0)
-             let b = CGFloat(data[pixelInfo+2]) / CGFloat(255.0)
-             let a = CGFloat(data[pixelInfo+3]) / CGFloat(255.0)
-
-             return UIColor(red: r, green: g, blue: b, alpha: a)
-    }
-
 }
 
 
@@ -123,5 +105,13 @@ extension UIView {
             addBorder(toEdge: .right, color: color, thickness: thickness)
         }
     }
+    
+    
+    func asImage() -> UIImage {
+           let renderer = UIGraphicsImageRenderer(bounds: bounds)
+           return renderer.image { rendererContext in
+               layer.render(in: rendererContext.cgContext)
+           }
+       }
 }
 
