@@ -1,2 +1,4 @@
 # Cocoapods
-./Pods
+Pods/
+.DS_Store
+*.lock
