@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		1724F6E725FA1F7B00436485 /* NailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1724F6E625FA1F7B00436485 /* NailsViewController.swift */; };
 		1724F74B25FA32A500436485 /* NailsDeeplabModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1724F74A25FA32A500436485 /* NailsDeeplabModel.mm */; };
-		178D5F8125FFB0A100AD05B9 /* deeplabv3_257_mv_gpu.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 178D5F8025FFB0A100AD05B9 /* deeplabv3_257_mv_gpu.tflite */; };
-		178D5F8D2600C13F00AD05B9 /* xception_65_50k.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 178D5F8C2600C13F00AD05B9 /* xception_65_50k.tflite */; };
+		173F9810261832520029FB67 /* deeplabv3_257_mv_gpu.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 173F980F261832520029FB67 /* deeplabv3_257_mv_gpu.tflite */; };
 		2D6176AE26136707006A70FA /* IconPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6176AD26136707006A70FA /* IconPicker.swift */; };
 		2D91A77225DA3200002885B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77125DA3200002885B8 /* AppDelegate.swift */; };
 		2D91A77425DA3200002885B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77325DA3200002885B8 /* SceneDelegate.swift */; };
@@ -18,8 +17,6 @@
 		2D91A77925DA3200002885B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D91A77725DA3200002885B8 /* Main.storyboard */; };
 		2D91A77B25DA3203002885B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D91A77A25DA3203002885B8 /* Assets.xcassets */; };
 		2D91A77E25DA3203002885B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D91A77C25DA3203002885B8 /* LaunchScreen.storyboard */; };
-		2D91A78925DA3203002885B8 /* ARBeautyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A78825DA3203002885B8 /* ARBeautyTests.swift */; };
-		2D91A79425DA3203002885B8 /* ARBeautyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A79325DA3203002885B8 /* ARBeautyUITests.swift */; };
 		2D9A523225E2672400A1965C /* LipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A523125E2672400A1965C /* LipsViewController.swift */; };
 		2D9A523725E2675F00A1965C /* StoryboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A523625E2675F00A1965C /* StoryboardManager.swift */; };
 		2DFFB53225DFA0E500CE20E5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB53125DFA0E500CE20E5 /* Colors.swift */; };
@@ -27,27 +24,8 @@
 		2DFFB54F25E0F38E00CE20E5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB54E25E0F38E00CE20E5 /* Extension.swift */; };
 		2DFFB55E25E0FCEC00CE20E5 /* TestPickColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB55D25E0FCEC00CE20E5 /* TestPickColorViewController.swift */; };
 		503B35BB3DDD4EC5B71F8F48 /* Pods_ARBeauty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B81CB3E7DFAD48ABB93C80D /* Pods_ARBeauty.framework */; };
-		5F6CE2625F30FE5486612A64 /* Pods_ARBeauty_ARBeautyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97F36544FE8CBA6CE2784CA /* Pods_ARBeauty_ARBeautyUITests.framework */; };
-		963477A02C92C11AE79AC4C5 /* Pods_ARBeautyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6279CEB850A0F6071117981A /* Pods_ARBeautyTests.framework */; };
 		F7C604E226177DA500164D13 /* mymodel.tflite in Resources */ = {isa = PBXBuildFile; fileRef = F7C604E126177DA500164D13 /* mymodel.tflite */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		2D91A78525DA3203002885B8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2D91A76625DA3200002885B8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2D91A76D25DA3200002885B8;
-			remoteInfo = ARBeauty;
-		};
-		2D91A79025DA3203002885B8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2D91A76625DA3200002885B8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2D91A76D25DA3200002885B8;
-			remoteInfo = ARBeauty;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		075E6AB4482F0A0C3BFA53E7 /* Pods-ARBeauty-ARBeautyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARBeauty-ARBeautyUITests.release.xcconfig"; path = "Target Support Files/Pods-ARBeauty-ARBeautyUITests/Pods-ARBeauty-ARBeautyUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -56,8 +34,7 @@
 		1724F74825FA32A400436485 /* ARBeauty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARBeauty-Bridging-Header.h"; sourceTree = "<group>"; };
 		1724F74925FA32A500436485 /* NailsDeeplabModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NailsDeeplabModel.h; sourceTree = "<group>"; };
 		1724F74A25FA32A500436485 /* NailsDeeplabModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NailsDeeplabModel.mm; sourceTree = "<group>"; };
-		178D5F8025FFB0A100AD05B9 /* deeplabv3_257_mv_gpu.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = deeplabv3_257_mv_gpu.tflite; sourceTree = "<group>"; };
-		178D5F8C2600C13F00AD05B9 /* xception_65_50k.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = xception_65_50k.tflite; sourceTree = "<group>"; };
+		173F980F261832520029FB67 /* deeplabv3_257_mv_gpu.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = deeplabv3_257_mv_gpu.tflite; sourceTree = "<group>"; };
 		2D6176AD26136707006A70FA /* IconPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPicker.swift; sourceTree = "<group>"; };
 		2D91A76E25DA3200002885B8 /* ARBeauty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARBeauty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D91A77125DA3200002885B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,12 +44,6 @@
 		2D91A77A25DA3203002885B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D91A77D25DA3203002885B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D91A77F25DA3203002885B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2D91A78425DA3203002885B8 /* ARBeautyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARBeautyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D91A78825DA3203002885B8 /* ARBeautyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARBeautyTests.swift; sourceTree = "<group>"; };
-		2D91A78A25DA3203002885B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2D91A78F25DA3203002885B8 /* ARBeautyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARBeautyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D91A79325DA3203002885B8 /* ARBeautyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARBeautyUITests.swift; sourceTree = "<group>"; };
-		2D91A79525DA3203002885B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D9A523125E2672400A1965C /* LipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LipsViewController.swift; sourceTree = "<group>"; };
 		2D9A523625E2675F00A1965C /* StoryboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardManager.swift; sourceTree = "<group>"; };
 		2DFFB53125DFA0E500CE20E5 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -98,22 +69,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2D91A78125DA3203002885B8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				963477A02C92C11AE79AC4C5 /* Pods_ARBeautyTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2D91A78C25DA3203002885B8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5F6CE2625F30FE5486612A64 /* Pods_ARBeauty_ARBeautyUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -130,9 +85,8 @@
 		1724F71725FA2CD100436485 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				173F980F261832520029FB67 /* deeplabv3_257_mv_gpu.tflite */,
 				F7C604E126177DA500164D13 /* mymodel.tflite */,
-				178D5F8025FFB0A100AD05B9 /* deeplabv3_257_mv_gpu.tflite */,
-				178D5F8C2600C13F00AD05B9 /* xception_65_50k.tflite */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -141,8 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				2D91A77025DA3200002885B8 /* ARBeauty */,
-				2D91A78725DA3203002885B8 /* ARBeautyTests */,
-				2D91A79225DA3203002885B8 /* ARBeautyUITests */,
 				2D91A76F25DA3200002885B8 /* Products */,
 				7AC7FD2511AC6DF6863F81DE /* Pods */,
 				CA82062E26C4C82EE4597A23 /* Frameworks */,
@@ -153,8 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				2D91A76E25DA3200002885B8 /* ARBeauty.app */,
-				2D91A78425DA3203002885B8 /* ARBeautyTests.xctest */,
-				2D91A78F25DA3203002885B8 /* ARBeautyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,24 +123,6 @@
 				2D91A77F25DA3203002885B8 /* Info.plist */,
 			);
 			path = ARBeauty;
-			sourceTree = "<group>";
-		};
-		2D91A78725DA3203002885B8 /* ARBeautyTests */ = {
-			isa = PBXGroup;
-			children = (
-				2D91A78825DA3203002885B8 /* ARBeautyTests.swift */,
-				2D91A78A25DA3203002885B8 /* Info.plist */,
-			);
-			path = ARBeautyTests;
-			sourceTree = "<group>";
-		};
-		2D91A79225DA3203002885B8 /* ARBeautyUITests */ = {
-			isa = PBXGroup;
-			children = (
-				2D91A79325DA3203002885B8 /* ARBeautyUITests.swift */,
-				2D91A79525DA3203002885B8 /* Info.plist */,
-			);
-			path = ARBeautyUITests;
 			sourceTree = "<group>";
 		};
 		2DFFB53025DFA0BE00CE20E5 /* Utilities */ = {
@@ -269,44 +201,6 @@
 			productReference = 2D91A76E25DA3200002885B8 /* ARBeauty.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D91A78325DA3203002885B8 /* ARBeautyTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2D91A79B25DA3203002885B8 /* Build configuration list for PBXNativeTarget "ARBeautyTests" */;
-			buildPhases = (
-				5E63124CB5C030207EEEF8DB /* [CP] Check Pods Manifest.lock */,
-				2D91A78025DA3203002885B8 /* Sources */,
-				2D91A78125DA3203002885B8 /* Frameworks */,
-				2D91A78225DA3203002885B8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2D91A78625DA3203002885B8 /* PBXTargetDependency */,
-			);
-			name = ARBeautyTests;
-			productName = ARBeautyTests;
-			productReference = 2D91A78425DA3203002885B8 /* ARBeautyTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		2D91A78E25DA3203002885B8 /* ARBeautyUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2D91A79E25DA3203002885B8 /* Build configuration list for PBXNativeTarget "ARBeautyUITests" */;
-			buildPhases = (
-				E4B205855BCC3CE8AA6B54CB /* [CP] Check Pods Manifest.lock */,
-				2D91A78B25DA3203002885B8 /* Sources */,
-				2D91A78C25DA3203002885B8 /* Frameworks */,
-				2D91A78D25DA3203002885B8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2D91A79125DA3203002885B8 /* PBXTargetDependency */,
-			);
-			name = ARBeautyUITests;
-			productName = ARBeautyUITests;
-			productReference = 2D91A78F25DA3203002885B8 /* ARBeautyUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -319,14 +213,6 @@
 					2D91A76D25DA3200002885B8 = {
 						CreatedOnToolsVersion = 12.4;
 						LastSwiftMigration = 1240;
-					};
-					2D91A78325DA3203002885B8 = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = 2D91A76D25DA3200002885B8;
-					};
-					2D91A78E25DA3203002885B8 = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = 2D91A76D25DA3200002885B8;
 					};
 				};
 			};
@@ -344,8 +230,6 @@
 			projectRoot = "";
 			targets = (
 				2D91A76D25DA3200002885B8 /* ARBeauty */,
-				2D91A78325DA3203002885B8 /* ARBeautyTests */,
-				2D91A78E25DA3203002885B8 /* ARBeautyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -355,26 +239,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				178D5F8D2600C13F00AD05B9 /* xception_65_50k.tflite in Resources */,
 				2D91A77E25DA3203002885B8 /* LaunchScreen.storyboard in Resources */,
 				2D91A77B25DA3203002885B8 /* Assets.xcassets in Resources */,
 				F7C604E226177DA500164D13 /* mymodel.tflite in Resources */,
-				178D5F8125FFB0A100AD05B9 /* deeplabv3_257_mv_gpu.tflite in Resources */,
+				173F9810261832520029FB67 /* deeplabv3_257_mv_gpu.tflite in Resources */,
 				2D91A77925DA3200002885B8 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2D91A78225DA3203002885B8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2D91A78D25DA3203002885B8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,50 +272,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5E63124CB5C030207EEEF8DB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ARBeautyTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E4B205855BCC3CE8AA6B54CB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ARBeauty-ARBeautyUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -469,36 +294,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2D91A78025DA3203002885B8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2D91A78925DA3203002885B8 /* ARBeautyTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2D91A78B25DA3203002885B8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2D91A79425DA3203002885B8 /* ARBeautyUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		2D91A78625DA3203002885B8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2D91A76D25DA3200002885B8 /* ARBeauty */;
-			targetProxy = 2D91A78525DA3203002885B8 /* PBXContainerItemProxy */;
-		};
-		2D91A79125DA3203002885B8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2D91A76D25DA3200002885B8 /* ARBeauty */;
-			targetProxy = 2D91A79025DA3203002885B8 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2D91A77725DA3200002885B8 /* Main.storyboard */ = {
@@ -644,13 +440,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q2A2DTV2D2;
+				DEVELOPMENT_TEAM = 523SRU7Q76;
 				INFOPLIST_FILE = ARBeauty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = huonglam.ARBeauty;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vuhoangtrinh.ARBeauty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ARBeauty/Models/ARBeauty-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -667,105 +463,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q2A2DTV2D2;
+				DEVELOPMENT_TEAM = 523SRU7Q76;
 				INFOPLIST_FILE = ARBeauty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = huonglam.ARBeauty;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vuhoangtrinh.ARBeauty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ARBeauty/Models/ARBeauty-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		2D91A79C25DA3203002885B8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 68B0BB812BFEAA1657D58CF9 /* Pods-ARBeautyTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q2A2DTV2D2;
-				INFOPLIST_FILE = ARBeautyTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = huonglam.ARBeautyTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARBeauty.app/ARBeauty";
-			};
-			name = Debug;
-		};
-		2D91A79D25DA3203002885B8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80BA7B53967DCA4E07F38054 /* Pods-ARBeautyTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q2A2DTV2D2;
-				INFOPLIST_FILE = ARBeautyTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = huonglam.ARBeautyTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARBeauty.app/ARBeauty";
-			};
-			name = Release;
-		};
-		2D91A79F25DA3203002885B8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A5BC60AEF4759158664290B /* Pods-ARBeauty-ARBeautyUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q2A2DTV2D2;
-				INFOPLIST_FILE = ARBeautyUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = huonglam.ARBeautyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ARBeauty;
-			};
-			name = Debug;
-		};
-		2D91A7A025DA3203002885B8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 075E6AB4482F0A0C3BFA53E7 /* Pods-ARBeauty-ARBeautyUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q2A2DTV2D2;
-				INFOPLIST_FILE = ARBeautyUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = huonglam.ARBeautyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ARBeauty;
 			};
 			name = Release;
 		};
@@ -786,24 +494,6 @@
 			buildConfigurations = (
 				2D91A79925DA3203002885B8 /* Debug */,
 				2D91A79A25DA3203002885B8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2D91A79B25DA3203002885B8 /* Build configuration list for PBXNativeTarget "ARBeautyTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2D91A79C25DA3203002885B8 /* Debug */,
-				2D91A79D25DA3203002885B8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2D91A79E25DA3203002885B8 /* Build configuration list for PBXNativeTarget "ARBeautyUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2D91A79F25DA3203002885B8 /* Debug */,
-				2D91A7A025DA3203002885B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
