@@ -169,41 +169,9 @@
                                     <constraint firstItem="zyk-h6-ObF" firstAttribute="top" secondItem="CKm-UR-V55" secondAttribute="top" constant="10" id="u29-VC-Nc2"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="neB-2Y-sec" userLabel="Fake NavBar Box">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="neB-2Y-sec" userLabel="Fake NavBar Box" customClass="NavigationBarFakeView">
                                 <rect key="frame" x="0.0" y="-100" width="414" height="156"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAILS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zE-55-Bu1">
-                                        <rect key="frame" x="167" y="115.66666666666669" width="80" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="Kid-mg-58V"/>
-                                            <constraint firstAttribute="height" constant="25" id="uMb-QB-5dN"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="18"/>
-                                        <color key="textColor" red="0.34722930190000001" green="0.38557094339999998" blue="0.49805384870000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLb-11-xGZ">
-                                        <rect key="frame" x="20" y="113" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="CzY-TC-iwb"/>
-                                            <constraint firstAttribute="width" constant="30" id="o1n-sQ-2gk"/>
-                                        </constraints>
-                                        <color key="tintColor" red="0.34722930190000001" green="0.38557094339999998" blue="0.49805384870000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" image="house.fill" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="homeButtonTapped:" destination="Of0-jy-81A" eventType="touchUpInside" id="ySO-Ks-sQy"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" red="0.97236901519999996" green="0.92886036630000002" blue="0.95686596629999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstItem="6zE-55-Bu1" firstAttribute="centerX" secondItem="neB-2Y-sec" secondAttribute="centerX" id="Dnv-24-dCR"/>
-                                    <constraint firstItem="6zE-55-Bu1" firstAttribute="centerY" secondItem="neB-2Y-sec" secondAttribute="centerY" constant="50" id="JuO-NK-ZNh"/>
-                                    <constraint firstItem="ZLb-11-xGZ" firstAttribute="leading" secondItem="neB-2Y-sec" secondAttribute="leading" constant="20" id="WE0-Q5-SXs"/>
-                                    <constraint firstItem="ZLb-11-xGZ" firstAttribute="centerY" secondItem="6zE-55-Bu1" secondAttribute="centerY" id="jde-10-SB9"/>
-                                </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Wl-eU-auL">
                                 <rect key="frame" x="0.0" y="586" width="414" height="70"/>
@@ -268,6 +236,7 @@
                     </view>
                     <connections>
                         <outlet property="cameraView" destination="l8B-Nh-okI" id="gU5-bP-Scd"/>
+                        <outlet property="navigationBar" destination="neB-2Y-sec" id="DGs-k9-3ZK"/>
                         <outlet property="optionCollectionView" destination="7Wl-eU-auL" id="F8S-00-xJi"/>
                     </connections>
                 </viewController>
@@ -431,7 +400,6 @@
         <image name="background" width="640" height="1136"/>
         <image name="camera" width="512" height="512"/>
         <image name="gallery_icon" width="42.666667938232422" height="42.666667938232422"/>
-        <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="image-gallery" width="512" height="512"/>
         <image name="lips" width="512" height="512"/>
         <image name="lips_icon" width="170.66667175292969" height="170.66667175292969"/>

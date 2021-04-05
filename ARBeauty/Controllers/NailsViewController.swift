@@ -31,6 +31,7 @@ enum PixelError: Error {
 
 class NailsViewController: UIViewController{
     
+    @IBOutlet weak var navigationBar: NavigationBarFakeView!
     @IBOutlet var cameraView: UIView!
     @IBOutlet weak var pickerColorButton: UIButton!
     @IBOutlet weak var optionCollectionView: UICollectionView!
@@ -73,11 +74,19 @@ class NailsViewController: UIViewController{
             print(error)
         }
         
+        setNavigationBar()
         setCollectionView()
         
         
     }
-    
+    func setNavigationBar(){
+        navigationBar.titleLabel.text = "NAILS"
+        navigationBar.leftButton.setImage(UIImage(systemName: "house.fill"), for: .normal)
+        navigationBar.leftButton.addTarget(self, action: #selector(homeTapped), for: .touchUpInside)
+    }
+    @objc func homeTapped(){
+        self.dismiss(animated: true, completion: nil)
+    }
     // Setup AVCapture session and AVCaptureDevice.
     func setupAVCapture(position: AVCaptureDevice.Position) throws {
         
@@ -251,12 +260,6 @@ class NailsViewController: UIViewController{
               alert.view.tintColor = UIColor.green
           })
       }
-    
-    // MARK: - Button actions
-    @IBAction func homeButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
 }
 
 extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
