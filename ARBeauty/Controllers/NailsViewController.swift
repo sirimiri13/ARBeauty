@@ -49,11 +49,17 @@ class NailsViewController: UIViewController{
     
     
     let colorDefault : [UIColor] = [UIColor.rougePink(),UIColor.red,UIColor.green,UIColor.yellow,UIColor.orange,UIColor.purple,UIColor.gray]
-    let colorPicked = UserDefaults.standard.getColorPicked()
+    var colorPicked = UserDefaults.standard.getColorPicked()
+    var totalColor: [String] = []
+    var colorDefaultString: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(colorPicked)
+        for color in colorDefault{
+            colorDefaultString.append(color.toRGBAString())
+        }
+        totalColor = colorPicked + colorDefaultString
+        
         model = NailsDeeplabModel()
         let result = model.load()
         if (result == false) {
@@ -263,7 +269,7 @@ extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 
 extension NailsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return colorDefault.count + colorPicked.count
+        return  totalColor.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -283,17 +289,8 @@ extension NailsViewController: UICollectionViewDataSource, UICollectionViewDeleg
 
         }
         else{
-            if (colorPicked.count == 0){
-                cell.optionView.backgroundColor = colorDefault[indexPath.row - 1]
-            }
-            else {
-                if indexPath.row <= colorPicked.count {
-                    cell.optionView.backgroundColor = UIColor(hexString: colorPicked[indexPath.row - 1])
-                }
-                else{
-                    cell.optionView.backgroundColor = colorDefault[indexPath.row - colorPicked.count]
-                }
-            }
+          
+            cell.optionView.backgroundColor = UIColor(hexString: totalColor[indexPath.row - 1])
         }
         
        
@@ -329,11 +326,10 @@ extension NailsViewController: UINavigationControllerDelegate, UIImagePickerCont
 
 extension NailsViewController: PickColorProtocol{
     func finishPickColor() {
-        print(UserDefaults.standard.getColorPicked())
-        DispatchQueue.main.async { [self] in
-            optionCollectionView.reloadData()
-        }
-       
+      // print(UserDefaults.standard.getColorPicked())
+        colorPicked = UserDefaults.standard.getColorPicked()
+        totalColor = colorPicked + colorDefaultString
+        optionCollectionView.reloadData()
     }
     
     
