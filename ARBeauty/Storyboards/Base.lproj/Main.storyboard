@@ -170,8 +170,11 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="neB-2Y-sec" userLabel="Fake NavBar Box" customClass="NavigationBarFakeView" customModule="ARBeauty">
-                                <rect key="frame" x="0.0" y="-100" width="414" height="156"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <color key="backgroundColor" red="0.97236901519999996" green="0.92886036630000002" blue="0.95686596629999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="0Qh-8t-adb"/>
+                                </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Wl-eU-auL">
                                 <rect key="frame" x="0.0" y="586" width="414" height="70"/>
@@ -221,15 +224,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="7Wl-eU-auL" firstAttribute="leading" secondItem="yzg-Le-YNZ" secondAttribute="leading" id="6Da-s5-D4w"/>
-                            <constraint firstItem="yzg-Le-YNZ" firstAttribute="trailing" secondItem="neB-2Y-sec" secondAttribute="trailing" id="DBu-yx-b6e"/>
-                            <constraint firstItem="yzg-Le-YNZ" firstAttribute="top" secondItem="neB-2Y-sec" secondAttribute="bottom" constant="-56" id="Rjw-c9-gLf"/>
+                            <constraint firstItem="neB-2Y-sec" firstAttribute="trailing" secondItem="yzg-Le-YNZ" secondAttribute="trailing" id="AAx-M5-rE4"/>
+                            <constraint firstItem="neB-2Y-sec" firstAttribute="leading" secondItem="yzg-Le-YNZ" secondAttribute="leading" id="HkV-d0-DLC"/>
                             <constraint firstItem="yzg-Le-YNZ" firstAttribute="bottom" secondItem="CKm-UR-V55" secondAttribute="bottom" constant="-100" id="aO2-hF-1dM"/>
-                            <constraint firstItem="neB-2Y-sec" firstAttribute="leading" secondItem="yzg-Le-YNZ" secondAttribute="leading" id="ajx-SG-pPA"/>
+                            <constraint firstItem="neB-2Y-sec" firstAttribute="top" secondItem="B1c-Jd-1e1" secondAttribute="top" id="ay6-Zh-VIN"/>
                             <constraint firstItem="CKm-UR-V55" firstAttribute="top" secondItem="yzg-Le-YNZ" secondAttribute="bottom" constant="-80" id="dcN-Om-1Tz"/>
                             <constraint firstItem="CKm-UR-V55" firstAttribute="leading" secondItem="yzg-Le-YNZ" secondAttribute="leading" id="h45-Jb-Kox"/>
                             <constraint firstItem="7Wl-eU-auL" firstAttribute="trailing" secondItem="yzg-Le-YNZ" secondAttribute="trailing" id="jlj-hU-Ckz"/>
                             <constraint firstItem="CKm-UR-V55" firstAttribute="top" secondItem="7Wl-eU-auL" secondAttribute="bottom" id="kEz-Kv-drg"/>
-                            <constraint firstItem="yzg-Le-YNZ" firstAttribute="top" secondItem="neB-2Y-sec" secondAttribute="top" constant="100" id="mNa-sD-iOo"/>
                             <constraint firstItem="7Wl-eU-auL" firstAttribute="trailing" secondItem="yzg-Le-YNZ" secondAttribute="trailing" id="wtn-Rw-w6E"/>
                             <constraint firstItem="yzg-Le-YNZ" firstAttribute="trailing" secondItem="CKm-UR-V55" secondAttribute="trailing" id="yau-mv-0Ky"/>
                         </constraints>

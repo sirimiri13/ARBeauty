@@ -32,7 +32,8 @@ class NavigationBarFakeView: UIView {
                 self.addSubview(view)
                 contentView = view
         titleLabel.font = UIFont(name: "Noteworthy-Bold", size: 18)
-        
+        titleLabel.textColor = .darkGray
+        leftButton.tintColor = .darkGray
        
     }
     func loadViewFromNib() -> UIView? {
