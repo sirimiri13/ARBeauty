@@ -169,7 +169,7 @@
                                     <constraint firstItem="zyk-h6-ObF" firstAttribute="top" secondItem="CKm-UR-V55" secondAttribute="top" constant="10" id="u29-VC-Nc2"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="neB-2Y-sec" userLabel="Fake NavBar Box" customClass="NavigationBarFakeView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="neB-2Y-sec" userLabel="Fake NavBar Box" customClass="NavigationBarFakeView" customModule="ARBeauty">
                                 <rect key="frame" x="0.0" y="-100" width="414" height="156"/>
                                 <color key="backgroundColor" red="0.97236901519999996" green="0.92886036630000002" blue="0.95686596629999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
