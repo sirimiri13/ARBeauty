@@ -9,6 +9,19 @@ import Foundation
 import UIKit
 
 
+extension UserDefaults{
+    func setColorPicked(value: [String]) {
+        set(value, forKey: "ColorPicked")
+    }
+    
+    func deleteColorPicked() {
+        removeObject(forKey: "ColorPicked")
+    }
+    func getColorPicked() -> [String]{
+        return self.stringArray(forKey: "ColorPicked") ?? []
+    }
+}
+
 
 extension UIImage {
   
@@ -51,6 +64,16 @@ extension UIButton{
 
         gradient.frame = CGRect(x: 0.0, y: 0.0, width: self.frame.size.width, height: self.frame.size.height)
         self.layer.insertSublayer(gradient, at: 0)
+    }
+    func addBlurEffect()
+    {
+        let blur = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        blur.frame = self.bounds
+        blur.isUserInteractionEnabled = false
+        self.insertSubview(blur, at: 0)
+        if let imageView = self.imageView{
+            self.bringSubviewToFront(imageView)
+        }
     }
 }
 

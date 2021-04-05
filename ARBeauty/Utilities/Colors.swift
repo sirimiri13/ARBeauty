@@ -27,6 +27,19 @@ extension UIColor {
             }
             self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
         }
+    
+    
+    func toRGBAString(uppercased: Bool = true) -> String {
+            var r: CGFloat = 0
+            var g: CGFloat = 0
+            var b: CGFloat = 0
+            var a: CGFloat = 0
+            self.getRed(&r, green: &g, blue: &b, alpha: &a)
+            let rgba = [r, g, b, a].map { $0 * 255 }.reduce("", { $0 + String(format: "%02x", Int($1)) })
+            return uppercased ? rgba.uppercased() : rgba
+        }
+    
+    
     static func rougePink() -> UIColor{
         return UIColor(hexString: "#ffb4b4")
     }

@@ -46,9 +46,14 @@ class NailsViewController: UIViewController{
     static let rgbaComponentsCount = 4
     static let rgbComponentsCount = 3
     
+    
+    
+    let colorDefault : [UIColor] = [UIColor.rougePink(),UIColor.red,UIColor.green,UIColor.yellow,UIColor.orange,UIColor.purple,UIColor.gray]
+    let colorPicked = UserDefaults.standard.getColorPicked()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(colorPicked)
         model = NailsDeeplabModel()
         let result = model.load()
         if (result == false) {
@@ -63,6 +68,7 @@ class NailsViewController: UIViewController{
         }
         
         setCollectionView()
+        
         
     }
     
@@ -257,13 +263,12 @@ extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 
 extension NailsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return colorDefault.count + colorPicked.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OptionCollectionViewCell", for: indexPath) as! OptionCollectionViewCell
-        switch indexPath.row {
-        case 0:
+        if (indexPath.row == 0){
             let imageView = UIImageView()
             imageView.image = UIImage(systemName: "plus.circle")?.withTintColor(UIColor.black)
             imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -276,21 +281,22 @@ extension NailsViewController: UICollectionViewDataSource, UICollectionViewDeleg
             ])
             cell.optionView.backgroundColor = UIColor.clear
 
-        case 1:
-            cell.optionView.backgroundColor = UIColor.yellow
-        case 2:
-            cell.optionView.backgroundColor = UIColor.purple
-        case 3:
-            cell.optionView.backgroundColor = UIColor.systemPink
-        case 4:
-            cell.optionView.backgroundColor = UIColor.blue
-        case 5:
-            cell.optionView.backgroundColor = UIColor.red
-        case 6:
-            cell.optionView.backgroundColor = UIColor.orange
-        default:
-            break
         }
+        else{
+            if (colorPicked.count == 0){
+                cell.optionView.backgroundColor = colorDefault[indexPath.row - 1]
+            }
+            else {
+                if indexPath.row <= colorPicked.count {
+                    cell.optionView.backgroundColor = UIColor(hexString: colorPicked[indexPath.row - 1])
+                }
+                else{
+                    cell.optionView.backgroundColor = colorDefault[indexPath.row - colorPicked.count]
+                }
+            }
+        }
+        
+       
         return cell
     }
     
@@ -311,10 +317,24 @@ extension NailsViewController: UINavigationControllerDelegate, UIImagePickerCont
         let pickColorVC = UIStoryboard.pickColorViewController()
         pickColorVC?.modalPresentationStyle = .fullScreen
         pickColorVC?.imagePicked = tempImage
+        pickColorVC?.delegate = self
         present(pickColorVC!, animated: true, completion: nil)
     }
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+}
+
+
+extension NailsViewController: PickColorProtocol{
+    func finishPickColor() {
+        print(UserDefaults.standard.getColorPicked())
+        DispatchQueue.main.async { [self] in
+            optionCollectionView.reloadData()
+        }
+       
+    }
+    
+    
 }

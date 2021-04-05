@@ -9,7 +9,9 @@ import UIKit
 
 class PickerView: UIView {
     var contentView : UIView?
-        
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var bottomView: UIView!
+    
         override init(frame: CGRect) {
             super.init(frame: frame)
             initializeView()
@@ -31,12 +33,22 @@ class PickerView: UIView {
                 view.frame = self.bounds
                 self.addSubview(view)
                 contentView = view
-        contentView!.layer.cornerRadius = self.frame.height * 0.5
-        contentView!.layer.borderColor = UIColor.white.cgColor
-        contentView!.layer.borderWidth = 1
-      
-       
+        contentView?.backgroundColor = UIColor.clear
+        topView.layer.cornerRadius = topView.frame.height * 0.5
+        topView.layer.borderColor = UIColor.white.cgColor
+        topView.layer.borderWidth = 1
+        
+        bottomView.layer.cornerRadius = bottomView.frame.height * 0.5
+        bottomView.layer.borderColor = UIColor.white.cgColor
+        bottomView.layer.borderWidth = 1
     }
+    
+    func setColor(color: UIColor){
+        topView.backgroundColor = color
+        bottomView.backgroundColor = color
+    }
+    
+    
     func loadViewFromNib() -> UIView? {
            let nib = Bundle.main.loadNibNamed("PickerView", owner: self, options: nil)?.first as? UIView
            return nib
