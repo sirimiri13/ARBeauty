@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "color-picker.png",
+      "filename" : "pickerColor.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "color-picker@2x.png",
+      "filename" : "pickerColor@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "color-picker@3x.png",
+      "filename" : "pickerColor@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

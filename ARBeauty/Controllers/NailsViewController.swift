@@ -12,13 +12,28 @@ import AVFoundation
 import CoreVideo
 import CoreGraphics
 
+
+class OptionCollectionViewCell: UICollectionViewCell{
+    @IBOutlet weak var optionView: UIView!
+    override func awakeFromNib() {
+           super.awakeFromNib()
+        optionView.layer.cornerRadius = optionView.frame.height * 0.5
+           
+       }
+
+    
+}
+
+
 enum PixelError: Error {
     case canNotSetupAVSession
 }
 
-class NailsViewController: UIViewController {
+class NailsViewController: UIViewController{
     
     @IBOutlet var cameraView: UIView!
+    @IBOutlet weak var pickerColorButton: UIButton!
+    @IBOutlet weak var optionCollectionView: UICollectionView!
     
     var model: NailsDeeplabModel!
     var session: AVCaptureSession!
@@ -46,6 +61,9 @@ class NailsViewController: UIViewController {
         catch {
             print(error)
         }
+        
+        setCollectionView()
+        
     }
     
     // Setup AVCapture session and AVCaptureDevice.
@@ -171,6 +189,57 @@ class NailsViewController: UIViewController {
         maskView.layer.contents = context.makeImage()
     }
     
+    
+    
+    func setCollectionView(){
+       // let padding : CGFloat = 5
+        let spacing: CGFloat = 10
+        optionCollectionView.showsHorizontalScrollIndicator = false
+    
+            let layout = UICollectionViewFlowLayout()
+           // let frameWidth = optionCollectionView.frame.size.width
+            let itemWidth : CGFloat = 60
+            let itemHeight : CGFloat = 60
+            optionCollectionView.backgroundColor = .clear
+            layout.scrollDirection = .horizontal
+            layout.sectionInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+            layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+            layout.minimumLineSpacing = spacing
+        optionCollectionView.collectionViewLayout = layout
+        }
+
+    
+    func addColorTapped(){
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        let alertSheet = UIAlertController(title: "Choose color from image", message: "", preferredStyle: .actionSheet)
+        let takePhotoAction = UIAlertAction(title: "Take a photo", style: .default) { (action:UIAlertAction) in
+
+            imagePickerController.sourceType = .camera;
+            self.present(imagePickerController, animated: true, completion: nil)
+            
+        }
+        let choosePhotoFromLibraryAction = UIAlertAction(title: "From Library", style: .default) { (UIAlertAction) in
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true, completion: nil)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertSheet.addAction(takePhotoAction)
+        alertSheet.addAction(choosePhotoFromLibraryAction)
+        alertSheet.addAction(cancelAction)
+        self.present(alertSheet, animated: true)
+    }
+    
+    func showAlert(withTitle title: String, andMessage message: String) {
+          let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+          let defaultAction = UIAlertAction(title: "OK", style: .default, handler: {(_ action: UIAlertAction) -> Void in
+          })
+          alert.addAction(defaultAction)
+          present(alert, animated: true, completion: {() -> Void in
+              alert.view.tintColor = UIColor.green
+          })
+      }
+    
     // MARK: - Button actions
     @IBAction func homeButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -183,5 +252,69 @@ extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         if let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) {
             processFrame(pixelBuffer: pixelBuffer)
         }
+    }
+}
+
+extension NailsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 7
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OptionCollectionViewCell", for: indexPath) as! OptionCollectionViewCell
+        switch indexPath.row {
+        case 0:
+            let imageView = UIImageView()
+            imageView.image = UIImage(systemName: "plus.circle")?.withTintColor(UIColor.black)
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            cell.optionView.addSubview(imageView)
+            NSLayoutConstraint.activate([
+                imageView.topAnchor.constraint(equalTo: cell.optionView.topAnchor),
+                imageView.bottomAnchor.constraint(equalTo: cell.optionView.bottomAnchor),
+                imageView.rightAnchor.constraint(equalTo: cell.optionView.rightAnchor),
+                imageView.leftAnchor.constraint(equalTo: cell.optionView.leftAnchor),
+            ])
+            cell.optionView.backgroundColor = UIColor.clear
+
+        case 1:
+            cell.optionView.backgroundColor = UIColor.yellow
+        case 2:
+            cell.optionView.backgroundColor = UIColor.purple
+        case 3:
+            cell.optionView.backgroundColor = UIColor.systemPink
+        case 4:
+            cell.optionView.backgroundColor = UIColor.blue
+        case 5:
+            cell.optionView.backgroundColor = UIColor.red
+        case 6:
+            cell.optionView.backgroundColor = UIColor.orange
+        default:
+            break
+        }
+        return cell
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if (indexPath.row == 0){
+            self.addColorTapped()
+        }
+    }
+}
+
+
+
+extension NailsViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate  {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let tempImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        self.dismiss(animated: true)
+        let pickColorVC = UIStoryboard.pickColorViewController()
+        pickColorVC?.modalPresentationStyle = .fullScreen
+        pickColorVC?.imagePicked = tempImage
+        present(pickColorVC!, animated: true, completion: nil)
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 }

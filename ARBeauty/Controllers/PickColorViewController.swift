@@ -7,9 +7,10 @@
 
 import UIKit
 
-class PickColorViewController: UIViewController {
+class PickColorViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    var isTakePhoto = false
+    var imagePicked = UIImage()
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var colorView: UIImageView!
     
     let pickerView = PickerView(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
     let deltaY = CGFloat()
@@ -22,11 +23,11 @@ class PickColorViewController: UIViewController {
         super.viewDidLoad()
         let color: UIColor = imageView.getPixelColor(atPosition:CGPoint(x: imageView.center.x, y: imageView.center.y))
         pickerView.contentView?.backgroundColor = color
+        imageView.image = imagePicked
         pickerView.center = view.center
         view.addSubview(pickerView)
 
     }
-
 
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -54,4 +55,8 @@ class PickColorViewController: UIViewController {
         }
     
    
+    
+  
+   
 }
+

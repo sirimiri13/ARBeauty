@@ -37,8 +37,9 @@ class HomeViewController: UIViewController {
         let lipsVC = UIStoryboard.lipsViewController()
         lipsVC?.modalPresentationStyle = .fullScreen
         self.present(lipsVC!, animated: true, completion: nil)
-        
     }
     
+    
+   
 }
 
