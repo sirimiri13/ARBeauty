@@ -13,17 +13,6 @@ import CoreVideo
 import CoreGraphics
 
 
-class OptionCollectionViewCell: UICollectionViewCell{
-    @IBOutlet weak var optionView: UIView!
-    override func awakeFromNib() {
-           super.awakeFromNib()
-        optionView.layer.cornerRadius = optionView.frame.height * 0.5
-           
-       }
-
-    
-}
-
 
 enum PixelError: Error {
     case canNotSetupAVSession
@@ -51,15 +40,11 @@ class NailsViewController: UIViewController{
     
     let colorDefault : [UIColor] = [UIColor.rougePink(),UIColor.red,UIColor.green,UIColor.yellow,UIColor.orange,UIColor.purple,UIColor.gray]
     var colorPicked = UserDefaults.standard.getColorPicked()
-    var totalColor: [String] = []
     var colorDefaultString: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for color in colorDefault{
-            colorDefaultString.append(color.toRGBAString())
-        }
-        totalColor = colorPicked + colorDefaultString
+        self.optionCollectionView.register(UINib.init(nibName: "OptionsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "OptionsCollectionViewCell")
         
         model = NailsDeeplabModel()
         let result = model.load()
@@ -75,6 +60,7 @@ class NailsViewController: UIViewController{
         }
         
         setNavigationBar()
+       
         setCollectionView()
         
         
@@ -272,11 +258,11 @@ extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 
 extension NailsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  totalColor.count
+        return  colorPicked.count + colorDefault.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OptionCollectionViewCell", for: indexPath) as! OptionCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OptionsCollectionViewCell", for: indexPath) as! OptionsCollectionViewCell
         if (indexPath.row == 0){
             let imageView = UIImageView()
             imageView.image = UIImage(systemName: "plus.circle")?.withTintColor(UIColor.black)
@@ -291,9 +277,18 @@ extension NailsViewController: UICollectionViewDataSource, UICollectionViewDeleg
             cell.optionView.backgroundColor = UIColor.clear
 
         }
-        else{
-          
-            cell.optionView.backgroundColor = UIColor(hexString: totalColor[indexPath.row - 1])
+        else {
+            if (colorPicked.count == 0){
+                cell.optionView.backgroundColor = colorDefault[indexPath.row]
+            }
+            else{
+                if (indexPath.row <= colorPicked.count){
+                    cell.optionView.backgroundColor = UIColor(hexString: colorPicked[indexPath.row - 1])
+                }
+                else {
+                    cell.optionView.backgroundColor = colorDefault[indexPath.row - colorPicked.count - 1]
+                }
+            }
         }
         
        
@@ -304,6 +299,9 @@ extension NailsViewController: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (indexPath.row == 0){
             self.addColorTapped()
+        }
+        else {
+            
         }
     }
 }
@@ -331,7 +329,6 @@ extension NailsViewController: PickColorProtocol{
     func finishPickColor() {
       // print(UserDefaults.standard.getColorPicked())
         colorPicked = UserDefaults.standard.getColorPicked()
-        totalColor = colorPicked + colorDefaultString
         optionCollectionView.reloadData()
     }
     

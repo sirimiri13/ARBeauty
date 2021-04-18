@@ -22,6 +22,8 @@
 		2D9323F6261B02DB00DDD4E6 /* NavigationBarFakeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D9323F4261B02DB00DDD4E6 /* NavigationBarFakeView.xib */; };
 		2D9A523225E2672400A1965C /* LipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A523125E2672400A1965C /* LipsViewController.swift */; };
 		2D9A523725E2675F00A1965C /* StoryboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A523625E2675F00A1965C /* StoryboardManager.swift */; };
+		2DB2A71D262C11C900EF61DD /* OptionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB2A71B262C11C900EF61DD /* OptionsCollectionViewCell.swift */; };
+		2DB2A71E262C11C900EF61DD /* OptionsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DB2A71C262C11C900EF61DD /* OptionsCollectionViewCell.xib */; };
 		2DFFB53225DFA0E500CE20E5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB53125DFA0E500CE20E5 /* Colors.swift */; };
 		2DFFB53E25DFADEE00CE20E5 /* ARButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB53D25DFADEE00CE20E5 /* ARButton.swift */; };
 		2DFFB54F25E0F38E00CE20E5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB54E25E0F38E00CE20E5 /* Extension.swift */; };
@@ -52,6 +54,8 @@
 		2D9323F4261B02DB00DDD4E6 /* NavigationBarFakeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationBarFakeView.xib; sourceTree = "<group>"; };
 		2D9A523125E2672400A1965C /* LipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LipsViewController.swift; sourceTree = "<group>"; };
 		2D9A523625E2675F00A1965C /* StoryboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardManager.swift; sourceTree = "<group>"; };
+		2DB2A71B262C11C900EF61DD /* OptionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsCollectionViewCell.swift; sourceTree = "<group>"; };
+		2DB2A71C262C11C900EF61DD /* OptionsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionsCollectionViewCell.xib; sourceTree = "<group>"; };
 		2DFFB53125DFA0E500CE20E5 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2DFFB53D25DFADEE00CE20E5 /* ARButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARButton.swift; sourceTree = "<group>"; };
 		2DFFB54E25E0F38E00CE20E5 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 				2D9323E62618636D00DDD4E6 /* PickerView.xib */,
 				2D9323F3261B02DB00DDD4E6 /* NavigationBarFakeView.swift */,
 				2D9323F4261B02DB00DDD4E6 /* NavigationBarFakeView.xib */,
+				2DB2A71B262C11C900EF61DD /* OptionsCollectionViewCell.swift */,
+				2DB2A71C262C11C900EF61DD /* OptionsCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -257,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D91A77E25DA3203002885B8 /* LaunchScreen.storyboard in Resources */,
+				2DB2A71E262C11C900EF61DD /* OptionsCollectionViewCell.xib in Resources */,
 				2D91A77B25DA3203002885B8 /* Assets.xcassets in Resources */,
 				2D9323E82618636D00DDD4E6 /* PickerView.xib in Resources */,
 				F7C604E226177DA500164D13 /* mymodel.tflite in Resources */,
@@ -299,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1724F6E725FA1F7B00436485 /* NailsViewController.swift in Sources */,
+				2DB2A71D262C11C900EF61DD /* OptionsCollectionViewCell.swift in Sources */,
 				2D91A77625DA3200002885B8 /* HomeViewController.swift in Sources */,
 				2DFFB53225DFA0E500CE20E5 /* Colors.swift in Sources */,
 				2D9A523225E2672400A1965C /* LipsViewController.swift in Sources */,
