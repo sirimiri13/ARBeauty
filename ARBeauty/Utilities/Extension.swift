@@ -17,6 +17,7 @@ extension UserDefaults{
     func deleteColorPicked() {
         removeObject(forKey: "ColorPicked")
     }
+    
     func getColorPicked() -> [String]{
         return self.stringArray(forKey: "ColorPicked") ?? []
     }
@@ -33,7 +34,7 @@ extension UIImage {
    
 }
 
-extension UIImageView{
+extension UIImageView {
     func getPixelColor(atPosition:CGPoint) -> UIColor{
 
         var pixel:[CUnsignedChar] = [0, 0, 0, 0];
@@ -55,7 +56,7 @@ extension UIImageView{
 
 
 extension UIButton{
-    func customGradient(){
+    func customGradient() {
         let gradient: CAGradientLayer = CAGradientLayer()
         gradient.colors = [UIColor.blue.cgColor, UIColor.red.cgColor]
         gradient.locations = [0.0 , 1.0]
@@ -65,8 +66,7 @@ extension UIButton{
         gradient.frame = CGRect(x: 0.0, y: 0.0, width: self.frame.size.width, height: self.frame.size.height)
         self.layer.insertSublayer(gradient, at: 0)
     }
-    func addBlurEffect()
-    {
+    func addBlurEffect() {
         let blur = UIVisualEffectView(effect: UIBlurEffect(style: .light))
         blur.frame = self.bounds
         blur.isUserInteractionEnabled = false
@@ -82,6 +82,7 @@ extension UIView {
     func applyGradient(colours: [UIColor]) -> CAGradientLayer {
         return self.applyGradient(colours: colours, locations: nil)
     }
+    
     func applyGradient(colours: [UIColor], locations: [NSNumber]?) -> CAGradientLayer {
         let gradient: CAGradientLayer = CAGradientLayer()
         gradient.frame = self.bounds
@@ -90,6 +91,7 @@ extension UIView {
         self.layer.insertSublayer(gradient, at: 0)
         return gradient
     }
+    
     func addBorder(toEdges edges: UIRectEdge, color: UIColor, thickness: CGFloat) {
         
         func addBorder(toEdge edges: UIRectEdge, color: UIColor, thickness: CGFloat) {
@@ -128,7 +130,6 @@ extension UIView {
             addBorder(toEdge: .right, color: color, thickness: thickness)
         }
     }
-    
     
     func asImage() -> UIImage {
            let renderer = UIGraphicsImageRenderer(bounds: bounds)

@@ -176,10 +176,10 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Wl-eU-auL">
-                                <rect key="frame" x="0.0" y="586" width="414" height="70"/>
+                                <rect key="frame" x="0.0" y="606" width="414" height="50"/>
                                 <color key="backgroundColor" red="0.98576339239999999" green="0.39769525719999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="QKS-bk-zHX"/>
+                                    <constraint firstAttribute="height" constant="50" id="QKS-bk-zHX"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fYn-ib-bZb">
                                     <size key="itemSize" width="71" height="74"/>
@@ -212,8 +212,8 @@
                     </view>
                     <connections>
                         <outlet property="cameraView" destination="l8B-Nh-okI" id="gU5-bP-Scd"/>
+                        <outlet property="colorsCollectionView" destination="7Wl-eU-auL" id="Gml-fa-JEP"/>
                         <outlet property="navigationBar" destination="neB-2Y-sec" id="DGs-k9-3ZK"/>
-                        <outlet property="optionCollectionView" destination="7Wl-eU-auL" id="F8S-00-xJi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W8i-8f-Xf9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -12,18 +12,16 @@ import AVFoundation
 import CoreVideo
 import CoreGraphics
 
-
-
 enum PixelError: Error {
     case canNotSetupAVSession
 }
 
-class NailsViewController: UIViewController{
+class NailsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var navigationBar: NavigationBarFakeView!
     @IBOutlet var cameraView: UIView!
     @IBOutlet weak var pickerColorButton: UIButton!
-    @IBOutlet weak var optionCollectionView: UICollectionView!
+    @IBOutlet weak var colorsCollectionView: UICollectionView!
     
     var model: NailsDeeplabModel!
     var session: AVCaptureSession!
@@ -36,15 +34,16 @@ class NailsViewController: UIViewController{
     static let rgbaComponentsCount = 4
     static let rgbComponentsCount = 3
     
-    
-    
     let colorDefault : [UIColor] = [UIColor.red,UIColor.green,UIColor.yellow,UIColor.orange,UIColor.purple,UIColor.gray]
     var colorPicked = UserDefaults.standard.getColorPicked()
     var colorDefaultString: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.optionCollectionView.register(UINib.init(nibName: "OptionsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "OptionsCollectionViewCell")
+        self.colorsCollectionView.register(UINib.init(nibName: "ColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ColorCollectionViewCell")
+        colorsCollectionView.delegate = self
+        colorsCollectionView.dataSource = self
+        
         
         model = NailsDeeplabModel()
         let result = model.load()
@@ -60,19 +59,22 @@ class NailsViewController: UIViewController{
         }
         
         setNavigationBar()
-       
+        
         setCollectionView()
         print("color picked: \(colorPicked.count)")
         
     }
-    func setNavigationBar(){
+    
+    func setNavigationBar() {
         navigationBar.titleLabel.text = "NAILS"
         navigationBar.leftButton.setImage(UIImage(systemName: "house.fill"), for: .normal)
         navigationBar.leftButton.addTarget(self, action: #selector(homeTapped), for: .touchUpInside)
     }
-    @objc func homeTapped(){
+    
+    @objc func homeTapped() {
         self.dismiss(animated: true, completion: nil)
     }
+    
     // Setup AVCapture session and AVCaptureDevice.
     func setupAVCapture(position: AVCaptureDevice.Position) throws {
         
@@ -199,29 +201,29 @@ class NailsViewController: UIViewController{
     
     
     func setCollectionView(){
-       // let padding : CGFloat = 5
+        // let padding : CGFloat = 5
         let spacing: CGFloat = 10
-        optionCollectionView.showsHorizontalScrollIndicator = false
+        colorsCollectionView.showsHorizontalScrollIndicator = false
+        
+        let layout = UICollectionViewFlowLayout()
+        // let frameWidth = colorsCollectionView.frame.size.width
+        let itemWidth : CGFloat = 60
+        let itemHeight : CGFloat = 60
+        colorsCollectionView.backgroundColor = .clear
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+        layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        layout.minimumLineSpacing = spacing
+        colorsCollectionView.collectionViewLayout = layout
+    }
     
-            let layout = UICollectionViewFlowLayout()
-           // let frameWidth = optionCollectionView.frame.size.width
-            let itemWidth : CGFloat = 60
-            let itemHeight : CGFloat = 60
-            optionCollectionView.backgroundColor = .clear
-            layout.scrollDirection = .horizontal
-            layout.sectionInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
-            layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
-            layout.minimumLineSpacing = spacing
-        optionCollectionView.collectionViewLayout = layout
-        }
-
     
-    func addColorTapped(){
+    func addColorTapped() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         let alertSheet = UIAlertController(title: "Choose color from image", message: "", preferredStyle: .actionSheet)
         let takePhotoAction = UIAlertAction(title: "Take a photo", style: .default) { (action:UIAlertAction) in
-
+            
             imagePickerController.sourceType = .camera;
             self.present(imagePickerController, animated: true, completion: nil)
             
@@ -238,66 +240,43 @@ class NailsViewController: UIViewController{
     }
     
     func showAlert(withTitle title: String, andMessage message: String) {
-          let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-          let defaultAction = UIAlertAction(title: "OK", style: .default, handler: {(_ action: UIAlertAction) -> Void in
-          })
-          alert.addAction(defaultAction)
-          present(alert, animated: true, completion: {() -> Void in
-              alert.view.tintColor = UIColor.green
-          })
-      }
-}
-
-extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
-    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        if let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) {
-            processFrame(pixelBuffer: pixelBuffer)
-        }
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: {(_ action: UIAlertAction) -> Void in
+        })
+        alert.addAction(defaultAction)
+        present(alert, animated: true, completion: {() -> Void in
+            alert.view.tintColor = UIColor.green
+        })
     }
-}
-
-extension NailsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    // MARK: - CollectionView
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 50, height: 50)
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("total color : \(colorPicked.count + colorDefault.count + 1)")
         return  colorPicked.count + colorDefault.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OptionsCollectionViewCell", for: indexPath) as! OptionsCollectionViewCell
-        print(indexPath.row)
-        if (indexPath.row == 0){
-            let imageView = UIImageView()
-            imageView.image = UIImage(systemName: "plus.circle")?.withTintColor(UIColor.black)
-            print("plus")
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            cell.optionView.addSubview(imageView)
-            NSLayoutConstraint.activate([
-                imageView.topAnchor.constraint(equalTo: cell.optionView.topAnchor),
-                imageView.bottomAnchor.constraint(equalTo: cell.optionView.bottomAnchor),
-                imageView.rightAnchor.constraint(equalTo: cell.optionView.rightAnchor),
-                imageView.leftAnchor.constraint(equalTo: cell.optionView.leftAnchor),
-            ])
-            cell.optionView.backgroundColor = UIColor.clear
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCollectionViewCell", for: indexPath) as! ColorCollectionViewCell
+        if (indexPath.row == 0) {
+            cell.addColorImageView.isHidden = false
         }
         else {
             if (colorPicked.count == 0){
-      //          print("default: \(colorDefault[indexPath.row].accessibilityName)")
-                cell.optionView.backgroundColor = colorDefault[indexPath.row - 1]
+                cell.colorView.backgroundColor = colorDefault[indexPath.row - 1]
             }
-            else{
-                if (indexPath.row <= colorPicked.count){
+            else {
+                if (indexPath.row <= colorPicked.count) {
                     let color = UIColor(hexString: colorPicked[indexPath.row - 1])
-                    print("pick: \(color.accessibilityName)")
-                    cell.optionView.backgroundColor = color
+                    cell.colorView.backgroundColor = color
                 }
                 else {
-                    print("default: \(colorDefault[indexPath.row - colorPicked.count - 1].accessibilityName)")
-                    cell.optionView.backgroundColor = colorDefault[indexPath.row - colorPicked.count - 1]
+                    cell.colorView.backgroundColor = colorDefault[indexPath.row - colorPicked.count - 1]
                 }
             }
         }
-        
-       
         return cell
     }
     
@@ -312,7 +291,13 @@ extension NailsViewController: UICollectionViewDataSource, UICollectionViewDeleg
     }
 }
 
-
+extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        if let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) {
+            processFrame(pixelBuffer: pixelBuffer)
+        }
+    }
+}
 
 extension NailsViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate  {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -324,19 +309,16 @@ extension NailsViewController: UINavigationControllerDelegate, UIImagePickerCont
         pickColorVC?.delegate = self
         present(pickColorVC!, animated: true, completion: nil)
     }
-
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
 }
 
-
 extension NailsViewController: PickColorProtocol{
     func finishPickColor() {
-      // print(UserDefaults.standard.getColorPicked())
+        // print(UserDefaults.standard.getColorPicked())
         colorPicked = UserDefaults.standard.getColorPicked()
-        optionCollectionView.reloadData()
+        colorsCollectionView.reloadData()
     }
-    
-    
 }

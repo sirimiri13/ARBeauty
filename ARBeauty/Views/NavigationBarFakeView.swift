@@ -13,32 +13,30 @@ class NavigationBarFakeView: UIView {
     @IBOutlet weak var leftButton: UIButton!
     
     var contentView : UIView?
-        
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         initializeView()
     }
     
     required init?(coder: NSCoder) {
-           super.init(coder: coder)
+        super.init(coder: coder)
         initializeView()
     }
     
-    
     func initializeView(){
-
         guard let view = loadViewFromNib() else { return }
-                view.frame = self.bounds
-                self.addSubview(view)
-                contentView = view
+        view.frame = self.bounds
+        self.addSubview(view)
+        contentView = view
         titleLabel.font = UIFont(name: "Noteworthy-Bold", size: 18)
         titleLabel.textColor = .darkGray
         leftButton.tintColor = .darkGray
-       
     }
+    
     func loadViewFromNib() -> UIView? {
-           let nib = Bundle.main.loadNibNamed("NavigationBarFakeView", owner: self, options: nil)?.first as? UIView
-           return nib
-       }
-
+        let nib = Bundle.main.loadNibNamed("NavigationBarFakeView", owner: self, options: nil)?.first as? UIView
+        return nib
+    }
+    
 }

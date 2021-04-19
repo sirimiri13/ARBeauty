@@ -10,6 +10,8 @@
 		1724F6E725FA1F7B00436485 /* NailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1724F6E625FA1F7B00436485 /* NailsViewController.swift */; };
 		1724F74B25FA32A500436485 /* NailsDeeplabModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1724F74A25FA32A500436485 /* NailsDeeplabModel.mm */; };
 		173F9810261832520029FB67 /* deeplabv3_257_mv_gpu.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 173F980F261832520029FB67 /* deeplabv3_257_mv_gpu.tflite */; };
+		17A80514262DCDD500AFD93C /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A80512262DCDD500AFD93C /* ColorCollectionViewCell.swift */; };
+		17A80515262DCDD500AFD93C /* ColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17A80513262DCDD500AFD93C /* ColorCollectionViewCell.xib */; };
 		2D91A77225DA3200002885B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77125DA3200002885B8 /* AppDelegate.swift */; };
 		2D91A77425DA3200002885B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77325DA3200002885B8 /* SceneDelegate.swift */; };
 		2D91A77625DA3200002885B8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77525DA3200002885B8 /* HomeViewController.swift */; };
@@ -22,8 +24,6 @@
 		2D9323F6261B02DB00DDD4E6 /* NavigationBarFakeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D9323F4261B02DB00DDD4E6 /* NavigationBarFakeView.xib */; };
 		2D9A523225E2672400A1965C /* LipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A523125E2672400A1965C /* LipsViewController.swift */; };
 		2D9A523725E2675F00A1965C /* StoryboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A523625E2675F00A1965C /* StoryboardManager.swift */; };
-		2DB2A71D262C11C900EF61DD /* OptionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB2A71B262C11C900EF61DD /* OptionsCollectionViewCell.swift */; };
-		2DB2A71E262C11C900EF61DD /* OptionsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DB2A71C262C11C900EF61DD /* OptionsCollectionViewCell.xib */; };
 		2DFFB53225DFA0E500CE20E5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB53125DFA0E500CE20E5 /* Colors.swift */; };
 		2DFFB53E25DFADEE00CE20E5 /* ARButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB53D25DFADEE00CE20E5 /* ARButton.swift */; };
 		2DFFB54F25E0F38E00CE20E5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB54E25E0F38E00CE20E5 /* Extension.swift */; };
@@ -40,6 +40,8 @@
 		1724F74925FA32A500436485 /* NailsDeeplabModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NailsDeeplabModel.h; sourceTree = "<group>"; };
 		1724F74A25FA32A500436485 /* NailsDeeplabModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NailsDeeplabModel.mm; sourceTree = "<group>"; };
 		173F980F261832520029FB67 /* deeplabv3_257_mv_gpu.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = deeplabv3_257_mv_gpu.tflite; sourceTree = "<group>"; };
+		17A80512262DCDD500AFD93C /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		17A80513262DCDD500AFD93C /* ColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorCollectionViewCell.xib; sourceTree = "<group>"; };
 		2D91A76E25DA3200002885B8 /* ARBeauty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARBeauty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D91A77125DA3200002885B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D91A77325DA3200002885B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,8 +56,6 @@
 		2D9323F4261B02DB00DDD4E6 /* NavigationBarFakeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationBarFakeView.xib; sourceTree = "<group>"; };
 		2D9A523125E2672400A1965C /* LipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LipsViewController.swift; sourceTree = "<group>"; };
 		2D9A523625E2675F00A1965C /* StoryboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardManager.swift; sourceTree = "<group>"; };
-		2DB2A71B262C11C900EF61DD /* OptionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsCollectionViewCell.swift; sourceTree = "<group>"; };
-		2DB2A71C262C11C900EF61DD /* OptionsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionsCollectionViewCell.xib; sourceTree = "<group>"; };
 		2DFFB53125DFA0E500CE20E5 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2DFFB53D25DFADEE00CE20E5 /* ARButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARButton.swift; sourceTree = "<group>"; };
 		2DFFB54E25E0F38E00CE20E5 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -101,6 +101,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		17A80510262DCDAC00AFD93C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				17A80512262DCDD500AFD93C /* ColorCollectionViewCell.swift */,
+				17A80513262DCDD500AFD93C /* ColorCollectionViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		2D91A76525DA3200002885B8 = {
 			isa = PBXGroup;
 			children = (
@@ -122,12 +131,13 @@
 		2D91A77025DA3200002885B8 /* ARBeauty */ = {
 			isa = PBXGroup;
 			children = (
-				2D9323E42618635C00DDD4E6 /* Views */,
 				2D91A77125DA3200002885B8 /* AppDelegate.swift */,
 				2D91A77325DA3200002885B8 /* SceneDelegate.swift */,
 				1724F71725FA2CD100436485 /* Resources */,
 				1724F6F425FA29FD00436485 /* Models */,
 				2DFFB53025DFA0BE00CE20E5 /* Utilities */,
+				2D9323E42618635C00DDD4E6 /* Views */,
+				17A80510262DCDAC00AFD93C /* Cells */,
 				2DFFB55925E0FC3F00CE20E5 /* Controllers */,
 				2DFFB53C25DFADDA00CE20E5 /* Storyboards */,
 				2D91A77A25DA3203002885B8 /* Assets.xcassets */,
@@ -143,8 +153,6 @@
 				2D9323E62618636D00DDD4E6 /* PickerView.xib */,
 				2D9323F3261B02DB00DDD4E6 /* NavigationBarFakeView.swift */,
 				2D9323F4261B02DB00DDD4E6 /* NavigationBarFakeView.xib */,
-				2DB2A71B262C11C900EF61DD /* OptionsCollectionViewCell.swift */,
-				2DB2A71C262C11C900EF61DD /* OptionsCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -263,8 +271,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D91A77E25DA3203002885B8 /* LaunchScreen.storyboard in Resources */,
-				2DB2A71E262C11C900EF61DD /* OptionsCollectionViewCell.xib in Resources */,
 				2D91A77B25DA3203002885B8 /* Assets.xcassets in Resources */,
+				17A80515262DCDD500AFD93C /* ColorCollectionViewCell.xib in Resources */,
 				2D9323E82618636D00DDD4E6 /* PickerView.xib in Resources */,
 				F7C604E226177DA500164D13 /* mymodel.tflite in Resources */,
 				2D9323F6261B02DB00DDD4E6 /* NavigationBarFakeView.xib in Resources */,
@@ -306,7 +314,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1724F6E725FA1F7B00436485 /* NailsViewController.swift in Sources */,
-				2DB2A71D262C11C900EF61DD /* OptionsCollectionViewCell.swift in Sources */,
 				2D91A77625DA3200002885B8 /* HomeViewController.swift in Sources */,
 				2DFFB53225DFA0E500CE20E5 /* Colors.swift in Sources */,
 				2D9A523225E2672400A1965C /* LipsViewController.swift in Sources */,
@@ -314,6 +321,7 @@
 				2DFFB54F25E0F38E00CE20E5 /* Extension.swift in Sources */,
 				2DFFB55E25E0FCEC00CE20E5 /* PickColorViewController.swift in Sources */,
 				2DFFB53E25DFADEE00CE20E5 /* ARButton.swift in Sources */,
+				17A80514262DCDD500AFD93C /* ColorCollectionViewCell.swift in Sources */,
 				1724F74B25FA32A500436485 /* NailsDeeplabModel.mm in Sources */,
 				2D9323F5261B02DB00DDD4E6 /* NavigationBarFakeView.swift in Sources */,
 				2D91A77425DA3200002885B8 /* SceneDelegate.swift in Sources */,
@@ -468,7 +476,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q2A2DTV2D2;
+				DEVELOPMENT_TEAM = 523SRU7Q76;
 				INFOPLIST_FILE = ARBeauty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -491,7 +499,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q2A2DTV2D2;
+				DEVELOPMENT_TEAM = 523SRU7Q76;
 				INFOPLIST_FILE = ARBeauty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -70,9 +70,6 @@ class PickColorViewController: UIViewController, UINavigationControllerDelegate,
             }
         }
     
-   
-    
-    
     @objc func backButtonTapped(){
         self.dismiss(animated: true, completion: nil)
     }
