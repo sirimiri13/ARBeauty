@@ -38,7 +38,7 @@ class NailsViewController: UIViewController{
     
     
     
-    let colorDefault : [UIColor] = [UIColor.rougePink(),UIColor.red,UIColor.green,UIColor.yellow,UIColor.orange,UIColor.purple,UIColor.gray]
+    let colorDefault : [UIColor] = [UIColor.red,UIColor.green,UIColor.yellow,UIColor.orange,UIColor.purple,UIColor.gray]
     var colorPicked = UserDefaults.standard.getColorPicked()
     var colorDefaultString: [String] = []
     
@@ -62,7 +62,7 @@ class NailsViewController: UIViewController{
         setNavigationBar()
        
         setCollectionView()
-        
+        print("color picked: \(colorPicked.count)")
         
     }
     func setNavigationBar(){
@@ -258,14 +258,17 @@ extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 
 extension NailsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  colorPicked.count + colorDefault.count
+        print("total color : \(colorPicked.count + colorDefault.count + 1)")
+        return  colorPicked.count + colorDefault.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OptionsCollectionViewCell", for: indexPath) as! OptionsCollectionViewCell
+        print(indexPath.row)
         if (indexPath.row == 0){
             let imageView = UIImageView()
             imageView.image = UIImage(systemName: "plus.circle")?.withTintColor(UIColor.black)
+            print("plus")
             imageView.translatesAutoresizingMaskIntoConstraints = false
             cell.optionView.addSubview(imageView)
             NSLayoutConstraint.activate([
@@ -275,17 +278,20 @@ extension NailsViewController: UICollectionViewDataSource, UICollectionViewDeleg
                 imageView.leftAnchor.constraint(equalTo: cell.optionView.leftAnchor),
             ])
             cell.optionView.backgroundColor = UIColor.clear
-
         }
         else {
             if (colorPicked.count == 0){
-                cell.optionView.backgroundColor = colorDefault[indexPath.row]
+      //          print("default: \(colorDefault[indexPath.row].accessibilityName)")
+                cell.optionView.backgroundColor = colorDefault[indexPath.row - 1]
             }
             else{
                 if (indexPath.row <= colorPicked.count){
-                    cell.optionView.backgroundColor = UIColor(hexString: colorPicked[indexPath.row - 1])
+                    let color = UIColor(hexString: colorPicked[indexPath.row - 1])
+                    print("pick: \(color.accessibilityName)")
+                    cell.optionView.backgroundColor = color
                 }
                 else {
+                    print("default: \(colorDefault[indexPath.row - colorPicked.count - 1].accessibilityName)")
                     cell.optionView.backgroundColor = colorDefault[indexPath.row - colorPicked.count - 1]
                 }
             }

@@ -81,10 +81,11 @@ class PickColorViewController: UIViewController, UINavigationControllerDelegate,
     @IBAction func useButtonTapped(_ sender: Any) {
         var colorPicked = UserDefaults.standard.getColorPicked()
         colorPicked.append(currentColor)
+        print(colorPicked.count)
         UserDefaults.standard.deleteColorPicked()
         UserDefaults.standard.setColorPicked(value: colorPicked)
-        self.dismiss(animated: true, completion: nil)
         self.delegate?.finishPickColor()
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
