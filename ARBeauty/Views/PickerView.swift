@@ -22,9 +22,7 @@ class PickerView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     func initializeView(){
-        
         guard let view = loadViewFromNib() else { return }
         view.frame = self.bounds
         self.addSubview(view)
@@ -43,7 +41,6 @@ class PickerView: UIView {
         topView.backgroundColor = color
         bottomView.backgroundColor = color
     }
-    
     
     func loadViewFromNib() -> UIView? {
         let nib = Bundle.main.loadNibNamed("PickerView", owner: self, options: nil)?.first as? UIView

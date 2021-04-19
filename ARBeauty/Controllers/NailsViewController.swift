@@ -16,7 +16,7 @@ enum PixelError: Error {
     case canNotSetupAVSession
 }
 
-class NailsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class NailsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, PickColorProtocol {
     
     @IBOutlet weak var navigationBar: NavigationBarFakeView!
     @IBOutlet var cameraView: UIView!
@@ -34,17 +34,37 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     static let rgbaComponentsCount = 4
     static let rgbComponentsCount = 3
     
-    let colorDefault : [UIColor] = [UIColor.red,UIColor.green,UIColor.yellow,UIColor.orange,UIColor.purple,UIColor.gray]
-    var colorPicked = UserDefaults.standard.getColorPicked()
-    var colorDefaultString: [String] = []
+    let defaultColors: [UIColor] = [UIColor.red,
+                                   UIColor.green,
+                                   UIColor.yellow,
+                                   UIColor.orange,
+                                   UIColor.purple]
+    var userColors:[String] = Utils.getUserColors()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Setup CollectionView
         self.colorsCollectionView.register(UINib.init(nibName: "ColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ColorCollectionViewCell")
         colorsCollectionView.delegate = self
         colorsCollectionView.dataSource = self
         
+        let layout = UICollectionViewFlowLayout()
+        let spacing: CGFloat = 10
+        let itemWidth : CGFloat = 50
+        let itemHeight : CGFloat = 50
+        colorsCollectionView.backgroundColor = UIColor.red
+        colorsCollectionView.collectionViewLayout = layout
+        colorsCollectionView.showsHorizontalScrollIndicator = false
+        colorsCollectionView.backgroundColor = .clear
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        layout.minimumLineSpacing = spacing
         
+        setNavigationBar()
+        
+        // Setup model and camera
         model = NailsDeeplabModel()
         let result = model.load()
         if (result == false) {
@@ -57,12 +77,6 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         catch {
             print(error)
         }
-        
-        setNavigationBar()
-        
-        setCollectionView()
-        print("color picked: \(colorPicked.count)")
-        
     }
     
     func setNavigationBar() {
@@ -198,26 +212,6 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         maskView.layer.contents = context.makeImage()
     }
     
-    
-    
-    func setCollectionView(){
-        // let padding : CGFloat = 5
-        let spacing: CGFloat = 10
-        colorsCollectionView.showsHorizontalScrollIndicator = false
-        
-        let layout = UICollectionViewFlowLayout()
-        // let frameWidth = colorsCollectionView.frame.size.width
-        let itemWidth : CGFloat = 60
-        let itemHeight : CGFloat = 60
-        colorsCollectionView.backgroundColor = .clear
-        layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
-        layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
-        layout.minimumLineSpacing = spacing
-        colorsCollectionView.collectionViewLayout = layout
-    }
-    
-    
     func addColorTapped() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -250,30 +244,28 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     // MARK: - CollectionView
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 50, height: 50)
-    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("total color : \(colorPicked.count + colorDefault.count + 1)")
-        return  colorPicked.count + colorDefault.count + 1
+        print("total color : \(userColors.count + defaultColors.count + 1)")
+        return  userColors.count + defaultColors.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCollectionViewCell", for: indexPath) as! ColorCollectionViewCell
         if (indexPath.row == 0) {
             cell.addColorImageView.isHidden = false
+            cell.backgroundView?.backgroundColor = UIColor.clear
         }
         else {
-            if (colorPicked.count == 0){
-                cell.colorView.backgroundColor = colorDefault[indexPath.row - 1]
+            cell.addColorImageView.isHidden = true
+            if (userColors.count == 0) {
+                cell.colorView.backgroundColor = defaultColors[indexPath.row - 1]
             }
             else {
-                if (indexPath.row <= colorPicked.count) {
-                    let color = UIColor(hexString: colorPicked[indexPath.row - 1])
-                    cell.colorView.backgroundColor = color
+                if (indexPath.row <= userColors.count) {
+                    cell.colorView.backgroundColor = UIColor(hexString: userColors[indexPath.row - 1])
                 }
                 else {
-                    cell.colorView.backgroundColor = colorDefault[indexPath.row - colorPicked.count - 1]
+                    cell.colorView.backgroundColor = defaultColors[indexPath.row - userColors.count - 1]
                 }
             }
         }
@@ -289,6 +281,13 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
             
         }
     }
+    
+    // MARK: - PickColorProtocol
+    func didPickColor() {
+        userColors = Utils.getUserColors()
+        print("user colors = \(userColors.count)")
+        colorsCollectionView.reloadData()
+    }
 }
 
 extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
@@ -299,26 +298,18 @@ extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     }
 }
 
-extension NailsViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate  {
+extension NailsViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let tempImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        self.dismiss(animated: true)
+        let pickedImage = info[.originalImage] as? UIImage
         let pickColorVC = UIStoryboard.pickColorViewController()
         pickColorVC?.modalPresentationStyle = .fullScreen
-        pickColorVC?.imagePicked = tempImage
+        pickColorVC?.pickedImage = pickedImage
         pickColorVC?.delegate = self
+        self.dismiss(animated: true)
         present(pickColorVC!, animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
-    }
-}
-
-extension NailsViewController: PickColorProtocol{
-    func finishPickColor() {
-        // print(UserDefaults.standard.getColorPicked())
-        colorPicked = UserDefaults.standard.getColorPicked()
-        colorsCollectionView.reloadData()
     }
 }

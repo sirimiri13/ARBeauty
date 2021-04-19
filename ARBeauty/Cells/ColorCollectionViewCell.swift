@@ -14,11 +14,11 @@ class ColorCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        DispatchQueue.main.async {
+//        DispatchQueue.main.async {
             self.colorView.layer.cornerRadius = self.colorView.layer.frame.height / 2
             self.addColorImageView.tintColor = UIColor.blue
             self.addColorImageView.isHidden = true
-        }
+//        }
     }
 
 }

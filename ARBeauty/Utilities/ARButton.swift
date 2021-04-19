@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ARButton: UIButton{
+class ARButton: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
         gradientLayer.frame = bounds
@@ -32,6 +32,7 @@ class ARButton: UIButton{
         self.layer.masksToBounds = false
         self.titleLabel?.font = UIFont(name: "Noteworthy-Bold", size: 20)
     }
+    
     private lazy var gradientLayer: CAGradientLayer = {
         let l = CAGradientLayer()
         l.frame = self.bounds
