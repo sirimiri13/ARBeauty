@@ -14,7 +14,6 @@ protocol PickColorProtocol {
 class PickColorViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var navigationBar: NavigationBarFakeView!
     @IBOutlet weak var useButton: UIButton!
     
     var delegate: PickColorProtocol?
@@ -26,11 +25,7 @@ class PickColorViewController: UIViewController, UINavigationControllerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.titleLabel.text = "PICK A COLOR"
-        navigationBar.leftButton.setImage(UIImage(systemName: "arrow.left")?.withTintColor(UIColor.darkGray), for: .normal)
-        navigationBar.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-        
-        imageView.image = pickedImage
+        imageView.image = pickedImage?.scale(with: CGSize(width: imageView.bounds.size.width, height: imageView.bounds.size.height))
         pickerView.center = view.center
         view.addSubview(pickerView)
         let color: UIColor = imageView.getPixelColor(atPosition:CGPoint(x: imageView.center.x, y: imageView.center.y))
@@ -47,7 +42,7 @@ class PickColorViewController: UIViewController, UINavigationControllerDelegate,
         if let touch = touches.first{
             touchPoint = touch.location(in: imageView)
             let color : UIColor = imageView.getPixelColor(atPosition: CGPoint(x: touchPoint.x, y: touchPoint.y))
-            pickerView.center = CGPoint(x: touchPoint.x  , y: touchPoint.y  + 40)
+            pickerView.center = CGPoint(x: touchPoint.x , y: touchPoint.y  + 40)
             pickerView.setColor(color: color)
             selectedColor = color.toRGBAString()
         }
@@ -63,7 +58,8 @@ class PickColorViewController: UIViewController, UINavigationControllerDelegate,
         }
     }
     
-    @objc func backButtonTapped() {
+
+    @IBAction func backTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     

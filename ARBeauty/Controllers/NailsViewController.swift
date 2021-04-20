@@ -18,7 +18,7 @@ enum PixelError: Error {
 
 class NailsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, PickColorProtocol {
     
-    @IBOutlet weak var navigationBar: NavigationBarFakeView!
+   
     @IBOutlet var cameraView: UIView!
     @IBOutlet weak var pickerColorButton: UIButton!
     @IBOutlet weak var colorsCollectionView: UICollectionView!
@@ -70,8 +70,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
         layout.minimumLineSpacing = spacing
         
-        setNavigationBar()
-        
+      
         // Setup model and camera
         model = NailsDeeplabModel()
         let result = model.load()
@@ -87,15 +86,12 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         }
     }
     
-    func setNavigationBar() {
-        navigationBar.titleLabel.text = "NAILS"
-        navigationBar.leftButton.setImage(UIImage(systemName: "house.fill"), for: .normal)
-        navigationBar.leftButton.addTarget(self, action: #selector(homeTapped), for: .touchUpInside)
-    }
-    
-    @objc func homeTapped() {
+   
+    @IBAction func homeTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+   
     
     // Setup AVCapture session and AVCaptureDevice.
     func setupAVCapture(position: AVCaptureDevice.Position) throws {

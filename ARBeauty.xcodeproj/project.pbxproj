@@ -21,8 +21,6 @@
 		2D91A77E25DA3203002885B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D91A77C25DA3203002885B8 /* LaunchScreen.storyboard */; };
 		2D9323E72618636D00DDD4E6 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9323E52618636D00DDD4E6 /* PickerView.swift */; };
 		2D9323E82618636D00DDD4E6 /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D9323E62618636D00DDD4E6 /* PickerView.xib */; };
-		2D9323F5261B02DB00DDD4E6 /* NavigationBarFakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9323F3261B02DB00DDD4E6 /* NavigationBarFakeView.swift */; };
-		2D9323F6261B02DB00DDD4E6 /* NavigationBarFakeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D9323F4261B02DB00DDD4E6 /* NavigationBarFakeView.xib */; };
 		2D9A523225E2672400A1965C /* LipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A523125E2672400A1965C /* LipsViewController.swift */; };
 		2D9A523725E2675F00A1965C /* StoryboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A523625E2675F00A1965C /* StoryboardManager.swift */; };
 		2DFFB53E25DFADEE00CE20E5 /* ARButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB53D25DFADEE00CE20E5 /* ARButton.swift */; };
@@ -53,8 +51,6 @@
 		2D91A77F25DA3203002885B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D9323E52618636D00DDD4E6 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		2D9323E62618636D00DDD4E6 /* PickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerView.xib; sourceTree = "<group>"; };
-		2D9323F3261B02DB00DDD4E6 /* NavigationBarFakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarFakeView.swift; sourceTree = "<group>"; };
-		2D9323F4261B02DB00DDD4E6 /* NavigationBarFakeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationBarFakeView.xib; sourceTree = "<group>"; };
 		2D9A523125E2672400A1965C /* LipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LipsViewController.swift; sourceTree = "<group>"; };
 		2D9A523625E2675F00A1965C /* StoryboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardManager.swift; sourceTree = "<group>"; };
 		2DFFB53D25DFADEE00CE20E5 /* ARButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARButton.swift; sourceTree = "<group>"; };
@@ -151,8 +147,6 @@
 			children = (
 				2D9323E52618636D00DDD4E6 /* PickerView.swift */,
 				2D9323E62618636D00DDD4E6 /* PickerView.xib */,
-				2D9323F3261B02DB00DDD4E6 /* NavigationBarFakeView.swift */,
-				2D9323F4261B02DB00DDD4E6 /* NavigationBarFakeView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -275,7 +269,6 @@
 				17A80515262DCDD500AFD93C /* ColorCollectionViewCell.xib in Resources */,
 				2D9323E82618636D00DDD4E6 /* PickerView.xib in Resources */,
 				F7C604E226177DA500164D13 /* mymodel.tflite in Resources */,
-				2D9323F6261B02DB00DDD4E6 /* NavigationBarFakeView.xib in Resources */,
 				173F9810261832520029FB67 /* deeplabv3_257_mv_gpu.tflite in Resources */,
 				2D91A77925DA3200002885B8 /* Main.storyboard in Resources */,
 			);
@@ -323,7 +316,6 @@
 				2DFFB53E25DFADEE00CE20E5 /* ARButton.swift in Sources */,
 				17A80514262DCDD500AFD93C /* ColorCollectionViewCell.swift in Sources */,
 				1724F74B25FA32A500436485 /* NailsDeeplabModel.mm in Sources */,
-				2D9323F5261B02DB00DDD4E6 /* NavigationBarFakeView.swift in Sources */,
 				2D91A77425DA3200002885B8 /* SceneDelegate.swift in Sources */,
 				2D9A523725E2675F00A1965C /* StoryboardManager.swift in Sources */,
 				2D9323E72618636D00DDD4E6 /* PickerView.swift in Sources */,
