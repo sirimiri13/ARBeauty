@@ -34,12 +34,6 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     static let rgbaComponentsCount = 4
     static let rgbComponentsCount = 3
     
-//    let defaultColors: [UIColor] = [UIColor.red,
-//                                   UIColor.green,
-//                                   UIColor.yellow,
-//                                   UIColor.orange,
-//                                   UIColor.purple]
-    
     let defaultColors: [String] = ["FF0000",
                                   "006699",
                                   "00FF00",
