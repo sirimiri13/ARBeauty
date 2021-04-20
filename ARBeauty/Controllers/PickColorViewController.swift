@@ -33,9 +33,8 @@ class PickColorViewController: UIViewController, UINavigationControllerDelegate,
         imageView.image = pickedImage
         pickerView.center = view.center
         view.addSubview(pickerView)
-        let color: UIColor = imageView.getPixelColor(atPosition:CGPoint(x: imageView.center.x, y: imageView.center.y + 40))
+        let color: UIColor = imageView.getPixelColor(atPosition:CGPoint(x: imageView.center.x, y: imageView.center.y))
         selectedColor = color.toRGBAString()
-        
         pickerView.setColor(color: color)
         
         useButton.addBlurEffect()
@@ -70,7 +69,9 @@ class PickColorViewController: UIViewController, UINavigationControllerDelegate,
     
     @IBAction func useButtonTapped(_ sender: Any) {
         var colorPicked = Utils.getUserColors()
-        colorPicked.insert(selectedColor, at: 0)
+        let color = selectedColor.prefix(6)
+        print("color \(color)")
+        colorPicked.insert(String(color), at: 0)
         if (colorPicked.count > 5) {
             colorPicked.removeLast()
         }

@@ -34,11 +34,19 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     static let rgbaComponentsCount = 4
     static let rgbComponentsCount = 3
     
-    let defaultColors: [UIColor] = [UIColor.red,
-                                   UIColor.green,
-                                   UIColor.yellow,
-                                   UIColor.orange,
-                                   UIColor.purple]
+//    let defaultColors: [UIColor] = [UIColor.red,
+//                                   UIColor.green,
+//                                   UIColor.yellow,
+//                                   UIColor.orange,
+//                                   UIColor.purple]
+    
+    let defaultColors: [String] = ["FF0000",
+                                  "006699",
+                                  "00FF00",
+                                  "FF6600",
+                                  "330033",
+                                  "99CCCC",
+                                  "FFCC33"]
     var userColors:[String] = Utils.getUserColors()
     
     override func viewDidLoad() {
@@ -258,14 +266,14 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         else {
             cell.addColorImageView.isHidden = true
             if (userColors.count == 0) {
-                cell.colorView.backgroundColor = defaultColors[indexPath.row - 1]
+                cell.colorView.backgroundColor = UIColor(hexString: defaultColors[indexPath.row - 1])
             }
             else {
                 if (indexPath.row <= userColors.count) {
                     cell.colorView.backgroundColor = UIColor(hexString: userColors[indexPath.row - 1])
                 }
                 else {
-                    cell.colorView.backgroundColor = defaultColors[indexPath.row - userColors.count - 1]
+                    cell.colorView.backgroundColor = UIColor(hexString: defaultColors[indexPath.row - userColors.count - 1])
                 }
             }
         }
