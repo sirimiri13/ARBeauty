@@ -20,18 +20,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cib-fO-tBE" userLabel="TopView">
-                    <rect key="frame" x="25" y="0.0" width="50" height="50"/>
+                    <rect key="frame" x="27.666666666666671" y="0.0" width="45" height="45"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="cib-fO-tBE" secondAttribute="height" multiplier="1:1" id="BJf-Ar-9lK"/>
-                        <constraint firstAttribute="width" constant="50" id="SKc-oP-0Cc"/>
+                        <constraint firstAttribute="width" constant="45" id="SKc-oP-0Cc"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BvC-rp-CWK" userLabel="BottomView">
-                    <rect key="frame" x="40" y="130" width="20" height="20"/>
+                    <rect key="frame" x="42.666666666666664" y="135" width="15" height="15"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="20" id="7AA-wN-e22"/>
+                        <constraint firstAttribute="width" constant="15" id="7AA-wN-e22"/>
                         <constraint firstAttribute="width" secondItem="BvC-rp-CWK" secondAttribute="height" multiplier="1:1" id="cTu-dB-iaz"/>
                     </constraints>
                 </view>
