@@ -32,7 +32,13 @@ class PickerColorViewController: UIViewController, UINavigationControllerDelegat
         // Set image from image picker
         imageView.image = pickedImage
         
-        // Setup PickerView
+        setupUI()
+    }
+    
+    func setupUI() {
+        view.layoutIfNeeded()
+        view.setNeedsLayout()
+        
         pickerView.backgroundColor = UIColor.clear
         topView.layer.cornerRadius = topView.frame.height/2
         topView.layer.borderColor = UIColor.white.cgColor
@@ -42,15 +48,7 @@ class PickerColorViewController: UIViewController, UINavigationControllerDelegat
         bottomView.layer.borderColor = UIColor.white.cgColor
         bottomView.layer.borderWidth = 1
         
-        view.layoutIfNeeded()
-        view.setNeedsLayout()
-        
         touchPoint = CGPoint(x: imageView.frame.size.width/2, y: imageView.frame.size.height/2)
-        
-        print("center color: \(imageView.getPixelColor(atPosition:CGPoint(x: imageView.frame.size.width/2, y: imageView.frame.size.height/2)).toRGBAString())")
-        print("center color: \(imageView.getPixelColor(atPosition:touchPoint))")
-        print("center image x: \(imageView.frame.size.width/2) - \(imageView.frame.size.height/2)")
-        print("touch point x: \(touchPoint.x) - \(touchPoint.y)")
         
         let transform = CGAffineTransform(translationX: touchPoint.x - 25, y: touchPoint.y - 75)
         pickerView.transform = transform
@@ -62,7 +60,6 @@ class PickerColorViewController: UIViewController, UINavigationControllerDelegat
         useButton.addBlurEffect()
         useButton.setTitle("USE", for: .normal)
         useButton.setTitleColor(UIColor.darkGray, for: .normal)
-        
     }
     
     func setPickerViewColor(color: UIColor) {
@@ -76,7 +73,7 @@ class PickerColorViewController: UIViewController, UINavigationControllerDelegat
             let transform = CGAffineTransform(translationX: touchPoint.x - 25, y: touchPoint.y - 75)
             pickerView.transform = transform
             
-            let color : UIColor = imageView.getPixelColor(atPosition: CGPoint(x: touchPoint.x, y: touchPoint.y))
+            let color : UIColor = imageView.getPixelColor(atPosition: touchPoint)
             setPickerViewColor(color: color)
             selectedColor = color.toRGBAString()
         }
@@ -89,7 +86,7 @@ class PickerColorViewController: UIViewController, UINavigationControllerDelegat
             let transform = CGAffineTransform(translationX: touchPoint.x - 25, y: touchPoint.y - 75)
             pickerView.transform = transform
             
-            let color : UIColor = imageView.getPixelColor(atPosition: CGPoint(x: touchPoint.x, y: touchPoint.y))
+            let color : UIColor = imageView.getPixelColor(atPosition: touchPoint)
             setPickerViewColor(color: color)
             selectedColor = color.toRGBAString()
         }
