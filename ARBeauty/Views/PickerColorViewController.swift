@@ -48,12 +48,14 @@ class PickerColorViewController: UIViewController, UINavigationControllerDelegat
         bottomView.layer.borderColor = UIColor.white.cgColor
         bottomView.layer.borderWidth = 1
         
-        touchPoint = CGPoint(x: imageView.frame.size.width/2, y: imageView.frame.size.height/2)
+        touchPoint =  CGPoint(x: imageView.bounds.size.width/2, y: imageView.bounds.size.height/2)
+       
         
-        let transform = CGAffineTransform(translationX: touchPoint.x - 25, y: touchPoint.y - 75)
+        let transform = CGAffineTransform(translationX: touchPoint.x - 25, y: touchPoint.y - 131)
+       
         pickerView.transform = transform
-        
-        let color: UIColor = imageView.getPixelColor(atPosition:touchPoint)
+       
+        let color = imageView.getPixelColor(atPosition: imageView.center)
         setPickerViewColor(color: color)
         selectedColor = color.toRGBAString()
         
