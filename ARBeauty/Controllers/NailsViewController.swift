@@ -60,7 +60,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         colorsCollectionView.showsHorizontalScrollIndicator = false
         colorsCollectionView.backgroundColor = .clear
         layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
         layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
         layout.minimumLineSpacing = spacing
         

@@ -146,47 +146,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l8B-Nh-okI">
-                                <rect key="frame" x="0.0" y="68" width="414" height="600"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CKm-UR-V55" userLabel="Fake Tabbar Box">
-                                <rect key="frame" x="0.0" y="656" width="414" height="180"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyk-h6-ObF">
-                                        <rect key="frame" x="177" y="10" width="60" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="Vhw-vh-Hv6"/>
-                                            <constraint firstAttribute="width" constant="60" id="vIm-Xy-rn4"/>
-                                        </constraints>
-                                        <state key="normal" image="shoot_button_icon"/>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.97236901519999996" green="0.92886036630000002" blue="0.95686596629999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstItem="zyk-h6-ObF" firstAttribute="centerX" secondItem="CKm-UR-V55" secondAttribute="centerX" id="kIM-Dd-0KV"/>
-                                    <constraint firstItem="zyk-h6-ObF" firstAttribute="top" secondItem="CKm-UR-V55" secondAttribute="top" constant="10" id="u29-VC-Nc2"/>
-                                </constraints>
-                            </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Wl-eU-auL">
-                                <rect key="frame" x="0.0" y="606" width="414" height="50"/>
-                                <color key="backgroundColor" red="0.98576339239999999" green="0.39769525719999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="QKS-bk-zHX"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fYn-ib-bZb">
-                                    <size key="itemSize" width="71" height="74"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                                <connections>
-                                    <outlet property="dataSource" destination="Of0-jy-81A" id="PLq-Ok-0Eg"/>
-                                    <outlet property="delegate" destination="Of0-jy-81A" id="mF9-eN-anf"/>
-                                </connections>
-                            </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2nR-Iv-cmA">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2nR-Iv-cmA" userLabel="Fake NavBar">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAILS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbo-vM-xfT">
@@ -220,11 +180,54 @@
                                     <constraint firstItem="opG-IU-G6W" firstAttribute="centerY" secondItem="2nR-Iv-cmA" secondAttribute="centerY" id="mpR-NS-dS4"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8B-Nh-okI">
+                                <rect key="frame" x="0.0" y="56" width="414" height="600"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CKm-UR-V55" userLabel="Fake Tabbar Box">
+                                <rect key="frame" x="0.0" y="656" width="414" height="180"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyk-h6-ObF">
+                                        <rect key="frame" x="177" y="10" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Vhw-vh-Hv6"/>
+                                            <constraint firstAttribute="width" constant="60" id="vIm-Xy-rn4"/>
+                                        </constraints>
+                                        <state key="normal" image="shoot_button_icon"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97236901519999996" green="0.92886036630000002" blue="0.95686596629999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="zyk-h6-ObF" firstAttribute="centerX" secondItem="CKm-UR-V55" secondAttribute="centerX" id="kIM-Dd-0KV"/>
+                                    <constraint firstItem="zyk-h6-ObF" firstAttribute="top" secondItem="CKm-UR-V55" secondAttribute="top" constant="10" id="u29-VC-Nc2"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Wl-eU-auL">
+                                <rect key="frame" x="0.0" y="586" width="414" height="70"/>
+                                <color key="backgroundColor" red="0.98576339239999999" green="0.39769525719999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="QKS-bk-zHX"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fYn-ib-bZb">
+                                    <size key="itemSize" width="71" height="74"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Of0-jy-81A" id="PLq-Ok-0Eg"/>
+                                    <outlet property="delegate" destination="Of0-jy-81A" id="mF9-eN-anf"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yzg-Le-YNZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="7Wl-eU-auL" firstAttribute="leading" secondItem="yzg-Le-YNZ" secondAttribute="leading" id="6Da-s5-D4w"/>
+                            <constraint firstItem="l8B-Nh-okI" firstAttribute="top" secondItem="2nR-Iv-cmA" secondAttribute="bottom" id="B9p-tK-OtI"/>
+                            <constraint firstItem="l8B-Nh-okI" firstAttribute="leading" secondItem="yzg-Le-YNZ" secondAttribute="leading" id="IQM-kT-xGp"/>
+                            <constraint firstItem="CKm-UR-V55" firstAttribute="top" secondItem="l8B-Nh-okI" secondAttribute="bottom" id="IqL-LD-pKe"/>
+                            <constraint firstItem="l8B-Nh-okI" firstAttribute="trailing" secondItem="yzg-Le-YNZ" secondAttribute="trailing" id="QX7-d0-75J"/>
                             <constraint firstItem="yzg-Le-YNZ" firstAttribute="bottom" secondItem="CKm-UR-V55" secondAttribute="bottom" constant="-100" id="aO2-hF-1dM"/>
                             <constraint firstItem="yzg-Le-YNZ" firstAttribute="trailing" secondItem="2nR-Iv-cmA" secondAttribute="trailing" id="b6I-6g-wxC"/>
                             <constraint firstItem="CKm-UR-V55" firstAttribute="top" secondItem="yzg-Le-YNZ" secondAttribute="bottom" constant="-80" id="dcN-Om-1Tz"/>
