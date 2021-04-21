@@ -243,7 +243,6 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     // MARK: - CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("total color : \(userColors.count + defaultColors.count + 1)")
         return  userColors.count + defaultColors.count + 1
     }
     
@@ -283,7 +282,6 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     // MARK: - PickColorProtocol
     func didPickColor() {
         userColors = Utils.getUserColors()
-        print("user colors = \(userColors.count)")
         colorsCollectionView.reloadData()
     }
 }

@@ -37,24 +37,21 @@ class PickerColorViewController: UIViewController, UINavigationControllerDelegat
     
     func setupUI() {
         view.layoutIfNeeded()
-        view.setNeedsLayout()
         
         pickerView.backgroundColor = UIColor.clear
-        topView.layer.cornerRadius = topView.frame.height/2
+        topView.layer.cornerRadius = topView.frame.size.height/2
         topView.layer.borderColor = UIColor.white.cgColor
         topView.layer.borderWidth = 1
         
-        bottomView.layer.cornerRadius = bottomView.frame.height/2
+        bottomView.layer.cornerRadius = bottomView.frame.size.height/2
         bottomView.layer.borderColor = UIColor.white.cgColor
         bottomView.layer.borderWidth = 1
         
-        touchPoint =  CGPoint(x: imageView.bounds.size.width/2, y: imageView.bounds.size.height/2)
-       
+        touchPoint =  CGPoint(x: imageView.frame.size.width/2, y: imageView.frame.size.height/2)
         
-        let transform = CGAffineTransform(translationX: touchPoint.x - 25, y: touchPoint.y - 131)
-       
+        let transform = CGAffineTransform(translationX: touchPoint.x - 25, y: touchPoint.y - 75 - 56)
         pickerView.transform = transform
-       
+
         let color = imageView.getPixelColor(atPosition: imageView.center)
         setPickerViewColor(color: color)
         selectedColor = color.toRGBAString()
@@ -72,10 +69,23 @@ class PickerColorViewController: UIViewController, UINavigationControllerDelegat
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             touchPoint = touch.location(in: imageView)
-            let transform = CGAffineTransform(translationX: touchPoint.x - 25, y: touchPoint.y - 75)
-            pickerView.transform = transform
+            var color = UIColor()
+            if (touchPoint.y >= 0 && touchPoint.y < imageView.frame.size.height - 1) {
+                let transform = CGAffineTransform(translationX: touchPoint.x - 25, y: touchPoint.y - 75)
+                pickerView.transform = transform
+                color = imageView.getPixelColor(atPosition: touchPoint)
+            }
+            else if (touchPoint.y < 0) {
+                let transform = CGAffineTransform(translationX: touchPoint.x - 25, y: -75)
+                pickerView.transform = transform
+                color = imageView.getPixelColor(atPosition: CGPoint(x: touchPoint.x, y: 0))
+            }
+            else {
+                let transform = CGAffineTransform(translationX: touchPoint.x - 25, y: imageView.frame.size.height - 75)
+                pickerView.transform = transform
+                color = imageView.getPixelColor(atPosition: CGPoint(x: touchPoint.x, y: imageView.frame.size.height - 1))
+            }
             
-            let color : UIColor = imageView.getPixelColor(atPosition: touchPoint)
             setPickerViewColor(color: color)
             selectedColor = color.toRGBAString()
         }
@@ -84,13 +94,13 @@ class PickerColorViewController: UIViewController, UINavigationControllerDelegat
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             touchPoint = touch.location(in: imageView)
-            
-            let transform = CGAffineTransform(translationX: touchPoint.x - 25, y: touchPoint.y - 75)
-            pickerView.transform = transform
-            
-            let color : UIColor = imageView.getPixelColor(atPosition: touchPoint)
-            setPickerViewColor(color: color)
-            selectedColor = color.toRGBAString()
+            if (touchPoint.y >= 0 && touchPoint.y < imageView.frame.size.height - 1) {
+                let transform = CGAffineTransform(translationX: touchPoint.x - 25, y: touchPoint.y - 75)
+                pickerView.transform = transform
+                let color : UIColor = imageView.getPixelColor(atPosition: touchPoint)
+                setPickerViewColor(color: color)
+                selectedColor = color.toRGBAString()
+            }
         }
     }
     
