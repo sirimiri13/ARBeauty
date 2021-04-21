@@ -25,8 +25,4 @@ extension UIStoryboard{
         return mainStoryboard().instantiateViewController(withIdentifier: "LipsViewController") as? LipsViewController
     }
     
-    class func pickColorViewController() -> PickColorViewController?{
-        return mainStoryboard().instantiateViewController(withIdentifier: "PickColorViewController") as? PickColorViewController
-    }
-    
 }

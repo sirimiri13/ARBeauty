@@ -45,7 +45,7 @@
                 <constraint firstItem="cib-fO-tBE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="n6w-Lb-aP6"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="28.985507246376812" y="273.91304347826087"/>
+            <point key="canvasLocation" x="-119" y="205"/>
         </view>
     </objects>
     <resources>

@@ -299,12 +299,12 @@ extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 extension NailsViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let pickedImage = info[.originalImage] as? UIImage
-        let pickColorVC = UIStoryboard.pickColorViewController()
-        pickColorVC?.modalPresentationStyle = .fullScreen
-        pickColorVC?.pickedImage = pickedImage
-        pickColorVC?.delegate = self
+        let pickColorVC = PickerColorViewController()
+        pickColorVC.modalPresentationStyle = .fullScreen
+        pickColorVC.pickedImage = pickedImage
+        pickColorVC.delegate = self
         self.dismiss(animated: true)
-        present(pickColorVC!, animated: true, completion: nil)
+        present(pickColorVC, animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
