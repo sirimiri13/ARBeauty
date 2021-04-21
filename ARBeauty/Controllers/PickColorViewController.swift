@@ -18,31 +18,34 @@ class PickColorViewController: UIViewController, UINavigationControllerDelegate,
     
     var delegate: PickColorProtocol?
     
-    let pickerView = PickerView(frame: CGRect(x: 0, y: 0, width: 50, height: 80))
-    var touchPoint = CGPoint(x: 0.0, y: 0.0)
+    let pickerView = PickerView(frame: CGRect(x: 0, y: 0, width: 50, height: 90))
+    var touchPoint: CGPoint = CGPoint(x: 0, y: 0)
     var selectedColor: String = ""
     var pickedImage: UIImage? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.image = pickedImage?.scale(with: CGSize(width: imageView.bounds.size.width, height: imageView.bounds.size.height))
-        pickerView.center = view.center
+        
+        touchPoint = imageView.center
+        pickerView.center.x = touchPoint.x
+        pickerView.center.y = touchPoint.y - 20
         view.addSubview(pickerView)
-        let color: UIColor = imageView.getPixelColor(atPosition:CGPoint(x: imageView.center.x, y: imageView.center.y))
+        
+        let color: UIColor = imageView.getPixelColor(atPosition:touchPoint)
         selectedColor = color.toRGBAString()
         pickerView.setColor(color: color)
         
         useButton.addBlurEffect()
         useButton.setTitle("USE", for: .normal)
         useButton.setTitleColor(UIColor.darkGray, for: .normal)
-        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first{
             touchPoint = touch.location(in: imageView)
             let color : UIColor = imageView.getPixelColor(atPosition: CGPoint(x: touchPoint.x, y: touchPoint.y))
-            pickerView.center = CGPoint(x: touchPoint.x , y: touchPoint.y  + 40)
+            pickerView.center.x = touchPoint.x
+            pickerView.center.y = touchPoint.y - 20
             pickerView.setColor(color: color)
             selectedColor = color.toRGBAString()
         }
@@ -52,7 +55,8 @@ class PickColorViewController: UIViewController, UINavigationControllerDelegate,
         if let touch = touches.first {
             touchPoint = touch.location(in: imageView)
             let color : UIColor = imageView.getPixelColor(atPosition: CGPoint(x: touchPoint.x, y: touchPoint.y))
-            pickerView.center = CGPoint(x: touchPoint.x , y: touchPoint.y  + 40)
+            pickerView.center.x = touchPoint.x
+            pickerView.center.y = touchPoint.y - 20
             pickerView.setColor(color: color)
             selectedColor = color.toRGBAString()
         }
