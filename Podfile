@@ -7,5 +7,6 @@ target 'ARBeauty' do
 
   # Pods for ARBeauty
   pod 'TensorFlowLiteGpuExperimental', '0.0.1'
+  pod 'FCAlertView'
 
 end

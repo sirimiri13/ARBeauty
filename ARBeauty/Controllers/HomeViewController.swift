@@ -7,15 +7,17 @@
 
 import UIKit
 import AVFoundation
-class HomeViewController: UIViewController {
+import FCAlertView
+
+class HomeViewController: UIViewController, FCAlertViewDelegate {
     
     @IBOutlet weak var menuBoxView: UIView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
     }
+    
     func setupUI() {
         // menu box view
         menuBoxView.layer.cornerRadius = 30
@@ -35,20 +37,33 @@ class HomeViewController: UIViewController {
     }
 
     func presentCameraSettings() {
-        let alertController = UIAlertController(title: "Error",
-                                      message: "Camera access is denied",
-                                      preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .default))
-        alertController.addAction(UIAlertAction(title: "Settings", style: .cancel) { _ in
-            if let url = URL(string: UIApplication.openSettingsURLString) {
-                UIApplication.shared.open(url, options: [:], completionHandler: { _ in
-                    // Handle
-                })
-            }
-        })
+        let alert = FCAlertView();
 
-        present(alertController, animated: true)
+        alert.delegate = self
+
+        alert.showAlert(inView: self,
+                     withTitle:"Camera Access",
+                  withSubtitle:"This app need camera access",
+               withCustomImage:nil,
+           withDoneButtonTitle:nil,
+                    andButtons:["Settings", "Cancel"]) // Set your button titles here
+
+//        let alertController = UIAlertController(title: "Error",
+//                                      message: "Camera access is denied",
+//                                      preferredStyle: .alert)
+//        alertController.addAction(UIAlertAction(title: "Cancel", style: .default))
+//        alertController.addAction(UIAlertAction(title: "Settings", style: .cancel) { _ in
+//            if let url = URL(string: UIApplication.openSettingsURLString) {
+//                UIApplication.shared.open(url, options: [:], completionHandler: { _ in
+//                    // Handle
+//                })
+//            }
+//        })
+//        present(alert, animated: true)
     }
+    
+    
+    
     @IBAction func nailsButtonTapped(_ sender: Any) {
         if (checkCamera() == 0){
             let nailsVC = UIStoryboard.nailsViewController()
@@ -77,8 +92,16 @@ class HomeViewController: UIViewController {
         self.present(lipsVC!, animated: true, completion: nil)
     }
     
-    
-    
-    
+    func alertView(alertView: FCAlertView, clickedButtonIndex index: Int, buttonTitle title: String) {
+        
+        if title == "Settings" {
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(url, options: [:], completionHandler: { _ in
+                })}
+            else{ if title == "Cancel"{
+                self.dismiss(animated: true, completion: nil)
+            }
+            }
+        }
+    }
 }
-
