@@ -69,7 +69,6 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         if (result == false) {
             fatalError("Can't load model.")
         }
-        
         do {
             try setupAVCapture(position: .back)
         }
@@ -77,7 +76,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
             print(error)
         }
     }
-    
+ 
     func setupColors() {
         colors.removeAll()
         let userColors:[String] = Utils.getUserColors()
