@@ -110,7 +110,7 @@ NSString* FilePathForResourceName(NSString* name, NSString* extension) {
     return YES;
 }
 
-- (unsigned char *)process:(CVPixelBufferRef) pixelBuffer {
+- (unsigned char *)process:(CVPixelBufferRef)pixelBuffer additionalColor:(unsigned int)additionalColor {
     assert(pixelBuffer != NULL);
     
     OSType sourcePixelFormat = CVPixelBufferGetPixelFormatType(pixelBuffer);
@@ -159,7 +159,8 @@ NSString* FilePathForResourceName(NSString* name, NSString* extension) {
     if (is_quantized) {
         uint8_t* out = interpreter->typed_tensor<uint8_t>(input);
         ProcessInputWithQuantizedModel(in, out, image_width, image_height, image_channels);
-    } else {
+    }
+    else {
         float* out = interpreter->typed_tensor<float>(input);
         ProcessInputWithFloatModel(in, out, image_width, image_height, image_channels);
     }
@@ -170,7 +171,7 @@ NSString* FilePathForResourceName(NSString* name, NSString* extension) {
     
     float* output = interpreter->typed_output_tensor<float>(0);
     int class_count = 2;
-    static unsigned int colors[2] = {  0000000000, 0x804caf50  };
+    unsigned int colors[2] = {  0000000000, additionalColor  };
     
     for (int index = 0; index<257*257; index++) {
         int classID = 0;
@@ -186,7 +187,7 @@ NSString* FilePathForResourceName(NSString* name, NSString* extension) {
         }
         
         unsigned int color = colors[classID];
-        memcpy(&result[index * 4 + 0], &color, sizeof(unsigned int));
+        memcpy(&result[index * 4], &color, sizeof(unsigned int));
         
     }
     

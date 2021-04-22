@@ -202,10 +202,10 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Wl-eU-auL">
-                                <rect key="frame" x="0.0" y="586" width="414" height="70"/>
+                                <rect key="frame" x="0.0" y="596" width="414" height="60"/>
                                 <color key="backgroundColor" red="0.98576339239999999" green="0.39769525719999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="QKS-bk-zHX"/>
+                                    <constraint firstAttribute="height" constant="60" id="QKS-bk-zHX"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fYn-ib-bZb">
                                     <size key="itemSize" width="71" height="74"/>

@@ -34,7 +34,7 @@ extension UIImage {
         UIGraphicsEndImageContext()
         
         return scaledImage
-      }
+    }
     
 }
 
@@ -44,16 +44,16 @@ extension UIImageView {
         let colorSpace = CGColorSpaceCreateDeviceRGB();
         let bitmapInfo = CGBitmapInfo(rawValue:    CGImageAlphaInfo.premultipliedLast.rawValue);
         let context = CGContext(data: &pixel, width: 1, height: 1, bitsPerComponent: 8, bytesPerRow: 4, space: colorSpace, bitmapInfo: bitmapInfo.rawValue);
-
+        
         context!.translateBy(x: -atPosition.x, y: -atPosition.y);
         layer.render(in: context!);
         let color:UIColor = UIColor(red: CGFloat(pixel[0])/255.0,
                                     green: CGFloat(pixel[1])/255.0,
                                     blue: CGFloat(pixel[2])/255.0,
                                     alpha: CGFloat(pixel[3])/255.0);
-
+        
         return color;
-
+        
     }
 }
 
@@ -64,7 +64,7 @@ extension UIButton{
         gradient.locations = [0.0 , 1.0]
         gradient.startPoint = CGPoint(x: 0.0, y: 1.0)
         gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
-
+        
         gradient.frame = CGRect(x: 0.0, y: 0.0, width: self.frame.size.width, height: self.frame.size.height)
         self.layer.insertSublayer(gradient, at: 0)
     }
@@ -134,52 +134,62 @@ extension UIView {
     }
     
     func asImage() -> UIImage {
-           let renderer = UIGraphicsImageRenderer(bounds: bounds)
-           return renderer.image { rendererContext in
-               layer.render(in: rendererContext.cgContext)
-           }
-       }
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image { rendererContext in
+            layer.render(in: rendererContext.cgContext)
+        }
+    }
 }
 
 extension UIColor {
-    convenience init(hexString: String) {
-            let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
-            var int = UInt64()
-            Scanner(string: hex).scanHexInt64(&int)
-            let a, r, g, b: UInt64
-            switch hex.count {
-            case 3: // RGB (12-bit)
-                (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
-            case 6: // RGB (24-bit)
-                (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
-            case 8: // ARGB (32-bit)
-                (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
-            default:
-                (a, r, g, b) = (255, 0, 0, 0)
-            }
-            self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
-        }
+    static func fromHex(value: String, alpha: CGFloat = 1) -> UIColor {
+        let intValue = Int(value, radix: 16)!
+        
+        let red =   CGFloat((intValue & 0xFF0000) >> 16) / 0xFF
+        let green = CGFloat((intValue & 0x00FF00) >> 8) / 0xFF
+        let blue =  CGFloat(intValue & 0x0000FF) / 0xFF
+        
+        return UIColor(red: red, green: green, blue: blue, alpha: alpha)
+    }
     
-    func toRGBAString(uppercased: Bool = true) -> String {
-            var r: CGFloat = 0
-            var g: CGFloat = 0
-            var b: CGFloat = 0
-            var a: CGFloat = 0
-            self.getRed(&r, green: &g, blue: &b, alpha: &a)
-            let rgba = [r, g, b, a].map { $0 * 255 }.reduce("", { $0 + String(format: "%02x", Int($1)) })
-            return uppercased ? rgba.uppercased() : rgba
+    func toHex(uppercased: Bool = true) -> String {
+        var r: CGFloat = 0
+        var g: CGFloat = 0
+        var b: CGFloat = 0
+        var a: CGFloat = 0
+        self.getRed(&r, green: &g, blue: &b, alpha: &a)
+        let rgba = [r, g, b, a].map { $0 * 255 }.reduce("", { $0 + String(format: "%02x", Int($1)) })
+        return String((uppercased ? rgba.uppercased() : rgba).prefix(6))
+    }
+    
+    func switchBlueToRed() -> Int? {
+        var fRed : CGFloat = 0
+        var fGreen : CGFloat = 0
+        var fBlue : CGFloat = 0
+        var fAlpha: CGFloat = 0
+        if self.getRed(&fRed, green: &fGreen, blue: &fBlue, alpha: &fAlpha) {
+            let iRed = Int(fBlue * 255.0) //using fBlue here for converted color
+            let iGreen = Int(fGreen * 255.0)
+            let iBlue = Int(fRed * 255.0) //using fRed here for converted color
+            let iAlpha = Int(fAlpha * 255.0)
+            
+            let rgb = (iAlpha << 24) + (iRed << 16) + (iGreen << 8) + iBlue
+            return rgb
+        } else {
+            return nil
         }
+    }
     
     static func rougePink() -> UIColor{
-        return UIColor(hexString: "#ffb4b4")
+        return UIColor.fromHex(value: "FFB4B4")
     }
     
     static func flamingoPink() -> UIColor{
-        return UIColor(hexString: "#f78fb3")
+        return UIColor.fromHex(value: "F78FB3")
     }
     
     static func blueCustom() -> UIColor{
-        return UIColor(hexString: "#2d98da")
+        return UIColor.fromHex(value: "2D98DA")
     }
 }   
 

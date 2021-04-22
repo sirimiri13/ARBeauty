@@ -54,7 +54,7 @@ class PickerColorViewController: UIViewController, UINavigationControllerDelegat
 
         let color = imageView.getPixelColor(atPosition: imageView.center)
         setPickerViewColor(color: color)
-        selectedColor = color.toRGBAString()
+        selectedColor = color.toHex()
         
         useButton.addBlurEffect()
         useButton.setTitle("USE", for: .normal)
@@ -87,7 +87,7 @@ class PickerColorViewController: UIViewController, UINavigationControllerDelegat
             }
             
             setPickerViewColor(color: color)
-            selectedColor = color.toRGBAString()
+            selectedColor = color.toHex()
         }
     }
     
@@ -99,7 +99,7 @@ class PickerColorViewController: UIViewController, UINavigationControllerDelegat
                 pickerView.transform = transform
                 let color : UIColor = imageView.getPixelColor(atPosition: touchPoint)
                 setPickerViewColor(color: color)
-                selectedColor = color.toRGBAString()
+                selectedColor = color.toHex()
             }
         }
     }
@@ -110,14 +110,7 @@ class PickerColorViewController: UIViewController, UINavigationControllerDelegat
     }
     
     @IBAction func useButtonTapped(_ sender: Any) {
-        var colorPicked = Utils.getUserColors()
-        let color = selectedColor.prefix(6)
-        print("color \(color)")
-        colorPicked.insert(String(color), at: 0)
-        if (colorPicked.count > 5) {
-            colorPicked.removeLast()
-        }
-        Utils.setUserColors(value: colorPicked)
+        Utils.addUserColors(value: String(selectedColor.prefix(6)))
         self.delegate?.didPickColor()
         self.dismiss(animated: true, completion: nil)
     }

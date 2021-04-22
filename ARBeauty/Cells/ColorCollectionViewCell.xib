@@ -10,34 +10,46 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ColorCollectionViewCell" id="gTV-IL-0wX" customClass="ColorCollectionViewCell" customModule="ARBeauty" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P2s-ew-aF5" userLabel="ContentView">
-                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xd-2W-pp4" userLabel="ColorView">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbB-XR-gYk" userLabel="OutlineView">
+                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xd-2W-pp4" userLabel="ColorView">
+                                <rect key="frame" x="5" y="5" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4x8-9U-ahK"/>
+                                    <constraint firstAttribute="width" constant="50" id="aSa-b3-hPc"/>
+                                </constraints>
+                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addColor" translatesAutoresizingMaskIntoConstraints="NO" id="a1J-gt-oT6">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="5" y="5" width="50" height="50"/>
                                 <color key="tintColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="JwY-5f-jhx"/>
+                                    <constraint firstAttribute="height" constant="50" id="u3d-eH-Ov5"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="a1J-gt-oT6" secondAttribute="bottom" id="0Op-WO-HcD"/>
-                            <constraint firstAttribute="trailing" secondItem="a1J-gt-oT6" secondAttribute="trailing" id="3J1-6W-eKz"/>
-                            <constraint firstItem="a1J-gt-oT6" firstAttribute="top" secondItem="P2s-ew-aF5" secondAttribute="top" id="7dP-Ug-sCb"/>
-                            <constraint firstAttribute="bottom" secondItem="6xd-2W-pp4" secondAttribute="bottom" id="F9q-wZ-0aE"/>
-                            <constraint firstAttribute="trailing" secondItem="6xd-2W-pp4" secondAttribute="trailing" id="FIl-so-lIJ"/>
-                            <constraint firstItem="6xd-2W-pp4" firstAttribute="leading" secondItem="P2s-ew-aF5" secondAttribute="leading" id="RcI-ca-6De"/>
-                            <constraint firstItem="6xd-2W-pp4" firstAttribute="top" secondItem="P2s-ew-aF5" secondAttribute="top" id="gpX-gs-Vle"/>
-                            <constraint firstItem="a1J-gt-oT6" firstAttribute="leading" secondItem="P2s-ew-aF5" secondAttribute="leading" id="tu3-pf-Kj5"/>
+                            <constraint firstItem="lbB-XR-gYk" firstAttribute="leading" secondItem="P2s-ew-aF5" secondAttribute="leading" id="4f6-6q-uJR"/>
+                            <constraint firstItem="a1J-gt-oT6" firstAttribute="centerX" secondItem="P2s-ew-aF5" secondAttribute="centerX" id="JgK-qH-xWq"/>
+                            <constraint firstAttribute="trailing" secondItem="lbB-XR-gYk" secondAttribute="trailing" id="Tlm-xG-Qe3"/>
+                            <constraint firstItem="6xd-2W-pp4" firstAttribute="centerX" secondItem="P2s-ew-aF5" secondAttribute="centerX" id="UtT-GO-kwW"/>
+                            <constraint firstAttribute="bottom" secondItem="lbB-XR-gYk" secondAttribute="bottom" id="XRn-qZ-PYA"/>
+                            <constraint firstItem="6xd-2W-pp4" firstAttribute="centerY" secondItem="P2s-ew-aF5" secondAttribute="centerY" id="d6D-qs-ZNT"/>
+                            <constraint firstItem="lbB-XR-gYk" firstAttribute="top" secondItem="P2s-ew-aF5" secondAttribute="top" id="k2Y-Ko-SqW"/>
+                            <constraint firstItem="a1J-gt-oT6" firstAttribute="centerY" secondItem="P2s-ew-aF5" secondAttribute="centerY" id="vM4-tU-99b"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -48,11 +60,13 @@
                 <constraint firstAttribute="bottom" secondItem="P2s-ew-aF5" secondAttribute="bottom" id="PuG-B2-1G4"/>
                 <constraint firstAttribute="trailing" secondItem="P2s-ew-aF5" secondAttribute="trailing" id="oEb-Pf-Brd"/>
             </constraints>
+            <size key="customSize" width="66" height="64"/>
             <connections>
                 <outlet property="addColorImageView" destination="a1J-gt-oT6" id="WKy-5t-0ED"/>
                 <outlet property="colorView" destination="6xd-2W-pp4" id="8AR-xI-oFm"/>
+                <outlet property="outlineView" destination="lbB-XR-gYk" id="7bJ-hI-WY4"/>
             </connections>
-            <point key="canvasLocation" x="26" y="20"/>
+            <point key="canvasLocation" x="33.333333333333336" y="22.767857142857142"/>
         </collectionViewCell>
     </objects>
     <resources>

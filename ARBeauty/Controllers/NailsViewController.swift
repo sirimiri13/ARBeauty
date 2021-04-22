@@ -18,9 +18,7 @@ enum PixelError: Error {
 
 class NailsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, PickColorProtocol {
     
-   
     @IBOutlet var cameraView: UIView!
-    @IBOutlet weak var pickerColorButton: UIButton!
     @IBOutlet weak var colorsCollectionView: UICollectionView!
     
     var model: NailsDeeplabModel!
@@ -34,14 +32,16 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     static let rgbaComponentsCount = 4
     static let rgbComponentsCount = 3
     
-    let defaultColors: [String] = ["FF0000",
-                                  "006699",
-                                  "00FF00",
-                                  "FF6600",
-                                  "330033",
-                                  "99CCCC",
-                                  "FFCC33"]
-    var userColors:[String] = Utils.getUserColors()
+    var colors: [UIColor] = []
+    let defaultColors: [UIColor] = [UIColor.fromHex(value: "FF0000"),
+                                    UIColor.fromHex(value: "006699"),
+                                    UIColor.fromHex(value: "00FF00"),
+                                    UIColor.fromHex(value: "FF6600"),
+                                    UIColor.fromHex(value: "330033"),
+                                    UIColor.fromHex(value: "99CCCC"),
+                                    UIColor.fromHex(value: "FFCC33")]
+    var selectedIndex: Int = 1
+    var selectedColor = UIColor()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,19 +52,17 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         colorsCollectionView.dataSource = self
         
         let layout = UICollectionViewFlowLayout()
-        let spacing: CGFloat = 10
-        let itemWidth : CGFloat = 50
-        let itemHeight : CGFloat = 50
-        colorsCollectionView.backgroundColor = UIColor.red
+        colorsCollectionView.backgroundColor = UIColor.clear
         colorsCollectionView.collectionViewLayout = layout
         colorsCollectionView.showsHorizontalScrollIndicator = false
         colorsCollectionView.backgroundColor = .clear
         layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
-        layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
-        layout.minimumLineSpacing = spacing
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        layout.itemSize = CGSize(width: 60, height: 60)
+        layout.minimumLineSpacing = 10
         
-      
+        setupColors()
+        
         // Setup model and camera
         model = NailsDeeplabModel()
         let result = model.load()
@@ -80,12 +78,20 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         }
     }
     
-   
+    func setupColors() {
+        colors.removeAll()
+        let userColors:[String] = Utils.getUserColors()
+        for color in userColors {
+            colors.append(UIColor.fromHex(value: color))
+        }
+        colors += defaultColors
+        selectedColor = UIColor.fromHex(value: colors[0].toHex(), alpha: 0.7)
+        colorsCollectionView.reloadData()
+    }
+    
     @IBAction func homeTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-   
     
     // Setup AVCapture session and AVCaptureDevice.
     func setupAVCapture(position: AVCaptureDevice.Position) throws {
@@ -155,7 +161,8 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     // Receive result from a model.
     func processFrame(pixelBuffer: CVPixelBuffer) {
-        let result: UnsafeMutablePointer<UInt8> = model.process(pixelBuffer)
+        let convertedColor = UInt32(selectedColor.switchBlueToRed()!)
+        let result: UnsafeMutablePointer<UInt8> = model.process(pixelBuffer, additionalColor: convertedColor)
         let buffer = UnsafeMutableRawPointer(result)
         DispatchQueue.main.async {
             self.draw(buffer: buffer, size: NailsViewController.imageEdgeSize*NailsViewController.imageEdgeSize*NailsViewController.rgbaComponentsCount)
@@ -210,6 +217,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         maskView.layer.contents = context.makeImage()
     }
     
+    // MARK: - Handle tap events
     func addColorTapped() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -243,27 +251,20 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     // MARK: - CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  userColors.count + defaultColors.count + 1
+        return  colors.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCollectionViewCell", for: indexPath) as! ColorCollectionViewCell
         if (indexPath.row == 0) {
-            cell.addColorImageView.isHidden = false
-            cell.backgroundView?.backgroundColor = UIColor.clear
+            cell.setCell(color: UIColor.clear, isSelected: false, showAddButton: true)
         }
         else {
-            cell.addColorImageView.isHidden = true
-            if (userColors.count == 0) {
-                cell.colorView.backgroundColor = UIColor(hexString: defaultColors[indexPath.row - 1])
+            if (selectedIndex == indexPath.row) {
+                cell.setCell(color: colors[indexPath.row - 1], isSelected: true, showAddButton: false)
             }
             else {
-                if (indexPath.row <= userColors.count) {
-                    cell.colorView.backgroundColor = UIColor(hexString: userColors[indexPath.row - 1])
-                }
-                else {
-                    cell.colorView.backgroundColor = UIColor(hexString: defaultColors[indexPath.row - userColors.count - 1])
-                }
+                cell.setCell(color: colors[indexPath.row - 1], isSelected: false, showAddButton: false)
             }
         }
         return cell
@@ -271,20 +272,23 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if (indexPath.row == 0){
+        if (indexPath.row == 0) {
             self.addColorTapped()
         }
         else {
-            
+            selectedIndex = indexPath.row
+            selectedColor = UIColor.fromHex(value: colors[indexPath.row - 1].toHex(), alpha: 0.7)
+            colorsCollectionView.reloadData()
         }
     }
     
     // MARK: - PickColorProtocol
     func didPickColor() {
-        userColors = Utils.getUserColors()
-        colorsCollectionView.reloadData()
+        selectedIndex = 1
+        setupColors()
     }
 }
+
 
 extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
