@@ -81,9 +81,25 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func lipsButtonTapped(_ sender: Any) {
-        let lipsVC = UIStoryboard.lipsViewController()
-        lipsVC?.modalPresentationStyle = .fullScreen
-        self.present(lipsVC!, animated: true, completion: nil)
+        if (checkCamera() == 0){
+                let lipsVC = UIStoryboard.lipsViewController()
+                lipsVC?.modalPresentationStyle = .fullScreen
+                self.present(lipsVC!, animated: true, completion: nil)
+        } else {
+            if (checkCamera() == 1){
+                presentCameraSettings()
+            }
+            else { if (checkCamera() == 2) {
+                AVCaptureDevice.requestAccess(for: .video) { success in
+                    if success {
+                        let nailsVC = UIStoryboard.nailsViewController()
+                        nailsVC?.modalPresentationStyle = .fullScreen
+                        self.present(nailsVC!, animated: true, completion: nil)
+                    }
+                }
+            }
+            }
+        }
     }
     
 }
