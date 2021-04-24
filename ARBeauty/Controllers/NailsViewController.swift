@@ -219,7 +219,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     // MARK: - Handle tap events
-    func checkAuth() -> Int {
+    func checkLibraryAccess() -> Int {
         let authStatus = PHPhotoLibrary.authorizationStatus()
         switch authStatus {
         case .authorized: return 0
@@ -252,15 +252,29 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         let alertSheet = UIAlertController(title: "Choose color from image", message: "", preferredStyle: .actionSheet)
+        
         let takePhotoAction = UIAlertAction(title: "Take a photo", style: .default) { (action:UIAlertAction) in
-            
             imagePickerController.sourceType = .camera;
             self.present(imagePickerController, animated: true, completion: nil)
-            
         }
-        let choosePhotoFromLibraryAction = UIAlertAction(title: "From Library", style: .default) { (UIAlertAction) in
-            imagePickerController.sourceType = .photoLibrary
-            self.present(imagePickerController, animated: true, completion: nil)
+        
+        let choosePhotoFromLibraryAction = UIAlertAction(title: "From Library", style: .default) { [self] (UIAlertAction) in
+            if (self.checkLibraryAccess() == 0){
+                imagePickerController.sourceType = .photoLibrary
+                self.present(imagePickerController, animated: true, completion: nil)
+            } else {
+                if (self.checkLibraryAccess() == 1){
+                    self.presentLibrarySettings()
+                }
+                else { if (self.checkLibraryAccess() == 2) {
+                    AVCaptureDevice.requestAccess(for: .video) { success in
+                        if success {
+                            imagePickerController.sourceType = .photoLibrary
+                            self.present(imagePickerController, animated: true, completion: nil)                    }
+                    }
+                }
+                }
+            }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertSheet.addAction(takePhotoAction)
