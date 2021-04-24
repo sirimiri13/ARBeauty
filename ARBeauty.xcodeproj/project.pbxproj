@@ -482,13 +482,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ANP8J43F67;
+				DEVELOPMENT_TEAM = Q2A2DTV2D2;
 				INFOPLIST_FILE = ARBeauty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vuhoangtrinh.ARBeauty.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vuhoangtrinh.ARBeauty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ARBeauty/Models/ARBeauty-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -505,13 +505,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ANP8J43F67;
+				DEVELOPMENT_TEAM = Q2A2DTV2D2;
 				INFOPLIST_FILE = ARBeauty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vuhoangtrinh.ARBeauty.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vuhoangtrinh.ARBeauty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ARBeauty/Models/ARBeauty-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

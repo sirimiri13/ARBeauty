@@ -78,7 +78,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
             print(error)
         }
     }
- 
+    
     func setupColors() {
         colors.removeAll()
         let userColors:[String] = Utils.getUserColors()
@@ -234,19 +234,19 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
             showCloseButton: false
         )
         let alertView = SCLAlertView(appearance: appearance)
-    
+        
         alertView.addButton("Settings", target:self, selector:#selector(settingAccess))
         alertView.addButton("Cancel") {
             self.dismiss(animated: true, completion: nil)
         }
         alertView.showWarning("Photo Library Access", subTitle: "This app need photo library access")
     }
-
+    
     @objc func settingAccess(){
         if let url = URL(string: UIApplication.openSettingsURLString) {
-                        UIApplication.shared.open(url, options: [:], completionHandler: { _ in
-                        })
-                    }
+            UIApplication.shared.open(url, options: [:], completionHandler: { _ in
+            })
+        }
     }
     func addColorTapped() {
         let imagePickerController = UIImagePickerController()
@@ -259,20 +259,22 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         }
         
         let choosePhotoFromLibraryAction = UIAlertAction(title: "From Library", style: .default) { [self] (UIAlertAction) in
+            imagePickerController.sourceType = .photoLibrary
             if (self.checkLibraryAccess() == 0){
-                imagePickerController.sourceType = .photoLibrary
                 self.present(imagePickerController, animated: true, completion: nil)
             } else {
                 if (self.checkLibraryAccess() == 1){
                     self.presentLibrarySettings()
                 }
-                else { if (self.checkLibraryAccess() == 2) {
-                    AVCaptureDevice.requestAccess(for: .video) { success in
-                        if success {
-                            imagePickerController.sourceType = .photoLibrary
-                            self.present(imagePickerController, animated: true, completion: nil)                    }
+                else {
+                    if checkLibraryAccess() == 2 {
+                        PHPhotoLibrary.requestAuthorization { (status) in
+                            if status == PHAuthorizationStatus.authorized{
+                                self.present(imagePickerController, animated: true, completion: nil)
+                               
+                            }
+                        }
                     }
-                }
                 }
             }
         }
