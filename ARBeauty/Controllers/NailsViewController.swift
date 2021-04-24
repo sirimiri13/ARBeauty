@@ -11,6 +11,8 @@ import Foundation
 import AVFoundation
 import CoreVideo
 import CoreGraphics
+import SCLAlertView
+import Photos
 
 enum PixelError: Error {
     case canNotSetupAVSession
@@ -217,6 +219,35 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     // MARK: - Handle tap events
+    func checkAuth() -> Int {
+        let authStatus = PHPhotoLibrary.authorizationStatus()
+        switch authStatus {
+        case .authorized: return 0
+        case .denied: return 1
+        case .notDetermined: return 2
+        default: return 3
+        }
+    }
+    
+    func presentLibrarySettings() {
+        let appearance = SCLAlertView.SCLAppearance(
+            showCloseButton: false
+        )
+        let alertView = SCLAlertView(appearance: appearance)
+    
+        alertView.addButton("Settings", target:self, selector:#selector(settingAccess))
+        alertView.addButton("Cancel") {
+            self.dismiss(animated: true, completion: nil)
+        }
+        alertView.showWarning("Photo Library Access", subTitle: "This app need photo library access")
+    }
+
+    @objc func settingAccess(){
+        if let url = URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(url, options: [:], completionHandler: { _ in
+                        })
+                    }
+    }
     func addColorTapped() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
