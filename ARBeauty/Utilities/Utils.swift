@@ -21,5 +21,5 @@ class Utils: NSObject {
     static func getUserColors() -> [String] {
         return UserDefaults.standard.stringArray(forKey: "userColors") ?? []
     }
-    
+
 }

@@ -12,8 +12,6 @@ import SCLAlertView
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var menuBoxView: UIView!
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,77 +26,68 @@ class HomeViewController: UIViewController {
         menuBoxView.layer.shadowOffset = CGSize(width: 0, height: 2)
         menuBoxView.layer.shadowOpacity = 1
     }
-    func checkCamera() -> Int {
-        let authStatus = AVCaptureDevice.authorizationStatus(for: .video)
-        switch authStatus {
-        case .authorized: return 0
-        case .denied: return 1
-        case .notDetermined: return 2
-        default: return 3
-        }
-    }
-    
-    func presentCameraSettings() {
-        let appearance = SCLAlertView.SCLAppearance(
-            showCloseButton: false
-        )
-        let alertView = SCLAlertView(appearance: appearance)
-    
-        alertView.addButton("Settings", target:self, selector:#selector(settingAccess))
-        alertView.addButton("Cancel") {
-            self.dismiss(animated: true, completion: nil)
-        }
-        alertView.showWarning("Camera Access", subTitle: "This app need camera access")
-    }
-    
-    @objc func settingAccess(){
-        if let url = URL(string: UIApplication.openSettingsURLString) {
-                        UIApplication.shared.open(url, options: [:], completionHandler: { _ in
-                        })
-                    }
-    }
     
     @IBAction func nailsButtonTapped(_ sender: Any) {
-        if (checkCamera() == 0){
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .authorized:
             let nailsVC = UIStoryboard.nailsViewController()
             nailsVC?.modalPresentationStyle = .fullScreen
-            self.present(nailsVC!, animated: true, completion: nil)
-        } else {
-            if (checkCamera() == 1){
-                presentCameraSettings()
-            }
-            else { if (checkCamera() == 2) {
-                AVCaptureDevice.requestAccess(for: .video) { success in
-                    if success {
-                        let nailsVC = UIStoryboard.nailsViewController()
-                        nailsVC?.modalPresentationStyle = .fullScreen
-                        self.present(nailsVC!, animated: true, completion: nil)
-                    }
+            present(nailsVC!, animated: true, completion: nil)
+        case .denied:
+            let alertView = SCLAlertView(appearance: SCLAlertView.SCLAppearance(
+                showCloseButton: false
+            ))
+            alertView.addButton("Settings") {
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: { _ in
+                    })
                 }
             }
+            alertView.addButton("Cancel") {
             }
+            alertView.showWarning("ACCESS DENIED", subTitle: "\"ARBeauty\" Couldn't Access Your Camera")
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { success in
+                if success {
+                    let nailsVC = UIStoryboard.nailsViewController()
+                    nailsVC?.modalPresentationStyle = .fullScreen
+                    self.present(nailsVC!, animated: true, completion: nil)
+                }
+            }
+        default:
+            break
         }
     }
     
     @IBAction func lipsButtonTapped(_ sender: Any) {
-        if (checkCamera() == 0){
-                let lipsVC = UIStoryboard.lipsViewController()
-                lipsVC?.modalPresentationStyle = .fullScreen
-                self.present(lipsVC!, animated: true, completion: nil)
-        } else {
-            if (checkCamera() == 1){
-                presentCameraSettings()
-            }
-            else { if (checkCamera() == 2) {
-                AVCaptureDevice.requestAccess(for: .video) { success in
-                    if success {
-                        let nailsVC = UIStoryboard.nailsViewController()
-                        nailsVC?.modalPresentationStyle = .fullScreen
-                        self.present(nailsVC!, animated: true, completion: nil)
-                    }
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .authorized:
+            let lipsVC = UIStoryboard.lipsViewController()
+            lipsVC?.modalPresentationStyle = .fullScreen
+            present(lipsVC!, animated: true, completion: nil)
+        case .denied:
+            let alertView = SCLAlertView(appearance: SCLAlertView.SCLAppearance(
+                showCloseButton: false
+            ))
+            alertView.addButton("Settings") {
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: { _ in
+                    })
                 }
             }
+            alertView.addButton("Cancel") {
             }
+            alertView.showWarning("ACCESS DENIED", subTitle: "\"ARBeauty\" Couldn't Access Your Camera")
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { success in
+                if success {
+                    let nailsVC = UIStoryboard.nailsViewController()
+                    nailsVC?.modalPresentationStyle = .fullScreen
+                    self.present(nailsVC!, animated: true, completion: nil)
+                }
+            }
+        default:
+            break
         }
     }
     

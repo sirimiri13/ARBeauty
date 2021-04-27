@@ -20,12 +20,6 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSCameraUsageDescription</key>
-	<string>Allow app to use your camera?</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string></string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Allow app to use your photos</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -70,5 +64,13 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>NSCameraUsageDescription</key>
+	<string>&quot;ARBeauty&quot; Would Like To Access Your Camera</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>&quot;ARBeauty&quot; Would Like To Access Your Photos</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string></string>
+	<key>PHPhotoLibraryPreventAutomaticLimitedAccessAlert</key>
+	<true/>
 </dict>
 </plist>

@@ -3,7 +3,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <UIKit/UIKit.h>
 
-@interface NailsDeeplabModel : NSObject
+@interface DeeplabModel : NSObject
 - (unsigned char *)process:(CVPixelBufferRef)pixelBuffer additionalColor:(unsigned int)additionalColor;
-- (BOOL)loadModel;
+- (BOOL)loadModel:(NSString *)modelName;
 @end

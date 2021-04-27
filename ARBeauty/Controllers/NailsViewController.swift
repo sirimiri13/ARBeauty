@@ -12,7 +12,7 @@ import AVFoundation
 import CoreVideo
 import CoreGraphics
 import SCLAlertView
-import Photos
+import PhotosUI
 
 enum PixelError: Error {
     case canNotSetupAVSession
@@ -23,7 +23,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     @IBOutlet var cameraView: UIView!
     @IBOutlet weak var colorsCollectionView: UICollectionView!
     
-    var model: NailsDeeplabModel!
+    var model: DeeplabModel!
     var session: AVCaptureSession!
     var videoDataOutput: AVCaptureVideoDataOutput!
     var cameraViewLayer: AVCaptureVideoPreviewLayer!
@@ -66,8 +66,8 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         setupColors()
         
         // Setup model and camera
-        model = NailsDeeplabModel()
-        let result = model.load()
+        model = DeeplabModel()
+        let result = model.load("nailsmodel")
         if (result == false) {
             fatalError("Can't load model.")
         }
@@ -219,80 +219,50 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     // MARK: - Handle tap events
-    func checkLibraryAccess() -> Int {
-        let authStatus = PHPhotoLibrary.authorizationStatus()
-        switch authStatus {
-        case .authorized: return 0
-        case .denied: return 1
-        case .notDetermined: return 2
-        default: return 3
-        }
-    }
-    
-    func presentLibrarySettings() {
-        let appearance = SCLAlertView.SCLAppearance(
-            showCloseButton: false
-        )
-        let alertView = SCLAlertView(appearance: appearance)
-        
-        alertView.addButton("Settings", target:self, selector:#selector(settingAccess))
-        alertView.addButton("Cancel") {
-            self.dismiss(animated: true, completion: nil)
-        }
-        alertView.showWarning("Photo Library Access", subTitle: "This app need photo library access")
-    }
-    
-    @objc func settingAccess(){
-        if let url = URL(string: UIApplication.openSettingsURLString) {
-            UIApplication.shared.open(url, options: [:], completionHandler: { _ in
-            })
-        }
-    }
     func addColorTapped() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
-        let alertSheet = UIAlertController(title: "Choose color from image", message: "", preferredStyle: .actionSheet)
         
+        let alertSheet = UIAlertController(title: "Select a color from an image", message: "", preferredStyle: .actionSheet)
         let takePhotoAction = UIAlertAction(title: "Take a photo", style: .default) { (action:UIAlertAction) in
             imagePickerController.sourceType = .camera;
             self.present(imagePickerController, animated: true, completion: nil)
         }
         
-        let choosePhotoFromLibraryAction = UIAlertAction(title: "From Library", style: .default) { [self] (UIAlertAction) in
+        let choosePhotoFromLibraryAction = UIAlertAction(title: "From Library", style: .default) { (UIAlertAction) in
             imagePickerController.sourceType = .photoLibrary
-            if (self.checkLibraryAccess() == 0){
+            switch (PHPhotoLibrary.authorizationStatus()) {
+            case .authorized:
                 self.present(imagePickerController, animated: true, completion: nil)
-            } else {
-                if (self.checkLibraryAccess() == 1){
-                    self.presentLibrarySettings()
-                }
-                else {
-                    if checkLibraryAccess() == 2 {
-                        PHPhotoLibrary.requestAuthorization { (status) in
-                            if status == PHAuthorizationStatus.authorized{
-                                self.present(imagePickerController, animated: true, completion: nil)
-                               
-                            }
-                        }
+            case .denied:
+                let alertView = SCLAlertView(appearance: SCLAlertView.SCLAppearance(
+                    showCloseButton: false
+                ))
+                alertView.addButton("Settings") {
+                    if let url = URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(url, options: [:], completionHandler: { _ in
+                        })
                     }
                 }
+                alertView.addButton("Cancel") {
+                }
+                alertView.showWarning("ACCESS DENIED", subTitle: "\"ARBeauty\" Couldn't Access Your Photos")
+            case .notDetermined:
+                PHPhotoLibrary.requestAuthorization { (status) in
+                    if (status == .authorized || status == .limited) {
+                        self.present(imagePickerController, animated: true, completion: nil)
+                    }
+                }
+            default:
+                break
             }
         }
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertSheet.addAction(takePhotoAction)
         alertSheet.addAction(choosePhotoFromLibraryAction)
         alertSheet.addAction(cancelAction)
         self.present(alertSheet, animated: true)
-    }
-    
-    func showAlert(withTitle title: String, andMessage message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: {(_ action: UIAlertAction) -> Void in
-        })
-        alert.addAction(defaultAction)
-        present(alert, animated: true, completion: {() -> Void in
-            alert.view.tintColor = UIColor.green
-        })
     }
     
     // MARK: - CollectionView

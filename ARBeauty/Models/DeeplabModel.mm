@@ -1,4 +1,4 @@
-#include "NailsDeeplabModel.h"
+#include "DeeplabModel.h"
 #import <AssertMacros.h>
 #include <iostream>
 
@@ -59,7 +59,7 @@ NSString* FilePathForResourceName(NSString* name, NSString* extension) {
     return file_path;
 }
 
-@implementation NailsDeeplabModel {
+@implementation DeeplabModel {
     std::unique_ptr<tflite::FlatBufferModel> model;
     tflite::ops::builtin::BuiltinOpResolver resolver;
     std::unique_ptr<tflite::Interpreter> interpreter;
@@ -67,8 +67,8 @@ NSString* FilePathForResourceName(NSString* name, NSString* extension) {
     unsigned char *result;
 }
 
-- (BOOL)loadModel {
-    NSString *modelPath = FilePathForResourceName(@"mymodel", @"tflite");
+- (BOOL)loadModel:(NSString *)modelName {
+    NSString *modelPath = FilePathForResourceName(modelName, @"tflite");
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
     if ([fileManager fileExistsAtPath: [NSString stringWithFormat:@"file://%@", modelPath]] == YES) {
