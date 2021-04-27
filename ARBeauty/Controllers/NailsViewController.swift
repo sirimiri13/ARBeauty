@@ -86,7 +86,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
             colors.append(UIColor.fromHex(value: color))
         }
         colors += defaultColors
-        selectedColor = UIColor.fromHex(value: colors[0].toHex(), alpha: 0.7)
+        selectedColor = UIColor.fromHex(value: colors[0].toHex(), alpha: 0.5)
         colorsCollectionView.reloadData()
     }
     
@@ -293,7 +293,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         }
         else {
             selectedIndex = indexPath.row
-            selectedColor = UIColor.fromHex(value: colors[indexPath.row - 1].toHex(), alpha: 0.7)
+            selectedColor = UIColor.fromHex(value: colors[indexPath.row - 1].toHex(), alpha: 0.5)
             colorsCollectionView.reloadData()
         }
     }
