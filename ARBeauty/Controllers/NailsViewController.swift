@@ -86,7 +86,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
             colors.append(UIColor.fromHex(value: color))
         }
         colors += defaultColors
-        selectedColor = UIColor.fromHex(value: colors[0].toHex(), alpha: 0.5)
+        selectedColor = UIColor.fromHex(value: colors[0].toHex(), alpha: 0.7)
         colorsCollectionView.reloadData()
     }
     
@@ -220,49 +220,29 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     // MARK: - Handle tap events
     func addColorTapped() {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        
         let alertSheet = UIAlertController(title: "Select a color from an image", message: "", preferredStyle: .actionSheet)
-        let takePhotoAction = UIAlertAction(title: "Take a photo", style: .default) { (action:UIAlertAction) in
+        let takePhotoAction = UIAlertAction(title: "Take a photo", style: .default) { (UIAlertAction) in
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.delegate = self
             imagePickerController.sourceType = .camera;
             self.present(imagePickerController, animated: true, completion: nil)
         }
-        
+
         let choosePhotoFromLibraryAction = UIAlertAction(title: "From Library", style: .default) { (UIAlertAction) in
-            imagePickerController.sourceType = .photoLibrary
-            switch (PHPhotoLibrary.authorizationStatus()) {
-            case .authorized:
-                self.present(imagePickerController, animated: true, completion: nil)
-            case .denied:
-                let alertView = SCLAlertView(appearance: SCLAlertView.SCLAppearance(
-                    showCloseButton: false
-                ))
-                alertView.addButton("Settings") {
-                    if let url = URL(string: UIApplication.openSettingsURLString) {
-                        UIApplication.shared.open(url, options: [:], completionHandler: { _ in
-                        })
-                    }
-                }
-                alertView.addButton("Cancel") {
-                }
-                alertView.showWarning("ACCESS DENIED", subTitle: "\"ARBeauty\" Couldn't Access Your Photos")
-            case .notDetermined:
-                PHPhotoLibrary.requestAuthorization { (status) in
-                    if (status == .authorized || status == .limited) {
-                        self.present(imagePickerController, animated: true, completion: nil)
-                    }
-                }
-            default:
-                break
-            }
+            var configuration = PHPickerConfiguration()
+            configuration.filter = .images
+            
+            let picker = PHPickerViewController(configuration: configuration)
+            picker.delegate = self
+
+            self.present(picker, animated: true)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertSheet.addAction(takePhotoAction)
         alertSheet.addAction(choosePhotoFromLibraryAction)
         alertSheet.addAction(cancelAction)
-        self.present(alertSheet, animated: true)
+        self.present(alertSheet, animated: true, completion: nil)
     }
     
     // MARK: - CollectionView
@@ -293,7 +273,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         }
         else {
             selectedIndex = indexPath.row
-            selectedColor = UIColor.fromHex(value: colors[indexPath.row - 1].toHex(), alpha: 0.5)
+            selectedColor = UIColor.fromHex(value: colors[indexPath.row - 1].toHex(), alpha: 0.7)
             colorsCollectionView.reloadData()
         }
     }
@@ -314,7 +294,7 @@ extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     }
 }
 
-extension NailsViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+extension NailsViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate, PHPickerViewControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let pickedImage = info[.originalImage] as? UIImage
         let pickColorVC = PickerColorViewController()
@@ -327,5 +307,24 @@ extension NailsViewController: UINavigationControllerDelegate, UIImagePickerCont
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true, completion: nil)
+        
+        let itemProvider = results.first?.itemProvider
+        
+        if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
+            itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
+                DispatchQueue.main.async {
+                    guard let self = self, let image = image as? UIImage else { return }
+                    let pickColorVC = PickerColorViewController()
+                    pickColorVC.modalPresentationStyle = .fullScreen
+                    pickColorVC.pickedImage = image
+                    pickColorVC.delegate = self
+                    self.present(pickColorVC, animated: true, completion: nil)
+                }
+            }
+        }
     }
 }

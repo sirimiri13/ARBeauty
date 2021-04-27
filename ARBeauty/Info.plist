@@ -66,10 +66,6 @@
 	<string>Light</string>
 	<key>NSCameraUsageDescription</key>
 	<string>&quot;ARBeauty&quot; Would Like To Access Your Camera</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>&quot;ARBeauty&quot; Would Like To Access Your Photos</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string></string>
 	<key>PHPhotoLibraryPreventAutomaticLimitedAccessAlert</key>
 	<true/>
 </dict>

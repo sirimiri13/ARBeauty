@@ -16,7 +16,7 @@ class ColorCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         colorView.layer.cornerRadius = colorView.layer.frame.height / 2
-        addColorImageView.tintColor = UIColor.blue
+        addColorImageView.tintColor = UIColor.white
         addColorImageView.isHidden = true
         outlineView.layer.cornerRadius = outlineView.layer.frame.height / 2
         outlineView.layer.borderColor = UIColor.white.cgColor
