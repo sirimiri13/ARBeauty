@@ -165,8 +165,8 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         let convertedColor = UInt32(selectedColor.switchBlueToRed()!)
         let result: UnsafeMutablePointer<UInt8> = model.process(pixelBuffer, additionalColor: convertedColor)
         let buffer = UnsafeMutableRawPointer(result)
-        DispatchQueue.main.async {
-            self.draw(buffer: buffer, size: NailsViewController.imageEdgeSize*NailsViewController.imageEdgeSize*NailsViewController.rgbaComponentsCount)
+        DispatchQueue.main.async { [weak self] in
+            self?.draw(buffer: buffer, size: NailsViewController.imageEdgeSize*NailsViewController.imageEdgeSize*NailsViewController.rgbaComponentsCount)
         }
     }
     
