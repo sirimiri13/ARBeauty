@@ -18,9 +18,6 @@ enum PixelError: Error {
     case canNotSetupAVSession
 }
 
-
-
-
 class NailsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, PickColorProtocol {
     
     @IBOutlet var cameraView: UIView!
@@ -114,7 +111,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         }
         
         session = AVCaptureSession()
-        session.sessionPreset = .hd1920x1080
+        session.sessionPreset = .hd1280x720
         
         guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: position) else {
             throw PixelError.canNotSetupAVSession
@@ -138,13 +135,11 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         session.addOutput(videoDataOutput)
         
-        
         guard let connection = videoDataOutput.connection(with: .video) else {
             throw PixelError.canNotSetupAVSession
         }
         
         connection.isEnabled = true
-        //connection.videoOrientation = .portrait
         preparecameraViewLayer(for: session)
         session.startRunning()
     }
@@ -157,12 +152,9 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         }
         
         cameraViewLayer = AVCaptureVideoPreviewLayer(session: session)
-        
-     //   cameraViewLayer.backgroundColor = UIColor.clear.cgColor
+        cameraViewLayer.backgroundColor = UIColor.black.cgColor
         cameraViewLayer.videoGravity = .resizeAspectFill
-        
         cameraView.layer.addSublayer(cameraViewLayer)
-        
         
         maskView = UIView()
         cameraView.addSubview(maskView)
@@ -177,7 +169,6 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     // Receive result from a model.
     func processFrame(pixelBuffer: CVPixelBuffer) {
-        
         let convertedColor = UInt32(selectedColor.switchBlueToRed()!)
         let result: UnsafeMutablePointer<UInt8> = model.process(pixelBuffer, additionalColor: convertedColor)
         let buffer = UnsafeMutableRawPointer(result)
@@ -232,7 +223,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         context.draw(cgImage, in: CGRect(x: 0, y: 0, width: CGFloat(width), height: CGFloat(height)))
         maskView.layer.contents = context.makeImage()
-    
+        
         if isCapture {
             let imageCaptured =  UIImage(ciImage: CIImage(cvPixelBuffer: pixelBuffer))
             let renderer = UIGraphicsImageRenderer(size: cameraView.frame.size)
@@ -242,7 +233,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
             context.draw(maskView.layer.contents as! CGImage, in: CGRect(x: 0, y: 0, width: testImageView.frame.size.width, height: testImageView.frame.size.height))
             let resultImage = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
-
+            
             testImageView.image = resultImage
             isCapture = false
         }
@@ -317,27 +308,24 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     
     @IBAction func captureButtonTapped(_ sender: Any) {
-         isCapture = true
+        isCapture = true
     }
 }
 
 
-extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate, AVCapturePhotoCaptureDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        print("running.......")
         if let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) {
             processFrame(pixelBuffer: pixelBuffer)
         }
-      
     }
     
-}
-
-extension NailsViewController: AVCapturePhotoCaptureDelegate{
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-           guard let imageData = photo.fileDataRepresentation() else { return }
-           let previewImage = UIImage(data: imageData)
+        guard let imageData = photo.fileDataRepresentation() else { return }
+        let previewImage = UIImage(data: imageData)
         testImageView.image = previewImage
-       }
+    }
 }
 
 extension NailsViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate, PHPickerViewControllerDelegate {
