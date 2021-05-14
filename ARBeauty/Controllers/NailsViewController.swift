@@ -34,6 +34,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     var maskView: UIView!
     var selectedDevice: AVCaptureDevice?
     let previewLayerConnection : AVCaptureConnection! = nil
+    let photoOutput = AVCapturePhotoOutput()
     
     var isCapture = false
     var captureImage : UIImage!
@@ -78,7 +79,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         // Setup model and camera
         model = DeeplabModel()
-        let result = model.load("nailsmodel")
+        let result = model.load("model_1884")
         if (result == false) {
             fatalError("Can't load model.")
         }
@@ -157,7 +158,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         cameraViewLayer = AVCaptureVideoPreviewLayer(session: session)
         
-        cameraViewLayer.backgroundColor = UIColor.clear.cgColor
+     //   cameraViewLayer.backgroundColor = UIColor.clear.cgColor
         cameraViewLayer.videoGravity = .resizeAspectFill
         
         cameraView.layer.addSublayer(cameraViewLayer)
@@ -237,16 +238,11 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
             let renderer = UIGraphicsImageRenderer(size: cameraView.frame.size)
             UIGraphicsBeginImageContext(imageCaptured.size)
             imageCaptured.draw(at: .zero)
-            
-            
-//            UIGraphicsBeginImageContext(self.cameraView.frame.size)
             let context = UIGraphicsGetCurrentContext()!
-
-//            context.draw(UIImage(ciImage: CIImage(cvPixelBuffer: pixelBuffer)).cgImage!, in: CGRect(x: 0, y: 0, width: self.cameraView.frame.size.width, height: self.cameraView.frame.size.height))
             context.draw(maskView.layer.contents as! CGImage, in: CGRect(x: 0, y: 0, width: testImageView.frame.size.width, height: testImageView.frame.size.height))
             let resultImage = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
-            
+
             testImageView.image = resultImage
             isCapture = false
         }
@@ -321,14 +317,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     
     @IBAction func captureButtonTapped(_ sender: Any) {
-        isCapture = true
-        //        let drawSize = CGSize(width: cameraView.frame.size.width, height: cameraView.frame.size.width)
-        //        UIGraphicsBeginImageContext(drawSize)
-        //        let renderer = UIGraphicsImageRenderer(size:drawSize)
-        //        let img = renderer.image { ctx in
-        //            ctx.cgContext.draw(cameraView.asImage().cgImage!, in: CGRect(x: 0, y: 0, width: drawSize.width, height: drawSize.height))
-        //            //ctx.cgContext.draw(captureImage.cgImage!, in: CGRect(x: 0, y: 0, width: drawSize.width, height: drawSize.height))
-        //        }
+         isCapture = true
     }
 }
 
@@ -341,7 +330,14 @@ extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
       
     }
     
-    
+}
+
+extension NailsViewController: AVCapturePhotoCaptureDelegate{
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+           guard let imageData = photo.fileDataRepresentation() else { return }
+           let previewImage = UIImage(data: imageData)
+        testImageView.image = previewImage
+       }
 }
 
 extension NailsViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate, PHPickerViewControllerDelegate {

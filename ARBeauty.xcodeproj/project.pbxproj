@@ -13,6 +13,7 @@
 		17A80514262DCDD500AFD93C /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A80512262DCDD500AFD93C /* ColorCollectionViewCell.swift */; };
 		17A80515262DCDD500AFD93C /* ColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17A80513262DCDD500AFD93C /* ColorCollectionViewCell.xib */; };
 		17A80519262DE60100AFD93C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A80518262DE60100AFD93C /* Utils.swift */; };
+		2D27314A264E4DAB000790C4 /* model_1884.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 2D273149264E4DAB000790C4 /* model_1884.tflite */; };
 		2D91A77225DA3200002885B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77125DA3200002885B8 /* AppDelegate.swift */; };
 		2D91A77425DA3200002885B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77325DA3200002885B8 /* SceneDelegate.swift */; };
 		2D91A77625DA3200002885B8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77525DA3200002885B8 /* HomeViewController.swift */; };
@@ -26,7 +27,6 @@
 		503B35BB3DDD4EC5B71F8F48 /* Pods_ARBeauty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B81CB3E7DFAD48ABB93C80D /* Pods_ARBeauty.framework */; };
 		6B35AF0E2630102300304869 /* PickerColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B35AF0C2630102300304869 /* PickerColorViewController.swift */; };
 		6B35AF0F2630102300304869 /* PickerColorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B35AF0D2630102300304869 /* PickerColorViewController.xib */; };
-		F7C604E226177DA500164D13 /* nailsmodel.tflite in Resources */ = {isa = PBXBuildFile; fileRef = F7C604E126177DA500164D13 /* nailsmodel.tflite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +40,7 @@
 		17A80512262DCDD500AFD93C /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		17A80513262DCDD500AFD93C /* ColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorCollectionViewCell.xib; sourceTree = "<group>"; };
 		17A80518262DE60100AFD93C /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		2D273149264E4DAB000790C4 /* model_1884.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = model_1884.tflite; sourceTree = "<group>"; };
 		2D91A76E25DA3200002885B8 /* ARBeauty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARBeauty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D91A77125DA3200002885B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D91A77325DA3200002885B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,7 +62,6 @@
 		8B81CB3E7DFAD48ABB93C80D /* Pods_ARBeauty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARBeauty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97F36544FE8CBA6CE2784CA /* Pods_ARBeauty_ARBeautyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARBeauty_ARBeautyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C71A2FA9C8A7B80A15EF7607 /* Pods-ARBeauty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARBeauty.release.xcconfig"; path = "Target Support Files/Pods-ARBeauty/Pods-ARBeauty.release.xcconfig"; sourceTree = "<group>"; };
-		F7C604E126177DA500164D13 /* nailsmodel.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = nailsmodel.tflite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +89,8 @@
 		1724F71725FA2CD100436485 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2D273149264E4DAB000790C4 /* model_1884.tflite */,
 				173F980F261832520029FB67 /* deeplabv3_257_mv_gpu.tflite */,
-				F7C604E126177DA500164D13 /* nailsmodel.tflite */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -263,10 +263,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D91A77E25DA3203002885B8 /* LaunchScreen.storyboard in Resources */,
+				2D27314A264E4DAB000790C4 /* model_1884.tflite in Resources */,
 				2D91A77B25DA3203002885B8 /* Assets.xcassets in Resources */,
 				6B35AF0F2630102300304869 /* PickerColorViewController.xib in Resources */,
 				17A80515262DCDD500AFD93C /* ColorCollectionViewCell.xib in Resources */,
-				F7C604E226177DA500164D13 /* nailsmodel.tflite in Resources */,
 				173F9810261832520029FB67 /* deeplabv3_257_mv_gpu.tflite in Resources */,
 				2D91A77925DA3200002885B8 /* Main.storyboard in Resources */,
 			);
