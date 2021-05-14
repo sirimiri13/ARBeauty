@@ -18,10 +18,14 @@ enum PixelError: Error {
     case canNotSetupAVSession
 }
 
+
+
+
 class NailsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, PickColorProtocol {
     
     @IBOutlet var cameraView: UIView!
     @IBOutlet weak var colorsCollectionView: UICollectionView!
+    @IBOutlet weak var testImageView: UIImageView!
     
     var model: DeeplabModel!
     var session: AVCaptureSession!
@@ -29,6 +33,13 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     var cameraViewLayer: AVCaptureVideoPreviewLayer!
     var maskView: UIView!
     var selectedDevice: AVCaptureDevice?
+    let previewLayerConnection : AVCaptureConnection! = nil
+    
+    var isCapture = false
+    var captureImage : UIImage!
+    
+    
+    
     
     static let imageEdgeSize = 257
     static let rgbaComponentsCount = 4
@@ -123,13 +134,16 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         guard session.canAddOutput(videoDataOutput) else {
             throw PixelError.canNotSetupAVSession
         }
+        
         session.addOutput(videoDataOutput)
+        
         
         guard let connection = videoDataOutput.connection(with: .video) else {
             throw PixelError.canNotSetupAVSession
         }
         
         connection.isEnabled = true
+        //connection.videoOrientation = .portrait
         preparecameraViewLayer(for: session)
         session.startRunning()
     }
@@ -143,7 +157,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         cameraViewLayer = AVCaptureVideoPreviewLayer(session: session)
         
-        cameraViewLayer.backgroundColor = UIColor.black.cgColor
+        cameraViewLayer.backgroundColor = UIColor.clear.cgColor
         cameraViewLayer.videoGravity = .resizeAspectFill
         
         cameraView.layer.addSublayer(cameraViewLayer)
@@ -162,16 +176,17 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     // Receive result from a model.
     func processFrame(pixelBuffer: CVPixelBuffer) {
+        
         let convertedColor = UInt32(selectedColor.switchBlueToRed()!)
         let result: UnsafeMutablePointer<UInt8> = model.process(pixelBuffer, additionalColor: convertedColor)
         let buffer = UnsafeMutableRawPointer(result)
         DispatchQueue.main.async { [weak self] in
-            self?.draw(buffer: buffer, size: NailsViewController.imageEdgeSize*NailsViewController.imageEdgeSize*NailsViewController.rgbaComponentsCount)
+            self?.draw(buffer: buffer, size: NailsViewController.imageEdgeSize*NailsViewController.imageEdgeSize*NailsViewController.rgbaComponentsCount, pixelBuffer: pixelBuffer)
         }
     }
     
     // Overlay over camera screen.
-    func draw(buffer: UnsafeMutableRawPointer, size: Int) {
+    func draw(buffer: UnsafeMutableRawPointer, size: Int, pixelBuffer: CVPixelBuffer) {
         let callback:CGDataProviderReleaseDataCallback  = { (pointer: UnsafeMutableRawPointer?, rawPointer: UnsafeRawPointer, size: Int) in }
         
         let width = NailsViewController.imageEdgeSize
@@ -216,6 +231,26 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         context.draw(cgImage, in: CGRect(x: 0, y: 0, width: CGFloat(width), height: CGFloat(height)))
         maskView.layer.contents = context.makeImage()
+    
+        if isCapture {
+            let imageCaptured =  UIImage(ciImage: CIImage(cvPixelBuffer: pixelBuffer))
+            let renderer = UIGraphicsImageRenderer(size: cameraView.frame.size)
+            UIGraphicsBeginImageContext(imageCaptured.size)
+            imageCaptured.draw(at: .zero)
+            
+            
+//            UIGraphicsBeginImageContext(self.cameraView.frame.size)
+            let context = UIGraphicsGetCurrentContext()!
+
+//            context.draw(UIImage(ciImage: CIImage(cvPixelBuffer: pixelBuffer)).cgImage!, in: CGRect(x: 0, y: 0, width: self.cameraView.frame.size.width, height: self.cameraView.frame.size.height))
+            context.draw(maskView.layer.contents as! CGImage, in: CGRect(x: 0, y: 0, width: testImageView.frame.size.width, height: testImageView.frame.size.height))
+            let resultImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            testImageView.image = resultImage
+            isCapture = false
+        }
+        
     }
     
     // MARK: - Handle tap events
@@ -227,14 +262,14 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
             imagePickerController.sourceType = .camera;
             self.present(imagePickerController, animated: true, completion: nil)
         }
-
+        
         let choosePhotoFromLibraryAction = UIAlertAction(title: "From Library", style: .default) { (UIAlertAction) in
             var configuration = PHPickerConfiguration()
             configuration.filter = .images
             
             let picker = PHPickerViewController(configuration: configuration)
             picker.delegate = self
-
+            
             self.present(picker, animated: true)
         }
         
@@ -283,6 +318,18 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         selectedIndex = 1
         setupColors()
     }
+    
+    
+    @IBAction func captureButtonTapped(_ sender: Any) {
+        isCapture = true
+        //        let drawSize = CGSize(width: cameraView.frame.size.width, height: cameraView.frame.size.width)
+        //        UIGraphicsBeginImageContext(drawSize)
+        //        let renderer = UIGraphicsImageRenderer(size:drawSize)
+        //        let img = renderer.image { ctx in
+        //            ctx.cgContext.draw(cameraView.asImage().cgImage!, in: CGRect(x: 0, y: 0, width: drawSize.width, height: drawSize.height))
+        //            //ctx.cgContext.draw(captureImage.cgImage!, in: CGRect(x: 0, y: 0, width: drawSize.width, height: drawSize.height))
+        //        }
+    }
 }
 
 
@@ -291,7 +338,10 @@ extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         if let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) {
             processFrame(pixelBuffer: pixelBuffer)
         }
+      
     }
+    
+    
 }
 
 extension NailsViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate, PHPickerViewControllerDelegate {

@@ -146,6 +146,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8B-Nh-okI">
+                                <rect key="frame" x="0.0" y="56" width="414" height="600"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2nR-Iv-cmA" userLabel="Fake NavBar">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <subviews>
@@ -180,9 +183,13 @@
                                     <constraint firstItem="opG-IU-G6W" firstAttribute="centerY" secondItem="2nR-Iv-cmA" secondAttribute="centerY" id="mpR-NS-dS4"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8B-Nh-okI">
-                                <rect key="frame" x="0.0" y="56" width="414" height="600"/>
-                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ln6-5Q-gTR">
+                                <rect key="frame" x="57" y="100" width="300" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ln6-5Q-gTR" secondAttribute="height" multiplier="3:4" id="csI-42-X2R"/>
+                                    <constraint firstAttribute="height" constant="400" id="rcM-V0-5cB"/>
+                                </constraints>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CKm-UR-V55" userLabel="Fake Tabbar Box">
                                 <rect key="frame" x="0.0" y="656" width="414" height="180"/>
                                 <subviews>
@@ -193,6 +200,9 @@
                                             <constraint firstAttribute="width" constant="60" id="vIm-Xy-rn4"/>
                                         </constraints>
                                         <state key="normal" image="shoot_button_icon"/>
+                                        <connections>
+                                            <action selector="captureButtonTapped:" destination="Of0-jy-81A" eventType="touchUpInside" id="btb-1S-QJk"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97236901519999996" green="0.92886036630000002" blue="0.95686596629999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -232,6 +242,8 @@
                             <constraint firstItem="yzg-Le-YNZ" firstAttribute="trailing" secondItem="2nR-Iv-cmA" secondAttribute="trailing" id="b6I-6g-wxC"/>
                             <constraint firstItem="CKm-UR-V55" firstAttribute="top" secondItem="yzg-Le-YNZ" secondAttribute="bottom" constant="-80" id="dcN-Om-1Tz"/>
                             <constraint firstItem="CKm-UR-V55" firstAttribute="leading" secondItem="yzg-Le-YNZ" secondAttribute="leading" id="h45-Jb-Kox"/>
+                            <constraint firstItem="ln6-5Q-gTR" firstAttribute="centerX" secondItem="yzg-Le-YNZ" secondAttribute="centerX" id="hAk-Dd-6dK"/>
+                            <constraint firstItem="ln6-5Q-gTR" firstAttribute="top" secondItem="yzg-Le-YNZ" secondAttribute="top" constant="100" id="jQK-7b-OVt"/>
                             <constraint firstItem="7Wl-eU-auL" firstAttribute="trailing" secondItem="yzg-Le-YNZ" secondAttribute="trailing" id="jlj-hU-Ckz"/>
                             <constraint firstItem="CKm-UR-V55" firstAttribute="top" secondItem="7Wl-eU-auL" secondAttribute="bottom" id="kEz-Kv-drg"/>
                             <constraint firstItem="2nR-Iv-cmA" firstAttribute="leading" secondItem="yzg-Le-YNZ" secondAttribute="leading" id="nyK-MN-ksN"/>
@@ -243,6 +255,7 @@
                     <connections>
                         <outlet property="cameraView" destination="l8B-Nh-okI" id="gU5-bP-Scd"/>
                         <outlet property="colorsCollectionView" destination="7Wl-eU-auL" id="Gml-fa-JEP"/>
+                        <outlet property="testImageView" destination="ln6-5Q-gTR" id="929-Ec-Z8B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W8i-8f-Xf9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
