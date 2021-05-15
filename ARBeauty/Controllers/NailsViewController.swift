@@ -76,7 +76,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         // Setup model and camera
         model = DeeplabModel()
-        let result = model.load("model_1884")
+        let result = model.load("model_1887")
         if (result == false) {
             fatalError("Can't load model.")
         }
