@@ -19,19 +19,19 @@
 		2D91A77925DA3200002885B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D91A77725DA3200002885B8 /* Main.storyboard */; };
 		2D91A77B25DA3203002885B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D91A77A25DA3203002885B8 /* Assets.xcassets */; };
 		2D91A77E25DA3203002885B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D91A77C25DA3203002885B8 /* LaunchScreen.storyboard */; };
+		2D9595CC265D3A1100EAB733 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9595CB265D3A1100EAB733 /* PhotoViewController.swift */; };
 		2D9A523225E2672400A1965C /* LipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A523125E2672400A1965C /* LipsViewController.swift */; };
 		2D9A523725E2675F00A1965C /* StoryboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A523625E2675F00A1965C /* StoryboardManager.swift */; };
 		2DB217AB265BCFC000E890AF /* model_1888.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 2DB217AA265BCFC000E890AF /* model_1888.tflite */; };
 		2DFFB53E25DFADEE00CE20E5 /* ARButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB53D25DFADEE00CE20E5 /* ARButton.swift */; };
 		2DFFB54F25E0F38E00CE20E5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB54E25E0F38E00CE20E5 /* Extension.swift */; };
-		503B35BB3DDD4EC5B71F8F48 /* Pods_ARBeauty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B81CB3E7DFAD48ABB93C80D /* Pods_ARBeauty.framework */; };
 		6B35AF0E2630102300304869 /* PickerColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B35AF0C2630102300304869 /* PickerColorViewController.swift */; };
 		6B35AF0F2630102300304869 /* PickerColorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B35AF0D2630102300304869 /* PickerColorViewController.xib */; };
+		F4C550F909F53B8C300E4FD3 /* Pods_ARBeauty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C6413BBBC47A0FEC2E4C611 /* Pods_ARBeauty.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		075E6AB4482F0A0C3BFA53E7 /* Pods-ARBeauty-ARBeautyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARBeauty-ARBeautyUITests.release.xcconfig"; path = "Target Support Files/Pods-ARBeauty-ARBeautyUITests/Pods-ARBeauty-ARBeautyUITests.release.xcconfig"; sourceTree = "<group>"; };
-		09BDA4763D8BB5761B0ED04B /* Pods-ARBeauty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARBeauty.debug.xcconfig"; path = "Target Support Files/Pods-ARBeauty/Pods-ARBeauty.debug.xcconfig"; sourceTree = "<group>"; };
+		0C6413BBBC47A0FEC2E4C611 /* Pods_ARBeauty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARBeauty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1724F6E625FA1F7B00436485 /* NailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NailsViewController.swift; sourceTree = "<group>"; };
 		1724F74825FA32A400436485 /* ARBeauty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARBeauty-Bridging-Header.h"; sourceTree = "<group>"; };
 		1724F74925FA32A500436485 /* DeeplabModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeeplabModel.h; sourceTree = "<group>"; };
@@ -48,20 +48,16 @@
 		2D91A77A25DA3203002885B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D91A77D25DA3203002885B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D91A77F25DA3203002885B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D9595CB265D3A1100EAB733 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		2D9A523125E2672400A1965C /* LipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LipsViewController.swift; sourceTree = "<group>"; };
 		2D9A523625E2675F00A1965C /* StoryboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardManager.swift; sourceTree = "<group>"; };
 		2DB217AA265BCFC000E890AF /* model_1888.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = model_1888.tflite; sourceTree = "<group>"; };
 		2DFFB53D25DFADEE00CE20E5 /* ARButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARButton.swift; sourceTree = "<group>"; };
 		2DFFB54E25E0F38E00CE20E5 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		3A5BC60AEF4759158664290B /* Pods-ARBeauty-ARBeautyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARBeauty-ARBeautyUITests.debug.xcconfig"; path = "Target Support Files/Pods-ARBeauty-ARBeautyUITests/Pods-ARBeauty-ARBeautyUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		6279CEB850A0F6071117981A /* Pods_ARBeautyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARBeautyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		68B0BB812BFEAA1657D58CF9 /* Pods-ARBeautyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARBeautyTests.debug.xcconfig"; path = "Target Support Files/Pods-ARBeautyTests/Pods-ARBeautyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		65AA668F05FD9FF4A966977A /* Pods-ARBeauty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARBeauty.debug.xcconfig"; path = "Target Support Files/Pods-ARBeauty/Pods-ARBeauty.debug.xcconfig"; sourceTree = "<group>"; };
 		6B35AF0C2630102300304869 /* PickerColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerColorViewController.swift; sourceTree = "<group>"; };
 		6B35AF0D2630102300304869 /* PickerColorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerColorViewController.xib; sourceTree = "<group>"; };
-		80BA7B53967DCA4E07F38054 /* Pods-ARBeautyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARBeautyTests.release.xcconfig"; path = "Target Support Files/Pods-ARBeautyTests/Pods-ARBeautyTests.release.xcconfig"; sourceTree = "<group>"; };
-		8B81CB3E7DFAD48ABB93C80D /* Pods_ARBeauty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARBeauty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A97F36544FE8CBA6CE2784CA /* Pods_ARBeauty_ARBeautyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARBeauty_ARBeautyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C71A2FA9C8A7B80A15EF7607 /* Pods-ARBeauty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARBeauty.release.xcconfig"; path = "Target Support Files/Pods-ARBeauty/Pods-ARBeauty.release.xcconfig"; sourceTree = "<group>"; };
+		828D0BE42D0CF6918E5317FE /* Pods-ARBeauty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARBeauty.release.xcconfig"; path = "Target Support Files/Pods-ARBeauty/Pods-ARBeauty.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				503B35BB3DDD4EC5B71F8F48 /* Pods_ARBeauty.framework in Frameworks */,
+				F4C550F909F53B8C300E4FD3 /* Pods_ARBeauty.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,7 +106,7 @@
 				2D91A77025DA3200002885B8 /* ARBeauty */,
 				2D91A76F25DA3200002885B8 /* Products */,
 				7AC7FD2511AC6DF6863F81DE /* Pods */,
-				CA82062E26C4C82EE4597A23 /* Frameworks */,
+				AF00BD586D24833E08025E24 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -175,6 +171,7 @@
 				2D91A77525DA3200002885B8 /* HomeViewController.swift */,
 				1724F6E625FA1F7B00436485 /* NailsViewController.swift */,
 				2D9A523125E2672400A1965C /* LipsViewController.swift */,
+				2D9595CB265D3A1100EAB733 /* PhotoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -182,22 +179,16 @@
 		7AC7FD2511AC6DF6863F81DE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				09BDA4763D8BB5761B0ED04B /* Pods-ARBeauty.debug.xcconfig */,
-				C71A2FA9C8A7B80A15EF7607 /* Pods-ARBeauty.release.xcconfig */,
-				3A5BC60AEF4759158664290B /* Pods-ARBeauty-ARBeautyUITests.debug.xcconfig */,
-				075E6AB4482F0A0C3BFA53E7 /* Pods-ARBeauty-ARBeautyUITests.release.xcconfig */,
-				68B0BB812BFEAA1657D58CF9 /* Pods-ARBeautyTests.debug.xcconfig */,
-				80BA7B53967DCA4E07F38054 /* Pods-ARBeautyTests.release.xcconfig */,
+				65AA668F05FD9FF4A966977A /* Pods-ARBeauty.debug.xcconfig */,
+				828D0BE42D0CF6918E5317FE /* Pods-ARBeauty.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		CA82062E26C4C82EE4597A23 /* Frameworks */ = {
+		AF00BD586D24833E08025E24 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8B81CB3E7DFAD48ABB93C80D /* Pods_ARBeauty.framework */,
-				A97F36544FE8CBA6CE2784CA /* Pods_ARBeauty_ARBeautyUITests.framework */,
-				6279CEB850A0F6071117981A /* Pods_ARBeautyTests.framework */,
+				0C6413BBBC47A0FEC2E4C611 /* Pods_ARBeauty.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -209,11 +200,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D91A79825DA3203002885B8 /* Build configuration list for PBXNativeTarget "ARBeauty" */;
 			buildPhases = (
-				0850741C175716CEBEF49ADE /* [CP] Check Pods Manifest.lock */,
+				FBD10EF8EA13215198614F3B /* [CP] Check Pods Manifest.lock */,
 				2D91A76A25DA3200002885B8 /* Sources */,
 				2D91A76B25DA3200002885B8 /* Frameworks */,
 				2D91A76C25DA3200002885B8 /* Resources */,
-				48D2A53AF34FA9BC588B22C2 /* [CP] Embed Pods Frameworks */,
+				DB284FE91F45C4A34F514414 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -275,7 +266,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0850741C175716CEBEF49ADE /* [CP] Check Pods Manifest.lock */ = {
+		DB284FE91F45C4A34F514414 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARBeauty/Pods-ARBeauty-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARBeauty/Pods-ARBeauty-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ARBeauty/Pods-ARBeauty-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FBD10EF8EA13215198614F3B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -297,23 +305,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		48D2A53AF34FA9BC588B22C2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ARBeauty/Pods-ARBeauty-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ARBeauty/Pods-ARBeauty-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ARBeauty/Pods-ARBeauty-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -333,6 +324,7 @@
 				1724F74B25FA32A500436485 /* DeeplabModel.mm in Sources */,
 				2D91A77425DA3200002885B8 /* SceneDelegate.swift in Sources */,
 				2D9A523725E2675F00A1965C /* StoryboardManager.swift in Sources */,
+				2D9595CC265D3A1100EAB733 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,7 +468,7 @@
 		};
 		2D91A79925DA3203002885B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 09BDA4763D8BB5761B0ED04B /* Pods-ARBeauty.debug.xcconfig */;
+			baseConfigurationReference = 65AA668F05FD9FF4A966977A /* Pods-ARBeauty.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -499,7 +491,7 @@
 		};
 		2D91A79A25DA3203002885B8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C71A2FA9C8A7B80A15EF7607 /* Pods-ARBeauty.release.xcconfig */;
+			baseConfigurationReference = 828D0BE42D0CF6918E5317FE /* Pods-ARBeauty.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

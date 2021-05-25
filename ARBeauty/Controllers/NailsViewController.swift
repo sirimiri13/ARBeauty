@@ -113,36 +113,6 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     // Setup AVCapture session and AVCaptureDevice.
     func setupAVCapture(position: AVCaptureDevice.Position) throws {
         
-        
-        // set photo session
-        
-        //        photoSession = AVCaptureSession()
-        //        photoSession.sessionPreset = AVCaptureSession.Preset.photo
-        //        photoOutput = AVCapturePhotoOutput()
-        //
-        //        let device = AVCaptureDevice.default(for: AVMediaType.video)
-        //
-        //        do {
-        //            let input = try AVCaptureDeviceInput(device: device!)
-        //            if photoSession.canAddInput(input) && photoSession.canAddOutput(stillImageOutput) {
-        //                photoSession.addInput(input)
-        //                photoSession.addOutput(stillImageOutput)
-        //                setupLivePreview()
-        //                DispatchQueue.global(qos: .userInitiated).async { //[weak self] in
-        //                    self.photoSession.startRunning()
-        //
-        //                }
-        //            }
-        //        }
-        //        catch let error  {
-        //            print("Error Unable to initialize back camera:  \(error.localizedDescription)")
-        //        }
-        //
-        
-        
-        
-        // set video session
-        //
         if let existedSession = session, existedSession.isRunning {
             existedSession.stopRunning()
         }
@@ -276,20 +246,6 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         context.draw(cgImage, in: CGRect(x: 0, y: 0, width: CGFloat(width), height: CGFloat(height)))
         maskView.layer.contents = context.makeImage()
         
-        //        if isCapture {
-        //            let imageCaptured =  UIImage(ciImage: CIImage(cvPixelBuffer: pixelBuffer))
-        //            let renderer = UIGraphicsImageRenderer(size: cameraView.frame.size)
-        //            UIGraphicsBeginImageContext(imageCaptured.size)
-        //            imageCaptured.draw(at: .zero)
-        //            let context = UIGraphicsGetCurrentContext()!
-        //            context.draw(maskView.layer.contents as! CGImage, in: CGRect(x: 0, y: 0, width: testImageView.frame.size.width, height: testImageView.frame.size.height))
-        //            let resultImage = UIGraphicsGetImageFromCurrentImageContext()
-        //            UIGraphicsEndImageContext()
-        //
-        //            testImageView.image = resultImage
-        //            isCapture = false
-        //        }
-        
     }
     
     // MARK: - Handle tap events
@@ -361,10 +317,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     @IBAction func captureButtonTapped(_ sender: Any) {
         isCapture = true
-        
-        //        let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
-        //        stillImageOutput.capturePhoto(with: settings, delegate: self)
-        //
+        toggleTorch(on: true)
     }
     
     
@@ -383,6 +336,29 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         return nil
     }
+    
+    
+    func toggleTorch(on: Bool) {
+        guard let device = AVCaptureDevice.default(for: .video) else { return }
+
+        if device.hasTorch {
+            do {
+                try device.lockForConfiguration()
+
+                if on == true {
+                    device.torchMode = .on
+                } else {
+                    device.torchMode = .off
+                }
+
+                device.unlockForConfiguration()
+            } catch {
+                print("Torch could not be used")
+            }
+        } else {
+            print("Torch is not available")
+        }
+    }
 }
 
 
@@ -393,10 +369,17 @@ extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             processFrame(pixelBuffer: pixelBuffer)
         }
         if isCapture {
+            toggleTorch(on: false)
             isCapture = false
             if let image = self.getImageFromSampleBuffer(buffer: sampleBuffer) {
                 DispatchQueue.main.async { [self] in
-                    testImageView.image = image
+                    let photoViewController = UIStoryboard.photoViewController()
+                    photoViewController.photoImage = image
+                    photoViewController.selectedColor = selectedColor
+                    photoViewController.sampleBuffer = sampleBuffer
+                 //   photoViewController.modalPresentationStyle = .fullScreen
+                    present(photoViewController, animated: true, completion: nil)
+                  
                 }
             }
             
@@ -406,19 +389,6 @@ extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 }
 
 
-//extension NailsViewController:AVCapturePhotoCaptureDelegate {
-//
-//    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-//
-//        guard let imageData = photo.fileDataRepresentation()
-//            else { return }
-//
-//        let image = UIImage(data: imageData)
-//        testImageView.image = image
-//    }
-//
-//
-//}
 
 
 extension NailsViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate, PHPickerViewControllerDelegate {

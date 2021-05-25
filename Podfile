@@ -6,7 +6,8 @@ target 'ARBeauty' do
   use_frameworks!
 
   # Pods for ARBeauty
-  pod 'TensorFlowLiteGpuExperimental', '0.0.1'
- pod 'SCLAlertView'
-
+ 	pod 'TensorFlowLiteGpuExperimental', '0.0.1'
+ 	pod 'SCLAlertView'
+	pod 'Toast-Swift', '~> 5.0.1'
+	
 end

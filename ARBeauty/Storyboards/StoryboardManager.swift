@@ -24,5 +24,8 @@ extension UIStoryboard{
     class func lipsViewController() -> LipsViewController?{
         return mainStoryboard().instantiateViewController(withIdentifier: "LipsViewController") as? LipsViewController
     }
+    class func photoViewController() -> PhotoViewController{
+        return (mainStoryboard().instantiateViewController(withIdentifier: "PhotoViewController") as? PhotoViewController)!
+    }
     
 }
