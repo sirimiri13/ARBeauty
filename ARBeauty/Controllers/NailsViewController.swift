@@ -11,7 +11,6 @@ import Foundation
 import AVFoundation
 import CoreVideo
 import CoreGraphics
-import SCLAlertView
 import PhotosUI
 
 enum PixelError: Error {
@@ -26,12 +25,16 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     var model: DeeplabModel!
     var session: AVCaptureSession!
+    
+    var photoSession: AVCaptureSession!
     var videoDataOutput: AVCaptureVideoDataOutput!
+    
     var cameraViewLayer: AVCaptureVideoPreviewLayer!
     var maskView: UIView!
     var selectedDevice: AVCaptureDevice?
     let previewLayerConnection : AVCaptureConnection! = nil
-    let photoOutput = AVCapturePhotoOutput()
+    var photoOutput = AVCapturePhotoOutput()
+    var stillImageOutput = AVCapturePhotoOutput()
     
     var isCapture = false
     var captureImage : UIImage!
@@ -53,6 +56,8 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
                                     UIColor.fromHex(value: "FFCC33")]
     var selectedIndex: Int = 1
     var selectedColor = UIColor()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +81,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         // Setup model and camera
         model = DeeplabModel()
-        let result = model.load("model_1887")
+        let result = model.load("model_1888")
         if (result == false) {
             fatalError("Can't load model.")
         }
@@ -87,6 +92,8 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
             print(error)
         }
     }
+    
+    
     
     func setupColors() {
         colors.removeAll()
@@ -106,6 +113,36 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     // Setup AVCapture session and AVCaptureDevice.
     func setupAVCapture(position: AVCaptureDevice.Position) throws {
         
+        
+        // set photo session
+        
+        //        photoSession = AVCaptureSession()
+        //        photoSession.sessionPreset = AVCaptureSession.Preset.photo
+        //        photoOutput = AVCapturePhotoOutput()
+        //
+        //        let device = AVCaptureDevice.default(for: AVMediaType.video)
+        //
+        //        do {
+        //            let input = try AVCaptureDeviceInput(device: device!)
+        //            if photoSession.canAddInput(input) && photoSession.canAddOutput(stillImageOutput) {
+        //                photoSession.addInput(input)
+        //                photoSession.addOutput(stillImageOutput)
+        //                setupLivePreview()
+        //                DispatchQueue.global(qos: .userInitiated).async { //[weak self] in
+        //                    self.photoSession.startRunning()
+        //
+        //                }
+        //            }
+        //        }
+        //        catch let error  {
+        //            print("Error Unable to initialize back camera:  \(error.localizedDescription)")
+        //        }
+        //
+        
+        
+        
+        // set video session
+        //
         if let existedSession = session, existedSession.isRunning {
             existedSession.stopRunning()
         }
@@ -144,10 +181,21 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         session.startRunning()
     }
     
+    
+    func setupLivePreview() {
+        cameraViewLayer = AVCaptureVideoPreviewLayer(session: photoSession)
+        
+        cameraViewLayer.videoGravity = .resizeAspect
+        cameraViewLayer.connection?.videoOrientation = .portrait
+        cameraView.layer.addSublayer(cameraViewLayer)
+        
+    }
+    
     // Setup cameraView screen.
     func preparecameraViewLayer(for session: AVCaptureSession) {
         guard cameraViewLayer == nil else {
             cameraViewLayer.session = session
+            //            cameraViewLayer.session = photoSession
             return
         }
         
@@ -165,6 +213,10 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         super.viewDidLayoutSubviews()
         maskView.frame = cameraView.bounds
         cameraViewLayer.frame = cameraView.bounds
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.photoSession.stopRunning()
     }
     
     // Receive result from a model.
@@ -224,19 +276,19 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         context.draw(cgImage, in: CGRect(x: 0, y: 0, width: CGFloat(width), height: CGFloat(height)))
         maskView.layer.contents = context.makeImage()
         
-        if isCapture {
-            let imageCaptured =  UIImage(ciImage: CIImage(cvPixelBuffer: pixelBuffer))
-            let renderer = UIGraphicsImageRenderer(size: cameraView.frame.size)
-            UIGraphicsBeginImageContext(imageCaptured.size)
-            imageCaptured.draw(at: .zero)
-            let context = UIGraphicsGetCurrentContext()!
-            context.draw(maskView.layer.contents as! CGImage, in: CGRect(x: 0, y: 0, width: testImageView.frame.size.width, height: testImageView.frame.size.height))
-            let resultImage = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            
-            testImageView.image = resultImage
-            isCapture = false
-        }
+        //        if isCapture {
+        //            let imageCaptured =  UIImage(ciImage: CIImage(cvPixelBuffer: pixelBuffer))
+        //            let renderer = UIGraphicsImageRenderer(size: cameraView.frame.size)
+        //            UIGraphicsBeginImageContext(imageCaptured.size)
+        //            imageCaptured.draw(at: .zero)
+        //            let context = UIGraphicsGetCurrentContext()!
+        //            context.draw(maskView.layer.contents as! CGImage, in: CGRect(x: 0, y: 0, width: testImageView.frame.size.width, height: testImageView.frame.size.height))
+        //            let resultImage = UIGraphicsGetImageFromCurrentImageContext()
+        //            UIGraphicsEndImageContext()
+        //
+        //            testImageView.image = resultImage
+        //            isCapture = false
+        //        }
         
     }
     
@@ -309,24 +361,65 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     @IBAction func captureButtonTapped(_ sender: Any) {
         isCapture = true
+        
+        //        let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
+        //        stillImageOutput.capturePhoto(with: settings, delegate: self)
+        //
+    }
+    
+    
+    func getImageFromSampleBuffer (buffer:CMSampleBuffer) -> UIImage? {
+        if let pixelBuffer = CMSampleBufferGetImageBuffer(buffer) {
+            let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
+            let context = CIContext()
+            
+            let imageRect = CGRect(x: 0, y: 0, width: CVPixelBufferGetWidth(pixelBuffer), height: CVPixelBufferGetHeight(pixelBuffer))
+            
+            if let image = context.createCGImage(ciImage, from: imageRect) {
+                return UIImage(cgImage: image, scale: UIScreen.main.scale, orientation: .right)
+            }
+            
+        }
+        
+        return nil
     }
 }
 
 
-extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate, AVCapturePhotoCaptureDelegate {
+extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         print("running.......")
         if let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) {
             processFrame(pixelBuffer: pixelBuffer)
         }
-    }
-    
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        guard let imageData = photo.fileDataRepresentation() else { return }
-        let previewImage = UIImage(data: imageData)
-        testImageView.image = previewImage
+        if isCapture {
+            isCapture = false
+            if let image = self.getImageFromSampleBuffer(buffer: sampleBuffer) {
+                DispatchQueue.main.async { [self] in
+                    testImageView.image = image
+                }
+            }
+            
+            
+        }
     }
 }
+
+
+//extension NailsViewController:AVCapturePhotoCaptureDelegate {
+//
+//    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+//
+//        guard let imageData = photo.fileDataRepresentation()
+//            else { return }
+//
+//        let image = UIImage(data: imageData)
+//        testImageView.image = image
+//    }
+//
+//
+//}
+
 
 extension NailsViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate, PHPickerViewControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
