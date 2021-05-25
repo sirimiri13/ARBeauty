@@ -13,11 +13,13 @@ import CoreVideo
 import CoreGraphics
 import PhotosUI
 
+
 enum PixelError: Error {
     case canNotSetupAVSession
 }
 
-class NailsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, PickColorProtocol {
+class NailsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, PickColorProtocol, StartSessionProtocol {
+   
     
     @IBOutlet var cameraView: UIView!
     @IBOutlet weak var colorsCollectionView: UICollectionView!
@@ -26,7 +28,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     var model: DeeplabModel!
     var session: AVCaptureSession!
     
-    var photoSession: AVCaptureSession!
+//    var photoSession: AVCaptureSession!
     var videoDataOutput: AVCaptureVideoDataOutput!
     
     var cameraViewLayer: AVCaptureVideoPreviewLayer!
@@ -153,8 +155,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     
     func setupLivePreview() {
-        cameraViewLayer = AVCaptureVideoPreviewLayer(session: photoSession)
-        
+        cameraViewLayer = AVCaptureVideoPreviewLayer(session: session)
         cameraViewLayer.videoGravity = .resizeAspect
         cameraViewLayer.connection?.videoOrientation = .portrait
         cameraView.layer.addSublayer(cameraViewLayer)
@@ -165,7 +166,6 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     func preparecameraViewLayer(for session: AVCaptureSession) {
         guard cameraViewLayer == nil else {
             cameraViewLayer.session = session
-            //            cameraViewLayer.session = photoSession
             return
         }
         
@@ -186,7 +186,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.photoSession.stopRunning()
+        self.session.stopRunning()
     }
     
     // Receive result from a model.
@@ -317,7 +317,14 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     @IBAction func captureButtonTapped(_ sender: Any) {
         isCapture = true
-        toggleTorch(on: true)
+        let shutterView = UIView(frame: cameraView.frame)
+        shutterView.backgroundColor = UIColor.white
+        view.addSubview(shutterView)
+        UIView.animate(withDuration: 0.8, animations: {
+            shutterView.alpha = 0
+        }, completion: { (_) in
+            shutterView.removeFromSuperview()
+        })
     }
     
     
@@ -337,28 +344,10 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         return nil
     }
     
-    
-    func toggleTorch(on: Bool) {
-        guard let device = AVCaptureDevice.default(for: .video) else { return }
-
-        if device.hasTorch {
-            do {
-                try device.lockForConfiguration()
-
-                if on == true {
-                    device.torchMode = .on
-                } else {
-                    device.torchMode = .off
-                }
-
-                device.unlockForConfiguration()
-            } catch {
-                print("Torch could not be used")
-            }
-        } else {
-            print("Torch is not available")
-        }
+    func startSession() {
+        session.startRunning()
     }
+   
 }
 
 
@@ -369,15 +358,15 @@ extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             processFrame(pixelBuffer: pixelBuffer)
         }
         if isCapture {
-            toggleTorch(on: false)
             isCapture = false
             if let image = self.getImageFromSampleBuffer(buffer: sampleBuffer) {
                 DispatchQueue.main.async { [self] in
                     let photoViewController = UIStoryboard.photoViewController()
+                    photoViewController.delegate = self
                     photoViewController.photoImage = image
                     photoViewController.selectedColor = selectedColor
                     photoViewController.sampleBuffer = sampleBuffer
-                 //   photoViewController.modalPresentationStyle = .fullScreen
+                    photoViewController.modalPresentationStyle = .fullScreen
                     present(photoViewController, animated: true, completion: nil)
                   
                 }

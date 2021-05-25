@@ -9,12 +9,18 @@ import UIKit
 import CoreGraphics
 import Toast_Swift
 
+
+protocol StartSessionProtocol{
+   func startSession()
+}
 class PhotoViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var saveImageButton: UIButton!
     @IBOutlet weak var shareImageButton: UIButton!
     @IBOutlet weak var photoImageView: UIImageView!
     
+    
+    var delegate : StartSessionProtocol!
     var photoImage: UIImage!
     var selectedColor = UIColor()
     var model: DeeplabModel!
@@ -115,6 +121,7 @@ class PhotoViewController: UIViewController {
    
     @IBAction func backButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        self.delegate.startSession()
     }
     
     @IBAction func saveImageTapped(_ sender: Any) {
