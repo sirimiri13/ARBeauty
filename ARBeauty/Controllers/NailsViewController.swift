@@ -361,11 +361,13 @@ extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             isCapture = false
             if let image = self.getImageFromSampleBuffer(buffer: sampleBuffer) {
                 DispatchQueue.main.async { [self] in
+                    let maskImage = UIImage(view: maskView)
+                    let resultImage = Utils.overlayLayerToImage(image:image, overlay:(maskImage), scaleOverlay:true)!
                     let photoViewController = UIStoryboard.photoViewController()
                     photoViewController.delegate = self
-                    photoViewController.photoImage = image
-                    photoViewController.selectedColor = selectedColor
-                    photoViewController.sampleBuffer = sampleBuffer
+                    photoViewController.photoImage = resultImage
+//                    photoViewController.selectedColor = selectedColor
+//                    photoViewController.sampleBuffer = sampleBuffer
                     photoViewController.modalPresentationStyle = .fullScreen
                     present(photoViewController, animated: true, completion: nil)
                   

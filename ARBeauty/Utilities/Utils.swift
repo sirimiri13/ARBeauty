@@ -21,5 +21,17 @@ class Utils: NSObject {
     static func getUserColors() -> [String] {
         return UserDefaults.standard.stringArray(forKey: "userColors") ?? []
     }
+    
+    static func overlayLayerToImage(image:UIImage, overlay:(UIImage), scaleOverlay: Bool = false)->UIImage?{
+        UIGraphicsBeginImageContext(image.size)
+        var rect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+        image.draw(in: rect)
+        if scaleOverlay == false {
+            rect = CGRect(x: 0, y: 0, width: overlay.size.width, height: overlay.size.height)
+        }
+        overlay.draw(in: rect)
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
 
 }
+
