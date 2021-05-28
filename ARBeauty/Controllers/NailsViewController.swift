@@ -27,8 +27,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     var model: DeeplabModel!
     var session: AVCaptureSession!
-    
-//    var photoSession: AVCaptureSession!
+
     var videoDataOutput: AVCaptureVideoDataOutput!
     
     var cameraViewLayer: AVCaptureVideoPreviewLayer!
@@ -366,8 +365,6 @@ extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                     let photoViewController = UIStoryboard.photoViewController()
                     photoViewController.delegate = self
                     photoViewController.photoImage = resultImage
-//                    photoViewController.selectedColor = selectedColor
-//                    photoViewController.sampleBuffer = sampleBuffer
                     photoViewController.modalPresentationStyle = .fullScreen
                     present(photoViewController, animated: true, completion: nil)
                   

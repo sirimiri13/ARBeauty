@@ -10,23 +10,41 @@ import Foundation
 import AVFoundation
 
 class ScanViewController: UIViewController {
-    @IBOutlet weak var cameraView: UIImageView!
+    @IBOutlet weak var cameraView: UIView!
+    @IBOutlet weak var handView: UIView!
+    @IBOutlet weak var handImageView: UIImageView!
+    
+    @IBOutlet weak var flipButton: UIButton!
+    
     
     var captureSession: AVCaptureSession!
     var stillImageOutput: AVCapturePhotoOutput!
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
+    
+    var maskView = UIView()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+       
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         customCamera()
+        handImageView.image = UIImage(named: "hand-left")
+    
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.captureSession.stopRunning()
     }
+    
+    
     
     func customCamera(){
         captureSession = AVCaptureSession()
@@ -54,8 +72,7 @@ class ScanViewController: UIViewController {
     
     func setupLivePreview() {
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        
-        videoPreviewLayer.videoGravity = .resizeAspect
+        videoPreviewLayer.videoGravity = .resizeAspectFill
         videoPreviewLayer.connection?.videoOrientation = .portrait
         cameraView.layer.addSublayer(videoPreviewLayer)
         DispatchQueue.global(qos: .userInitiated).async { //[weak self] in
@@ -65,13 +82,21 @@ class ScanViewController: UIViewController {
             }
         }
     }
-//
-//    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-//
-//        guard let imageData = photo.fileDataRepresentation()
-//            else { return }
-//
-//        let image = UIImage(data: imageData)
-//    }
+    
+   
 
+    
+    @IBAction func flippedTapped(_ sender: Any) {
+        if flipButton.isSelected{
+            flipButton.isSelected = false
+            self.handView.transform = CGAffineTransform(scaleX: 1, y: 1);
+
+        }
+        else {
+            flipButton.isSelected = true
+            self.handView.transform = CGAffineTransform(scaleX: -1, y: 1);
+     
+        }
+    }
+    
 }
