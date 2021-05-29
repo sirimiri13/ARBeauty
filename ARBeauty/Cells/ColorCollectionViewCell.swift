@@ -34,4 +34,13 @@ class ColorCollectionViewCell: UICollectionViewCell {
         }
         addColorImageView.isHidden = !showAddButton
     }
+    
+    func setCell(isSelected: Bool) {
+        if (isSelected) {
+            outlineView.isHidden = false
+        }
+        else {
+            outlineView.isHidden = true
+        }
+    }
 }

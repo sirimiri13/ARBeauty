@@ -64,6 +64,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         super.viewDidLoad()
         
         // Setup CollectionView
+        
         self.colorsCollectionView.register(UINib.init(nibName: "ColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ColorCollectionViewCell")
         colorsCollectionView.delegate = self
         colorsCollectionView.dataSource = self

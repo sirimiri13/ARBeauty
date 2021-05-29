@@ -24,6 +24,11 @@
 		2D9A523225E2672400A1965C /* LipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A523125E2672400A1965C /* LipsViewController.swift */; };
 		2D9A523725E2675F00A1965C /* StoryboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A523625E2675F00A1965C /* StoryboardManager.swift */; };
 		2DB217AB265BCFC000E890AF /* model_1888.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 2DB217AA265BCFC000E890AF /* model_1888.tflite */; };
+		2DB35D4E2662A6020081EB29 /* ShapeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB35D4C2662A6020081EB29 /* ShapeCollectionViewCell.swift */; };
+		2DB35D4F2662A6020081EB29 /* ShapeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DB35D4D2662A6020081EB29 /* ShapeCollectionViewCell.xib */; };
+		2DB35D522662B2140081EB29 /* StyleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB35D502662B2140081EB29 /* StyleCollectionViewCell.swift */; };
+		2DB35D532662B2140081EB29 /* StyleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DB35D512662B2140081EB29 /* StyleCollectionViewCell.xib */; };
+		2DB35D552662BC850081EB29 /* NailsMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB35D542662BC850081EB29 /* NailsMask.swift */; };
 		2DFFB53E25DFADEE00CE20E5 /* ARButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB53D25DFADEE00CE20E5 /* ARButton.swift */; };
 		2DFFB54F25E0F38E00CE20E5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB54E25E0F38E00CE20E5 /* Extension.swift */; };
 		6B35AF0E2630102300304869 /* PickerColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B35AF0C2630102300304869 /* PickerColorViewController.swift */; };
@@ -54,6 +59,11 @@
 		2D9A523125E2672400A1965C /* LipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LipsViewController.swift; sourceTree = "<group>"; };
 		2D9A523625E2675F00A1965C /* StoryboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardManager.swift; sourceTree = "<group>"; };
 		2DB217AA265BCFC000E890AF /* model_1888.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = model_1888.tflite; sourceTree = "<group>"; };
+		2DB35D4C2662A6020081EB29 /* ShapeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeCollectionViewCell.swift; sourceTree = "<group>"; };
+		2DB35D4D2662A6020081EB29 /* ShapeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShapeCollectionViewCell.xib; sourceTree = "<group>"; };
+		2DB35D502662B2140081EB29 /* StyleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleCollectionViewCell.swift; sourceTree = "<group>"; };
+		2DB35D512662B2140081EB29 /* StyleCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StyleCollectionViewCell.xib; sourceTree = "<group>"; };
+		2DB35D542662BC850081EB29 /* NailsMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NailsMask.swift; sourceTree = "<group>"; };
 		2DFFB53D25DFADEE00CE20E5 /* ARButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARButton.swift; sourceTree = "<group>"; };
 		2DFFB54E25E0F38E00CE20E5 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		65AA668F05FD9FF4A966977A /* Pods-ARBeauty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARBeauty.debug.xcconfig"; path = "Target Support Files/Pods-ARBeauty/Pods-ARBeauty.debug.xcconfig"; sourceTree = "<group>"; };
@@ -98,6 +108,10 @@
 			children = (
 				17A80512262DCDD500AFD93C /* ColorCollectionViewCell.swift */,
 				17A80513262DCDD500AFD93C /* ColorCollectionViewCell.xib */,
+				2DB35D4C2662A6020081EB29 /* ShapeCollectionViewCell.swift */,
+				2DB35D4D2662A6020081EB29 /* ShapeCollectionViewCell.xib */,
+				2DB35D502662B2140081EB29 /* StyleCollectionViewCell.swift */,
+				2DB35D512662B2140081EB29 /* StyleCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -123,6 +137,7 @@
 		2D91A77025DA3200002885B8 /* ARBeauty */ = {
 			isa = PBXGroup;
 			children = (
+				2DB35D562662C14B0081EB29 /* UI */,
 				2D91A77125DA3200002885B8 /* AppDelegate.swift */,
 				2D91A77325DA3200002885B8 /* SceneDelegate.swift */,
 				1724F71725FA2CD100436485 /* Resources */,
@@ -145,6 +160,14 @@
 				6B35AF0D2630102300304869 /* PickerColorViewController.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2DB35D562662C14B0081EB29 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2DB35D542662BC850081EB29 /* NailsMask.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		2DFFB53025DFA0BE00CE20E5 /* Utilities */ = {
@@ -260,8 +283,10 @@
 				2D91A77B25DA3203002885B8 /* Assets.xcassets in Resources */,
 				6B35AF0F2630102300304869 /* PickerColorViewController.xib in Resources */,
 				17A80515262DCDD500AFD93C /* ColorCollectionViewCell.xib in Resources */,
+				2DB35D4F2662A6020081EB29 /* ShapeCollectionViewCell.xib in Resources */,
 				173F9810261832520029FB67 /* deeplabv3_257_mv_gpu.tflite in Resources */,
 				2DB217AB265BCFC000E890AF /* model_1888.tflite in Resources */,
+				2DB35D532662B2140081EB29 /* StyleCollectionViewCell.xib in Resources */,
 				2D91A77925DA3200002885B8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,10 +340,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DB35D522662B2140081EB29 /* StyleCollectionViewCell.swift in Sources */,
 				1724F6E725FA1F7B00436485 /* NailsViewController.swift in Sources */,
 				2D333650265EA04200F8F6D3 /* ScanViewController.swift in Sources */,
 				2D91A77625DA3200002885B8 /* HomeViewController.swift in Sources */,
+				2DB35D552662BC850081EB29 /* NailsMask.swift in Sources */,
 				2D9A523225E2672400A1965C /* LipsViewController.swift in Sources */,
+				2DB35D4E2662A6020081EB29 /* ShapeCollectionViewCell.swift in Sources */,
 				17A80519262DE60100AFD93C /* Utils.swift in Sources */,
 				2D91A77225DA3200002885B8 /* AppDelegate.swift in Sources */,
 				2DFFB54F25E0F38E00CE20E5 /* Extension.swift in Sources */,
