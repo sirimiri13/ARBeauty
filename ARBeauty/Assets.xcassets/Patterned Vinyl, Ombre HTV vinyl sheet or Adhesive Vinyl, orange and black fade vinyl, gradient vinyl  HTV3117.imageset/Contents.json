@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Patterned Vinyl, Ombre HTV vinyl sheet or Adhesive Vinyl, orange and black fade vinyl, gradient vinyl  HTV3117.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

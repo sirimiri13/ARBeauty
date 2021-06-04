@@ -10,4 +10,5 @@ target 'ARBeauty' do
  	pod 'SCLAlertView'
 	pod 'Toast-Swift', '~> 5.0.1'
 	
+	
 end

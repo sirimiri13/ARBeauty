@@ -23,7 +23,9 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     @IBOutlet var cameraView: UIView!
     @IBOutlet weak var colorsCollectionView: UICollectionView!
-    @IBOutlet weak var testImageView: UIImageView!
+    @IBOutlet weak var designButton: UIButton!
+    
+    
     
     var model: DeeplabModel!
     var session: AVCaptureSession!
@@ -81,9 +83,11 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         setupColors()
         
+        designButton.setTitleColor(UIColor.flamingoPink(), for: .normal)
+        
         // Setup model and camera
         model = DeeplabModel()
-        let result = model.load("model_1888")
+        let result = model.load("model_1900")
         if (result == false) {
             fatalError("Can't load model.")
         }
@@ -121,6 +125,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         session = AVCaptureSession()
         session.sessionPreset = .hd1280x720
+//        session.sessionPreset = .hd4K3840x2160
         
         guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: position) else {
             throw PixelError.canNotSetupAVSession
@@ -244,6 +249,7 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         context.concatenate(transform)
         
         context.draw(cgImage, in: CGRect(x: 0, y: 0, width: CGFloat(width), height: CGFloat(height)))
+
         maskView.layer.contents = context.makeImage()
         
     }
@@ -327,6 +333,11 @@ class NailsViewController: UIViewController, UICollectionViewDataSource, UIColle
         })
     }
     
+    @IBAction func desginTapped(_ sender: Any) {
+        let scanVC = UIStoryboard.scanViewController()
+        scanVC.modalPresentationStyle = .fullScreen
+        self.present(scanVC, animated: true, completion: nil)
+    }
     
     func getImageFromSampleBuffer (buffer:CMSampleBuffer) -> UIImage? {
         if let pixelBuffer = CMSampleBufferGetImageBuffer(buffer) {
@@ -376,8 +387,6 @@ extension NailsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         }
     }
 }
-
-
 
 
 extension NailsViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate, PHPickerViewControllerDelegate {

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct NailMask: View {
     var image: UIImage!
-    var scaleFactor: CGFloat = 1.0
+    var scaleFactor: CGFloat = 2
     var offset = CGSize()
     var shape: String!
     var mask: some View {
@@ -29,6 +29,38 @@ struct NailMask: View {
                         .offset(offset)
                         .mask(mask)
                 )
+               
+        } else {
+            mask.foregroundColor(.accentColor)
+        }
+        
+    }
+}
+
+
+
+struct NailMaskRealtime: View {
+    var image: UIImage!
+    var scaleFactor: CGFloat = 2
+    var offset = CGSize()
+    var shape: UIImage!
+    var mask: some View {
+        Image(uiImage: shape)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 80)
+    }
+    
+    var body: some View {
+        if let image = image {
+            mask
+                .overlay(
+                    Image(uiImage: UIImage(named: "Layer1")!)
+                        .scaleEffect(scaleFactor)
+                        .offset(offset)
+                        .mask(mask)
+                )
+               
         } else {
             mask.foregroundColor(.accentColor)
         }
