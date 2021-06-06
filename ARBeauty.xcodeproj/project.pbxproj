@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1724F6E725FA1F7B00436485 /* NailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1724F6E625FA1F7B00436485 /* NailsViewController.swift */; };
+		1724F6E725FA1F7B00436485 /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1724F6E625FA1F7B00436485 /* TrackingViewController.swift */; };
 		1724F74B25FA32A500436485 /* DeeplabModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1724F74A25FA32A500436485 /* DeeplabModel.mm */; };
 		173F9810261832520029FB67 /* deeplabv3_257_mv_gpu.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 173F980F261832520029FB67 /* deeplabv3_257_mv_gpu.tflite */; };
 		17A80514262DCDD500AFD93C /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A80512262DCDD500AFD93C /* ColorCollectionViewCell.swift */; };
@@ -15,10 +15,10 @@
 		17A80519262DE60100AFD93C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A80518262DE60100AFD93C /* Utils.swift */; };
 		2D1A61B7266403A6003EBDEF /* NailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1A61B5266403A6003EBDEF /* NailView.swift */; };
 		2D1A61B8266403A6003EBDEF /* NailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D1A61B6266403A6003EBDEF /* NailView.xib */; };
-		2D333650265EA04200F8F6D3 /* DesignNailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D33364F265EA04200F8F6D3 /* DesignNailsController.swift */; };
-		2D7865652667CE70002B3A64 /* model_1890.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 2D7865642667CE70002B3A64 /* model_1890.tflite */; };
+		2D333650265EA04200F8F6D3 /* DesignNailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D33364F265EA04200F8F6D3 /* DesignNailsViewController.swift */; };
 		2D7865672667D273002B3A64 /* model_1900.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 2D7865662667D273002B3A64 /* model_1900.tflite */; };
 		2D786571266A20F5002B3A64 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D786570266A20F5002B3A64 /* ScanViewController.swift */; };
+		2D786575266D2358002B3A64 /* model002.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 2D786574266D2358002B3A64 /* model002.tflite */; };
 		2D91A77225DA3200002885B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77125DA3200002885B8 /* AppDelegate.swift */; };
 		2D91A77425DA3200002885B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77325DA3200002885B8 /* SceneDelegate.swift */; };
 		2D91A77625DA3200002885B8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91A77525DA3200002885B8 /* HomeViewController.swift */; };
@@ -26,7 +26,6 @@
 		2D91A77B25DA3203002885B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D91A77A25DA3203002885B8 /* Assets.xcassets */; };
 		2D91A77E25DA3203002885B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D91A77C25DA3203002885B8 /* LaunchScreen.storyboard */; };
 		2D9595CC265D3A1100EAB733 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9595CB265D3A1100EAB733 /* PhotoViewController.swift */; };
-		2D9A523225E2672400A1965C /* LipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A523125E2672400A1965C /* LipsViewController.swift */; };
 		2D9A523725E2675F00A1965C /* StoryboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A523625E2675F00A1965C /* StoryboardManager.swift */; };
 		2DB35D4E2662A6020081EB29 /* ShapeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB35D4C2662A6020081EB29 /* ShapeCollectionViewCell.swift */; };
 		2DB35D4F2662A6020081EB29 /* ShapeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DB35D4D2662A6020081EB29 /* ShapeCollectionViewCell.xib */; };
@@ -42,7 +41,7 @@
 
 /* Begin PBXFileReference section */
 		0C6413BBBC47A0FEC2E4C611 /* Pods_ARBeauty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARBeauty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1724F6E625FA1F7B00436485 /* NailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NailsViewController.swift; sourceTree = "<group>"; };
+		1724F6E625FA1F7B00436485 /* TrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
 		1724F74825FA32A400436485 /* ARBeauty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARBeauty-Bridging-Header.h"; sourceTree = "<group>"; };
 		1724F74925FA32A500436485 /* DeeplabModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeeplabModel.h; sourceTree = "<group>"; };
 		1724F74A25FA32A500436485 /* DeeplabModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DeeplabModel.mm; sourceTree = "<group>"; };
@@ -52,10 +51,10 @@
 		17A80518262DE60100AFD93C /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		2D1A61B5266403A6003EBDEF /* NailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NailView.swift; sourceTree = "<group>"; };
 		2D1A61B6266403A6003EBDEF /* NailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NailView.xib; sourceTree = "<group>"; };
-		2D33364F265EA04200F8F6D3 /* DesignNailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignNailsController.swift; sourceTree = "<group>"; };
-		2D7865642667CE70002B3A64 /* model_1890.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = model_1890.tflite; sourceTree = "<group>"; };
+		2D33364F265EA04200F8F6D3 /* DesignNailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignNailsViewController.swift; sourceTree = "<group>"; };
 		2D7865662667D273002B3A64 /* model_1900.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = model_1900.tflite; sourceTree = "<group>"; };
 		2D786570266A20F5002B3A64 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		2D786574266D2358002B3A64 /* model002.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = model002.tflite; sourceTree = "<group>"; };
 		2D91A76E25DA3200002885B8 /* ARBeauty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARBeauty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D91A77125DA3200002885B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D91A77325DA3200002885B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,7 +64,6 @@
 		2D91A77D25DA3203002885B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D91A77F25DA3203002885B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D9595CB265D3A1100EAB733 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
-		2D9A523125E2672400A1965C /* LipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LipsViewController.swift; sourceTree = "<group>"; };
 		2D9A523625E2675F00A1965C /* StoryboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardManager.swift; sourceTree = "<group>"; };
 		2DB35D4C2662A6020081EB29 /* ShapeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeCollectionViewCell.swift; sourceTree = "<group>"; };
 		2DB35D4D2662A6020081EB29 /* ShapeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShapeCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -105,8 +103,8 @@
 		1724F71725FA2CD100436485 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2D786574266D2358002B3A64 /* model002.tflite */,
 				2D7865662667D273002B3A64 /* model_1900.tflite */,
-				2D7865642667CE70002B3A64 /* model_1890.tflite */,
 				173F980F261832520029FB67 /* deeplabv3_257_mv_gpu.tflite */,
 			);
 			path = Resources;
@@ -205,10 +203,9 @@
 			isa = PBXGroup;
 			children = (
 				2D91A77525DA3200002885B8 /* HomeViewController.swift */,
-				1724F6E625FA1F7B00436485 /* NailsViewController.swift */,
-				2D9A523125E2672400A1965C /* LipsViewController.swift */,
+				1724F6E625FA1F7B00436485 /* TrackingViewController.swift */,
 				2D9595CB265D3A1100EAB733 /* PhotoViewController.swift */,
-				2D33364F265EA04200F8F6D3 /* DesignNailsController.swift */,
+				2D33364F265EA04200F8F6D3 /* DesignNailsViewController.swift */,
 				2D786570266A20F5002B3A64 /* ScanViewController.swift */,
 			);
 			path = Controllers;
@@ -292,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D1A61B8266403A6003EBDEF /* NailView.xib in Resources */,
+				2D786575266D2358002B3A64 /* model002.tflite in Resources */,
 				2D7865672667D273002B3A64 /* model_1900.tflite in Resources */,
 				2D91A77E25DA3203002885B8 /* LaunchScreen.storyboard in Resources */,
 				2D91A77B25DA3203002885B8 /* Assets.xcassets in Resources */,
@@ -300,7 +298,6 @@
 				2DB35D4F2662A6020081EB29 /* ShapeCollectionViewCell.xib in Resources */,
 				173F9810261832520029FB67 /* deeplabv3_257_mv_gpu.tflite in Resources */,
 				2DB35D532662B2140081EB29 /* StyleCollectionViewCell.xib in Resources */,
-				2D7865652667CE70002B3A64 /* model_1890.tflite in Resources */,
 				2D91A77925DA3200002885B8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,11 +353,10 @@
 			files = (
 				2D786571266A20F5002B3A64 /* ScanViewController.swift in Sources */,
 				2DB35D522662B2140081EB29 /* StyleCollectionViewCell.swift in Sources */,
-				1724F6E725FA1F7B00436485 /* NailsViewController.swift in Sources */,
-				2D333650265EA04200F8F6D3 /* DesignNailsController.swift in Sources */,
+				1724F6E725FA1F7B00436485 /* TrackingViewController.swift in Sources */,
+				2D333650265EA04200F8F6D3 /* DesignNailsViewController.swift in Sources */,
 				2D91A77625DA3200002885B8 /* HomeViewController.swift in Sources */,
 				2DB35D552662BC850081EB29 /* NailsMask.swift in Sources */,
-				2D9A523225E2672400A1965C /* LipsViewController.swift in Sources */,
 				2DB35D4E2662A6020081EB29 /* ShapeCollectionViewCell.swift in Sources */,
 				17A80519262DE60100AFD93C /* Utils.swift in Sources */,
 				2D91A77225DA3200002885B8 /* AppDelegate.swift in Sources */,

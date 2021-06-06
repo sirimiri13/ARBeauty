@@ -28,7 +28,8 @@ class HomeViewController: UIViewController {
     }
     
     func checkCameraAuthorizationStatusAndPresentVC(_ option: NSInteger) {
-        let vc = (option == 0) ? UIStoryboard.nailsViewController() : UIStoryboard.lipsViewController()
+        let vc = UIStoryboard.trackingViewController()
+        vc?.isNail = (option == 0) ? true : false
         vc?.modalPresentationStyle = .fullScreen
         
         switch AVCaptureDevice.authorizationStatus(for: .video) {

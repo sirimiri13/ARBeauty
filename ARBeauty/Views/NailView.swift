@@ -8,7 +8,9 @@
 import UIKit
 
 class NailView: UIView {
-    @IBOutlet weak var zoomButton: UIButton!
+    
+    @IBOutlet weak var zoomOutButton: UIButton!
+    @IBOutlet weak var zoomInButton: UIButton!
     @IBOutlet weak var nailImageView: UIImageView!
     @IBOutlet weak var outlineView: UIView!
     
@@ -32,6 +34,9 @@ class NailView: UIView {
         contentView = view
         outlineView.backgroundColor = UIColor.clear
         outlineView.addDashBorder()
+        outlineView.isHidden = true
+        zoomInButton.isHidden = true
+        zoomOutButton.isHidden = true
         nailImageView.image = image
         
         
@@ -41,25 +46,22 @@ class NailView: UIView {
         return nib
     }
     
-    @IBAction func scalePiece(_ gestureRecognizer: UIPinchGestureRecognizer?) {
-        if gestureRecognizer?.state == .began {
-            // Reset the last scale, necessary if there are multiple objects with different scales
-            lastScale = gestureRecognizer?.scale
+     func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        if let touch = touches.first as? UITouch {
+            outlineView.isHidden = false
+            zoomInButton.isHidden = false
+            zoomOutButton.isHidden = false
+            
         }
+      }
 
-        if gestureRecognizer?.state == .began || gestureRecognizer?.state == .changed {
-            var newScale = 1 -  (lastScale - gestureRecognizer!.scale)
-            changeScale(newScale: newScale)
-            lastScale = gestureRecognizer?.scale
-        }
+  
+    @IBAction func zoomOutTapped(_ sender: Any) {
+        let scale = self.lastScale
         
-}
-    
-    func changeScale(newScale: CGFloat){
-        let transform = self.transform.scaledBy(x: newScale, y: newScale)
-        self.transform = transform
-        let scale = self.transform.a
-        let buttonScale = 1/scale
-        zoomButton.transform = CGAffineTransform.identity.scaledBy(x: buttonScale, y: buttonScale)
+        
+    }
+    @IBAction func zoomIntTapped(_ sender: Any) {
     }
 }
+    

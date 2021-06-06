@@ -12,7 +12,8 @@
             <connections>
                 <outlet property="nailImageView" destination="sgM-dp-g67" id="wgh-Kp-F4v"/>
                 <outlet property="outlineView" destination="bHW-jB-Gh8" id="uNQ-Nd-MDN"/>
-                <outlet property="zoomButton" destination="ZiK-zq-Ree" id="xx8-xD-y5s"/>
+                <outlet property="zoomInButton" destination="3BK-wO-Cx4" id="oXi-Cq-6nn"/>
+                <outlet property="zoomOutButton" destination="ZiK-zq-Ree" id="OAQ-7B-u1a"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -23,7 +24,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bHW-jB-Gh8">
                     <rect key="frame" x="10" y="10" width="80" height="130"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sgM-dp-g67">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Layer1" translatesAutoresizingMaskIntoConstraints="NO" id="sgM-dp-g67">
                             <rect key="frame" x="5" y="5" width="70" height="120"/>
                         </imageView>
                     </subviews>
@@ -36,23 +37,39 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZiK-zq-Ree">
-                    <rect key="frame" x="6" y="7" width="10" height="8"/>
+                    <rect key="frame" x="1" y="3" width="15" height="11"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="ZiK-zq-Ree" secondAttribute="height" multiplier="1:1" id="62T-Fm-gbc"/>
-                        <constraint firstAttribute="height" constant="10" id="weD-e4-nhX"/>
+                        <constraint firstAttribute="height" constant="15" id="weD-e4-nhX"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                    <state key="normal" backgroundImage="arrow.up.left.and.down.right.and.arrow.up.right.and.down.left" catalog="system"/>
+                    <state key="normal" backgroundImage="plus" catalog="system"/>
+                    <connections>
+                        <action selector="zoomOutTapped:" destination="-1" eventType="touchUpInside" id="hcc-Ph-RtR"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3BK-wO-Cx4">
+                    <rect key="frame" x="84" y="1" width="15" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="0H4-8a-UZa"/>
+                        <constraint firstAttribute="width" secondItem="3BK-wO-Cx4" secondAttribute="height" multiplier="1:1" id="CeY-pK-JPi"/>
+                    </constraints>
+                    <state key="normal" image="minus" catalog="system"/>
+                    <connections>
+                        <action selector="zoomIntTapped:" destination="-1" eventType="touchUpInside" id="Xl2-Pv-UhR"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="ZiK-zq-Ree" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="6" id="TnE-mh-LPe"/>
+                <constraint firstItem="3BK-wO-Cx4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="1" id="28q-Jh-4lg"/>
+                <constraint firstItem="ZiK-zq-Ree" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="1" id="TnE-mh-LPe"/>
                 <constraint firstItem="bHW-jB-Gh8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="biO-8i-kCD"/>
                 <constraint firstItem="bHW-jB-Gh8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="cBg-55-mcs"/>
                 <constraint firstAttribute="trailing" secondItem="bHW-jB-Gh8" secondAttribute="trailing" constant="10" id="nD7-1F-kjr"/>
-                <constraint firstItem="ZiK-zq-Ree" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="6" id="s6U-Bb-qUM"/>
+                <constraint firstItem="ZiK-zq-Ree" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="1" id="s6U-Bb-qUM"/>
+                <constraint firstAttribute="trailing" secondItem="3BK-wO-Cx4" secondAttribute="trailing" constant="1" id="u0w-9Y-jz7"/>
                 <constraint firstAttribute="bottom" secondItem="bHW-jB-Gh8" secondAttribute="bottom" constant="10" id="yy0-zq-IFk"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -60,7 +77,9 @@
         </view>
     </objects>
     <resources>
-        <image name="arrow.up.left.and.down.right.and.arrow.up.right.and.down.left" catalog="system" width="128" height="115"/>
+        <image name="Layer1" width="80" height="159"/>
+        <image name="minus" catalog="system" width="128" height="24"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
