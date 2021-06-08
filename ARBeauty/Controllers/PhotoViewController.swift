@@ -13,6 +13,7 @@ import Toast_Swift
 protocol StartSessionProtocol{
    func startSession()
 }
+
 class PhotoViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var saveImageButton: UIButton!

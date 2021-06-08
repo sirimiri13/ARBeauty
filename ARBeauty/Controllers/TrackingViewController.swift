@@ -343,6 +343,7 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
     func didPickColor() {
         selectedIndex = 1
         setupColors()
+        session.startRunning()
     }
     
     
@@ -407,7 +408,6 @@ extension TrackingViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                 else {
                     resultImage = Utils.overlayLayerToImage(image:image, overlay:(maskImage), scaleOverlay:true)!
                 }
-               
                     let photoViewController = UIStoryboard.photoViewController()
                     photoViewController.delegate = self
                     photoViewController.photoImage = resultImage

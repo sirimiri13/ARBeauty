@@ -9,6 +9,7 @@ target 'ARBeauty' do
  	pod 'TensorFlowLiteGpuExperimental', '0.0.1'
  	pod 'SCLAlertView'
 	pod 'Toast-Swift', '~> 5.0.1'
-	
+	pod 'VerticalSlider'
+
 	
 end

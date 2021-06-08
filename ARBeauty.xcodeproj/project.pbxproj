@@ -62,8 +62,8 @@
 		2D91A77825DA3200002885B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2D91A77A25DA3203002885B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D91A77D25DA3203002885B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		2D91A77F25DA3203002885B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D9595CB265D3A1100EAB733 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		2D99D540266FBA5900CCABC6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D9A523625E2675F00A1965C /* StoryboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardManager.swift; sourceTree = "<group>"; };
 		2DB35D4C2662A6020081EB29 /* ShapeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeCollectionViewCell.swift; sourceTree = "<group>"; };
 		2DB35D4D2662A6020081EB29 /* ShapeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShapeCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -144,6 +144,7 @@
 		2D91A77025DA3200002885B8 /* ARBeauty */ = {
 			isa = PBXGroup;
 			children = (
+				2D99D540266FBA5900CCABC6 /* Info.plist */,
 				2DB35D562662C14B0081EB29 /* UI */,
 				2D91A77125DA3200002885B8 /* AppDelegate.swift */,
 				2D91A77325DA3200002885B8 /* SceneDelegate.swift */,
@@ -155,7 +156,6 @@
 				2DFFB55925E0FC3F00CE20E5 /* Controllers */,
 				2DFFB53C25DFADDA00CE20E5 /* Storyboards */,
 				2D91A77A25DA3203002885B8 /* Assets.xcassets */,
-				2D91A77F25DA3203002885B8 /* Info.plist */,
 			);
 			path = ARBeauty;
 			sourceTree = "<group>";

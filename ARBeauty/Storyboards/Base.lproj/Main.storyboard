@@ -570,6 +570,33 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="handleft" translatesAutoresizingMaskIntoConstraints="NO" id="HmT-GF-KYq">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="600"/>
                                             </imageView>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GRC-3U-NSm">
+                                                <rect key="frame" x="16" y="28" width="382" height="312"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Shape=short" translatesAutoresizingMaskIntoConstraints="NO" id="gIX-4c-lwF">
+                                                        <rect key="frame" x="-8" y="88" width="35" height="37"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Shape=short" translatesAutoresizingMaskIntoConstraints="NO" id="GGO-Yg-kxG">
+                                                        <rect key="frame" x="78" y="10" width="34" height="47"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Shape=short" translatesAutoresizingMaskIntoConstraints="NO" id="Fdi-8e-95Y">
+                                                        <rect key="frame" x="254" y="12" width="31" height="45"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Shape=short" translatesAutoresizingMaskIntoConstraints="NO" id="vh6-HZ-1DJ">
+                                                        <rect key="frame" x="160" y="-21" width="34" height="47"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Shape=short" translatesAutoresizingMaskIntoConstraints="NO" id="8lX-rd-Szd">
+                                                        <rect key="frame" x="346" y="194" width="36" height="54"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -578,38 +605,6 @@
                                             <constraint firstItem="HmT-GF-KYq" firstAttribute="top" secondItem="fsj-Ne-HDc" secondAttribute="top" id="cAJ-Pr-dHD"/>
                                             <constraint firstItem="HmT-GF-KYq" firstAttribute="leading" secondItem="fsj-Ne-HDc" secondAttribute="leading" id="emr-Af-S3d"/>
                                         </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GRC-3U-NSm">
-                                        <rect key="frame" x="16" y="25" width="382" height="312"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Shape=rounded" translatesAutoresizingMaskIntoConstraints="NO" id="gIX-4c-lwF">
-                                                <rect key="frame" x="8" y="83" width="20" height="70"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Shape=rounded" translatesAutoresizingMaskIntoConstraints="NO" id="8lX-rd-Szd">
-                                                <rect key="frame" x="338" y="196" width="36" height="73"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Shape=rounded" translatesAutoresizingMaskIntoConstraints="NO" id="GGO-Yg-kxG">
-                                                <rect key="frame" x="80" y="29" width="32" height="64"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Shape=rounded" translatesAutoresizingMaskIntoConstraints="NO" id="Fdi-8e-95Y">
-                                                <rect key="frame" x="261" y="25" width="29" height="72"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ozr-2m-UNC" customClass="NailView" customModule="ARBeauty" customModuleProvider="target">
-                                                <rect key="frame" x="238" y="141" width="52" height="93"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                            </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Shape=rounded" translatesAutoresizingMaskIntoConstraints="NO" id="vh6-HZ-1DJ">
-                                                <rect key="frame" x="158" y="-21" width="36" height="78"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </imageView>
-                                        </subviews>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -620,6 +615,12 @@
                                     <constraint firstAttribute="trailing" secondItem="fsj-Ne-HDc" secondAttribute="trailing" id="va0-Dj-7gr"/>
                                 </constraints>
                             </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="MCe-yd-x12">
+                                <rect key="frame" x="33" y="546" width="348" height="31"/>
+                                <connections>
+                                    <action selector="sliderChangeValue:" destination="6l3-dr-tJO" eventType="valueChanged" id="Alu-vf-whM"/>
+                                </connections>
+                            </slider>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="P4d-3y-43B">
                                 <rect key="frame" x="0.0" y="586" width="414" height="60"/>
                                 <color key="backgroundColor" red="0.98576339239999999" green="0.39769525719999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -735,13 +736,16 @@
                             <constraint firstItem="tU9-Vg-ZEG" firstAttribute="trailing" secondItem="Jv4-6k-ntf" secondAttribute="trailing" id="2Jx-Pu-WFa"/>
                             <constraint firstItem="P4d-3y-43B" firstAttribute="leading" secondItem="Jv4-6k-ntf" secondAttribute="leading" id="2ug-yD-t0s"/>
                             <constraint firstItem="P4d-3y-43B" firstAttribute="trailing" secondItem="Jv4-6k-ntf" secondAttribute="trailing" id="4YK-gV-DkE"/>
+                            <constraint firstItem="Jv4-6k-ntf" firstAttribute="trailing" secondItem="MCe-yd-x12" secondAttribute="trailing" constant="35" id="56U-QM-mb6"/>
                             <constraint firstItem="tU9-Vg-ZEG" firstAttribute="leading" secondItem="Jv4-6k-ntf" secondAttribute="leading" id="9h7-P6-hem"/>
                             <constraint firstItem="HEi-w7-QWs" firstAttribute="trailing" secondItem="P4d-3y-43B" secondAttribute="trailing" id="IZX-Vg-rEz"/>
                             <constraint firstItem="9xj-Ub-jfP" firstAttribute="top" secondItem="P4d-3y-43B" secondAttribute="bottom" constant="10" id="LuJ-Ii-Vog"/>
+                            <constraint firstItem="MCe-yd-x12" firstAttribute="leading" secondItem="Jv4-6k-ntf" secondAttribute="leading" constant="35" id="MEh-WK-Bc7"/>
                             <constraint firstItem="HEi-w7-QWs" firstAttribute="leading" secondItem="P4d-3y-43B" secondAttribute="leading" id="Ogh-UF-iLB"/>
                             <constraint firstItem="9xj-Ub-jfP" firstAttribute="bottom" secondItem="Jv4-6k-ntf" secondAttribute="bottom" id="WgM-7Q-SdM"/>
                             <constraint firstItem="tU9-Vg-ZEG" firstAttribute="top" secondItem="HEi-w7-QWs" secondAttribute="bottom" id="aCk-Fo-UtN"/>
                             <constraint firstItem="9xj-Ub-jfP" firstAttribute="top" secondItem="tU9-Vg-ZEG" secondAttribute="bottom" id="cna-ar-Ab9"/>
+                            <constraint firstItem="P4d-3y-43B" firstAttribute="top" secondItem="MCe-yd-x12" secondAttribute="bottom" constant="10" id="d1N-Wr-qbL"/>
                             <constraint firstItem="HEi-w7-QWs" firstAttribute="top" secondItem="Jv4-6k-ntf" secondAttribute="top" id="glx-5e-eiL"/>
                             <constraint firstItem="9xj-Ub-jfP" firstAttribute="trailing" secondItem="Jv4-6k-ntf" secondAttribute="trailing" id="jXM-qa-kJm"/>
                             <constraint firstItem="9xj-Ub-jfP" firstAttribute="leading" secondItem="Jv4-6k-ntf" secondAttribute="leading" id="jk2-US-Oou"/>
@@ -758,9 +762,9 @@
                         <outlet property="middleNailsImageView" destination="vh6-HZ-1DJ" id="1JU-bg-qUf"/>
                         <outlet property="optionCollectionView" destination="P4d-3y-43B" id="Q6d-8B-NPi"/>
                         <outlet property="ringNailsImageView" destination="GGO-Yg-kxG" id="0DE-vb-wo2"/>
+                        <outlet property="scaleSlider" destination="MCe-yd-x12" id="99F-sH-BKy"/>
                         <outlet property="shapeButton" destination="bX5-S1-Jpr" id="dzO-s0-5f3"/>
                         <outlet property="styleButton" destination="pI5-RC-ZIL" id="AoW-vX-5DS"/>
-                        <outlet property="testNailsView" destination="Ozr-2m-UNC" id="9IF-c5-4Us"/>
                         <outlet property="thumbNailsImageView" destination="8lX-rd-Szd" id="ClM-8U-H0w"/>
                     </connections>
                 </viewController>
@@ -770,7 +774,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Shape=rounded" width="80" height="178"/>
         <image name="Shape=short" width="80" height="111"/>
         <image name="arbeauty_logo" width="144" height="53.333332061767578"/>
         <image name="arrow.left" catalog="system" width="128" height="98"/>
