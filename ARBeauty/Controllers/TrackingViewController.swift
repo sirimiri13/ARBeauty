@@ -277,6 +277,8 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
 
         maskView.layer.contents = context.makeImage()
         
+        
+        
     }
     
     // MARK: - Handle tap events

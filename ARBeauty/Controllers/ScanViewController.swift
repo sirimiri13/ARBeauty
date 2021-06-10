@@ -24,10 +24,6 @@ class ScanViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         customCamera()
-//        thumbNailsImageView.transform = CGAffineTransform(rotationAngle: 40 * CGFloat(M_PI)/180);
-//        littleNailsImageView.transform = CGAffineTransform(rotationAngle: 350 * CGFloat(M_PI)/180);
-//        
-//        
         
     }
     override func viewWillDisappear(_ animated: Bool) {

@@ -16,6 +16,7 @@
 		2D1A61B7266403A6003EBDEF /* NailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1A61B5266403A6003EBDEF /* NailView.swift */; };
 		2D1A61B8266403A6003EBDEF /* NailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D1A61B6266403A6003EBDEF /* NailView.xib */; };
 		2D333650265EA04200F8F6D3 /* DesignNailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D33364F265EA04200F8F6D3 /* DesignNailsViewController.swift */; };
+		2D3F78372671FE2D000D6255 /* CustomPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F78362671FE2D000D6255 /* CustomPhotoAlbum.swift */; };
 		2D7865672667D273002B3A64 /* model_1900.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 2D7865662667D273002B3A64 /* model_1900.tflite */; };
 		2D786571266A20F5002B3A64 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D786570266A20F5002B3A64 /* ScanViewController.swift */; };
 		2D786575266D2358002B3A64 /* model002.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 2D786574266D2358002B3A64 /* model002.tflite */; };
@@ -52,6 +53,7 @@
 		2D1A61B5266403A6003EBDEF /* NailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NailView.swift; sourceTree = "<group>"; };
 		2D1A61B6266403A6003EBDEF /* NailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NailView.xib; sourceTree = "<group>"; };
 		2D33364F265EA04200F8F6D3 /* DesignNailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignNailsViewController.swift; sourceTree = "<group>"; };
+		2D3F78362671FE2D000D6255 /* CustomPhotoAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPhotoAlbum.swift; sourceTree = "<group>"; };
 		2D7865662667D273002B3A64 /* model_1900.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = model_1900.tflite; sourceTree = "<group>"; };
 		2D786570266A20F5002B3A64 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		2D786574266D2358002B3A64 /* model002.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = model002.tflite; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				17A80518262DE60100AFD93C /* Utils.swift */,
 				2DFFB54E25E0F38E00CE20E5 /* Extension.swift */,
 				2DFFB53D25DFADEE00CE20E5 /* ARButton.swift */,
+				2D3F78362671FE2D000D6255 /* CustomPhotoAlbum.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 			files = (
 				2D786571266A20F5002B3A64 /* ScanViewController.swift in Sources */,
 				2DB35D522662B2140081EB29 /* StyleCollectionViewCell.swift in Sources */,
+				2D3F78372671FE2D000D6255 /* CustomPhotoAlbum.swift in Sources */,
 				1724F6E725FA1F7B00436485 /* TrackingViewController.swift in Sources */,
 				2D333650265EA04200F8F6D3 /* DesignNailsViewController.swift in Sources */,
 				2D91A77625DA3200002885B8 /* HomeViewController.swift in Sources */,

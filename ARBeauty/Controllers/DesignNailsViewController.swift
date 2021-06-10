@@ -16,7 +16,6 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     @IBOutlet weak var optionCollectionView: UICollectionView!
     @IBOutlet weak var handImageView: UIImageView!
     @IBOutlet weak var maskNailsView: UIView!
-    @IBOutlet weak var captureButton: UIButton!
     
     
     
@@ -61,17 +60,14 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
                                      "Shape=stiletto"]
     
     
-    let styleImageName: [String] = ["Layer1",
-                                    "Layer0",
-                                    "nails_inner",
-                                    "nails_style0",
-                                    "nails_style1",
-                                    "nails_style2",
-                                    "nails_style3",
-                                    "nails_style4",
-                                    "nails_style5",
-                                    "nails_style6",
-                                    "nails_style7"]
+    let styleImageName: [String] = ["style_0",
+                                    "style_1",
+                                    "style_2",
+                                    "style_3",
+                                    "style_4",
+                                    "style_5",
+                                    "style_6",
+                                    "style_7",]
     
     var selectedShape: String!
     var selectedStyle: String!
@@ -420,9 +416,9 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func captureTapped(_ sender: Any) {
+    @IBAction func saveTapped(_ sender: Any) {
             let image = UIImage(view: handView)
-            UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+        CustomPhotoAlbum.sharedInstance.saveImage(image: image)
     }
     
     @IBAction func shareTapped(_ sender: Any) {

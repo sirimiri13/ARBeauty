@@ -419,7 +419,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8M3-mB-PGj" userLabel="handView">
                                         <rect key="frame" x="0.0" y="30" width="414" height="540"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="handleft" translatesAutoresizingMaskIntoConstraints="NO" id="am1-0s-EuW">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="handleft" translatesAutoresizingMaskIntoConstraints="NO" id="am1-0s-EuW">
                                                 <rect key="frame" x="0.0" y="5" width="414" height="550"/>
                                             </imageView>
                                         </subviews>
@@ -460,16 +460,17 @@
                                             <action selector="captureTapped:" destination="6l3-dr-tJO" eventType="touchUpInside" id="oGg-9E-PNo"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxy-sH-nu7">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxy-sH-nu7">
                                         <rect key="frame" x="299" y="25" width="100" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="Tub-OA-8UL"/>
                                         </constraints>
-                                        <state key="normal" title="Right"/>
-                                        <state key="selected" title="Left">
-                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Right">
+                                            <color key="titleColor" red="0.98576339239999999" green="0.39769525719999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <state key="selected" title="Left"/>
                                         <connections>
                                             <action selector="flipTapped:" destination="feV-3L-Tlu" eventType="touchUpInside" id="a0n-CF-8rD"/>
                                         </connections>
@@ -651,7 +652,7 @@
                                         <state key="normal" image="download"/>
                                         <state key="selected" image="download"/>
                                         <connections>
-                                            <action selector="captureTapped:" destination="6l3-dr-tJO" eventType="touchUpInside" id="xGz-We-uDF"/>
+                                            <action selector="saveTapped:" destination="6l3-dr-tJO" eventType="touchUpInside" id="uJL-f0-Olf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pI5-RC-ZIL">
@@ -663,7 +664,7 @@
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="titleEdgeInsets" minX="-18" minY="40" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="30"/>
-                                        <state key="normal" title="Style" image="nails_style2">
+                                        <state key="normal" title="Style" image="style_2">
                                             <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <state key="selected" title="Style">
@@ -685,9 +686,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="tintColor" systemColor="systemIndigoColor"/>
-                                                <inset key="titleEdgeInsets" minX="-18" minY="40" maxX="0.0" maxY="0.0"/>
-                                                <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="10"/>
-                                                <state key="normal" title="Color" image="nail-polish-bottle">
+                                                <inset key="titleEdgeInsets" minX="-26" minY="43" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="13" minY="0.0" maxX="13" maxY="24"/>
+                                                <state key="normal" title="Color" image="nail_icon">
                                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <state key="selected" title="Color">
@@ -703,10 +704,10 @@
                                                     <constraint firstAttribute="width" secondItem="bX5-S1-Jpr" secondAttribute="height" multiplier="1:1" id="lXZ-Ec-QFN"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <color key="tintColor" systemColor="systemPinkColor"/>
+                                                <color key="tintColor" red="0.79999136920000002" green="0.25059217210000001" blue="0.80003899339999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <inset key="titleEdgeInsets" minX="-18" minY="40" maxX="0.0" maxY="0.0"/>
                                                 <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="30"/>
-                                                <state key="normal" title="Shape" image="Shape=short">
+                                                <state key="normal" title="Shape" image="Shape=lipstick">
                                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <state key="selected" title="Shape">
@@ -752,7 +753,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="captureButton" destination="nX0-8V-2si" id="HT1-OE-KO3"/>
                         <outlet property="colorButton" destination="Kp2-0Y-28w" id="evc-H7-vOM"/>
                         <outlet property="handImageView" destination="HmT-GF-KYq" id="ows-FS-A5D"/>
                         <outlet property="handView" destination="fsj-Ne-HDc" id="Y0I-EJ-q9i"/>
@@ -774,29 +774,26 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Shape=lipstick" width="80" height="178"/>
         <image name="Shape=short" width="80" height="111"/>
         <image name="arbeauty_logo" width="144" height="53.333332061767578"/>
         <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="background" width="640" height="1136"/>
         <image name="download" width="512" height="512"/>
         <image name="gallery_icon" width="42.666667938232422" height="42.666667938232422"/>
-        <image name="handleft" width="311" height="540"/>
+        <image name="handleft" width="547" height="696"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="lips_icon" width="170.66667175292969" height="170.66667175292969"/>
-        <image name="nail-polish-bottle" width="18.666666030883789" height="18.666666030883789"/>
         <image name="nail_icon" width="170.66667175292969" height="170.66667175292969"/>
-        <image name="nails_style2" width="564" height="1003"/>
         <image name="shoot_button_icon" width="170.66667175292969" height="170.66667175292969"/>
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="style_2" width="119" height="222"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

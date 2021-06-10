@@ -51,7 +51,7 @@ class PhotoViewController: UIViewController {
     }
     
     @IBAction func saveImageTapped(_ sender: Any) {
-        UIImageWriteToSavedPhotosAlbum(photoImage, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+        CustomPhotoAlbum.sharedInstance.saveImage(image: photoImage)
     }
     @IBAction func shareImageTapped(_ sender: Any) {
 
@@ -60,21 +60,5 @@ class PhotoViewController: UIViewController {
         activityViewController.popoverPresentationController?.sourceView = self.view
         self.present(activityViewController, animated: true, completion: nil)
     }
-    
-    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-
-        if let error = error {
-            view.makeToast("ERROR: Failed to save", duration: 3.0, position: .bottom)
-            print(error.localizedDescription)
-
-        } else {
-            view.makeToast("Save Photo Successful", duration: 3.0, position: .bottom)
-           
-        }
-    }
-    
-    
-    
-   
     
 }
