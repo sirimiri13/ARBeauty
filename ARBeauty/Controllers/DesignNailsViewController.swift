@@ -419,7 +419,12 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     @IBAction func saveTapped(_ sender: Any) {
-            let image = UIImage(view: handView)
+        littleNailsImageView.layer.borderWidth = 0
+        ringNailsImageView.layer.borderWidth = 0
+        middleNailsImageView.layer.borderWidth = 0
+        indexNailsImageView.layer.borderWidth = 0
+        thumbNailsImageView.layer.borderWidth = 0
+        let image = UIImage(view: handView)
         CustomPhotoAlbum.sharedInstance.saveImage(image: image)
     }
     
@@ -468,6 +473,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         }
         colors += defaultColors
         selectedColor = UIColor.fromHex(value: colors[0].toHex(), alpha: 0.7)
+        setColorNails(color: selectedColor)
         optionCollectionView.reloadData()
     }
     
@@ -535,7 +541,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if colorButton.isSelected{
             if (indexPath.row == 0) {
-                //            self.addColorTapped()
+                self.addColorTapped()
             }
             else {
                 selectedIndex = indexPath.row
@@ -575,22 +581,37 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         ringNailsImageView.tintColor = color
     }
     
-    
-    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-
-        if let error = error {
-            view.makeToast("ERROR: Failed to save", duration: 3.0, position: .bottom)
-            print(error.localizedDescription)
-
-        } else {
-            view.makeToast("Save Photo Successful", duration: 3.0, position: .bottom)
-           
+    func addColorTapped() {
+        let alertSheet = UIAlertController(title: "Select a color from an image", message: "", preferredStyle: .actionSheet)
+        let takePhotoAction = UIAlertAction(title: "Take a photo", style: .default) { (UIAlertAction) in
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.delegate = self
+            imagePickerController.sourceType = .camera;
+            self.present(imagePickerController, animated: true, completion: nil)
         }
+        
+        let choosePhotoFromLibraryAction = UIAlertAction(title: "From Library", style: .default) { (UIAlertAction) in
+            var configuration = PHPickerConfiguration()
+            configuration.filter = .images
+            
+            let picker = PHPickerViewController(configuration: configuration)
+            picker.delegate = self
+            
+            self.present(picker, animated: true)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertSheet.addAction(takePhotoAction)
+        alertSheet.addAction(choosePhotoFromLibraryAction)
+        alertSheet.addAction(cancelAction)
+        self.present(alertSheet, animated: true, completion: nil)
     }
+    
     
     func didPickColor() {
         selectedIndex = 1
         setupColors()
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
