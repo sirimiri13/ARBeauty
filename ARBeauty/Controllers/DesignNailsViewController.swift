@@ -8,10 +8,12 @@
 import UIKit
 import Foundation
 import AVFoundation
+import CoreGraphics
+import PhotosUI
 
-
-
-class DesignNailsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
+class DesignNailsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate, PHPickerViewControllerDelegate, PickColorProtocol{
+  
+    
     @IBOutlet weak var handView: UIView!
     @IBOutlet weak var optionCollectionView: UICollectionView!
     @IBOutlet weak var handImageView: UIImageView!
@@ -586,4 +588,43 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         }
     }
     
+    func didPickColor() {
+        selectedIndex = 1
+        setupColors()
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let pickedImage = info[.originalImage] as? UIImage
+        let pickColorVC = PickerColorViewController()
+        pickColorVC.modalPresentationStyle = .fullScreen
+        pickColorVC.pickedImage = pickedImage
+        pickColorVC.delegate = self
+        self.dismiss(animated: true)
+        present(pickColorVC, animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true, completion: nil)
+        
+        let itemProvider = results.first?.itemProvider
+        
+        if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
+            itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
+                DispatchQueue.main.async {
+                    guard let self = self, let image = image as? UIImage else { return }
+                    let pickColorVC = PickerColorViewController()
+                    pickColorVC.modalPresentationStyle = .fullScreen
+                    pickColorVC.pickedImage = image
+                    pickColorVC.delegate = self
+                    self.present(pickColorVC, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
 }
+

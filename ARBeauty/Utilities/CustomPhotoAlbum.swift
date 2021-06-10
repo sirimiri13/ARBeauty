@@ -60,6 +60,33 @@ class CustomPhotoAlbum {
             albumChangeRequest!.addAssets([assetPlaceholder] as NSFastEnumeration)
         }, completionHandler: nil)
     }
+    
+    
+    func getAssetsFromAlbum(albumName: String) -> [PHAsset] {
 
+        let options = PHFetchOptions()
+        options.sortDescriptors = [ NSSortDescriptor(key: "creationDate", ascending: true) ]
 
+        let collection: PHFetchResult = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: nil)
+
+        for k in 0 ..< collection.count {
+            let obj:AnyObject! = collection.object(at: k)
+            if obj.title == albumName {
+                if let assCollection = obj as? PHAssetCollection {
+                    let results = PHAsset.fetchAssets(in: assCollection, options: options)
+                    var assets = [PHAsset]()
+
+                    results.enumerateObjects { (obj, index, stop) in
+
+                        if let asset = obj as? PHAsset {
+                            assets.append(asset)
+                        }
+                    }
+
+                    return assets
+                }
+            }
+        }
+        return [PHAsset]()
+    }
 }

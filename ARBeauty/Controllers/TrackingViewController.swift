@@ -362,9 +362,12 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     @IBAction func desginTapped(_ sender: Any) {
-        let scanVC = UIStoryboard.scanViewController()
-        scanVC.modalPresentationStyle = .fullScreen
-        self.present(scanVC, animated: true, completion: nil)
+        weak var pvc = self.presentingViewController
+        self.dismiss(animated: true, completion: {
+            let vc =  UIStoryboard.scanViewController()
+            vc.modalPresentationStyle = .fullScreen
+            pvc?.present(vc, animated: true, completion: nil)
+        })
     }
     
     func getImageFromSampleBuffer (buffer:CMSampleBuffer) -> UIImage? {

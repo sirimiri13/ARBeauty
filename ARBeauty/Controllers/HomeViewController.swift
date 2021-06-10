@@ -67,4 +67,9 @@ class HomeViewController: UIViewController {
         checkCameraAuthorizationStatusAndPresentVC(1)
     }
     
+    @IBAction func galleryButtonTapped(_ sender: Any) {
+        let galleryVC = UIStoryboard.galleryViewController()
+        galleryVC.modalPresentationStyle = .fullScreen
+        self.present(galleryVC, animated: true, completion: nil)
+    }
 }

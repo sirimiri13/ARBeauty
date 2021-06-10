@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -89,6 +90,9 @@
                                                         <state key="normal" title="GALLERY" image="gallery_icon">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="galleryButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nQd-us-jyS"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -137,6 +141,105 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1005.7971014492755" y="93.750000000000014"/>
+        </scene>
+        <!--Gallery View Controller-->
+        <scene sceneID="mkA-ni-n8U">
+            <objects>
+                <viewController storyboardIdentifier="GalleryViewController" id="5LT-Ks-5L6" customClass="GalleryViewController" customModule="ARBeauty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xT5-BD-uC1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y7Y-zP-7fC" userLabel="Fake NavBar">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GALLERY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6U0-ko-S2F">
+                                        <rect key="frame" x="132" y="14" width="150" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="qsT-lH-Fj3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="17"/>
+                                        <color key="textColor" red="0.2756263316" green="0.307836622" blue="0.39608955379999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FtR-fL-EgM">
+                                        <rect key="frame" x="5" y="13" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Kve-Of-e8c"/>
+                                            <constraint firstAttribute="width" secondItem="FtR-fL-EgM" secondAttribute="height" multiplier="23:15" id="ci1-ad-tHZ"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.2756263316" green="0.307836622" blue="0.39608955379999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" image="house.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="homeTapped:" destination="5LT-Ks-5L6" eventType="touchUpInside" id="KPL-S4-dG7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="FtR-fL-EgM" firstAttribute="leading" secondItem="y7Y-zP-7fC" secondAttribute="leading" constant="5" id="5yw-MJ-W9w"/>
+                                    <constraint firstItem="6U0-ko-S2F" firstAttribute="centerY" secondItem="y7Y-zP-7fC" secondAttribute="centerY" id="659-9g-bP1"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="CHL-ur-Bt0"/>
+                                    <constraint firstItem="FtR-fL-EgM" firstAttribute="centerY" secondItem="y7Y-zP-7fC" secondAttribute="centerY" id="QuZ-c4-hw6"/>
+                                    <constraint firstAttribute="height" constant="56" id="RbH-Pz-HMx"/>
+                                    <constraint firstItem="6U0-ko-S2F" firstAttribute="centerX" secondItem="y7Y-zP-7fC" secondAttribute="centerX" id="TUp-mv-A2f"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aFL-ah-Hmk">
+                                <rect key="frame" x="0.0" y="56" width="414" height="680"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qgb-SY-kJ2">
+                                    <size key="itemSize" width="182" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="jqh-ah-bk9" customClass="PhotoCell" customModule="ARBeauty" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="182" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ytZ-0W-B2i">
+                                            <rect key="frame" x="0.0" y="0.0" width="182" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lx8-DL-6b6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="182" height="128"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Lx8-DL-6b6" firstAttribute="leading" secondItem="ytZ-0W-B2i" secondAttribute="leading" id="5mF-xJ-Aco"/>
+                                                <constraint firstAttribute="bottom" secondItem="Lx8-DL-6b6" secondAttribute="bottom" id="heP-Bo-Hbh"/>
+                                                <constraint firstItem="Lx8-DL-6b6" firstAttribute="top" secondItem="ytZ-0W-B2i" secondAttribute="top" id="kbx-Aq-dfF"/>
+                                                <constraint firstAttribute="trailing" secondItem="Lx8-DL-6b6" secondAttribute="trailing" id="oxh-3G-VjK"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="182" height="128"/>
+                                        <connections>
+                                            <outlet property="photoImageView" destination="Lx8-DL-6b6" id="6zt-Be-Uj5"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cKQ-xO-Ab4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aFL-ah-Hmk" firstAttribute="leading" secondItem="cKQ-xO-Ab4" secondAttribute="leading" id="1Sq-Uz-3Lv"/>
+                            <constraint firstItem="cKQ-xO-Ab4" firstAttribute="trailing" secondItem="aFL-ah-Hmk" secondAttribute="trailing" id="3Cu-ux-x9e"/>
+                            <constraint firstItem="y7Y-zP-7fC" firstAttribute="leading" secondItem="xT5-BD-uC1" secondAttribute="leading" id="MlR-h2-Me6"/>
+                            <constraint firstItem="y7Y-zP-7fC" firstAttribute="top" secondItem="cKQ-xO-Ab4" secondAttribute="top" id="NkR-Ge-bbq"/>
+                            <constraint firstItem="cKQ-xO-Ab4" firstAttribute="bottom" secondItem="aFL-ah-Hmk" secondAttribute="bottom" id="Re6-6P-8W3"/>
+                            <constraint firstItem="cKQ-xO-Ab4" firstAttribute="trailing" secondItem="y7Y-zP-7fC" secondAttribute="trailing" id="aLf-ke-hJx"/>
+                            <constraint firstItem="aFL-ah-Hmk" firstAttribute="top" secondItem="y7Y-zP-7fC" secondAttribute="bottom" id="tlw-x5-zdS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoCollectionView" destination="aFL-ah-Hmk" id="qs6-y5-86n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hiz-Gp-Ydo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="995.65217391304361" y="880.43478260869574"/>
         </scene>
         <!--Tracking View Controller-->
         <scene sceneID="vRF-Uk-ggO">
@@ -506,6 +609,7 @@
                         <outlet property="cameraView" destination="0m7-mW-guP" id="LmB-kk-7gm"/>
                         <outlet property="captureButton" destination="ZW2-2P-APl" id="43X-sj-JWf"/>
                         <outlet property="flipHandButton" destination="zxy-sH-nu7" id="4Qc-Ne-qS6"/>
+                        <outlet property="handImageView" destination="am1-0s-EuW" id="nc0-r8-bif"/>
                         <outlet property="handView" destination="8M3-mB-PGj" id="1hS-mA-8rH"/>
                     </connections>
                 </viewController>
@@ -576,19 +680,19 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Shape=short" translatesAutoresizingMaskIntoConstraints="NO" id="gIX-4c-lwF">
-                                                        <rect key="frame" x="-8" y="88" width="35" height="37"/>
+                                                        <rect key="frame" x="2" y="116" width="35" height="37"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Shape=short" translatesAutoresizingMaskIntoConstraints="NO" id="GGO-Yg-kxG">
-                                                        <rect key="frame" x="78" y="10" width="34" height="47"/>
+                                                        <rect key="frame" x="91" y="27" width="34" height="47"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Shape=short" translatesAutoresizingMaskIntoConstraints="NO" id="Fdi-8e-95Y">
-                                                        <rect key="frame" x="254" y="12" width="31" height="45"/>
+                                                        <rect key="frame" x="238" y="27" width="31" height="45"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Shape=short" translatesAutoresizingMaskIntoConstraints="NO" id="vh6-HZ-1DJ">
-                                                        <rect key="frame" x="160" y="-21" width="34" height="47"/>
+                                                        <rect key="frame" x="148" y="-2" width="34" height="47"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </imageView>
@@ -663,7 +767,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="titleEdgeInsets" minX="-18" minY="40" maxX="0.0" maxY="0.0"/>
-                                        <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="30"/>
+                                        <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="25"/>
                                         <state key="normal" title="Style" image="style_2">
                                             <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -686,8 +790,8 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="tintColor" systemColor="systemIndigoColor"/>
-                                                <inset key="titleEdgeInsets" minX="-26" minY="43" maxX="0.0" maxY="0.0"/>
-                                                <inset key="imageEdgeInsets" minX="13" minY="0.0" maxX="13" maxY="24"/>
+                                                <inset key="titleEdgeInsets" minX="-26" minY="45" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="13" minY="5" maxX="13" maxY="20"/>
                                                 <state key="normal" title="Color" image="nail_icon">
                                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -705,8 +809,8 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="tintColor" red="0.79999136920000002" green="0.25059217210000001" blue="0.80003899339999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <inset key="titleEdgeInsets" minX="-18" minY="40" maxX="0.0" maxY="0.0"/>
-                                                <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="30"/>
+                                                <inset key="titleEdgeInsets" minX="-18" minY="45" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="20" minY="5" maxX="20" maxY="20"/>
                                                 <state key="normal" title="Shape" image="Shape=lipstick">
                                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -781,7 +885,7 @@
         <image name="background" width="640" height="1136"/>
         <image name="download" width="512" height="512"/>
         <image name="gallery_icon" width="42.666667938232422" height="42.666667938232422"/>
-        <image name="handleft" width="547" height="696"/>
+        <image name="handleft" width="428" height="583"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="lips_icon" width="170.66667175292969" height="170.66667175292969"/>
         <image name="nail_icon" width="170.66667175292969" height="170.66667175292969"/>

@@ -28,8 +28,7 @@ class PhotoViewController: UIViewController {
     var maskView = UIView()
     var photoLayer : CALayer!
     var sampleBuffer: CMSampleBuffer!
-    
-  
+    var isGallery: Bool = false
   
     
     static let imageEdgeSize = 257
@@ -39,6 +38,9 @@ class PhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         photoImageView.image = photoImage
+        if isGallery {
+            saveImageButton.isHidden = true
+        }
     }
     
     
@@ -47,7 +49,10 @@ class PhotoViewController: UIViewController {
    
     @IBAction func backButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-        self.delegate.startSession()
+        if !isGallery{
+            self.delegate.startSession()
+        }
+       
     }
     
     @IBAction func saveImageTapped(_ sender: Any) {

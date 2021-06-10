@@ -33,4 +33,8 @@ extension UIStoryboard{
     class func designNailsViewController() -> DesignNailsViewController{
         return (mainStoryboard().instantiateViewController(withIdentifier: "DesignNailsViewController") as? DesignNailsViewController)!
     }
+    
+    class func galleryViewController() -> GalleryViewController{
+        return (mainStoryboard().instantiateViewController(withIdentifier: "GalleryViewController") as? GalleryViewController)!
+    }
 }

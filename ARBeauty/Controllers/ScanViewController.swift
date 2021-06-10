@@ -12,6 +12,7 @@ class ScanViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     @IBOutlet weak var flipHandButton: UIButton!
     @IBOutlet weak var handView: UIView!
     @IBOutlet weak var captureButton: UIButton!
+    @IBOutlet weak var handImageView: UIImageView!
     
     
     var captureSession: AVCaptureSession!
@@ -24,6 +25,7 @@ class ScanViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         customCamera()
+        handImageView.image = UIImage(named: "handleft")
         
     }
     override func viewWillDisappear(_ animated: Bool) {
