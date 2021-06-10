@@ -130,9 +130,9 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        thumbNailsImageView.transform = CGAffineTransform(rotationAngle: 40 * CGFloat(M_PI)/180);
-        indexNailsImageView.transform = CGAffineTransform(rotationAngle: 10 * CGFloat(M_PI)/180);
-        littleNailsImageView.transform = CGAffineTransform(rotationAngle: 350 * CGFloat(M_PI)/180);
+        thumbNailsImageView.transform = CGAffineTransform(rotationAngle: 35 * CGFloat(M_PI)/180);
+        indexNailsImageView.transform = CGAffineTransform(rotationAngle: 5 * CGFloat(M_PI)/180);
+        littleNailsImageView.transform = CGAffineTransform(rotationAngle: 355 * CGFloat(M_PI)/180);
         setGesture()
         
         
@@ -392,7 +392,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     @IBAction func sliderChangeValue(_ sender: Any) {
         let scaleTransform = CGAffineTransform(scaleX: CGFloat(scaleSlider.value), y: CGFloat(scaleSlider.value))
         if (isLittle){
-            littleNailsImageView.transform = CGAffineTransform(rotationAngle: 350 * CGFloat(M_PI)/180).concatenating(scaleTransform)
+            littleNailsImageView.transform = CGAffineTransform(rotationAngle: 355 * CGFloat(M_PI)/180).concatenating(scaleTransform)
         }
         else{
             if (isRing){
@@ -404,10 +404,10 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
                 }
                 else {
                     if (isIndex){
-                        indexNailsImageView.transform = CGAffineTransform(rotationAngle: 10 * CGFloat(M_PI)/180).concatenating(scaleTransform)
+                        indexNailsImageView.transform = CGAffineTransform(rotationAngle: 5 * CGFloat(M_PI)/180).concatenating(scaleTransform)
                     }
                     else {
-                        thumbNailsImageView.transform = CGAffineTransform(rotationAngle: 40 * CGFloat(M_PI)/180).concatenating(scaleTransform)
+                        thumbNailsImageView.transform = CGAffineTransform(rotationAngle: 35 * CGFloat(M_PI)/180).concatenating(scaleTransform)
                     }
                 }
             }

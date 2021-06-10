@@ -51,13 +51,21 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
     static let rgbComponentsCount = 3
     
     var colors: [UIColor] = []
-    let defaultColors: [UIColor] = [UIColor.fromHex(value: "FF0000"),
+    let defaultColorsNails: [UIColor] = [UIColor.fromHex(value: "FF0000"),
                                     UIColor.fromHex(value: "006699"),
                                     UIColor.fromHex(value: "00FF00"),
                                     UIColor.fromHex(value: "FF6600"),
                                     UIColor.fromHex(value: "330033"),
                                     UIColor.fromHex(value: "99CCCC"),
                                     UIColor.fromHex(value: "FFCC33")]
+    
+    let defaultColorLips: [UIColor] = [UIColor.fromHex(value: "CD5C5C"),
+                                       UIColor.fromHex(value: "F08080"),
+                                       UIColor.fromHex(value: "7B241C"),
+                                       UIColor.fromHex(value: "D98880"),
+                                       UIColor.fromHex(value: "B10573"),
+                                       UIColor.fromHex(value: "F0087F"),
+                                       UIColor.fromHex(value: "F04408")]
     var selectedIndex: Int = 1
     var selectedColor = UIColor()
     
@@ -133,7 +141,13 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
         for color in userColors {
             colors.append(UIColor.fromHex(value: color))
         }
-        colors += defaultColors
+        if (isNail){
+            colors += defaultColorsNails
+        }
+        else {
+            colors += defaultColorLips
+        }
+       
         selectedColor = UIColor.fromHex(value: colors[0].toHex(), alpha: 0.7)
         colorsCollectionView.reloadData()
     }
