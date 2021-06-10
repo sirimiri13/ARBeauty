@@ -747,48 +747,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xj-Ub-jfP" userLabel="Fake Tabbar Box">
                                 <rect key="frame" x="0.0" y="656" width="414" height="80"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nX0-8V-2si">
-                                        <rect key="frame" x="177" y="10" width="60" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="ENi-D7-xzm"/>
-                                            <constraint firstAttribute="width" secondItem="nX0-8V-2si" secondAttribute="height" multiplier="1:1" id="Hfj-UG-oIw"/>
-                                        </constraints>
-                                        <state key="normal" image="download"/>
-                                        <state key="selected" image="download"/>
-                                        <connections>
-                                            <action selector="saveTapped:" destination="6l3-dr-tJO" eventType="touchUpInside" id="uJL-f0-Olf"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pI5-RC-ZIL">
-                                        <rect key="frame" x="304" y="10" width="60" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="E7W-Fo-fFO"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="titleEdgeInsets" minX="-18" minY="40" maxX="0.0" maxY="0.0"/>
-                                        <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="25"/>
-                                        <state key="normal" title="Style" image="style_2">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <state key="selected" title="Style">
-                                            <color key="titleColor" red="0.98576339239999999" green="0.39769525719999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="shapeTapped:" destination="6l3-dr-tJO" eventType="touchUpInside" id="yI3-Se-Ajy"/>
-                                            <action selector="styleTapped:" destination="6l3-dr-tJO" eventType="touchUpInside" id="8JV-r0-Z3g"/>
-                                        </connections>
-                                    </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="MlR-nw-Qmf">
-                                        <rect key="frame" x="15" y="10" width="140" height="60"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="GXI-RO-Xjt">
+                                        <rect key="frame" x="19.666666666666657" y="10" width="375" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kp2-0Y-28w">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="60" id="KxH-dJ-sYq"/>
-                                                    <constraint firstAttribute="width" secondItem="Kp2-0Y-28w" secondAttribute="height" multiplier="1:1" id="cOW-iJ-MaG"/>
+                                                    <constraint firstAttribute="width" secondItem="Kp2-0Y-28w" secondAttribute="height" multiplier="1:1" id="LVV-jf-YzT"/>
+                                                    <constraint firstAttribute="height" constant="60" id="Zt2-ba-g1c"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="tintColor" systemColor="systemIndigoColor"/>
                                                 <inset key="titleEdgeInsets" minX="-26" minY="45" maxX="0.0" maxY="0.0"/>
                                                 <inset key="imageEdgeInsets" minX="13" minY="5" maxX="13" maxY="20"/>
@@ -803,11 +771,12 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bX5-S1-Jpr">
-                                                <rect key="frame" x="80" y="0.0" width="60" height="60"/>
+                                                <rect key="frame" x="105" y="0.0" width="60" height="60"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="bX5-S1-Jpr" secondAttribute="height" multiplier="1:1" id="lXZ-Ec-QFN"/>
+                                                    <constraint firstAttribute="width" secondItem="bX5-S1-Jpr" secondAttribute="height" multiplier="1:1" id="9rh-bB-mns"/>
+                                                    <constraint firstAttribute="height" constant="60" id="woj-te-2rD"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="tintColor" red="0.79999136920000002" green="0.25059217210000001" blue="0.80003899339999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <inset key="titleEdgeInsets" minX="-18" minY="45" maxX="0.0" maxY="0.0"/>
                                                 <inset key="imageEdgeInsets" minX="20" minY="5" maxX="20" maxY="20"/>
@@ -821,17 +790,52 @@
                                                     <action selector="shapeTapped:" destination="6l3-dr-tJO" eventType="touchUpInside" id="g2X-kv-Lcn"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pI5-RC-ZIL">
+                                                <rect key="frame" x="210" y="0.0" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="pI5-RC-ZIL" secondAttribute="height" multiplier="1:1" id="5Md-fV-IHw"/>
+                                                    <constraint firstAttribute="height" constant="60" id="ttW-a3-yIa"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="titleEdgeInsets" minX="-18" minY="40" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="25"/>
+                                                <state key="normal" title="Style" image="style_2">
+                                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <state key="selected" title="Style">
+                                                    <color key="titleColor" red="0.98576339239999999" green="0.39769525719999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="shapeTapped:" destination="6l3-dr-tJO" eventType="touchUpInside" id="yI3-Se-Ajy"/>
+                                                    <action selector="styleTapped:" destination="6l3-dr-tJO" eventType="touchUpInside" id="8JV-r0-Z3g"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nX0-8V-2si">
+                                                <rect key="frame" x="315" y="0.0" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="nX0-8V-2si" secondAttribute="height" multiplier="1:1" id="0Dt-G1-Scc"/>
+                                                    <constraint firstAttribute="height" constant="60" id="m7z-UE-8tR"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <inset key="titleEdgeInsets" minX="-40" minY="0.0" maxX="0.0" maxY="-38"/>
+                                                <inset key="imageEdgeInsets" minX="12" minY="0.0" maxX="12" maxY="25"/>
+                                                <state key="normal" title="Save" image="download">
+                                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <state key="selected" image="download"/>
+                                                <connections>
+                                                    <action selector="saveTapped:" destination="6l3-dr-tJO" eventType="touchUpInside" id="uJL-f0-Olf"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97236901519999996" green="0.92886036630000002" blue="0.95686596629999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstItem="nX0-8V-2si" firstAttribute="centerY" secondItem="9xj-Ub-jfP" secondAttribute="centerY" id="E5T-BX-n0U"/>
-                                    <constraint firstItem="nX0-8V-2si" firstAttribute="centerX" secondItem="9xj-Ub-jfP" secondAttribute="centerX" id="EVb-cr-CWl"/>
-                                    <constraint firstItem="pI5-RC-ZIL" firstAttribute="centerY" secondItem="9xj-Ub-jfP" secondAttribute="centerY" id="QL1-xA-Fs4"/>
+                                    <constraint firstItem="GXI-RO-Xjt" firstAttribute="centerY" secondItem="9xj-Ub-jfP" secondAttribute="centerY" id="QXa-E1-AVd"/>
                                     <constraint firstAttribute="height" constant="80" id="Vt1-FN-3Iq"/>
-                                    <constraint firstItem="pI5-RC-ZIL" firstAttribute="width" secondItem="pI5-RC-ZIL" secondAttribute="height" multiplier="1:1" id="W35-Qg-p6D"/>
-                                    <constraint firstAttribute="trailing" secondItem="pI5-RC-ZIL" secondAttribute="trailing" constant="50" id="XS4-Lp-XRX"/>
+                                    <constraint firstItem="GXI-RO-Xjt" firstAttribute="centerX" secondItem="9xj-Ub-jfP" secondAttribute="centerX" id="hLG-qS-qXD"/>
                                 </constraints>
                             </view>
                         </subviews>
