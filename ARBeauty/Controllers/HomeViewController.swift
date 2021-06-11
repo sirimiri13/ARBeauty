@@ -64,7 +64,10 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func lipsButtonTapped(_ sender: Any) {
-        checkCameraAuthorizationStatusAndPresentVC(1)
+        let lipsVC = UIStoryboard.lipsViewController()
+        lipsVC.modalPresentationStyle = .fullScreen
+        self.present(lipsVC, animated: true, completion: nil)
+//        checkCameraAuthorizationStatusAndPresentVC(1)
     }
     
     @IBAction func galleryButtonTapped(_ sender: Any) {

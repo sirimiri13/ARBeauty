@@ -51,6 +51,7 @@ class PhotoViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
         if !isGallery{
             self.delegate.startSession()
+
         }
        
     }

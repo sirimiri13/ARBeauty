@@ -37,4 +37,8 @@ extension UIStoryboard{
     class func galleryViewController() -> GalleryViewController{
         return (mainStoryboard().instantiateViewController(withIdentifier: "GalleryViewController") as? GalleryViewController)!
     }
+    
+    class func lipsViewController() -> LipsViewController{
+        return (mainStoryboard().instantiateViewController(identifier: "LipsViewController") as? LipsViewController)!
+    }
 }

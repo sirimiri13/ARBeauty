@@ -90,6 +90,11 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
         layout.itemSize = CGSize(width: 60, height: 60)
         layout.minimumLineSpacing = 10
         
+        let focusCameraTap = UITapGestureRecognizer(target: self, action: #selector(tapToFocus(_:)))
+        focusCameraTap.numberOfTapsRequired = 1
+        focusCameraTap.numberOfTouchesRequired = 1
+        cameraView.addGestureRecognizer(focusCameraTap)
+
         setupColors()
         
         designButton.setTitleColor(UIColor.flamingoPink(), for: .normal)
@@ -104,6 +109,7 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
         }
     }
     
+   
     
     func loadModel(){
         model = DeeplabModel()
@@ -120,7 +126,7 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
             }
         }
         else {
-            let result = model.load("model002")
+            let result = model.load("model_lips004")
             if (result == false) {
                 fatalError("Can't load model.")
             }
@@ -165,7 +171,8 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
         
         session = AVCaptureSession()
         session.sessionPreset = .hd1280x720
-        
+//        session.sessionPreset = .hd1920x1080
+//
         guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: position) else {
             throw PixelError.canNotSetupAVSession
         }
@@ -384,6 +391,35 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
         })
     }
     
+    
+    @objc func tapToFocus(_ sender: UITapGestureRecognizer) {
+        if (sender.state == .ended) {
+            let thisFocusPoint = sender.location(in: cameraView)
+
+            print("touch to focus ", thisFocusPoint)
+
+            let focus_x = thisFocusPoint.x / cameraView.frame.size.width
+            let focus_y = thisFocusPoint.y / cameraView.frame.size.height
+
+            if (!selectedDevice!.isFocusModeSupported(.autoFocus) && selectedDevice!.isFocusPointOfInterestSupported) {
+                do {
+                    try selectedDevice?.lockForConfiguration()
+                    selectedDevice?.focusMode = .autoFocus
+                    selectedDevice?.focusPointOfInterest = CGPoint(x: focus_x, y: focus_y)
+
+                    if (selectedDevice!.isExposureModeSupported(.autoExpose) && selectedDevice!.isExposurePointOfInterestSupported) {
+                        selectedDevice?.exposureMode = .autoExpose;
+                        selectedDevice?.exposurePointOfInterest = CGPoint(x: focus_x, y: focus_y);
+                     }
+
+                    selectedDevice?.unlockForConfiguration()
+                } catch {
+                    print(error)
+                }
+            }
+        }
+    }
+    
     func getImageFromSampleBuffer (buffer:CMSampleBuffer) -> UIImage? {
         if let pixelBuffer = CMSampleBufferGetImageBuffer(buffer) {
             let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
@@ -421,7 +457,7 @@ extension TrackingViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                 let resultImage : UIImage!
                 let maskImage = UIImage(view: maskView)
                 if !isNail{
-                    reversedImage = UIImage(cgImage: image.cgImage!, scale: 1, orientation: .leftMirrored)
+                    reversedImage = UIImage(cgImage: image.cgImage!, scale: 0, orientation: .leftMirrored)
                     resultImage = Utils.overlayLayerToImage(image:reversedImage, overlay:(maskImage), scaleOverlay:true)!
                 }
                 else {
