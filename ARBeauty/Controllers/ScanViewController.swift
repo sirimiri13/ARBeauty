@@ -8,35 +8,38 @@
 import UIKit
 
 class ScanViewController: UIViewController, AVCapturePhotoCaptureDelegate {
+    
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var flipHandButton: UIButton!
-    @IBOutlet weak var handView: UIView!
     @IBOutlet weak var captureButton: UIButton!
     @IBOutlet weak var handImageView: UIImageView!
-    
+    @IBOutlet weak var fakeTabbarBottomConstraint: NSLayoutConstraint!
     
     var captureSession: AVCaptureSession!
     var stillImageOutput: AVCapturePhotoOutput!
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
     
-    
-    
+    var isCurrentLeftHand = true
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        customCamera()
         handImageView.image = UIImage(named: "handleft")
-        
+        if #available(iOS 11.0, *) {
+            if let window = UIApplication.shared.windows.first {
+                if window.safeAreaInsets.bottom > 0 {
+                    fakeTabbarBottomConstraint.constant = -53;
+                }
+            }
+        }
+        customCamera()
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.captureSession.stopRunning()
     }
     
-    
-    
-    
-    func customCamera(){
+    func customCamera() {
         captureSession = AVCaptureSession()
         captureSession.sessionPreset = .medium
         guard let backCamera = AVCaptureDevice.default(for: AVMediaType.video)
@@ -75,15 +78,11 @@ class ScanViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     
     @IBAction func flipTapped(_ sender: Any) {
-        if flipHandButton.isSelected{
-            flipHandButton.isSelected = false
-            self.handView.transform = CGAffineTransform(scaleX: 1, y: 1);
-            
-        }
-        else {
-            flipHandButton.isSelected = true
-            self.handView.transform = CGAffineTransform(scaleX: -1, y: 1);
-            
+        UIView.animate(withDuration: 0.2) {
+            self.handImageView.transform =  self.isCurrentLeftHand ? CGAffineTransform(scaleX: -1, y: 1) : CGAffineTransform.identity
+        } completion: { _ in
+            self.isCurrentLeftHand = !self.isCurrentLeftHand
+            self.flipHandButton.setTitle(self.isCurrentLeftHand ? "Right" : "Left", for: .normal)
         }
     }
     
@@ -92,21 +91,19 @@ class ScanViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
         stillImageOutput.capturePhoto(with: settings, delegate: self)
     }
+    
     @IBAction func backToHomeTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        guard let imageData = photo.fileDataRepresentation()
-        else { return }
-        
+        guard let imageData = photo.fileDataRepresentation() else { return }
         let image = UIImage(data: imageData)
         let designVC = UIStoryboard.designNailsViewController()
         designVC.photoCaptured = image
-        designVC.isRightHand = flipHandButton.isSelected
+        designVC.isRightHand = !isCurrentLeftHand
         designVC.modalPresentationStyle = .fullScreen
         self.present(designVC, animated: true, completion: nil)
-        
     }
 
 }

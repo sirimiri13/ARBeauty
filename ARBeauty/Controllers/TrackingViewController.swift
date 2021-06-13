@@ -13,20 +13,19 @@ import CoreVideo
 import CoreGraphics
 import PhotosUI
 
-
 enum PixelError: Error {
     case canNotSetupAVSession
 }
 
 class TrackingViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, PickColorProtocol, StartSessionProtocol {
    
-    
     @IBOutlet var cameraView: UIView!
     @IBOutlet weak var colorsCollectionView: UICollectionView!
     @IBOutlet weak var designButton: UIButton!
-    
     @IBOutlet weak var titleNavBarTitle: UILabel!
-    
+    @IBOutlet weak var fakeTabbarBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var showHideColorsIconImageView: UIImageView!
+    @IBOutlet weak var colorsCollectionViewHeightConstraint: NSLayoutConstraint!
     
     var model: DeeplabModel!
     var session: AVCaptureSession!
@@ -43,7 +42,7 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
     var isCapture = false
     var captureImage : UIImage!
     var isNail: Bool = true
-    
+    var isShowColorsCollectionView = true
     
     
     static let imageEdgeSize = 257
@@ -69,11 +68,13 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
     var selectedIndex: Int = 1
     var selectedColor = UIColor()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        if !isNail {
+            designButton.isHidden = true
+            titleNavBarTitle.text = "LIPS"
+        }
         
         // Setup CollectionView
         self.colorsCollectionView.register(UINib.init(nibName: "ColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ColorCollectionViewCell")
@@ -94,24 +95,28 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
         focusCameraTap.numberOfTapsRequired = 1
         focusCameraTap.numberOfTouchesRequired = 1
         cameraView.addGestureRecognizer(focusCameraTap)
+        
+        let showHideColorsIconTap = UITapGestureRecognizer(target: self, action: #selector(showHideColorsTapped))
+        showHideColorsIconImageView.addGestureRecognizer(showHideColorsIconTap)
 
         setupColors()
-        
-        designButton.setTitleColor(UIColor.flamingoPink(), for: .normal)
+        setupUI()
         
         // Setup model and camera
-        
         loadModel()
-       
-        if !isNail {
-            designButton.isHidden = true
-            titleNavBarTitle.text = "LIPS"
+    }
+    
+    func setupUI() {
+        if #available(iOS 11.0, *) {
+            if let window = UIApplication.shared.windows.first {
+                if window.safeAreaInsets.bottom > 0 {
+                    fakeTabbarBottomConstraint.constant = -53;
+                }
+            }
         }
     }
     
-   
-    
-    func loadModel(){
+    func loadModel() {
         model = DeeplabModel()
         if (isNail){
             let result = model.load("model_1900")
@@ -297,9 +302,6 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
         context.draw(cgImage, in: CGRect(x: 0, y: 0, width: CGFloat(width), height: CGFloat(height)))
 
         maskView.layer.contents = context.makeImage()
-        
-        
-        
     }
     
     // MARK: - Handle tap events
@@ -327,6 +329,17 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
         alertSheet.addAction(choosePhotoFromLibraryAction)
         alertSheet.addAction(cancelAction)
         self.present(alertSheet, animated: true, completion: nil)
+    }
+    
+    @objc func showHideColorsTapped() {
+        colorsCollectionViewHeightConstraint.constant = isShowColorsCollectionView ? 0 : 60
+        UIView.animate(withDuration: 0.2) {
+            self.showHideColorsIconImageView.transform = self.isShowColorsCollectionView ? CGAffineTransform.init(rotationAngle: CGFloat.pi) : CGAffineTransform.init(rotationAngle: 0.000001)
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            self.isShowColorsCollectionView = !self.isShowColorsCollectionView
+        }
+
     }
     
     // MARK: - CollectionView

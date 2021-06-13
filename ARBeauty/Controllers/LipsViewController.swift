@@ -11,15 +11,18 @@ import Vision
 import CoreGraphics
 import PhotosUI
 
-class LipsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, PickColorProtocol,StartSessionProtocol{
-    func startSession() {
-        session.startRunning()
-    }
-    
-    
+class LipsViewController: UIViewController,
+                          UICollectionViewDelegate,
+                          UICollectionViewDataSource,
+                          PickColorProtocol,
+                          StartSessionProtocol {
     
     @IBOutlet weak var previewView: PreviewView!
     @IBOutlet weak var colorCollectionView: UICollectionView!
+    @IBOutlet weak var fakeTabbarBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var showHideColorsIconImageView: UIImageView!
+    @IBOutlet weak var colorsCollectionViewHeightConstraint: NSLayoutConstraint!
+    
     var isCapture: Bool = false
     var selectedColor = UIColor()
     var selectedIndex: Int = 1
@@ -60,8 +63,21 @@ class LipsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     private var requests = [VNRequest]()
     
+    var isShowColorsCollectionView = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if #available(iOS 11.0, *) {
+            if let window = UIApplication.shared.windows.first {
+                if window.safeAreaInsets.bottom > 0 {
+                    fakeTabbarBottomConstraint.constant = -53;
+                }
+            }
+        }
+        
+        let showHideColorsIconTap = UITapGestureRecognizer(target: self, action: #selector(showHideColorsTapped))
+        showHideColorsIconImageView.addGestureRecognizer(showHideColorsIconTap)
         
         self.colorCollectionView.register(UINib.init(nibName: "ColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ColorCollectionViewCell")
         colorCollectionView.delegate = self
@@ -155,6 +171,7 @@ class LipsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         sessionQueue.async { [unowned self] in
             if self.setupResult == .success {
                 self.session.stopRunning()
@@ -162,10 +179,11 @@ class LipsViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 self.removeObservers()
             }
         }
-        
-        super.viewWillDisappear(animated)
     }
     
+    func startSession() {
+        session.startRunning()
+    }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -196,7 +214,7 @@ class LipsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         colorCollectionView.reloadData()
     }
     
-    
+// MARK: - Handle tap events
     func addColorTapped() {
         let alertSheet = UIAlertController(title: "Select a color from an image", message: "", preferredStyle: .actionSheet)
         let takePhotoAction = UIAlertAction(title: "Take a photo", style: .default) { (UIAlertAction) in
@@ -223,6 +241,18 @@ class LipsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.present(alertSheet, animated: true, completion: nil)
     }
     
+    @objc func showHideColorsTapped() {
+        colorsCollectionViewHeightConstraint.constant = isShowColorsCollectionView ? 0 : 60
+        UIView.animate(withDuration: 0.2) {
+            self.showHideColorsIconImageView.transform = self.isShowColorsCollectionView ? CGAffineTransform.init(rotationAngle: CGFloat.pi) : CGAffineTransform.init(rotationAngle: 0.000001)
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            self.isShowColorsCollectionView = !self.isShowColorsCollectionView
+        }
+
+    }
+    
+// MARK: - collectionview protocols
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return  colors.count + 1
     }
@@ -333,11 +363,15 @@ extension LipsViewController {
                 session.addInput(videoDeviceInput)
                 self.videoDeviceInput = videoDeviceInput
                 DispatchQueue.main.async {
-                  
-                    let statusBarOrientation = UIApplication.shared.statusBarOrientation
+                    let statusBarOrientation = UIApplication
+                        .shared
+                        .windows
+                        .first(where: { $0.isKeyWindow })?
+                        .windowScene?
+                        .interfaceOrientation
                     var initialVideoOrientation: AVCaptureVideoOrientation = .portrait
                     if statusBarOrientation != .unknown {
-                        if let videoOrientation = statusBarOrientation.videoOrientation {
+                        if let videoOrientation = statusBarOrientation?.videoOrientation {
                             initialVideoOrientation = videoOrientation
                         }
                     }
