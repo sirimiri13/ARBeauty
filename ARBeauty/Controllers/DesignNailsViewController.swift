@@ -18,27 +18,23 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     @IBOutlet weak var optionCollectionView: UICollectionView!
     @IBOutlet weak var handImageView: UIImageView!
     @IBOutlet weak var maskNailsView: UIView!
-    
-    
-    
     @IBOutlet weak var thumbNailsImageView: UIImageView!
     @IBOutlet weak var littleNailsImageView: UIImageView!
     @IBOutlet weak var indexNailsImageView: UIImageView!
     @IBOutlet weak var middleNailsImageView: UIImageView!
     @IBOutlet weak var ringNailsImageView: UIImageView!
     @IBOutlet weak var scaleSlider: UISlider!
-    
-    
-  
-    
+    @IBOutlet weak var rotateSlider: UISlider!
+    @IBOutlet weak var editBoxView: UIStackView!
+    @IBOutlet weak var showHideColorsIconImageView: UIImageView!
+    @IBOutlet weak var editBoxViewHeightContrainst: NSLayoutConstraint!
     @IBOutlet weak var colorButton: UIButton!
     @IBOutlet weak var shapeButton: UIButton!
     @IBOutlet weak var styleButton: UIButton!
+    var isShowColorsCollectionView = true
     var isChooseColor: Bool = true
     var isChooseShape: Bool = false
-    
     var isRightHand : Bool = false
-    
     var colors: [UIColor] = []
     let defaultColors: [UIColor] = [UIColor.fromHex(value: "FF0000"),
                                     UIColor.fromHex(value: "006699"),
@@ -81,13 +77,24 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     var isMiddle: Bool = false
     var isIndex : Bool = false
     var isThumb: Bool = false
-   
+    
+    var isRotated: Bool = false
+    
+    var littleRotate : CGFloat =  355 * CGFloat(M_PI)/180
+    var ringRotate : CGFloat = 0.0
+    var middleRotate : CGFloat =  0.0
+    var indexRotate : CGFloat =  5 * CGFloat(M_PI)/180
+    var thumbRotate : CGFloat =  180 * CGFloat(M_PI)/180
+    
+    
+    var littleScale = CGAffineTransform(scaleX: 1, y: 1)
+    var ringScale  = CGAffineTransform(scaleX: 1, y: 1)
+    var middleScale  = CGAffineTransform(scaleX: 1, y: 1)
+    var indexScale  = CGAffineTransform(scaleX: 1, y: 1)
+    var thumbScale  = CGAffineTransform(scaleX: 1, y: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        scaleSlider.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi/2))
-        print(isRightHand)
         if (isRightHand){
             self.maskNailsView.transform = CGAffineTransform(scaleX: -1, y: 1);
         }
@@ -144,6 +151,11 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     
   
     func setGesture(){
+        let showHideColorsIconTap = UITapGestureRecognizer(target: self, action: #selector(showHideColorsTapped))
+        showHideColorsIconImageView.addGestureRecognizer(showHideColorsIconTap)
+
+        
+        
         let littleTap = UITapGestureRecognizer(target: self, action: #selector(littleNailTapped))
         littleNailsImageView.isUserInteractionEnabled = true
         littleNailsImageView.addGestureRecognizer(littleTap)
@@ -389,29 +401,82 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     
     
    
-    @IBAction func sliderChangeValue(_ sender: Any) {
+    @IBAction func scaleSliderChangeValue(_ sender: Any) {
         let scaleTransform = CGAffineTransform(scaleX: CGFloat(scaleSlider.value), y: CGFloat(scaleSlider.value))
         if (isLittle){
-            littleNailsImageView.transform = CGAffineTransform(rotationAngle: 355 * CGFloat(M_PI)/180).concatenating(scaleTransform)
+            littleScale = scaleTransform
+            littleNailsImageView.transform = CGAffineTransform(rotationAngle: littleRotate).concatenating(scaleTransform)
         }
         else{
             if (isRing){
-                ringNailsImageView.transform = scaleTransform
+                ringScale = scaleTransform
+                ringNailsImageView.transform = CGAffineTransform(rotationAngle: ringRotate).concatenating(scaleTransform)
             }
             else {
                 if (isMiddle){
-                    middleNailsImageView.transform = scaleTransform
+                    middleScale = scaleTransform
+                    middleNailsImageView.transform = CGAffineTransform(rotationAngle: middleRotate).concatenating(scaleTransform)
                 }
                 else {
                     if (isIndex){
-                        indexNailsImageView.transform = CGAffineTransform(rotationAngle: 5 * CGFloat(M_PI)/180).concatenating(scaleTransform)
+                        indexScale = scaleTransform
+                        indexNailsImageView.transform = CGAffineTransform(rotationAngle: indexRotate).concatenating(scaleTransform)
                     }
                     else {
-                        thumbNailsImageView.transform = CGAffineTransform(rotationAngle: 35 * CGFloat(M_PI)/180).concatenating(scaleTransform)
+                        thumbScale = scaleTransform
+                        thumbNailsImageView.transform = CGAffineTransform(rotationAngle: thumbRotate).concatenating(scaleTransform)
                     }
                 }
             }
         }
+    }
+    
+    
+    @IBAction func rotateSliderChangeValue(_ sender: Any) {
+        var angle = CGFloat(rotateSlider.value * 2 * Float(M_PI) / rotateSlider.maximumValue)
+        if (isLittle){
+            littleRotate = angle
+            littleNailsImageView.transform = CGAffineTransform(rotationAngle: littleRotate).concatenating(littleScale)
+        }
+        else{
+            if (isRing){
+                ringRotate = angle
+                ringNailsImageView.transform =  CGAffineTransform(rotationAngle: ringRotate).concatenating(ringScale)
+
+            }
+            else {
+                if (isMiddle){
+                    middleRotate = angle
+                    middleNailsImageView.transform = CGAffineTransform(rotationAngle: middleRotate).concatenating(middleScale)
+
+
+                }
+                else {
+                    if (isIndex){
+                        indexRotate = angle
+                        indexNailsImageView.transform =  CGAffineTransform(rotationAngle: indexRotate).concatenating(indexScale)
+                    }
+                    else {
+                        thumbRotate = angle
+                        thumbNailsImageView.transform =  CGAffineTransform(rotationAngle: thumbRotate).concatenating(thumbScale)
+                    }
+                }
+            }
+        }
+        
+    }
+    
+   
+  
+    @objc func showHideColorsTapped() {
+        editBoxViewHeightContrainst.constant = isShowColorsCollectionView ? 0 : 145
+        UIView.animate(withDuration: 0.2) {
+            self.showHideColorsIconImageView.transform = self.isShowColorsCollectionView ? CGAffineTransform.init(rotationAngle: CGFloat.pi) : CGAffineTransform.init(rotationAngle: 0.000001)
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            self.isShowColorsCollectionView = !self.isShowColorsCollectionView
+        }
+
     }
     
     @IBAction func backTapped(_ sender: Any) {
