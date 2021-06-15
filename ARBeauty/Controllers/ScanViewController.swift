@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ScanViewController: UIViewController, AVCapturePhotoCaptureDelegate {
+class ScanViewController: UIViewController, AVCapturePhotoCaptureDelegate{
     
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var flipHandButton: UIButton!
@@ -15,6 +15,7 @@ class ScanViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     @IBOutlet weak var handImageView: UIImageView!
     @IBOutlet weak var fakeTabbarBottomConstraint: NSLayoutConstraint!
     
+    var delegate: StartSessionProtocol!
     var captureSession: AVCaptureSession!
     var stillImageOutput: AVCapturePhotoOutput!
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
@@ -31,7 +32,7 @@ class ScanViewController: UIViewController, AVCapturePhotoCaptureDelegate {
                 }
             }
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { [weak self] in
             self?.handImageView.isHidden = false
         }
     }
@@ -102,6 +103,7 @@ class ScanViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     @IBAction func backToHomeTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        self.delegate.startSession()
     }
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {

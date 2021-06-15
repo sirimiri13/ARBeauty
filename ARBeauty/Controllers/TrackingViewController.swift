@@ -396,12 +396,11 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     @IBAction func desginTapped(_ sender: Any) {
-        weak var pvc = self.presentingViewController
-        self.dismiss(animated: true, completion: {
-            let vc =  UIStoryboard.scanViewController()
-            vc.modalPresentationStyle = .fullScreen
-            pvc?.present(vc, animated: true, completion: nil)
-        })
+        let vc =  UIStoryboard.scanViewController()
+        vc.modalPresentationStyle = .fullScreen
+        vc.delegate = self
+        self.present(vc, animated: true, completion: nil)
+        session.stopRunning()
     }
     
     

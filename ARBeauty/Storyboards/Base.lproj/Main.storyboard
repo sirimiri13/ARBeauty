@@ -678,13 +678,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TeT-pY-Lld">
-                                        <rect key="frame" x="15" y="13" width="30" height="30"/>
+                                        <rect key="frame" x="15" y="16.666666666666664" width="30" height="23.000000000000007"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="IVi-7i-vVp"/>
                                             <constraint firstAttribute="height" constant="30" id="nV7-xb-Dde"/>
                                         </constraints>
                                         <color key="tintColor" red="0.2756263316" green="0.307836622" blue="0.39608955379999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" image="house.fill" catalog="system"/>
+                                        <state key="normal" backgroundImage="multiply" catalog="system"/>
                                         <connections>
                                             <action selector="backToHomeTapped:" destination="feV-3L-Tlu" eventType="touchUpInside" id="FHm-LB-eke"/>
                                             <action selector="homeTapped:" destination="Of0-jy-81A" eventType="touchUpInside" id="cg1-Ob-u9O"/>
@@ -1153,6 +1153,7 @@
         <image name="handleft" width="142.66667175292969" height="194.33332824707031"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="lips_icon" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="nail_icon" width="170.66667175292969" height="170.66667175292969"/>
         <image name="shoot_button_icon" width="170.66667175292969" height="170.66667175292969"/>
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
