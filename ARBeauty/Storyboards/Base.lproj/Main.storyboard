@@ -1002,84 +1002,86 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="GXI-RO-Xjt">
                                         <rect key="frame" x="20" y="10" width="375" height="60"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kp2-0Y-28w">
-                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Kp2-0Y-28w" secondAttribute="height" multiplier="1:1" id="LVV-jf-YzT"/>
-                                                    <constraint firstAttribute="height" constant="60" id="Zt2-ba-g1c"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="tintColor" systemColor="systemIndigoColor"/>
-                                                <inset key="titleEdgeInsets" minX="-26" minY="45" maxX="0.0" maxY="0.0"/>
-                                                <inset key="imageEdgeInsets" minX="13" minY="5" maxX="13" maxY="20"/>
-                                                <state key="normal" title="Color" image="nail_icon">
-                                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <state key="selected" title="Color">
-                                                    <color key="titleColor" red="0.98576339239999999" green="0.39769525719999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="colorTapped:" destination="6l3-dr-tJO" eventType="touchUpInside" id="TGA-5f-ouV"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bX5-S1-Jpr">
-                                                <rect key="frame" x="105" y="0.0" width="60" height="60"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="bX5-S1-Jpr" secondAttribute="height" multiplier="1:1" id="9rh-bB-mns"/>
-                                                    <constraint firstAttribute="height" constant="60" id="woj-te-2rD"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="tintColor" red="0.79999136920000002" green="0.25059217210000001" blue="0.80003899339999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <inset key="titleEdgeInsets" minX="-18" minY="45" maxX="0.0" maxY="0.0"/>
-                                                <inset key="imageEdgeInsets" minX="20" minY="5" maxX="20" maxY="20"/>
-                                                <state key="normal" title="Shape" image="Shape=lipstick">
-                                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <state key="selected" title="Shape">
-                                                    <color key="titleColor" red="0.98576339239999999" green="0.39769525719999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="shapeTapped:" destination="6l3-dr-tJO" eventType="touchUpInside" id="g2X-kv-Lcn"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pI5-RC-ZIL">
-                                                <rect key="frame" x="210" y="0.0" width="60" height="60"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="pI5-RC-ZIL" secondAttribute="height" multiplier="1:1" id="5Md-fV-IHw"/>
-                                                    <constraint firstAttribute="height" constant="60" id="ttW-a3-yIa"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="titleEdgeInsets" minX="-18" minY="40" maxX="0.0" maxY="0.0"/>
-                                                <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="25"/>
-                                                <state key="normal" title="Style" image="style_2">
-                                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <state key="selected" title="Style">
-                                                    <color key="titleColor" red="0.98576339239999999" green="0.39769525719999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="shapeTapped:" destination="6l3-dr-tJO" eventType="touchUpInside" id="yI3-Se-Ajy"/>
-                                                    <action selector="styleTapped:" destination="6l3-dr-tJO" eventType="touchUpInside" id="8JV-r0-Z3g"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nX0-8V-2si">
-                                                <rect key="frame" x="315" y="0.0" width="60" height="60"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="nX0-8V-2si" secondAttribute="height" multiplier="1:1" id="0Dt-G1-Scc"/>
-                                                    <constraint firstAttribute="height" constant="60" id="m7z-UE-8tR"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <inset key="titleEdgeInsets" minX="-40" minY="0.0" maxX="0.0" maxY="-38"/>
-                                                <inset key="imageEdgeInsets" minX="12" minY="0.0" maxX="12" maxY="25"/>
-                                                <state key="normal" title="Save" image="download">
-                                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <state key="selected" image="download"/>
-                                                <connections>
-                                                    <action selector="saveTapped:" destination="6l3-dr-tJO" eventType="touchUpInside" id="uJL-f0-Olf"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="uhl-Wp-Bco">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kp2-0Y-28w">
+                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Kp2-0Y-28w" secondAttribute="height" multiplier="1:1" id="LVV-jf-YzT"/>
+                                                            <constraint firstAttribute="height" constant="60" id="Zt2-ba-g1c"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                        <inset key="titleEdgeInsets" minX="-26" minY="45" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="13" minY="5" maxX="13" maxY="20"/>
+                                                        <state key="normal" title="Color" image="nail_icon">
+                                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <state key="selected" title="Color"/>
+                                                        <connections>
+                                                            <action selector="editTapped:" destination="6l3-dr-tJO" eventType="touchUpInside" id="uVJ-gz-q1c"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bX5-S1-Jpr">
+                                                        <rect key="frame" x="105" y="0.0" width="60" height="60"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="bX5-S1-Jpr" secondAttribute="height" multiplier="1:1" id="9rh-bB-mns"/>
+                                                            <constraint firstAttribute="height" constant="60" id="woj-te-2rD"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="tintColor" red="0.79999136920000002" green="0.25059217210000001" blue="0.80003899339999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <inset key="titleEdgeInsets" minX="-18" minY="45" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="20" minY="5" maxX="20" maxY="20"/>
+                                                        <state key="normal" title="Shape" image="Shape=lipstick">
+                                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <state key="selected" title="Shape">
+                                                            <color key="titleColor" red="0.98576339239999999" green="0.39769525719999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="editTapped:" destination="6l3-dr-tJO" eventType="touchUpInside" id="eZS-WZ-AZe"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pI5-RC-ZIL">
+                                                        <rect key="frame" x="210" y="0.0" width="60" height="60"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="pI5-RC-ZIL" secondAttribute="height" multiplier="1:1" id="5Md-fV-IHw"/>
+                                                            <constraint firstAttribute="height" constant="60" id="ttW-a3-yIa"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="titleEdgeInsets" minX="-18" minY="40" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="25"/>
+                                                        <state key="normal" title="Style" image="style_2">
+                                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <state key="selected" title="Style">
+                                                            <color key="titleColor" red="0.98576339239999999" green="0.39769525719999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="editTapped:" destination="6l3-dr-tJO" eventType="touchUpInside" id="8ie-Dd-hKs"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nX0-8V-2si">
+                                                        <rect key="frame" x="315" y="0.0" width="60" height="60"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="nX0-8V-2si" secondAttribute="height" multiplier="1:1" id="0Dt-G1-Scc"/>
+                                                            <constraint firstAttribute="height" constant="60" id="m7z-UE-8tR"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <inset key="titleEdgeInsets" minX="-40" minY="0.0" maxX="0.0" maxY="-38"/>
+                                                        <inset key="imageEdgeInsets" minX="12" minY="0.0" maxX="12" maxY="25"/>
+                                                        <state key="normal" title="Save" image="download">
+                                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <state key="selected" image="download"/>
+                                                        <connections>
+                                                            <action selector="editTapped:" destination="6l3-dr-tJO" eventType="touchUpInside" id="7EX-UX-6vk"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -1124,6 +1126,7 @@
                         <outlet property="optionCollectionView" destination="P4d-3y-43B" id="Q6d-8B-NPi"/>
                         <outlet property="ringNailsImageView" destination="GGO-Yg-kxG" id="0DE-vb-wo2"/>
                         <outlet property="rotateSlider" destination="nYl-S3-vHL" id="CQF-wh-Kkj"/>
+                        <outlet property="saveButton" destination="nX0-8V-2si" id="0NU-Uw-iGO"/>
                         <outlet property="scaleSlider" destination="MCe-yd-x12" id="99F-sH-BKy"/>
                         <outlet property="shapeButton" destination="bX5-S1-Jpr" id="dzO-s0-5f3"/>
                         <outlet property="showHideEditBoxImageView" destination="dKA-tp-P8k" id="YD1-nj-uZs"/>

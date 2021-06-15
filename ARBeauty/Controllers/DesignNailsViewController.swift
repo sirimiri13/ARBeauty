@@ -34,10 +34,12 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     @IBOutlet weak var colorButton: UIButton!
     @IBOutlet weak var shapeButton: UIButton!
     @IBOutlet weak var styleButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     
     var isShowEditBox = true
     var isChooseColor: Bool = true
     var isChooseShape: Bool = false
+    var isChooseStyle: Bool = false
     var isRightHand : Bool = false
     var colors: [UIColor] = []
     let defaultColors: [UIColor] = [UIColor.fromHex(value: "FF0000"),
@@ -115,7 +117,6 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         selectedShape = shapeImageName[0]
         selectedColor = defaultColors[0]
       
-        colorButton.isSelected = true
         
         
         self.optionCollectionView.register(UINib.init(nibName: "ColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ColorCollectionViewCell")
@@ -189,6 +190,36 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         handImageView.addGestureRecognizer(handImageTap)
     }
 
+    func setOptionTitleColor(){
+        if isChooseColor{
+            styleButton.setTitleColor(UIColor.darkGray, for: .normal)
+            colorButton.setTitleColor(UIColor.flamingoPink(), for: .normal)
+            shapeButton.setTitleColor(UIColor.darkGray, for: .normal)
+            saveButton.setTitleColor(UIColor.darkGray, for: .normal)
+        }
+        else {
+            if isChooseShape{
+                styleButton.setTitleColor(UIColor.darkGray, for: .normal)
+                colorButton.setTitleColor(UIColor.darkGray, for: .normal)
+                shapeButton.setTitleColor(UIColor.flamingoPink(), for: .normal)
+                saveButton.setTitleColor(UIColor.darkGray, for: .normal)
+            }
+            else {
+                if isChooseStyle {
+                    styleButton.setTitleColor(UIColor.flamingoPink(), for: .normal)
+                    colorButton.setTitleColor(UIColor.darkGray, for: .normal)
+                    shapeButton.setTitleColor(UIColor.darkGray, for: .normal)
+                    saveButton.setTitleColor(UIColor.darkGray, for: .normal)
+                }
+                else {
+                    styleButton.setTitleColor(UIColor.darkGray, for: .normal)
+                    colorButton.setTitleColor(UIColor.darkGray, for: .normal)
+                    shapeButton.setTitleColor(UIColor.darkGray, for: .normal)
+                    saveButton.setTitleColor(UIColor.flamingoPink(), for: .normal)
+                }
+            }
+        }
+    }
 // MARK: - Handle nail drag events
     @objc func littleNailTapped() {
         isLittle = true
@@ -478,55 +509,51 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         
     }
 
-// MARK: - Tabbar Handle
-    @IBAction func colorTapped(_ sender: Any) {
+
+    @IBAction func editTapped(_ sender: UIButton){
         if (!isShowEditBox) {
             showHideEditBoxTapped()
         }
-        if (styleButton.isSelected) {
+        if sender.tag == 0{
+            selectedIndex = 1
             setImageNails(image: UIImage(named: "Shape=short")!)
             setColorNails(color: colors[0].withAlphaComponent(0.7))
+            setOptionEdit(isColor: true, isShape: false, isStyle: false)
         }
-        colorButton.isSelected = true
-        shapeButton.isSelected = false
-        styleButton.isSelected = false
-        selectedIndex = 1
-        middleNailsImageView.image = UIImage(named: selectedShape)
-        optionCollectionView.reloadData()
-    }
-    
-    @IBAction func shapeTapped(_ sender: Any) {
-        if (!isShowEditBox) {
-            showHideEditBoxTapped()
+        else {
+            if sender.tag == 1{
+                selectedIndex = 0
+                setOptionEdit(isColor: false, isShape: true, isStyle: false)
+
+            }
+            else {
+                if sender.tag == 2{
+                    selectedIndex = 0
+                    setOptionEdit(isColor: false, isShape: false, isStyle: true)
+                }
+                else {
+                    
+                    littleNailsImageView.layer.borderWidth = 0
+                    ringNailsImageView.layer.borderWidth = 0
+                    middleNailsImageView.layer.borderWidth = 0
+                    indexNailsImageView.layer.borderWidth = 0
+                    thumbNailsImageView.layer.borderWidth = 0
+                    let image = UIImage(view: handView)
+                    CustomPhotoAlbum.sharedInstance.saveImage(image: image)
+                }
+            }
         }
-        colorButton.isSelected = false
-        shapeButton.isSelected = true
-        styleButton.isSelected = false
-        selectedIndex = 0
         optionCollectionView.reloadData()
+
     }
     
-    @IBAction func styleTapped(_ sender: Any) {
-        if (!isShowEditBox) {
-            showHideEditBoxTapped()
-        }
-        colorButton.isSelected = false
-        shapeButton.isSelected = false
-        styleButton.isSelected = true
-        selectedIndex = 0
-        optionCollectionView.reloadData()
-    }
     
-    @IBAction func saveTapped(_ sender: Any) {
-        littleNailsImageView.layer.borderWidth = 0
-        ringNailsImageView.layer.borderWidth = 0
-        middleNailsImageView.layer.borderWidth = 0
-        indexNailsImageView.layer.borderWidth = 0
-        thumbNailsImageView.layer.borderWidth = 0
-        let image = UIImage(view: handView)
-        CustomPhotoAlbum.sharedInstance.saveImage(image: image)
+    func setOptionEdit(isColor: Bool, isShape:Bool, isStyle: Bool){
+        isChooseColor = isColor
+        isChooseShape = isShape
+        isChooseStyle = isStyle
+        setOptionTitleColor()
     }
-    
     func setupColors() {
         colors.removeAll()
         let userColors:[String] = Utils.getUserColors()
@@ -555,7 +582,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if colorButton.isSelected {
+        if isChooseColor {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCollectionViewCell", for: indexPath) as! ColorCollectionViewCell
             if (indexPath.row == 0) {
                 cell.setCell(color: UIColor.clear, isSelected: false, showAddButton: true)
@@ -571,7 +598,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
             return cell
         }
         else{
-            if shapeButton.isSelected{
+            if isChooseShape{
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShapeCollectionViewCell", for: indexPath) as! ShapeCollectionViewCell
                 cell.shapeImageView.image = UIImage(named: shapeImageName[indexPath.row])
                 if (selectedIndex == indexPath.row) {
