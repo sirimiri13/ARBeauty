@@ -115,7 +115,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.makeToast("Tap any nails to edit", duration: 2.0, position: .center)
         if #available(iOS 11.0, *) {
             if let window = UIApplication.shared.windows.first {
                 if window.safeAreaInsets.bottom > 0 {
@@ -131,7 +131,6 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         selectedShape = shapeImageName[0]
         selectedColor = defaultColors[0]
       
-        
         
         self.optionCollectionView.register(UINib.init(nibName: "ColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ColorCollectionViewCell")
         self.optionCollectionView.register(UINib.init(nibName: "ShapeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ShapeCollectionViewCell")
@@ -164,6 +163,8 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         let showHideColorsIconTap = UITapGestureRecognizer(target: self, action: #selector(showHideEditBoxTapped))
         showHideEditBoxImageView.addGestureRecognizer(showHideColorsIconTap)
 
+        
+        
         let littleTap = UITapGestureRecognizer(target: self, action: #selector(littleNailTapped))
         littleNailsImageView.isUserInteractionEnabled = true
         littleNailsImageView.addGestureRecognizer(littleTap)
@@ -346,9 +347,6 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         middleNailsImageView.layer.borderWidth = 0
         indexNailsImageView.layer.borderWidth = 0
         thumbNailsImageView.layer.borderWidth = 0
-        
-        scaleSlider.isUserInteractionEnabled = false
-        scaleSlider.tintColor = UIColor.gray
     }
   
     @objc func littleNaillDrag(_ sender:UIPanGestureRecognizer) {
@@ -659,7 +657,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if colorButton.isSelected{
+        if isChooseColor{
             if (indexPath.row == 0) {
                 self.addColorTapped()
             }
@@ -671,7 +669,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
             }
         }
         else {
-            if shapeButton.isSelected{
+            if isChooseShape{
                 setImageNails(image: UIImage(named: shapeImageName[indexPath.row])!)
                 selectedIndex = indexPath.row
                 selectedShape = shapeImageName[indexPath.row]

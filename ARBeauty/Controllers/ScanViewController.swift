@@ -32,15 +32,16 @@ class ScanViewController: UIViewController, AVCapturePhotoCaptureDelegate{
                 }
             }
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { [weak self] in
-            self?.handImageView.isHidden = false
-        }
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         handImageView.isHidden = true
         customCamera()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { [weak self] in
+            self?.handImageView.isHidden = false
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
