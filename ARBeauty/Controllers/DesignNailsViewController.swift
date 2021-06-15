@@ -92,12 +92,26 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     var indexRotate : CGFloat =  5 * CGFloat.pi/180
     var thumbRotate : CGFloat =  180 * CGFloat.pi/180
     
+    var littleRotateValue: Float = 1
+    var ringRotateValue : Float = 1
+    var middleRotateValue : Float =  1
+    var indexRotateValue : Float =  1
+    var thumbRotateValue : Float =  1
+    
     
     var littleScale = CGAffineTransform(scaleX: 1, y: 1)
     var ringScale  = CGAffineTransform(scaleX: 1, y: 1)
     var middleScale  = CGAffineTransform(scaleX: 1, y: 1)
     var indexScale  = CGAffineTransform(scaleX: 1, y: 1)
     var thumbScale  = CGAffineTransform(scaleX: 1, y: 1)
+    
+    
+    var littleScaleValue : Float = 1
+    var ringScaleValue : Float = 1
+    var middleScaleValue : Float = 1
+    var indexScaleValue : Float = 1
+    var thumbScaleValue : Float = 1
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -234,8 +248,8 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         indexNailsImageView.layer.borderWidth = 0
         thumbNailsImageView.layer.borderWidth = 0
         scaleSlider.isUserInteractionEnabled = true
-        scaleSlider.tintColor = UIColor.systemBlue
-        print("little tap")
+        scaleSlider.value = littleScaleValue
+        rotateSlider.value = littleRotateValue
     }
   
     
@@ -252,8 +266,9 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         indexNailsImageView.layer.borderWidth = 0
         thumbNailsImageView.layer.borderWidth = 0
         scaleSlider.isUserInteractionEnabled = true
-        scaleSlider.tintColor = UIColor.systemBlue
-        
+        scaleSlider.value = ringScaleValue
+        rotateSlider.value = ringRotateValue
+
     }
   
     
@@ -270,7 +285,10 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         indexNailsImageView.layer.borderWidth = 0
         thumbNailsImageView.layer.borderWidth = 0
         scaleSlider.isUserInteractionEnabled = true
-        scaleSlider.tintColor = UIColor.systemBlue
+        scaleSlider.value = middleScaleValue
+        rotateSlider.value = middleRotateValue
+
+
     }
     
     
@@ -288,7 +306,10 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         indexNailsImageView.layer.borderColor = UIColor.blueCustom().cgColor
         thumbNailsImageView.layer.borderWidth = 0
         scaleSlider.isUserInteractionEnabled = true
-        scaleSlider.tintColor = UIColor.systemBlue
+        scaleSlider.value = indexScaleValue
+        rotateSlider.value = indexRotateValue
+
+
     }
     
     
@@ -306,7 +327,10 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         thumbNailsImageView.layer.borderWidth = 1.5
         thumbNailsImageView.layer.borderColor = UIColor.blueCustom().cgColor
         scaleSlider.isUserInteractionEnabled = true
-        scaleSlider.tintColor = UIColor.systemBlue
+        scaleSlider.value = thumbScaleValue
+        rotateSlider.value = thumbRotateValue
+
+
     }
     
     
@@ -424,25 +448,30 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     @IBAction func scaleSliderChangeValue(_ sender: Any) {
         let scaleTransform = CGAffineTransform(scaleX: CGFloat(scaleSlider.value), y: CGFloat(scaleSlider.value))
         if (isLittle) {
+            littleScaleValue = scaleSlider.value
             littleScale = scaleTransform
             littleNailsImageView.transform = CGAffineTransform(rotationAngle: littleRotate).concatenating(scaleTransform)
         }
         else{
             if (isRing) {
+                ringScaleValue = scaleSlider.value
                 ringScale = scaleTransform
                 ringNailsImageView.transform = CGAffineTransform(rotationAngle: ringRotate).concatenating(scaleTransform)
             }
             else {
                 if (isMiddle) {
+                    middleScaleValue = scaleSlider.value
                     middleScale = scaleTransform
                     middleNailsImageView.transform = CGAffineTransform(rotationAngle: middleRotate).concatenating(scaleTransform)
                 }
                 else {
                     if (isIndex) {
+                        indexScaleValue = scaleSlider.value
                         indexScale = scaleTransform
                         indexNailsImageView.transform = CGAffineTransform(rotationAngle: indexRotate).concatenating(scaleTransform)
                     }
                     else {
+                        thumbScaleValue = scaleSlider.value
                         thumbScale = scaleTransform
                         thumbNailsImageView.transform = CGAffineTransform(rotationAngle: thumbRotate).concatenating(scaleTransform)
                     }
@@ -455,28 +484,30 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         let angle = CGFloat(rotateSlider.value * 2 * Float(CGFloat.pi) / rotateSlider.maximumValue)
         if (isLittle) {
             littleRotate = angle
+            littleRotateValue = rotateSlider.value
             littleNailsImageView.transform = CGAffineTransform(rotationAngle: littleRotate).concatenating(littleScale)
         }
         else {
             if (isRing) {
                 ringRotate = angle
+                ringRotateValue = rotateSlider.value
                 ringNailsImageView.transform =  CGAffineTransform(rotationAngle: ringRotate).concatenating(ringScale)
-
             }
             else {
                 if (isMiddle) {
                     middleRotate = angle
+                    middleRotateValue = rotateSlider.value
                     middleNailsImageView.transform = CGAffineTransform(rotationAngle: middleRotate).concatenating(middleScale)
-
-
                 }
                 else {
                     if (isIndex) {
                         indexRotate = angle
+                        indexRotateValue = rotateSlider.value
                         indexNailsImageView.transform =  CGAffineTransform(rotationAngle: indexRotate).concatenating(indexScale)
                     }
                     else {
                         thumbRotate = angle
+                        thumbRotateValue = rotateSlider.value
                         thumbNailsImageView.transform =  CGAffineTransform(rotationAngle: thumbRotate).concatenating(thumbScale)
                     }
                 }
