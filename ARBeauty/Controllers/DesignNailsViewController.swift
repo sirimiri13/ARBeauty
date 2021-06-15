@@ -23,15 +23,19 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     @IBOutlet weak var indexNailsImageView: UIImageView!
     @IBOutlet weak var middleNailsImageView: UIImageView!
     @IBOutlet weak var ringNailsImageView: UIImageView!
+    
     @IBOutlet weak var scaleSlider: UISlider!
     @IBOutlet weak var rotateSlider: UISlider!
-    @IBOutlet weak var editBoxView: UIStackView!
-    @IBOutlet weak var showHideColorsIconImageView: UIImageView!
-    @IBOutlet weak var editBoxViewHeightContrainst: NSLayoutConstraint!
+    @IBOutlet weak var showHideEditBoxImageView: UIImageView!
+    
+    @IBOutlet weak var fakeTabbarBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var editBoxHeightConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var colorButton: UIButton!
     @IBOutlet weak var shapeButton: UIButton!
     @IBOutlet weak var styleButton: UIButton!
-    var isShowColorsCollectionView = true
+    
+    var isShowEditBox = true
     var isChooseColor: Bool = true
     var isChooseShape: Bool = false
     var isRightHand : Bool = false
@@ -80,11 +84,11 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     
     var isRotated: Bool = false
     
-    var littleRotate : CGFloat =  355 * CGFloat(M_PI)/180
+    var littleRotate : CGFloat =  355 * CGFloat.pi/180
     var ringRotate : CGFloat = 0.0
     var middleRotate : CGFloat =  0.0
-    var indexRotate : CGFloat =  5 * CGFloat(M_PI)/180
-    var thumbRotate : CGFloat =  180 * CGFloat(M_PI)/180
+    var indexRotate : CGFloat =  5 * CGFloat.pi/180
+    var thumbRotate : CGFloat =  180 * CGFloat.pi/180
     
     
     var littleScale = CGAffineTransform(scaleX: 1, y: 1)
@@ -95,7 +99,16 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if (isRightHand){
+        
+        if #available(iOS 11.0, *) {
+            if let window = UIApplication.shared.windows.first {
+                if window.safeAreaInsets.bottom > 0 {
+                    fakeTabbarBottomConstraint.constant = -53;
+                }
+            }
+        }
+        
+        if (isRightHand) {
             self.maskNailsView.transform = CGAffineTransform(scaleX: -1, y: 1);
         }
         handImageView.image = photoCaptured
@@ -103,9 +116,6 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         selectedColor = defaultColors[0]
       
         colorButton.isSelected = true
-        
-        
-      
         
         
         self.optionCollectionView.register(UINib.init(nibName: "ColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ColorCollectionViewCell")
@@ -124,38 +134,21 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         layout.itemSize = CGSize(width: 60, height: 60)
         layout.minimumLineSpacing = 10
         
-        
         setupColors()
         setColorNails(color: colors[0].withAlphaComponent(0.7))
         scaleSlider.isUserInteractionEnabled = false
         scaleSlider.tintColor = UIColor.gray
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        thumbNailsImageView.transform = CGAffineTransform(rotationAngle: 35 * CGFloat(M_PI)/180);
-        indexNailsImageView.transform = CGAffineTransform(rotationAngle: 5 * CGFloat(M_PI)/180);
-        littleNailsImageView.transform = CGAffineTransform(rotationAngle: 355 * CGFloat(M_PI)/180);
+        
+        thumbNailsImageView.transform = CGAffineTransform(rotationAngle: 35 * CGFloat.pi/180);
+        indexNailsImageView.transform = CGAffineTransform(rotationAngle: 5 * CGFloat.pi/180);
+        littleNailsImageView.transform = CGAffineTransform(rotationAngle: 355 * CGFloat.pi/180);
         setGesture()
-        
-        
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-    
-    
   
-    func setGesture(){
-        let showHideColorsIconTap = UITapGestureRecognizer(target: self, action: #selector(showHideColorsTapped))
-        showHideColorsIconImageView.addGestureRecognizer(showHideColorsIconTap)
+    func setGesture() {
+        let showHideColorsIconTap = UITapGestureRecognizer(target: self, action: #selector(showHideEditBoxTapped))
+        showHideEditBoxImageView.addGestureRecognizer(showHideColorsIconTap)
 
-        
-        
         let littleTap = UITapGestureRecognizer(target: self, action: #selector(littleNailTapped))
         littleNailsImageView.isUserInteractionEnabled = true
         littleNailsImageView.addGestureRecognizer(littleTap)
@@ -196,8 +189,8 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         handImageView.addGestureRecognizer(handImageTap)
     }
 
-    
-    @objc func littleNailTapped(){
+// MARK: - Handle nail drag events
+    @objc func littleNailTapped() {
         isLittle = true
         isRing = false
         isMiddle = false
@@ -215,7 +208,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     }
   
     
-    @objc func ringNailTapped(){
+    @objc func ringNailTapped() {
         isLittle = false
         isRing = true
         isMiddle = false
@@ -233,7 +226,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     }
   
     
-    @objc func middleNailTapped(){
+    @objc func middleNailTapped() {
         isLittle = false
         isRing = false
         isMiddle = true
@@ -251,7 +244,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     
     
     
-    @objc func indexNailTapped(){
+    @objc func indexNailTapped() {
         isLittle = false
         isRing = false
         isMiddle = false
@@ -268,7 +261,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     
-    @objc func thumbNailTapped(){
+    @objc func thumbNailTapped() {
         isLittle = false
         isRing = false
         isMiddle = false
@@ -287,7 +280,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     
     
     
-    @objc func handImageViewTapped(){
+    @objc func handImageViewTapped() {
         isLittle = false
         isRing = false
         isMiddle = false
@@ -303,7 +296,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         scaleSlider.tintColor = UIColor.gray
     }
   
-    @objc func littleNaillDrag(_ sender:UIPanGestureRecognizer){
+    @objc func littleNaillDrag(_ sender:UIPanGestureRecognizer) {
         littleNailsImageView.layer.borderWidth = 1.5
         littleNailsImageView.layer.borderColor = UIColor.blueCustom().cgColor
         ringNailsImageView.layer.borderWidth = 0
@@ -311,7 +304,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         indexNailsImageView.layer.borderWidth = 0
         thumbNailsImageView.layer.borderWidth = 0
         let translation = sender.translation(in: self.view)
-        if (isRightHand){
+        if (isRightHand) {
             littleNailsImageView.center = CGPoint(x: littleNailsImageView.center.x - translation.x, y: littleNailsImageView.center.y + translation.y)
 
         }
@@ -321,7 +314,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         sender.setTranslation(CGPoint.zero, in: self.view)
     }
     
-    @objc func ringNailDrag(_ sender:UIPanGestureRecognizer){
+    @objc func ringNailDrag(_ sender:UIPanGestureRecognizer) {
         littleNailsImageView.layer.borderWidth = 0
         ringNailsImageView.layer.borderWidth = 1.5
         ringNailsImageView.layer.borderColor = UIColor.blueCustom().cgColor
@@ -330,7 +323,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         thumbNailsImageView.layer.borderWidth = 0
         
         let translation = sender.translation(in: self.view)
-        if (isRightHand){
+        if (isRightHand) {
             ringNailsImageView.center = CGPoint(x: ringNailsImageView.center.x - translation.x, y: ringNailsImageView.center.y + translation.y)
 
         }
@@ -341,7 +334,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     
-    @objc func middleNailDrag(_ sender:UIPanGestureRecognizer){
+    @objc func middleNailDrag(_ sender:UIPanGestureRecognizer) {
         littleNailsImageView.layer.borderWidth = 0
         ringNailsImageView.layer.borderWidth = 0
         middleNailsImageView.layer.borderWidth = 1.5
@@ -349,7 +342,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         indexNailsImageView.layer.borderWidth = 0
         thumbNailsImageView.layer.borderWidth = 0
         let translation = sender.translation(in: self.view)
-        if (isRightHand){
+        if (isRightHand) {
             middleNailsImageView.center = CGPoint(x: middleNailsImageView.center.x - translation.x, y: middleNailsImageView.center.y + translation.y)
 
         }
@@ -358,7 +351,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         }
         sender.setTranslation(CGPoint.zero, in: self.view)
     }
-    @objc func indexNailDrag(_ sender:UIPanGestureRecognizer){
+    @objc func indexNailDrag(_ sender:UIPanGestureRecognizer) {
         littleNailsImageView.layer.borderWidth = 0
         ringNailsImageView.layer.borderWidth = 0
         middleNailsImageView.layer.borderWidth = 0
@@ -367,7 +360,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         thumbNailsImageView.layer.borderWidth = 0
         
         let translation = sender.translation(in: self.view)
-        if (isRightHand){
+        if (isRightHand) {
             indexNailsImageView.center = CGPoint(x: indexNailsImageView.center.x - translation.x, y: indexNailsImageView.center.y + translation.y)
 
         }
@@ -377,9 +370,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         sender.setTranslation(CGPoint.zero, in: self.view)
     }
     
-    
-    
-    @objc func thumbNailDrag(_ sender:UIPanGestureRecognizer){
+    @objc func thumbNailDrag(_ sender:UIPanGestureRecognizer) {
         littleNailsImageView.layer.borderWidth = 0
         ringNailsImageView.layer.borderWidth = 0
         middleNailsImageView.layer.borderWidth = 0
@@ -388,7 +379,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         thumbNailsImageView.layer.borderColor = UIColor.blueCustom().cgColor
         
         let translation = sender.translation(in: self.view)
-        if (isRightHand){
+        if (isRightHand) {
             thumbNailsImageView.center = CGPoint(x: thumbNailsImageView.center.x - translation.x, y: thumbNailsImageView.center.y + translation.y)
 
         }
@@ -397,28 +388,26 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         }
         sender.setTranslation(CGPoint.zero, in: self.view)
     }
-    
-    
-    
    
+// MARK: - Slider value change
     @IBAction func scaleSliderChangeValue(_ sender: Any) {
         let scaleTransform = CGAffineTransform(scaleX: CGFloat(scaleSlider.value), y: CGFloat(scaleSlider.value))
-        if (isLittle){
+        if (isLittle) {
             littleScale = scaleTransform
             littleNailsImageView.transform = CGAffineTransform(rotationAngle: littleRotate).concatenating(scaleTransform)
         }
         else{
-            if (isRing){
+            if (isRing) {
                 ringScale = scaleTransform
                 ringNailsImageView.transform = CGAffineTransform(rotationAngle: ringRotate).concatenating(scaleTransform)
             }
             else {
-                if (isMiddle){
+                if (isMiddle) {
                     middleScale = scaleTransform
                     middleNailsImageView.transform = CGAffineTransform(rotationAngle: middleRotate).concatenating(scaleTransform)
                 }
                 else {
-                    if (isIndex){
+                    if (isIndex) {
                         indexScale = scaleTransform
                         indexNailsImageView.transform = CGAffineTransform(rotationAngle: indexRotate).concatenating(scaleTransform)
                     }
@@ -431,28 +420,27 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         }
     }
     
-    
     @IBAction func rotateSliderChangeValue(_ sender: Any) {
-        var angle = CGFloat(rotateSlider.value * 2 * Float(M_PI) / rotateSlider.maximumValue)
-        if (isLittle){
+        let angle = CGFloat(rotateSlider.value * 2 * Float(CGFloat.pi) / rotateSlider.maximumValue)
+        if (isLittle) {
             littleRotate = angle
             littleNailsImageView.transform = CGAffineTransform(rotationAngle: littleRotate).concatenating(littleScale)
         }
-        else{
-            if (isRing){
+        else {
+            if (isRing) {
                 ringRotate = angle
                 ringNailsImageView.transform =  CGAffineTransform(rotationAngle: ringRotate).concatenating(ringScale)
 
             }
             else {
-                if (isMiddle){
+                if (isMiddle) {
                     middleRotate = angle
                     middleNailsImageView.transform = CGAffineTransform(rotationAngle: middleRotate).concatenating(middleScale)
 
 
                 }
                 else {
-                    if (isIndex){
+                    if (isIndex) {
                         indexRotate = angle
                         indexNailsImageView.transform =  CGAffineTransform(rotationAngle: indexRotate).concatenating(indexScale)
                     }
@@ -466,21 +454,67 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         
     }
     
-   
-  
-    @objc func showHideColorsTapped() {
-        editBoxViewHeightContrainst.constant = isShowColorsCollectionView ? 0 : 145
+    @objc func showHideEditBoxTapped() {
+        editBoxHeightConstraint.constant = isShowEditBox ? 0 : 144
         UIView.animate(withDuration: 0.2) {
-            self.showHideColorsIconImageView.transform = self.isShowColorsCollectionView ? CGAffineTransform.init(rotationAngle: CGFloat.pi) : CGAffineTransform.init(rotationAngle: 0.000001)
+            self.showHideEditBoxImageView.transform = self.isShowEditBox ? CGAffineTransform.init(rotationAngle: CGFloat.pi) : CGAffineTransform.init(rotationAngle: 0.000001)
             self.view.layoutIfNeeded()
         } completion: { _ in
-            self.isShowColorsCollectionView = !self.isShowColorsCollectionView
+            self.isShowEditBox = !self.isShowEditBox
         }
 
     }
     
     @IBAction func backTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func shareTapped(_ sender: Any) {
+        let image = UIImage(view: handView)
+        let imageShare = [image]
+        let activityViewController = UIActivityViewController(activityItems: imageShare as [Any] , applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
+        
+    }
+
+// MARK: - Tabbar Handle
+    @IBAction func colorTapped(_ sender: Any) {
+        if (!isShowEditBox) {
+            showHideEditBoxTapped()
+        }
+        if (styleButton.isSelected) {
+            setImageNails(image: UIImage(named: "Shape=short")!)
+            setColorNails(color: colors[0].withAlphaComponent(0.7))
+        }
+        colorButton.isSelected = true
+        shapeButton.isSelected = false
+        styleButton.isSelected = false
+        selectedIndex = 1
+        middleNailsImageView.image = UIImage(named: selectedShape)
+        optionCollectionView.reloadData()
+    }
+    
+    @IBAction func shapeTapped(_ sender: Any) {
+        if (!isShowEditBox) {
+            showHideEditBoxTapped()
+        }
+        colorButton.isSelected = false
+        shapeButton.isSelected = true
+        styleButton.isSelected = false
+        selectedIndex = 0
+        optionCollectionView.reloadData()
+    }
+    
+    @IBAction func styleTapped(_ sender: Any) {
+        if (!isShowEditBox) {
+            showHideEditBoxTapped()
+        }
+        colorButton.isSelected = false
+        shapeButton.isSelected = false
+        styleButton.isSelected = true
+        selectedIndex = 0
+        optionCollectionView.reloadData()
     }
     
     @IBAction func saveTapped(_ sender: Any) {
@@ -492,43 +526,6 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         let image = UIImage(view: handView)
         CustomPhotoAlbum.sharedInstance.saveImage(image: image)
     }
-    
-    @IBAction func shareTapped(_ sender: Any) {
-        let image = UIImage(view: handView)
-        let imageShare = [image]
-        let activityViewController = UIActivityViewController(activityItems: imageShare as [Any] , applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view
-        self.present(activityViewController, animated: true, completion: nil)
-        
-    }
-    @IBAction func colorTapped(_ sender: Any) {
-        if (styleButton.isSelected){
-            setImageNails(image: UIImage(named: "Shape=short")!)
-            setColorNails(color: colors[0].withAlphaComponent(0.7))
-        }
-        colorButton.isSelected = true
-        shapeButton.isSelected = false
-        styleButton.isSelected = false
-        selectedIndex = 1
-        middleNailsImageView.image = UIImage(named: selectedShape)
-        optionCollectionView.reloadData()
-    }
-    @IBAction func shapeTapped(_ sender: Any) {
-        colorButton.isSelected = false
-        shapeButton.isSelected = true
-        styleButton.isSelected = false
-        selectedIndex = 0
-        optionCollectionView.reloadData()
-    }
-    @IBAction func styleTapped(_ sender: Any) {
-        colorButton.isSelected = false
-        shapeButton.isSelected = false
-        styleButton.isSelected = true
-        selectedIndex = 0
-        optionCollectionView.reloadData()
-    }
-    
-
     
     func setupColors() {
         colors.removeAll()
@@ -542,7 +539,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         optionCollectionView.reloadData()
     }
     
-    
+// MARK: - collectionview protocoles
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if colorButton.isSelected{
             return  colors.count + 1
@@ -630,7 +627,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         }
     }
     
-    func setImageNails(image: UIImage){
+    func setImageNails(image: UIImage) {
         middleNailsImageView.image =  image
         thumbNailsImageView.image = image
         littleNailsImageView.image = image
@@ -638,7 +635,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         ringNailsImageView.image = image
     }
     
-    func setColorNails(color: UIColor){
+    func setColorNails(color: UIColor) {
         middleNailsImageView.tintColor =  color
         thumbNailsImageView.tintColor = color
         littleNailsImageView.tintColor = color

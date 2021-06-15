@@ -21,9 +21,9 @@ class ScanViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     var isCurrentLeftHand = true
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        handImageView.image = UIImage(named: "handleft")
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         if #available(iOS 11.0, *) {
             if let window = UIApplication.shared.windows.first {
                 if window.safeAreaInsets.bottom > 0 {
@@ -31,6 +31,14 @@ class ScanViewController: UIViewController, AVCapturePhotoCaptureDelegate {
                 }
             }
         }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            self?.handImageView.isHidden = false
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        handImageView.isHidden = true
         customCamera()
     }
     
