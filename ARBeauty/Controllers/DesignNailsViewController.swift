@@ -543,7 +543,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         if (!isShowEditBox) {
             showHideEditBoxTapped()
         }
-        if sender.tag == 0{
+        if sender.tag == 0 {
             selectedIndex = 1
             setImageNails(image: UIImage(named: "Shape=short")!)
             setColorNails(color: colors[0].withAlphaComponent(0.7))
