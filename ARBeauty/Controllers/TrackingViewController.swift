@@ -26,6 +26,9 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var fakeTabbarBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var showHideColorsIconImageView: UIImageView!
     @IBOutlet weak var colorsCollectionViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var flipHandButton: UIButton!
+    @IBOutlet weak var handImageView: UIImageView!
+    @IBOutlet weak var colorBoxView: UIView!
     
     var model: DeeplabModel!
     var session: AVCaptureSession!
@@ -43,6 +46,10 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
     var captureImage : UIImage!
     var isNail: Bool = true
     var isShowColorsCollectionView = true
+    
+    var isDesign = false
+    var isCurrentLeftHand = true
+    
     
     
     static let imageEdgeSize = 257
@@ -107,6 +114,10 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     func setupUI() {
+        if !isDesign{
+            flipHandButton.isHidden = true
+            handImageView.isHidden = true
+        }
         if #available(iOS 11.0, *) {
             if let window = UIApplication.shared.windows.first {
                 if window.safeAreaInsets.bottom > 0 {
@@ -130,19 +141,6 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
                 print(error)
             }
         }
-        else {
-            let result = model.load("model_lips004")
-            if (result == false) {
-                fatalError("Can't load model.")
-            }
-            do {
-                try setupAVCapture(position: .front)
-            }
-            catch {
-                print(error)
-            }
-        }
-        
     }
     
     
@@ -229,10 +227,11 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
         cameraViewLayer.backgroundColor = UIColor.black.cgColor
         cameraViewLayer.videoGravity = .resizeAspectFill
         cameraView.layer.addSublayer(cameraViewLayer)
-        
+
         maskView = UIView()
         cameraView.addSubview(maskView)
         cameraView.bringSubviewToFront(maskView)
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -385,7 +384,7 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
     
     @IBAction func captureButtonTapped(_ sender: Any) {
         isCapture = true
-        let shutterView = UIView(frame: cameraView.frame)
+        let shutterView = UIView(frame: view.frame)
         shutterView.backgroundColor = UIColor.white
         view.addSubview(shutterView)
         UIView.animate(withDuration: 0.8, animations: {
@@ -396,13 +395,33 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     @IBAction func desginTapped(_ sender: Any) {
-        let vc =  UIStoryboard.scanViewController()
-        vc.modalPresentationStyle = .fullScreen
-        vc.delegate = self
-        self.present(vc, animated: true, completion: nil)
-        session.stopRunning()
+        if !isDesign{
+            isDesign = true
+            designButton.setTitle("Automatic", for: .normal)
+            colorBoxView.isHidden = true
+            handImageView.isHidden = false
+            flipHandButton.isHidden = false
+            maskView.isHidden = true
+        }
+        else {
+            isDesign = false
+            designButton.setTitle("Design", for: .normal)
+            colorBoxView.isHidden = false
+            handImageView.isHidden = true
+            flipHandButton.isHidden = true
+            maskView.isHidden = false
+        }
+       
     }
     
+    @IBAction func flipHandButtonTapped(_ sender: Any) {
+        UIView.animate(withDuration: 0.2) {
+            self.handImageView.transform =  self.isCurrentLeftHand ? CGAffineTransform(scaleX: -1, y: 1) : CGAffineTransform.identity
+        } completion: { _ in
+            self.isCurrentLeftHand = !self.isCurrentLeftHand
+            self.flipHandButton.setTitle(self.isCurrentLeftHand ? "Right" : "Left", for: .normal)
+        }
+    }
     
     @objc func tapToFocus(_ sender: UITapGestureRecognizer) {
         if (sender.state == .ended) {
@@ -458,32 +477,47 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
 extension TrackingViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         print("running.......")
-        if let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) {
-            processFrame(pixelBuffer: pixelBuffer)
+        if (!isDesign){
+            if let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) {
+                processFrame(pixelBuffer: pixelBuffer)
+            }
         }
         if isCapture {
             isCapture = false
-            if let image = self.getImageFromSampleBuffer(buffer: sampleBuffer) {
-                DispatchQueue.main.async { [self] in
-                let reversedImage : UIImage!
-                let resultImage : UIImage!
-                let maskImage = UIImage(view: maskView)
-                if !isNail{
-                    reversedImage = UIImage(cgImage: image.cgImage!, scale: 0, orientation: .leftMirrored)
-                    resultImage = Utils.overlayLayerToImage(image:reversedImage, overlay:(maskImage), scaleOverlay:true)!
-                }
-                else {
-                    resultImage = Utils.overlayLayerToImage(image:image, overlay:(maskImage), scaleOverlay:true)!
-                }
-                    let photoViewController = UIStoryboard.photoViewController()
-                    photoViewController.delegate = self
-                    photoViewController.photoImage = resultImage
-                    photoViewController.modalPresentationStyle = .fullScreen
-                    present(photoViewController, animated: true, completion: nil)
-                  
+            if !isDesign{
+                if let image = self.getImageFromSampleBuffer(buffer: sampleBuffer) {
+                    DispatchQueue.main.async { [self] in
+                        let reversedImage : UIImage!
+                        let resultImage : UIImage!
+                        let maskImage = UIImage(view: maskView)
+                        if !isNail{
+                            reversedImage = UIImage(cgImage: image.cgImage!, scale: 0, orientation: .leftMirrored)
+                            resultImage = Utils.overlayLayerToImage(image:reversedImage, overlay:(maskImage), scaleOverlay:true)!
+                        }
+                        else {
+                            resultImage = Utils.overlayLayerToImage(image:image, overlay:(maskImage), scaleOverlay:true)!
+                        }
+                        let photoViewController = UIStoryboard.photoViewController()
+                        photoViewController.delegate = self
+                        photoViewController.photoImage = resultImage
+                        photoViewController.modalPresentationStyle = .fullScreen
+                        present(photoViewController, animated: true, completion: nil)
+                        
+                    }
                 }
             }
-            
+            else {
+                if let image = self.getImageFromSampleBuffer(buffer: sampleBuffer){
+                    DispatchQueue.main.async { [self] in
+                        let designVC = UIStoryboard.designNailsViewController()
+                        designVC.photoCaptured = image
+                        designVC.isRightHand = !isCurrentLeftHand
+                        designVC.delegate = self
+                        designVC.modalPresentationStyle = .fullScreen
+                        self.present(designVC, animated: true, completion: nil)
+                    }
+                }
+            }
             
         }
     }

@@ -36,6 +36,9 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     @IBOutlet weak var styleButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     
+    
+    var delegate : StartSessionProtocol!
+    
     var isShowEditBox = false
     var isChooseColor: Bool = true
     var isChooseShape: Bool = false
@@ -564,7 +567,9 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     @IBAction func backTapped(_ sender: Any) {
+        self.delegate.startSession()
         self.dismiss(animated: true, completion: nil)
+      
     }
     
     @IBAction func shareTapped(_ sender: Any) {
