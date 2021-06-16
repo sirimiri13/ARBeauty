@@ -18,7 +18,7 @@ enum PixelError: Error {
 }
 
 class TrackingViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, PickColorProtocol, StartSessionProtocol {
-   
+    
     @IBOutlet var cameraView: UIView!
     @IBOutlet weak var colorsCollectionView: UICollectionView!
     @IBOutlet weak var designButton: UIButton!
@@ -32,7 +32,7 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
     
     var model: DeeplabModel!
     var session: AVCaptureSession!
-
+    
     var videoDataOutput: AVCaptureVideoDataOutput!
     
     var cameraViewLayer: AVCaptureVideoPreviewLayer!
@@ -50,20 +50,18 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
     var isDesign = false
     var isCurrentLeftHand = true
     
-    
-    
     static let imageEdgeSize = 257
     static let rgbaComponentsCount = 4
     static let rgbComponentsCount = 3
     
     var colors: [UIColor] = []
     let defaultColorsNails: [UIColor] = [UIColor.fromHex(value: "FF0000"),
-                                    UIColor.fromHex(value: "006699"),
-                                    UIColor.fromHex(value: "00FF00"),
-                                    UIColor.fromHex(value: "FF6600"),
-                                    UIColor.fromHex(value: "330033"),
-                                    UIColor.fromHex(value: "99CCCC"),
-                                    UIColor.fromHex(value: "FFCC33")]
+                                         UIColor.fromHex(value: "006699"),
+                                         UIColor.fromHex(value: "00FF00"),
+                                         UIColor.fromHex(value: "FF6600"),
+                                         UIColor.fromHex(value: "330033"),
+                                         UIColor.fromHex(value: "99CCCC"),
+                                         UIColor.fromHex(value: "FFCC33")]
     
     let defaultColorLips: [UIColor] = [UIColor.fromHex(value: "CD5C5C"),
                                        UIColor.fromHex(value: "F08080"),
@@ -105,7 +103,7 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
         
         let showHideColorsIconTap = UITapGestureRecognizer(target: self, action: #selector(showHideColorsTapped))
         showHideColorsIconImageView.addGestureRecognizer(showHideColorsIconTap)
-
+        
         setupColors()
         setupUI()
         
@@ -114,7 +112,7 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     func setupUI() {
-        if !isDesign{
+        if !isDesign {
             flipHandButton.isHidden = true
             handImageView.isHidden = true
         }
@@ -129,7 +127,7 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
     
     func loadModel() {
         model = DeeplabModel()
-        if (isNail){
+        if (isNail) {
             let result = model.load("model_1900")
             if (result == false) {
                 fatalError("Can't load model.")
@@ -150,13 +148,13 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
         for color in userColors {
             colors.append(UIColor.fromHex(value: color))
         }
-        if (isNail){
+        if (isNail) {
             colors += defaultColorsNails
         }
         else {
             colors += defaultColorLips
         }
-       
+        
         selectedColor = UIColor.fromHex(value: colors[0].toHex(), alpha: 0.7)
         colorsCollectionView.reloadData()
     }
@@ -174,8 +172,8 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
         
         session = AVCaptureSession()
         session.sessionPreset = .hd1280x720
-//        session.sessionPreset = .hd1920x1080
-//
+        //        session.sessionPreset = .hd1920x1080
+        //
         guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: position) else {
             throw PixelError.canNotSetupAVSession
         }
@@ -227,7 +225,7 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
         cameraViewLayer.backgroundColor = UIColor.black.cgColor
         cameraViewLayer.videoGravity = .resizeAspectFill
         cameraView.layer.addSublayer(cameraViewLayer)
-
+        
         maskView = UIView()
         cameraView.addSubview(maskView)
         cameraView.bringSubviewToFront(maskView)
@@ -299,7 +297,7 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
         context.concatenate(transform)
         
         context.draw(cgImage, in: CGRect(x: 0, y: 0, width: CGFloat(width), height: CGFloat(height)))
-
+        
         maskView.layer.contents = context.makeImage()
     }
     
@@ -338,7 +336,7 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
         } completion: { _ in
             self.isShowColorsCollectionView = !self.isShowColorsCollectionView
         }
-
+        
     }
     
     // MARK: - CollectionView
@@ -395,23 +393,12 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     @IBAction func desginTapped(_ sender: Any) {
-        if !isDesign{
-            isDesign = true
-            designButton.setTitle("Automatic", for: .normal)
-            colorBoxView.isHidden = true
-            handImageView.isHidden = false
-            flipHandButton.isHidden = false
-            maskView.isHidden = true
-        }
-        else {
-            isDesign = false
-            designButton.setTitle("Design", for: .normal)
-            colorBoxView.isHidden = false
-            handImageView.isHidden = true
-            flipHandButton.isHidden = true
-            maskView.isHidden = false
-        }
-       
+        isDesign = !isDesign
+        designButton.setTitle(isDesign ? "Design" : "Auto-detect", for: .normal)
+        colorBoxView.isHidden = isDesign
+        handImageView.isHidden = !isDesign
+        flipHandButton.isHidden = !isDesign
+        maskView.isHidden = isDesign
     }
     
     @IBAction func flipHandButtonTapped(_ sender: Any) {
@@ -426,23 +413,23 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
     @objc func tapToFocus(_ sender: UITapGestureRecognizer) {
         if (sender.state == .ended) {
             let thisFocusPoint = sender.location(in: cameraView)
-
+            
             print("touch to focus ", thisFocusPoint)
-
+            
             let focus_x = thisFocusPoint.x / cameraView.frame.size.width
             let focus_y = thisFocusPoint.y / cameraView.frame.size.height
-
+            
             if (!selectedDevice!.isFocusModeSupported(.autoFocus) && selectedDevice!.isFocusPointOfInterestSupported) {
                 do {
                     try selectedDevice?.lockForConfiguration()
                     selectedDevice?.focusMode = .autoFocus
                     selectedDevice?.focusPointOfInterest = CGPoint(x: focus_x, y: focus_y)
-
+                    
                     if (selectedDevice!.isExposureModeSupported(.autoExpose) && selectedDevice!.isExposurePointOfInterestSupported) {
                         selectedDevice?.exposureMode = .autoExpose;
                         selectedDevice?.exposurePointOfInterest = CGPoint(x: focus_x, y: focus_y);
-                     }
-
+                    }
+                    
                     selectedDevice?.unlockForConfiguration()
                 } catch {
                     print(error)
@@ -470,14 +457,14 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
     func startSession() {
         session.startRunning()
     }
-   
+    
 }
 
 
 extension TrackingViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         print("running.......")
-        if (!isDesign){
+        if (!isDesign) {
             if let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) {
                 processFrame(pixelBuffer: pixelBuffer)
             }
@@ -507,7 +494,7 @@ extension TrackingViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                 }
             }
             else {
-                if let image = self.getImageFromSampleBuffer(buffer: sampleBuffer){
+                if let image = self.getImageFromSampleBuffer(buffer: sampleBuffer) {
                     DispatchQueue.main.async { [self] in
                         let designVC = UIStoryboard.designNailsViewController()
                         designVC.photoCaptured = image

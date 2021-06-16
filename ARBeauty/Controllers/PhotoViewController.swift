@@ -15,11 +15,11 @@ protocol StartSessionProtocol{
 }
 
 class PhotoViewController: UIViewController {
+    
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var saveImageButton: UIButton!
     @IBOutlet weak var shareImageButton: UIButton!
     @IBOutlet weak var photoImageView: UIImageView!
-    
     
     var delegate : StartSessionProtocol!
     var photoImage: UIImage!
@@ -29,7 +29,6 @@ class PhotoViewController: UIViewController {
     var photoLayer : CALayer!
     var sampleBuffer: CMSampleBuffer!
     var isGallery: Bool = false
-  
     
     static let imageEdgeSize = 257
     static let rgbaComponentsCount = 4
@@ -43,24 +42,18 @@ class PhotoViewController: UIViewController {
         }
     }
     
-    
-   
-    
-   
     @IBAction func backButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-        if !isGallery{
+        if !isGallery {
             self.delegate.startSession()
-
         }
-       
     }
     
     @IBAction func saveImageTapped(_ sender: Any) {
         CustomPhotoAlbum.sharedInstance.saveImage(image: photoImage)
     }
+    
     @IBAction func shareImageTapped(_ sender: Any) {
-
         let imageShare = [photoImage]
         let activityViewController = UIActivityViewController(activityItems: imageShare as [Any] , applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view

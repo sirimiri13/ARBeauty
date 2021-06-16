@@ -1,5 +1,5 @@
 //
-//  Nails.swift
+//  DesignNail.swift
 //  ARBeauty
 //
 //  Created by Huong Lam on 06/16/2021.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class Nails {
+class DesignNail {
     var isSelect = Bool()
     var isTap = Bool()
     var degree = CGFloat()
