@@ -615,6 +615,17 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
                 }
             }
         }
+        littleNail.isSelect = false
+        ringNail.isSelect = false
+        middleNail.isSelect = false
+        indexNail.isSelect = false
+        thumbNail.isSelect = false
+        handleNailUnselect(nailImageView: littleNailsImageView)
+        handleNailUnselect(nailImageView: ringNailsImageView)
+        handleNailUnselect(nailImageView: middleNailsImageView)
+        handleNailUnselect(nailImageView: indexNailsImageView)
+        handleNailUnselect(nailImageView: thumbNailsImageView)
+        handleSlider(enable: false)
         optionCollectionView.reloadData()
 
     }
