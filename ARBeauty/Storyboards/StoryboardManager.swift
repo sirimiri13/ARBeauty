@@ -26,9 +26,7 @@ extension UIStoryboard{
         return (mainStoryboard().instantiateViewController(withIdentifier: "PhotoViewController") as? PhotoViewController)!
     }
     
-    class func scanViewController() -> ScanViewController{
-        return (mainStoryboard().instantiateViewController(withIdentifier: "ScanViewController") as? ScanViewController)!
-    }
+   
     
     class func designNailsViewController() -> DesignNailsViewController{
         return (mainStoryboard().instantiateViewController(withIdentifier: "DesignNailsViewController") as? DesignNailsViewController)!
