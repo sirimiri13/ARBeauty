@@ -51,7 +51,9 @@ class HomeViewController: UIViewController {
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) { granted in
                 if granted {
-                    self.present(vc!, animated: true, completion: nil)
+                    DispatchQueue.main.async {
+                        self.present(vc!, animated: true, completion: nil)
+                    }
                 }
             }
         default:

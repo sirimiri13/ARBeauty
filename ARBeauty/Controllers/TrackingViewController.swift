@@ -29,6 +29,7 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var flipHandButton: UIButton!
     @IBOutlet weak var handImageView: UIImageView!
     @IBOutlet weak var colorBoxView: UIView!
+    @IBOutlet weak var pickPhotoButton: UIButton!
     
     var model: DeeplabModel!
     var session: AVCaptureSession!
@@ -49,6 +50,7 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
     
     var isDesign = false
     var isCurrentLeftHand = true
+    var isPickPhoto = false
     
     static let imageEdgeSize = 257
     static let rgbaComponentsCount = 4
@@ -115,6 +117,8 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
         if !isDesign {
             flipHandButton.isHidden = true
             handImageView.isHidden = true
+            pickPhotoButton.isHidden = true
+            
         }
         if #available(iOS 11.0, *) {
             if let window = UIApplication.shared.windows.first {
@@ -172,7 +176,7 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
         
         session = AVCaptureSession()
         session.sessionPreset = .hd1280x720
-        //        session.sessionPreset = .hd1920x1080
+//                session.sessionPreset = .hd1920x1080
         //
         guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: position) else {
             throw PixelError.canNotSetupAVSession
@@ -399,6 +403,7 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
         handImageView.isHidden = !isDesign
         flipHandButton.isHidden = !isDesign
         maskView.isHidden = isDesign
+        pickPhotoButton.isHidden = !isDesign
     }
     
     @IBAction func flipHandButtonTapped(_ sender: Any) {
@@ -408,6 +413,14 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
             self.isCurrentLeftHand = !self.isCurrentLeftHand
             self.flipHandButton.setTitle(self.isCurrentLeftHand ? "Right" : "Left", for: .normal)
         }
+    }
+    @IBAction func pickPhotoTapped(_ sender: Any) {
+        isPickPhoto = true
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .images
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        self.present(picker, animated: true)
     }
     
     @objc func tapToFocus(_ sender: UITapGestureRecognizer) {
@@ -453,7 +466,6 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
         
         return nil
     }
-    
     func startSession() {
         session.startRunning()
     }
@@ -489,7 +501,6 @@ extension TrackingViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                         photoViewController.photoImage = resultImage
                         photoViewController.modalPresentationStyle = .fullScreen
                         present(photoViewController, animated: true, completion: nil)
-                        
                     }
                 }
             }
@@ -528,18 +539,27 @@ extension TrackingViewController: UINavigationControllerDelegate, UIImagePickerC
     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true, completion: nil)
-        
         let itemProvider = results.first?.itemProvider
-        
         if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
             itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
                 DispatchQueue.main.async {
                     guard let self = self, let image = image as? UIImage else { return }
-                    let pickColorVC = PickerColorViewController()
-                    pickColorVC.modalPresentationStyle = .fullScreen
-                    pickColorVC.pickedImage = image
-                    pickColorVC.delegate = self
-                    self.present(pickColorVC, animated: true, completion: nil)
+                    if (self.isPickPhoto){
+                        self.isPickPhoto = false
+                        let designVC = UIStoryboard.designNailsViewController()
+                        designVC.modalPresentationStyle = .fullScreen
+                        designVC.delegate = self
+                        designVC.photoCaptured = image
+                        self.present(designVC, animated: true, completion: nil)
+                    }
+                    else{
+                        let pickColorVC = PickerColorViewController()
+                        pickColorVC.modalPresentationStyle = .fullScreen
+                        pickColorVC.pickedImage = image
+                        pickColorVC.delegate = self
+                        self.present(pickColorVC, animated: true, completion: nil)
+                    }
+                   
                 }
             }
         }
