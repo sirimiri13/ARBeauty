@@ -48,7 +48,7 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
     var isNail: Bool = true
     var isShowColorsCollectionView = true
     
-    var isDesign = false
+    var isDesign = true
     var isCurrentLeftHand = true
     var isPickPhoto = false
     
