@@ -9,11 +9,14 @@ import UIKit
 import Photos
 
 
+
+
 class PhotoCell: UICollectionViewCell{
     @IBOutlet weak var photoImageView: UIImageView!
 }
 
-class GalleryViewController: UIViewController {
+class GalleryViewController: UIViewController, ReloadCollectionPhoto{
+   
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
     var images = [UIImage]()
@@ -92,8 +95,14 @@ class GalleryViewController: UIViewController {
             let photoVC = UIStoryboard.photoViewController()
             photoVC.photoImage = images[indexPath.row]
             photoVC.isGallery = true
+            photoVC.reloadPhotoDelegate = self
             photoVC.modalPresentationStyle = .fullScreen
             self.present(photoVC, animated: true, completion: nil)
         }
+        
+        func reloadPhoto() {
+            self.getPhotos()
+        }
+        
 
     }

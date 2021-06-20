@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Layer0" translatesAutoresizingMaskIntoConstraints="NO" id="NRM-RW-j9D">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NRM-RW-j9D">
                         <rect key="frame" x="5" y="5" width="40" height="40"/>
                     </imageView>
                 </subviews>
@@ -45,7 +45,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="Layer0" width="82" height="144"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -35,6 +35,8 @@
 		2DB35D4F2662A6020081EB29 /* ShapeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DB35D4D2662A6020081EB29 /* ShapeCollectionViewCell.xib */; };
 		2DB35D522662B2140081EB29 /* StyleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB35D502662B2140081EB29 /* StyleCollectionViewCell.swift */; };
 		2DB35D532662B2140081EB29 /* StyleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DB35D512662B2140081EB29 /* StyleCollectionViewCell.xib */; };
+		2DB930D6267F6AD9009E76BD /* ImageNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB930D5267F6AD9009E76BD /* ImageNode.swift */; };
+		2DB930D8267F6AF2009E76BD /* ContactLensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB930D7267F6AF2009E76BD /* ContactLensesViewController.swift */; };
 		2DFFB53E25DFADEE00CE20E5 /* ARButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB53D25DFADEE00CE20E5 /* ARButton.swift */; };
 		2DFFB54F25E0F38E00CE20E5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFB54E25E0F38E00CE20E5 /* Extension.swift */; };
 		6B35AF0E2630102300304869 /* PickerColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B35AF0C2630102300304869 /* PickerColorViewController.swift */; };
@@ -76,6 +78,8 @@
 		2DB35D4D2662A6020081EB29 /* ShapeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShapeCollectionViewCell.xib; sourceTree = "<group>"; };
 		2DB35D502662B2140081EB29 /* StyleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleCollectionViewCell.swift; sourceTree = "<group>"; };
 		2DB35D512662B2140081EB29 /* StyleCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StyleCollectionViewCell.xib; sourceTree = "<group>"; };
+		2DB930D5267F6AD9009E76BD /* ImageNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageNode.swift; sourceTree = "<group>"; };
+		2DB930D7267F6AF2009E76BD /* ContactLensesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactLensesViewController.swift; sourceTree = "<group>"; };
 		2DFFB53D25DFADEE00CE20E5 /* ARButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARButton.swift; sourceTree = "<group>"; };
 		2DFFB54E25E0F38E00CE20E5 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		65AA668F05FD9FF4A966977A /* Pods-ARBeauty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARBeauty.debug.xcconfig"; path = "Target Support Files/Pods-ARBeauty/Pods-ARBeauty.debug.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 		2D9323E42618635C00DDD4E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2DB930D5267F6AD9009E76BD /* ImageNode.swift */,
 				2D6EEB702673492500A6C107 /* PreviewView.swift */,
 				6B35AF0C2630102300304869 /* PickerColorViewController.swift */,
 				6B35AF0D2630102300304869 /* PickerColorViewController.xib */,
@@ -202,6 +207,7 @@
 		2DFFB55925E0FC3F00CE20E5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2DB930D7267F6AF2009E76BD /* ContactLensesViewController.swift */,
 				2D91A77525DA3200002885B8 /* HomeViewController.swift */,
 				1724F6E625FA1F7B00436485 /* TrackingViewController.swift */,
 				2D9595CB265D3A1100EAB733 /* PhotoViewController.swift */,
@@ -370,7 +376,9 @@
 				17A80514262DCDD500AFD93C /* ColorCollectionViewCell.swift in Sources */,
 				1724F74B25FA32A500436485 /* DeeplabModel.mm in Sources */,
 				2D91A77425DA3200002885B8 /* SceneDelegate.swift in Sources */,
+				2DB930D8267F6AF2009E76BD /* ContactLensesViewController.swift in Sources */,
 				2D3F783B267241CC000D6255 /* GalleryViewController.swift in Sources */,
+				2DB930D6267F6AD9009E76BD /* ImageNode.swift in Sources */,
 				2D9A523725E2675F00A1965C /* StoryboardManager.swift in Sources */,
 				2D9595CC265D3A1100EAB733 /* PhotoViewController.swift in Sources */,
 			);
@@ -522,13 +530,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UD93T2GPM2;
+				DEVELOPMENT_TEAM = Q2A2DTV2D2;
 				INFOPLIST_FILE = ARBeauty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.vuhoangtrinh.ARBeauty-0";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vuhoangtrinh.ARBeauty01234;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ARBeauty/Models/ARBeauty-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
