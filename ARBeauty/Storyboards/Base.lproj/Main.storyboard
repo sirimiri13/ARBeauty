@@ -419,9 +419,9 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0XO-em-4Pn">
-                                                <rect key="frame" x="310" y="12.666666666666664" width="89" height="31"/>
+                                                <rect key="frame" x="347" y="12.666666666666664" width="52" height="31"/>
                                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
-                                                <state key="normal" title="Auto-detect">
+                                                <state key="normal" title="Design">
                                                     <color key="titleColor" red="0.83157072099999996" green="0.33782239409999998" blue="0.84651399859999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>

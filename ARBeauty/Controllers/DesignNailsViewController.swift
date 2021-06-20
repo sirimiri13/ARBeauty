@@ -136,6 +136,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         setGesture()
         
         handleSlider(enable: false)
+        
     }
     
     func setGesture() {
