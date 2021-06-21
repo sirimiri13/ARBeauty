@@ -25,8 +25,8 @@ class ContactLensesViewController: UIViewController, UICollectionViewDelegate, U
     
     
     /// Declare eye nodes
-    private var leftEyeNode: ImageNode?
-    private var rightEyeNode: ImageNode?
+    private var leftEyeNode: EyesNode?
+    private var rightEyeNode: EyesNode?
 
 
     /// Specify ARConfiguration
@@ -159,8 +159,8 @@ class ContactLensesViewController: UIViewController, UICollectionViewDelegate, U
         sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
                     node.removeFromParentNode()
             }
-        rightEyeNode = ImageNode(width: 0.015, height: 0.015, image: UIImage(named: eyeSelected)!)
-        leftEyeNode = ImageNode(width: 0.015, height: 0.015, image: UIImage(named:eyeSelected)! )
+        rightEyeNode = EyesNode(width: 0.015, height: 0.015, image: UIImage(named: eyeSelected)!)
+        leftEyeNode = EyesNode(width: 0.015, height: 0.015, image: UIImage(named:eyeSelected)! )
         
         rightEyeNode?.pivot = SCNMatrix4MakeTranslation(0, 0, -0.01)
         leftEyeNode?.pivot = SCNMatrix4MakeTranslation(0, 0, -0.01)
@@ -178,8 +178,6 @@ extension ContactLensesViewController: ARSCNViewDelegate {
 
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
 
-        // Note: - You must compile this project with an iPhone with TrueDepth camera as target device, otherwise it will mark that sceneView has no `device` member
-
         /// Validate anchor is an ARFaceAnchor instance
         guard anchor is ARFaceAnchor,
             let device = sceneView.device else { return nil }
@@ -192,8 +190,8 @@ extension ContactLensesViewController: ARSCNViewDelegate {
 
         /// Create eye ImageNodes
        
-        rightEyeNode = ImageNode(width: 0.015, height: 0.015, image: UIImage(named: eyeSelected)!)
-        leftEyeNode = ImageNode(width: 0.015, height: 0.015, image: UIImage(named: eyeSelected)! )
+        rightEyeNode = EyesNode(width: 0.015, height: 0.015, image: UIImage(named: eyeSelected)!)
+        leftEyeNode = EyesNode(width: 0.015, height: 0.015, image: UIImage(named: eyeSelected)! )
       
         
 

@@ -7,7 +7,7 @@
 
 import SceneKit
 
-final class ImageNode: SCNNode {
+final class EyesNode: SCNNode {
     init(width: CGFloat,
          height: CGFloat,
          image: UIImage) {
@@ -23,3 +23,4 @@ final class ImageNode: SCNNode {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
