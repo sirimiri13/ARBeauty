@@ -38,4 +38,8 @@ extension UIStoryboard{
     class func lipsViewController() -> LipsViewController{
         return (mainStoryboard().instantiateViewController(identifier: "LipsViewController") as? LipsViewController)!
     }
+    
+    class func lensesViewController() -> ContactLensesViewController{
+        return (mainStoryboard().instantiateViewController(withIdentifier: "ContactLensesViewController") as? ContactLensesViewController)!
+    }
 }

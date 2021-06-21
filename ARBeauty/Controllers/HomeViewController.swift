@@ -69,8 +69,15 @@ class HomeViewController: UIViewController {
         let lipsVC = UIStoryboard.lipsViewController()
         lipsVC.modalPresentationStyle = .fullScreen
         self.present(lipsVC, animated: true, completion: nil)
-//        checkCameraAuthorizationStatusAndPresentVC(1)
     }
+    
+    
+    @IBAction func lensButtonTapped(_ sender: Any) {
+        let lenVC = UIStoryboard.lensesViewController()
+        lenVC.modalPresentationStyle = .fullScreen
+        self.present(lenVC, animated: true, completion: nil)
+    }
+    
     
     @IBAction func galleryButtonTapped(_ sender: Any) {
         let galleryVC = UIStoryboard.galleryViewController()

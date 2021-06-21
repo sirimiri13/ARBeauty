@@ -1,8 +1,8 @@
 //
 //  ImageNode.swift
-//  ARContactLenses
+//  ARBeauty
 //
-//  Created by Leonardo Garcia  on 4/9/19.
+//  Created by Huong Lam on 05/19/2021.
 //
 
 import SceneKit

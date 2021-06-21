@@ -1,14 +1,19 @@
 //
 //  ViewController.swift
-//  ARContactLenses
+//  ARBeauty
 //
-//  Created by Leonardo Garcia  on 4/8/19.
+// Created by Huong Lam on 05/19/2021.
+
 //
 
 import UIKit
 import ARKit
 
-final class ContactLensesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
+class ContactLensesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, StartSessionProtocol{
+    func startSession() {
+        sceneView.session.run(faceTrackingConfiguration)
+    }
+    
 
     @IBOutlet weak var eyesCollectionHeight: NSLayoutConstraint!
     @IBOutlet weak var fakeTabbarBottomConstraint: NSLayoutConstraint!
@@ -16,8 +21,9 @@ final class ContactLensesViewController: UIViewController, UICollectionViewDeleg
     /// Set rendererprivate
     @IBOutlet weak var arView: UIView!
     @IBOutlet weak var eyesCollectionView: UICollectionView!
-    //    let sceneView = ARSCNView(frame: .zero)
     var sceneView = ARSCNView()
+    
+    
     /// Declare eye nodes
     private var leftEyeNode: ImageNode?
     private var rightEyeNode: ImageNode?
@@ -29,12 +35,16 @@ final class ContactLensesViewController: UIViewController, UICollectionViewDeleg
     var eyeSelected = "bicolor_eyes"
     var eyeImageName : [String] =  ["bicolor_eyes",
                                     "blue_eyes",
-                                    "green_eyes",
                                     "galaxy_eyes",
                                     "black_eyes",
                                     "pink_eyes",
                                     "purple_eyes",
-                                    "brown_eyes"]
+                                    "brown-eyes",
+                                    "babayblue_eyes",
+                                    "bistre_eyes",
+                                    "bistrebrown_eyes",
+                                    "crystal_eyes",
+                                    "grey_eyse"]
     
     var selectedIndex = 0
     var isChanged: Bool = false
@@ -43,7 +53,6 @@ final class ContactLensesViewController: UIViewController, UICollectionViewDeleg
         super.viewDidLoad()
        
         guard ARFaceTrackingConfiguration.isSupported else { fatalError("A TrueDepth camera is required") }
-        /// Set sceneView delegate
         arView.addSubview(sceneView)
 
         
@@ -84,8 +93,7 @@ final class ContactLensesViewController: UIViewController, UICollectionViewDeleg
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        /// Run session
-        sceneView.session.run(faceTrackingConfiguration)
+        resetTracking()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -109,7 +117,24 @@ final class ContactLensesViewController: UIViewController, UICollectionViewDeleg
     @IBAction func backTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    @IBAction func captureTapped(_ sender: Any) {
+        let image = sceneView.snapshot()
+        let photoViewController = UIStoryboard.photoViewController()
+        photoViewController.delegate = self
+        photoViewController.photoImage = image
+        photoViewController.modalPresentationStyle = .fullScreen
+        present(photoViewController, animated: true, completion: nil)
+    }
     
+    func resetTracking() {
+        guard ARFaceTrackingConfiguration.isSupported else { return }
+        let configuration = ARFaceTrackingConfiguration()
+        if #available(iOS 13.0, *) {
+            configuration.maximumNumberOfTrackedFaces = ARFaceTrackingConfiguration.supportedNumberOfTrackedFaces
+        }
+        configuration.isLightEstimationEnabled = true
+        sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return  eyeImageName.count
@@ -129,11 +154,20 @@ final class ContactLensesViewController: UIViewController, UICollectionViewDeleg
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        isChanged = true
-        eyeSelected = eyeImageName[indexPath.row]
         selectedIndex = indexPath.row
+        eyeSelected = eyeImageName[indexPath.row]
+        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+                    node.removeFromParentNode()
+            }
+        rightEyeNode = ImageNode(width: 0.015, height: 0.015, image: UIImage(named: eyeSelected)!)
+        leftEyeNode = ImageNode(width: 0.015, height: 0.015, image: UIImage(named:eyeSelected)! )
+        
+        rightEyeNode?.pivot = SCNMatrix4MakeTranslation(0, 0, -0.01)
+        leftEyeNode?.pivot = SCNMatrix4MakeTranslation(0, 0, -0.01)
+        
+               
         eyesCollectionView.reloadData()
-      
+        resetTracking()
     }
     
 }
@@ -158,8 +192,8 @@ extension ContactLensesViewController: ARSCNViewDelegate {
 
         /// Create eye ImageNodes
        
-        rightEyeNode = ImageNode(width: 0.015, height: 0.015, image: UIImage(named: eyeImageName[0])!)
-        leftEyeNode = ImageNode(width: 0.015, height: 0.015, image: UIImage(named: eyeImageName[0])! )
+        rightEyeNode = ImageNode(width: 0.015, height: 0.015, image: UIImage(named: eyeSelected)!)
+        leftEyeNode = ImageNode(width: 0.015, height: 0.015, image: UIImage(named: eyeSelected)! )
       
         
 
