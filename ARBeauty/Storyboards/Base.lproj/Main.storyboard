@@ -234,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hiz-Gp-Ydo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1848" y="1552"/>
+            <point key="canvasLocation" x="1848" y="1568"/>
         </scene>
         <!--Lips View Controller-->
         <scene sceneID="Qgc-hC-JZ1">
@@ -1221,7 +1221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="euG-Bt-Sba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2876.811594202899" y="827.44565217391312"/>
+            <point key="canvasLocation" x="2722" y="828"/>
         </scene>
     </scenes>
     <resources>

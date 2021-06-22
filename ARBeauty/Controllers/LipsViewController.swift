@@ -79,7 +79,7 @@ class LipsViewController: UIViewController,
         let showHideColorsIconTap = UITapGestureRecognizer(target: self, action: #selector(showHideColorsTapped))
         showHideColorsIconImageView.addGestureRecognizer(showHideColorsIconTap)
         
-        self.colorCollectionView.register(UINib.init(nibName: "ColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ColorCollectionViewCell")
+        self.colorCollectionView.register(UINib.init(nibName: "ColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "colorCollectionViewCell")
         colorCollectionView.delegate = self
         colorCollectionView.dataSource = self
         
@@ -117,13 +117,10 @@ class LipsViewController: UIViewController,
                 self.sessionQueue.resume()
             })
             
-            
         default:
             // The user has previously denied access.
             setupResult = .notAuthorized
         }
-        
-        
         
         sessionQueue.async { [unowned self] in
             self.configureSession()
@@ -258,7 +255,7 @@ class LipsViewController: UIViewController,
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCollectionViewCell", for: indexPath) as! ColorCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "colorCollectionViewCell", for: indexPath) as! ColorCollectionViewCell
         if (indexPath.row == 0) {
             cell.setCell(color: UIColor.clear, isSelected: false, showAddButton: true)
         }
@@ -411,9 +408,7 @@ extension LipsViewController {
 // MARK: -- Observers and Event Handlers
 extension LipsViewController {
     private func addObservers() {
-      
         NotificationCenter.default.addObserver(self, selector: #selector(sessionRuntimeError), name: Notification.Name("AVCaptureSessionRuntimeErrorNotification"), object: session)
-     
         NotificationCenter.default.addObserver(self, selector: #selector(sessionWasInterrupted), name: Notification.Name("AVCaptureSessionWasInterruptedNotification"), object: session)
         NotificationCenter.default.addObserver(self, selector: #selector(sessionInterruptionEnded), name: Notification.Name("AVCaptureSessionInterruptionEndedNotification"), object: session)
     }
@@ -457,7 +452,7 @@ extension LipsViewController {
     
     func handleFaces(request: VNRequest, error: Error?) {
         DispatchQueue.main.async {
-            guard let results = request.results as? [VNFaceObservation] else { return }
+            guard (request.results as? [VNFaceObservation]) != nil else { return }
             self.previewView.removeMask()
         }
     }

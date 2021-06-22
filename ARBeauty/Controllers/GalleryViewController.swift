@@ -28,7 +28,7 @@ class GalleryViewController: UIViewController, ReloadCollectionPhoto{
         getPhotos()
     }
     
-    func setCollectionView(){
+    func setCollectionView() {
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
           let layout = UICollectionViewFlowLayout()
