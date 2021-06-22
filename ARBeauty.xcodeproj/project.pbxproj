@@ -531,13 +531,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XBGLT7797B;
+				DEVELOPMENT_TEAM = 523SRU7Q76;
 				INFOPLIST_FILE = ARBeauty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.huonglam.ARBeauty99;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vuhoangtrinh.ARBeauty.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ARBeauty/Models/ARBeauty-Bridging-Header.h";
@@ -555,13 +555,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UD93T2GPM2;
+				DEVELOPMENT_TEAM = 523SRU7Q76;
 				INFOPLIST_FILE = ARBeauty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.vuhoangtrinh.ARBeauty-0";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vuhoangtrinh.ARBeauty.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ARBeauty/Models/ARBeauty-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

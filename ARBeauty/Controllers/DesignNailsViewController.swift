@@ -108,9 +108,9 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         selectedColor = defaultColors[0]
         
         
-        self.optionCollectionView.register(UINib.init(nibName: "ColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ColorCollectionViewCell")
-        self.optionCollectionView.register(UINib.init(nibName: "ShapeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ShapeCollectionViewCell")
-        self.optionCollectionView.register(UINib.init(nibName: "StyleCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "StyleCollectionViewCell")
+        self.optionCollectionView.register(UINib.init(nibName: "ColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "colorCollectionViewCell")
+        self.optionCollectionView.register(UINib.init(nibName: "ShapeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "shapeCollectionViewCell")
+        self.optionCollectionView.register(UINib.init(nibName: "StyleCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "styleCollectionViewCell")
         optionCollectionView.delegate = self
         optionCollectionView.dataSource = self
         
@@ -652,7 +652,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if isChooseColor {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCollectionViewCell", for: indexPath) as! ColorCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "colorCollectionViewCell", for: indexPath) as! ColorCollectionViewCell
             if (indexPath.row == 0) {
                 cell.setCell(color: UIColor.clear, isSelected: false, showAddButton: true)
             }
@@ -668,7 +668,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         }
         else {
             if isChooseShape {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShapeCollectionViewCell", for: indexPath) as! ShapeCollectionViewCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "shapeCollectionViewCell", for: indexPath) as! ShapeCollectionViewCell
                 cell.shapeImageView.image = UIImage(named: shapeImageName[indexPath.row])
                 if (selectedIndex == indexPath.row) {
                     cell.setCell(isSelected: true)
@@ -679,7 +679,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
                 return cell
             }
             else{
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StyleCollectionViewCell", for: indexPath) as! StyleCollectionViewCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "styleCollectionViewCell", for: indexPath) as! StyleCollectionViewCell
                 cell.styleImageView.image = UIImage(named: styleImageName[indexPath.row])
                 
                 if (selectedIndex == indexPath.row) {

@@ -30,116 +30,81 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kfa-FP-QMb" userLabel="Menu Box">
                                 <rect key="frame" x="0.0" y="245.33333333333334" width="414" height="490.66666666666663"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="D5Y-wa-q9N">
-                                        <rect key="frame" x="57" y="30.333333333333343" width="300" height="430"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="D5Y-wa-q9N">
+                                        <rect key="frame" x="50" y="49.999999999999972" width="314" height="365"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNd-Av-tb0" userLabel="Nails View">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0Q-6e-dAW" customClass="ARButton" customModule="ARBeauty" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="100" id="l0E-wk-uM1"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
-                                                        <inset key="imageEdgeInsets" minX="25" minY="25" maxX="225" maxY="25"/>
-                                                        <state key="normal" title="NAILS" image="nail_icon">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="nailsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LqQ-Ju-OmD"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <button opaque="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0Q-6e-dAW" customClass="ARButton" customModule="ARBeauty" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="80"/>
                                                 <constraints>
-                                                    <constraint firstItem="B0Q-6e-dAW" firstAttribute="top" secondItem="mNd-Av-tb0" secondAttribute="top" id="GpW-Zl-Oqw"/>
-                                                    <constraint firstAttribute="height" constant="100" id="VX8-3s-mst"/>
-                                                    <constraint firstAttribute="trailing" secondItem="B0Q-6e-dAW" secondAttribute="trailing" id="Xtd-J8-cjm"/>
-                                                    <constraint firstItem="B0Q-6e-dAW" firstAttribute="leading" secondItem="mNd-Av-tb0" secondAttribute="leading" id="dxO-fl-Iec"/>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="5Nl-rw-E1c"/>
                                                 </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVM-gK-0Tu" userLabel="Lips View">
-                                                <rect key="frame" x="0.0" y="110" width="300" height="100"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCm-FD-xvC" userLabel="Lips Button" customClass="ARButton" customModule="ARBeauty" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
-                                                        <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
-                                                        <inset key="imageEdgeInsets" minX="25" minY="25" maxX="225" maxY="25"/>
-                                                        <state key="normal" title="LIPS" image="lips_icon">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="lipsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M3M-if-VSa"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
+                                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="16"/>
+                                                <inset key="imageEdgeInsets" minX="25" minY="25" maxX="225" maxY="25"/>
+                                                <state key="normal" title="NAILS" image="nail_icon">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="nailsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LqQ-Ju-OmD"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCm-FD-xvC" userLabel="Lips Button" customClass="ARButton" customModule="ARBeauty" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="95" width="314" height="80"/>
                                                 <constraints>
-                                                    <constraint firstItem="pCm-FD-xvC" firstAttribute="top" secondItem="BVM-gK-0Tu" secondAttribute="top" id="Fw4-rf-21t"/>
-                                                    <constraint firstItem="pCm-FD-xvC" firstAttribute="leading" secondItem="BVM-gK-0Tu" secondAttribute="leading" id="Jgx-HE-8K8"/>
-                                                    <constraint firstAttribute="height" constant="100" id="ahR-qq-6BB"/>
-                                                    <constraint firstAttribute="bottom" secondItem="pCm-FD-xvC" secondAttribute="bottom" id="fyU-Y4-eLU"/>
-                                                    <constraint firstAttribute="trailing" secondItem="pCm-FD-xvC" secondAttribute="trailing" id="z0Z-Pr-cx7"/>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="oTh-Ik-xv4"/>
                                                 </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JqW-sL-qWc" userLabel="LENS View">
-                                                <rect key="frame" x="0.0" y="220" width="300" height="100"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVj-WH-DTw" customClass="ARButton" customModule="ARBeauty" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
-                                                        <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
-                                                        <inset key="imageEdgeInsets" minX="25" minY="25" maxX="225" maxY="25"/>
-                                                        <state key="normal" title="LENS" image="eye">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="lensButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rQg-4M-V7T"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="16"/>
+                                                <inset key="imageEdgeInsets" minX="25" minY="25" maxX="225" maxY="25"/>
+                                                <state key="normal" title="LIPS" image="lips_icon">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="lipsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M3M-if-VSa"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVj-WH-DTw" customClass="ARButton" customModule="ARBeauty" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="190" width="314" height="80"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="2xO-sa-uYe"/>
-                                                    <constraint firstItem="GVj-WH-DTw" firstAttribute="leading" secondItem="JqW-sL-qWc" secondAttribute="leading" id="8d8-qN-gUC"/>
-                                                    <constraint firstAttribute="trailing" secondItem="GVj-WH-DTw" secondAttribute="trailing" id="LRE-qf-fDW"/>
-                                                    <constraint firstAttribute="bottom" secondItem="GVj-WH-DTw" secondAttribute="bottom" id="qgX-Qh-0WO"/>
-                                                    <constraint firstItem="GVj-WH-DTw" firstAttribute="top" secondItem="JqW-sL-qWc" secondAttribute="top" id="zmo-CH-4d0"/>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="s3D-Ax-Fjj"/>
                                                 </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FD6-X8-0vX" userLabel="Gallery View">
-                                                <rect key="frame" x="0.0" y="329.99999999999994" width="300" height="100"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kM3-wE-Vam" userLabel="Gallery Button" customClass="ARButton" customModule="ARBeauty" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
-                                                        <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
-                                                        <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        <inset key="imageEdgeInsets" minX="25" minY="25" maxX="225" maxY="25"/>
-                                                        <state key="normal" title="GALLERY" image="gallery_icon">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="galleryButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nQd-us-jyS"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
+                                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="16"/>
+                                                <inset key="imageEdgeInsets" minX="25" minY="25" maxX="225" maxY="25"/>
+                                                <state key="normal" title="LENS" image="eye">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="lensButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rQg-4M-V7T"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kM3-wE-Vam" userLabel="Gallery Button" customClass="ARButton" customModule="ARBeauty" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="285.00000000000006" width="314" height="80"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="Baa-Xj-uOK"/>
-                                                    <constraint firstAttribute="bottom" secondItem="kM3-wE-Vam" secondAttribute="bottom" id="MNW-sH-JGZ"/>
-                                                    <constraint firstAttribute="trailing" secondItem="kM3-wE-Vam" secondAttribute="trailing" id="TDF-Ef-sRj"/>
-                                                    <constraint firstItem="kM3-wE-Vam" firstAttribute="leading" secondItem="FD6-X8-0vX" secondAttribute="leading" id="ZpP-J7-h4H"/>
-                                                    <constraint firstItem="kM3-wE-Vam" firstAttribute="top" secondItem="FD6-X8-0vX" secondAttribute="top" id="uoZ-xG-bg6"/>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="LBv-5k-gpc"/>
                                                 </constraints>
-                                            </view>
+                                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="16"/>
+                                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="25" minY="25" maxX="225" maxY="25"/>
+                                                <state key="normal" title="GALLERY" image="gallery_icon">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="galleryButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nQd-us-jyS"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="SSc-j7-eyM"/>
+                                            <constraint firstItem="kM3-wE-Vam" firstAttribute="height" secondItem="B0Q-6e-dAW" secondAttribute="height" id="NM1-b0-965"/>
+                                            <constraint firstItem="pCm-FD-xvC" firstAttribute="height" secondItem="B0Q-6e-dAW" secondAttribute="height" id="NVS-59-03l"/>
+                                            <constraint firstItem="GVj-WH-DTw" firstAttribute="height" secondItem="B0Q-6e-dAW" secondAttribute="height" id="xxr-4z-FG0"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.96469572401538339" green="0.93259488221618603" blue="0.95667051356558408" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstItem="D5Y-wa-q9N" firstAttribute="centerY" secondItem="kfa-FP-QMb" secondAttribute="centerY" id="0XV-B9-Ara"/>
-                                    <constraint firstItem="D5Y-wa-q9N" firstAttribute="centerX" secondItem="kfa-FP-QMb" secondAttribute="centerX" id="208-Fa-Oja"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="D5Y-wa-q9N" secondAttribute="bottom" constant="50" id="76m-bF-IsW"/>
+                                    <constraint firstItem="D5Y-wa-q9N" firstAttribute="top" secondItem="kfa-FP-QMb" secondAttribute="top" constant="50" id="9ud-iz-Tnb"/>
+                                    <constraint firstAttribute="trailing" secondItem="D5Y-wa-q9N" secondAttribute="trailing" constant="50" id="tQ0-MG-Vts"/>
+                                    <constraint firstItem="D5Y-wa-q9N" firstAttribute="leading" secondItem="kfa-FP-QMb" secondAttribute="leading" constant="50" id="xwE-51-e0U"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -161,7 +126,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="wj8-Dd-3kW"/>
                     <connections>
+                        <outlet property="galleryButton" destination="kM3-wE-Vam" id="Ena-J6-LHv"/>
+                        <outlet property="lensButton" destination="GVj-WH-DTw" id="ESz-eg-b6r"/>
+                        <outlet property="lipsButton" destination="pCm-FD-xvC" id="Gpw-5g-0cc"/>
                         <outlet property="menuBoxView" destination="kfa-FP-QMb" id="93V-0v-gN1"/>
+                        <outlet property="nailsButton" destination="B0Q-6e-dAW" id="1Mn-2L-b5E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1262,7 +1231,7 @@
         <image name="background" width="213.33332824707031" height="378.66665649414062"/>
         <image name="down_arrow_icon" width="8" height="8"/>
         <image name="download" width="512" height="512"/>
-        <image name="eye" width="512" height="512"/>
+        <image name="eye" width="170.66667175292969" height="170.66667175292969"/>
         <image name="gallery_icon" width="42.666667938232422" height="42.666667938232422"/>
         <image name="handleft" width="142.66667175292969" height="194.33332824707031"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>

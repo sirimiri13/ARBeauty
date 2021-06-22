@@ -12,6 +12,10 @@ import SCLAlertView
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var menuBoxView: UIView!
+    @IBOutlet weak var nailsButton: ARButton!
+    @IBOutlet weak var lipsButton: ARButton!
+    @IBOutlet weak var lensButton: ARButton!
+    @IBOutlet weak var galleryButton: ARButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +29,12 @@ class HomeViewController: UIViewController {
         menuBoxView.layer.shadowColor = UIColor.lightGray.cgColor
         menuBoxView.layer.shadowOffset = CGSize(width: 0, height: 2)
         menuBoxView.layer.shadowOpacity = 1
+        
+        // menu button
+        nailsButton.imageView?.contentMode = .scaleAspectFit
+        lipsButton.imageView?.contentMode = .scaleAspectFit
+        lensButton.imageView?.contentMode = .scaleAspectFit
+        galleryButton.imageView?.contentMode = .scaleAspectFit
     }
     
     func checkCameraAuthorizationStatusAndPresentVC(_ option: NSInteger) {

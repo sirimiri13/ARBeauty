@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_launchscreen" translatesAutoresizingMaskIntoConstraints="NO" id="lUc-zW-KyM">
-                                <rect key="frame" x="0.0" y="303" width="414" height="300"/>
+                                <rect key="frame" x="0.0" y="253" width="414" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="a0F-oV-wIj"/>
                                 </constraints>
@@ -26,7 +26,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="lUc-zW-KyM" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Dzi-cl-dyd"/>
+                            <constraint firstItem="lUc-zW-KyM" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-50" id="Dzi-cl-dyd"/>
                             <constraint firstItem="lUc-zW-KyM" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ab6-6D-YMx"/>
                             <constraint firstItem="lUc-zW-KyM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dRs-K2-w6o"/>
                         </constraints>

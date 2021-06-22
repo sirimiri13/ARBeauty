@@ -6,10 +6,12 @@
       "scale" : "1x"
     },
     {
+      "filename" : "bicolor_iris-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "bicolor_iris-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

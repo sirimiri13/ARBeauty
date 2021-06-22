@@ -84,7 +84,7 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
         }
         
         // Setup CollectionView
-        self.colorsCollectionView.register(UINib.init(nibName: "ColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ColorCollectionViewCell")
+        self.colorsCollectionView.register(UINib.init(nibName: "ColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "colorCollectionViewCell")
         colorsCollectionView.delegate = self
         colorsCollectionView.dataSource = self
         
@@ -349,7 +349,7 @@ class TrackingViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCollectionViewCell", for: indexPath) as! ColorCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "colorCollectionViewCell", for: indexPath) as! ColorCollectionViewCell
         if (indexPath.row == 0) {
             cell.setCell(color: UIColor.clear, isSelected: false, showAddButton: true)
         }
