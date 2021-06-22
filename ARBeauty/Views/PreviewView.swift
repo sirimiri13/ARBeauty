@@ -49,7 +49,6 @@ class PreviewView: UIView {
     func drawFaceWithLandmarks(face: VNFaceObservation,color: UIColor) {
         
         let transform = CGAffineTransform(scaleX: 1, y: -1).translatedBy(x: 0, y: -frame.height)
-        
         let translate = CGAffineTransform.identity.scaledBy(x: frame.width, y: frame.height)
         
         // The coordinates are normalized to the dimensions of the processed image, with the origin at the image's lower-left corner.

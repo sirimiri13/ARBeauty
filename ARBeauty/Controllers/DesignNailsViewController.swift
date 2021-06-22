@@ -83,11 +83,11 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     
     var isRotated: Bool = false
     
-    var littleNail = DesignNail(isSelect: false, isTap: false, degree: 355 * CGFloat.pi/180, rotateValue: 0.125, scale: CGAffineTransform(scaleX: 1, y: 1), scaleValue: 1)
-    var ringNail = DesignNail(isSelect: false,isTap: false, degree: 0.0 , rotateValue: 0.125, scale: CGAffineTransform(scaleX: 1, y: 1), scaleValue: 1)
-    var middleNail = DesignNail(isSelect: false, isTap: false, degree: 0.0, rotateValue: 0.125, scale: CGAffineTransform(scaleX: 1, y: 1), scaleValue: 1)
-    var indexNail = DesignNail(isSelect: false,isTap: false, degree: 5 * CGFloat.pi/180, rotateValue: 0.125, scale: CGAffineTransform(scaleX: 1, y: 1), scaleValue: 1)
-    var thumbNail = DesignNail(isSelect: false,isTap: false, degree:  180 * CGFloat.pi/180, rotateValue: 0.125, scale: CGAffineTransform(scaleX: 1, y: 1), scaleValue: 1)
+    var littleNail = DesignNail(isSelect: false, isTap: false, degree: 355 * CGFloat.pi/180, rotateValue: 0.125, scale: CGAffineTransform.identity, scaleValue: 1)
+    var ringNail = DesignNail(isSelect: false,isTap: false, degree: 0.0 , rotateValue: 0.125, scale: CGAffineTransform.identity, scaleValue: 1)
+    var middleNail = DesignNail(isSelect: false, isTap: false, degree: 0.0, rotateValue: 0.125, scale: CGAffineTransform.identity, scaleValue: 1)
+    var indexNail = DesignNail(isSelect: false,isTap: false, degree: 5 * CGFloat.pi/180, rotateValue: 0.125, scale: CGAffineTransform.identity, scaleValue: 1)
+    var thumbNail = DesignNail(isSelect: false,isTap: false, degree:  180 * CGFloat.pi/180, rotateValue: 0.125, scale: CGAffineTransform.identity, scaleValue: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
