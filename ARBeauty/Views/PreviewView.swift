@@ -39,10 +39,10 @@ class PreviewView: UIView {
         
         let mask = CAShapeLayer()
         mask.frame = rect
-        
+
         maskLayer.append(mask)
-        layer.insertSublayer(mask, at: 1)
-        
+//        layer.insertSublayer(mask, at: 1)
+        layer.insertSublayer(maskLayer[0], at: 1)
         return mask
     }
     

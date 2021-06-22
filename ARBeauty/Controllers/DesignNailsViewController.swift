@@ -83,11 +83,11 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
     
     var isRotated: Bool = false
     
-    var littleNail = DesignNail(isSelect: false, isTap: false, degree: 355 * CGFloat.pi/180, rotateValue: 0.125, scale: CGAffineTransform.identity, scaleValue: 1)
-    var ringNail = DesignNail(isSelect: false,isTap: false, degree: 0.0 , rotateValue: 0.125, scale: CGAffineTransform.identity, scaleValue: 1)
-    var middleNail = DesignNail(isSelect: false, isTap: false, degree: 0.0, rotateValue: 0.125, scale: CGAffineTransform.identity, scaleValue: 1)
-    var indexNail = DesignNail(isSelect: false,isTap: false, degree: 5 * CGFloat.pi/180, rotateValue: 0.125, scale: CGAffineTransform.identity, scaleValue: 1)
-    var thumbNail = DesignNail(isSelect: false,isTap: false, degree:  180 * CGFloat.pi/180, rotateValue: 0.125, scale: CGAffineTransform.identity, scaleValue: 1)
+    var littleNail = DesignNail(isSelect: false, isTap: false, degree: 355 * CGFloat.pi/180, rotateValue: -0.035, scale: CGAffineTransform.identity, scaleValue: 1)
+    var ringNail = DesignNail(isSelect: false,isTap: false, degree: 0.0 , rotateValue: 0, scale: CGAffineTransform.identity, scaleValue: 1)
+    var middleNail = DesignNail(isSelect: false, isTap: false, degree: 0.0, rotateValue: 0, scale: CGAffineTransform.identity, scaleValue: 1)
+    var indexNail = DesignNail(isSelect: false,isTap: false, degree: 5 * CGFloat.pi/180, rotateValue: 0.00347, scale: CGAffineTransform.identity, scaleValue: 1)
+    var thumbNail = DesignNail(isSelect: false,isTap: false, degree:  45 * CGFloat.pi/180, rotateValue: 0.03215, scale: CGAffineTransform.identity, scaleValue: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,7 +127,7 @@ class DesignNailsViewController: UIViewController, UICollectionViewDataSource, U
         setupColors()
         setColorNails(color: colors[0].withAlphaComponent(0.7))
         
-        thumbNailImageView.transform = CGAffineTransform(rotationAngle: 35 * CGFloat.pi/180);
+        thumbNailImageView.transform = CGAffineTransform(rotationAngle: 45 * CGFloat.pi/180);
         indexNailImageView.transform = CGAffineTransform(rotationAngle: 5 * CGFloat.pi/180);
         littleNailImageView.transform = CGAffineTransform(rotationAngle: 355 * CGFloat.pi/180);
         
