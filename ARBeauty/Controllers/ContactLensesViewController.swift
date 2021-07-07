@@ -8,6 +8,8 @@
 
 import UIKit
 import ARKit
+import SCLAlertView
+
 
 class ContactLensesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, StartSessionProtocol{
     
@@ -133,7 +135,9 @@ class ContactLensesViewController: UIViewController, UICollectionViewDelegate, U
     }
     
     func resetTracking() {
-        guard ARFaceTrackingConfiguration.isSupported else { return }
+        guard ARFaceTrackingConfiguration.isSupported else {
+            return
+        }
         let configuration = ARFaceTrackingConfiguration()
         if #available(iOS 13.0, *) {
             configuration.maximumNumberOfTrackedFaces = ARFaceTrackingConfiguration.supportedNumberOfTrackedFaces

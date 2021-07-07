@@ -8,6 +8,8 @@
 import UIKit
 import AVFoundation
 import SCLAlertView
+import ARKit
+
 
 class HomeViewController: UIViewController {
     
@@ -83,9 +85,21 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func lensButtonTapped(_ sender: Any) {
-        let lenVC = UIStoryboard.lensesViewController()
-        lenVC.modalPresentationStyle = .fullScreen
-        self.present(lenVC, animated: true, completion: nil)
+        if !ARFaceTrackingConfiguration.isSupported{
+            let alertVC = SCLAlertView(appearance: SCLAlertView.SCLAppearance(
+                showCloseButton: false
+            ))
+
+            alertVC.addButton("OK") {
+            }
+            alertVC.showError("Unsupported Device", subTitle: "This feature requires a device with a TrueDepth front-facing camera")
+        }
+        else {
+            let lenVC = UIStoryboard.lensesViewController()
+            lenVC.modalPresentationStyle = .fullScreen
+            self.present(lenVC, animated: true, completion: nil)
+        }
+        
     }
     
     
